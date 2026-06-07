@@ -1,0 +1,166 @@
+﻿<Project Sdk="Godot.NET.Sdk/4.5.1" InitialTargets="CheckDependencyPaths">
+    <Import Project=".\Sts2PathDiscovery.props"/>
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <ImplicitUsings>true</ImplicitUsings>
+        <Nullable>enable</Nullable> <!--Makes code analysis regarding null values stricter.-->
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
+        <PathMap>$(AppOutputBase)=.\</PathMap>
+        <GodotDisabledSourceGenerators>GodotPluginsInitializer</GodotDisabledSourceGenerators>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Diasble architecture mismatch warning; mods are ideally built for all platforms (MSIL)
+             while your local StS2 version will be for your specific platform. -->
+        <NoWarn>$(NoWarn);MSB3270</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
+        <Reference Include="0Harmony">
+            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+        <Reference Include="sts2">
+            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="True"> <!--Allows access to originally private/protected members but may (unlikely to) cause errors.-->
+        <Publicize Include="sts2" IncludeVirtualMembers="true" IncludeCompilerGeneratedMembers="true"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.2.0" PrivateAssets="All"/>
+        <PackageReference Include="Krafs.Publicizer" Version="2.3.0" PrivateAssets="All"/>
+        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.9"/>
+        <!-- Generates a .pck file when building if only using simple assets. May not work on all setups. Uncomment to test. -->
+        <!-- <PackageReference Include="BSchneppe.StS2.PckPacker" Version="0.1.1" PrivateAssets="All" /> -->
+        <AdditionalFiles Include="HadesAncients/**/localization/**/*.json"/> <!-- Used by analyzer -->
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props"/>
+        <None Include=".gitignore"/>
+        <None Include="HadesAncients.json"/>
+        <None Include="project.godot"/>
+        <None Include="HadesAncients/**"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Folder Include="HadesAncientsCode\Dionysus\"/>
+        <Folder Include="HadesAncientsCode\Poseidon\"/>
+        <Folder Include="HadesAncientsCode\Zeus\"/>
+        <Folder Include="HadesAncients\Dionysus\"/>
+        <Folder Include="HadesAncients\Poseidon\"/>
+        <Folder Include="HadesAncients\Shared\images\"/>
+        <Folder Include="HadesAncients\Zeus\"/>
+        <Folder Include="Screenshots\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="HadesAncientsCode\Dionysus\Ancients\DionysusAncient.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Enchantments\Intoxicate.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Patches\TipsyShot_TriggerPotionsTwice_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Powers\HangoverPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\BottomlessDrink.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\BounceBack.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\CharonsObol.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\DrunkenDash.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\DrunkenStupor.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\HappyHaze.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\HighTolerance.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\PersonalLoan.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\PremiumVintage.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\RecklessAbandon.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\StrongDrink.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\TipsyShot.cs.uid"/>
+        <Content Include="HadesAncientsCode\Dionysus\Relics\WorryFree.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Ancients\PoseidonAncient.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Enchantments\Splash.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Patches\SeaStar_CardRewardManualCardsCtor_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Powers\FrothPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Powers\HighSurfPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Powers\RupturePower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Powers\SlipperySlopePower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\BuriedTreasure.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\FloodGain.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\HighSurf.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\HydraulicMight.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\KingTide.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\RazorShoals.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\SeaStar.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\SecondWave.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\SlipperySlope.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\WaterFitness.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\WaveFlourish.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\Relics\WaveStrike.cs.uid"/>
+        <Content Include="HadesAncientsCode\Poseidon\SpireFields\PoseidonSpireFields.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Abstracts\HadesAncientsEnchantment.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Abstracts\HadesAncientsPowerIconPaths.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Abstracts\HadesAncientsPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Abstracts\HadesAncientsTemporaryPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Hooks\IAfterAnyRelicObtained.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Hooks\HadesAncientsHooks.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Hooks\IAfterRoomTypeRolled.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Hooks\IModifyDamageToFinalValue.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Hooks\IShouldPlayTargeting.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Patches\AfterRoomTypeRolled_UnknownMapPointOddsRoll_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Patches\ModifyDamageToFinalValue_ModifyDamage_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Patches\ShouldPlayTargeting_TryPlayCard_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Shared\Patches\AfterAnyRelicObtained_RelicObtain_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Ancients\ZeusAncient.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Cards\AetherFont.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Enchantments\DoubleEnchantment.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Enchantments\Thundercall.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Patches\DoubleStrike_TitlePrefix_Patch.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Powers\BlitzPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Powers\HeavenStruckPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Powers\MarkedByStormRingPower.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\AirQuality.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\DivineVengeance.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\DoubleStrike.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\ElectricOverload.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\HeavenFlourish.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\HeavenStrike.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\IonicGain.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\PowerSurge.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\ShockingLoss.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\StaticShock.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\StormRing.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Relics\ThunderRush.cs.uid"/>
+        <Content Include="HadesAncientsCode\Zeus\Utils\ZeusUtils.cs.uid"/>
+    </ItemGroup>
+
+    <Target Name="CheckDependencyPaths">
+        <Error
+                Text=" Slay the Spire 2 data not found at path '$(Sts2DataDir)'"
+                Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')"/>
+    </Target>
+
+    <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
+        <Message Text="Copying .dll .pdb and .json to mods folder." Importance="high"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+    </Target>
+
+    <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
+        <Message Text="Copying quick .pck to mods folder." Importance="high"/>
+        <Copy SourceFiles="$(PckPackerOutputPath)"
+              DestinationFolder="$(ModsPath)/$(MSBuildProjectName)"/>
+    </Target>
+
+    <Target Name="NeedGodotForPublish" BeforeTargets="Publish">
+        <Error Text=" Godot path must be set up before publishing; Godot not found at path '$(GodotPath)'. Check Directory.Build.props file."
+               Condition="'$(GodotPath)' == '' or !Exists('$(GodotPath)')"/>
+    </Target>
+
+    <Target Name="GodotPublish" AfterTargets="Publish" Condition="'$(GodotPath)' != '' and Exists('$(GodotPath)') and '$(IsInnerGodotExport)' != 'true'">
+        <Message Text="Exporting Godot .pck to mods folder" Importance="high"/>
+        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
+              EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
+              ContinueOnError="WarnAndContinue"/>
+    </Target>
+</Project>

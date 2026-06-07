@@ -1,0 +1,17 @@
+using BaseLib.Config;
+
+namespace HadesAncients.HadesAncientsCode;
+
+public class HadesAncientsModConfig : SimpleModConfig
+{
+    [ConfigSection("AncientsAct2")] //
+    public static bool DisableAthena { get; set; } = false;
+    public static bool DisablePoseidon { get; set; } = false;
+    public static bool DisableZeus { get; set; } = false;
+    [ConfigSection("AncientsAct3")] // 
+    public static bool DisableAphrodite { get; set; } = false;
+    public static bool DisableDionysus { get; set; } = false;
+
+    [ConfigSection("Poseidon")] //
+    public static bool PoseidonDisableSeaStarSoundEffects { get; set; } = false;
+}

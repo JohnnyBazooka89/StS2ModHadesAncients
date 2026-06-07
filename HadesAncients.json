@@ -1,0 +1,17 @@
+{
+  "id": "HadesAncients",
+  "name": "Hades Ancients",
+  "author": "JohnnyBazooka89",
+  "description": "Slay the Spire 2 character mod created from a template for use with BaseLib",
+  "version": "v0.1.0",
+  "has_pck": true,
+  "has_dll": true,
+  "min_game_version": "v0.107.0",
+  "dependencies": [
+    {
+      "id": "BaseLib",
+      "min_version": "v3.2.0"
+    }
+  ],
+  "affects_gameplay": true
+}

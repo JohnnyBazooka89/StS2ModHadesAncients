@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-CHARM_POWER.title": "Charm",
+  "HADESANCIENTS-CHARM_POWER.description": "Whenever this creature obtains [blue]6[/blue] stacks, it's stunned.",
+  "HADESANCIENTS-CHARM_POWER.smartDescription": "Whenever this creature obtains [blue]{StacksToStun}[/blue] stacks, it's stunned."
+}

@@ -1,0 +1,14 @@
+{
+  "HADESANCIENTS-FROTH_POWER.title": "Froth",
+  "HADESANCIENTS-FROTH_POWER.description": "Whenever this creature obtains [blue]3[/blue] stacks, it takes [blue]10[/blue] damage and loses [blue]2[/blue] [gold]Strength[/gold] this turn.",
+  "HADESANCIENTS-FROTH_POWER.smartDescription": "Whenever this creature obtains [blue]{StacksToTakeDamage}[/blue] stacks, it takes [blue]{DamageToTake}[/blue] damage and loses [blue]{TemporaryStrengthToLose}[/blue] [gold]Strength[/gold] this turn.",
+  "HADESANCIENTS-HIGH_SURF_POWER.title": "High Surf",
+  "HADESANCIENTS-HIGH_SURF_POWER.description": "",
+  "HADESANCIENTS-HIGH_SURF_POWER.smartDescription": "",
+  "HADESANCIENTS-RUPTURE_POWER.title": "Rupture",
+  "HADESANCIENTS-RUPTURE_POWER.description": "Ruptured creatures take damage at the start of their turn.",
+  "HADESANCIENTS-RUPTURE_POWER.smartDescription": "At the start of its turn, takes [blue]{Amount}[/blue] damage.",
+  "HADESANCIENTS-SLIPPERY_SLOPE_POWER.title": "Slippery Slope",
+  "HADESANCIENTS-SLIPPERY_SLOPE_POWER.description": "",
+  "HADESANCIENTS-SLIPPERY_SLOPE_POWER.smartDescription": ""
+}
