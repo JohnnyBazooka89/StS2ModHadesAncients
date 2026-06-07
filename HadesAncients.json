@@ -2,7 +2,7 @@
   "id": "HadesAncients",
   "name": "Hades Ancients",
   "author": "JohnnyBazooka89",
-  "description": "Slay the Spire 2 character mod created from a template for use with BaseLib",
+  "description": "This mod adds Olympian Gods from the hit game Hades 2 as new Ancients.",
   "version": "v0.1.0",
   "has_pck": true,
   "has_dll": true,

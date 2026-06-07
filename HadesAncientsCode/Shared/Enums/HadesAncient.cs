@@ -2,8 +2,9 @@
 
 public enum HadesAncient
 {
+    Athena,
     Aphrodite,
-    Poseidon,
     Dionysus,
-    Zeus
+    Poseidon,
+    Zeus,
 }

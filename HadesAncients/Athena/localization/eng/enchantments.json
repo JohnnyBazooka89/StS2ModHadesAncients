@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-INTOXICATE.title": "Intoxicate",
+  "HADESANCIENTS-INTOXICATE.description": "Apply [blue]{Amount}[/blue] [gold]Hangover[/gold] to ALL enemies.",
+  "HADESANCIENTS-INTOXICATE.extraCardText": "Intoxicate {Amount}."
+}

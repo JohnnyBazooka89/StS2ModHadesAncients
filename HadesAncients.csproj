@@ -49,6 +49,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="HadesAncientsCode\Athena\Enchantments\"/>
+        <Folder Include="HadesAncientsCode\Athena\Patches\"/>
+        <Folder Include="HadesAncientsCode\Athena\Powers\"/>
         <Folder Include="HadesAncientsCode\Dionysus\"/>
         <Folder Include="HadesAncientsCode\Poseidon\"/>
         <Folder Include="HadesAncientsCode\Zeus\"/>
@@ -60,6 +63,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="HadesAncientsCode\Athena\Ancients\AthenaAncient.cs.uid"/>
+        <Content Include="HadesAncientsCode\Athena\Relics\BrilliantRiposte.cs.uid"/>
         <Content Include="HadesAncientsCode\Dionysus\Ancients\DionysusAncient.cs.uid"/>
         <Content Include="HadesAncientsCode\Dionysus\Enchantments\Intoxicate.cs.uid"/>
         <Content Include="HadesAncientsCode\Dionysus\Patches\TipsyShot_TriggerPotionsTwice_Patch.cs.uid"/>
