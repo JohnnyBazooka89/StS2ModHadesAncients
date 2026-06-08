@@ -16,5 +16,8 @@
   "HADESANCIENTS-DIVINE_INTERVENTION.flavor": "",
   "HADESANCIENTS-DIVINE_PROTECTION.title": "Divine Protection",
   "HADESANCIENTS-DIVINE_PROTECTION.description": "Every [blue]{Turns}[/blue] turns, gain [blue]{BufferPower}[/blue] [gold]Buffer[/gold].",
-  "HADESANCIENTS-DIVINE_PROTECTION.flavor": ""
+  "HADESANCIENTS-DIVINE_PROTECTION.flavor": "",
+  "HADESANCIENTS-MENTAL_BLOCK.title": "Mental Block",
+  "HADESANCIENTS-MENTAL_BLOCK.description": "Start each combat with [blue]{ArtifactPower}[/blue] [gold]Artifact[/gold]. Whenever your [gold]Artifact[/gold] triggers, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
+  "HADESANCIENTS-MENTAL_BLOCK.flavor": ""
 }

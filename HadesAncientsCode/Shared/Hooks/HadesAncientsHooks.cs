@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -32,6 +33,27 @@ public class HadesAncientsHooks
     public static Task AfterAnyRelicObtained(IRunState? rs, ICombatState? cs, Player player, RelicModel relic)
     {
         return DispatchAsync<IAfterAnyRelicObtained>(rs, cs, m => m.AfterAnyRelicObtained(player, relic));
+    }
+
+    public static async Task AfterArtifactPowerModifiedPowerAmountReceived(
+        Task originalTask,
+        IRunState? runState,
+        ICombatState? combatState,
+        ArtifactPower artifactPower,
+        PowerModel blockedPower
+    )
+    {
+        // Wait for ArtifactPower.AfterModifyingPowerAmountReceived first.
+        await originalTask;
+
+        await DispatchAsync<IAfterArtifactPowerModifiedPowerAmountReceived>(
+            runState,
+            combatState,
+            model => model.AfterArtifactPowerModifiedPowerAmountReceived(
+                artifactPower,
+                blockedPower
+            )
+        );
     }
 
     public static void AfterRoomTypeRolled(IRunState runState, RoomType roomType)
