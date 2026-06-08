@@ -12,7 +12,7 @@
   "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Every time you play [blue]{Cards}[/blue] Skills, gain [blue]{BlurPower}[/blue] [gold]Blur[/gold].",
   "HADESANCIENTS-DIVINE_DASH.flavor": "",
   "HADESANCIENTS-DIVINE_INTERVENTION.title": "Divine Intervention",
-  "HADESANCIENTS-DIVINE_INTERVENTION.description": "At the end of your [blue]{DamageTurn}th[/blue] turn, win the combat automatically. In Boss combats, deal [blue]{Damage}[/blue] damage to ALL enemies instead.",
+  "HADESANCIENTS-DIVINE_INTERVENTION.description": "At the end of your [blue]{DamageTurn}th[/blue] turn, instantly win the combat. In Boss combats, deal [blue]{Damage}[/blue] damage to ALL enemies instead.",
   "HADESANCIENTS-DIVINE_INTERVENTION.flavor": "",
   "HADESANCIENTS-DIVINE_PROTECTION.title": "Divine Protection",
   "HADESANCIENTS-DIVINE_PROTECTION.description": "Every [blue]{Turns}[/blue] turns, gain [blue]{BufferPower}[/blue] [gold]Buffer[/gold].",

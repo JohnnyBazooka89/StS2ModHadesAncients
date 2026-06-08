@@ -2,6 +2,7 @@
 using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Vars;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -55,7 +56,7 @@ public class PersonalLoan() : HadesAncientsRelic(HadesAncient.Dionysus)
         new GoldVar(1250),
         new(TotalGoldKey + "Base", 0M),
         new(TotalGoldKey + "Extra", 1M),
-        new CustomCalculatedVar(TotalGoldKey).WithMultiplier((relic, _) =>
+        new OutsideCombatCalculatedVar(TotalGoldKey).WithMultiplier((relic, _) =>
         {
             int lentMoney = relic is PersonalLoan personalLoan ? personalLoan.LentMoney : 0;
             return lentMoney + relic.DynamicVars.Gold.IntValue;
@@ -84,7 +85,7 @@ public class PersonalLoan() : HadesAncientsRelic(HadesAncient.Dionysus)
 
         WasUsed = true;
         room.AddExtraReward(Owner,
-            new GoldReward((int)((CustomCalculatedVar)DynamicVars[TotalGoldKey]).CalculateCustom(null), Owner));
+            new GoldReward((int)((OutsideCombatCalculatedVar)DynamicVars[TotalGoldKey]).CalculateCustom(null), Owner));
         room.AddExtraReward(Owner, new RelicReward(ModelDb.Relic<CharonsObol>().ToMutable(), Owner));
 
         return Task.CompletedTask;
