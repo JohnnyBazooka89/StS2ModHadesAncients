@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
 
-namespace HadesAncients.HadesAncientsCode.Shared.Patches;
+namespace HadesAncients.HadesAncientsCode.Shared.Patches.Hooks;
 
 [HarmonyPatch(typeof(RelicCmd), nameof(RelicCmd.Obtain), typeof(RelicModel), typeof(Player), typeof(int))]
 public static class AfterAnyRelicObtained_RelicObtain_Patch

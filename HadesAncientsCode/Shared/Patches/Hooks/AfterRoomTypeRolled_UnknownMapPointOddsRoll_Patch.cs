@@ -4,7 +4,7 @@ using MegaCrit.Sts2.Core.Odds;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace HadesAncients.HadesAncientsCode.Shared.Patches;
+namespace HadesAncients.HadesAncientsCode.Shared.Patches.Hooks;
 
 [HarmonyPatch(typeof(UnknownMapPointOdds), nameof(UnknownMapPointOdds.Roll))]
 public static class AfterRoomTypeRolled_UnknownMapPointOddsRoll_Patch

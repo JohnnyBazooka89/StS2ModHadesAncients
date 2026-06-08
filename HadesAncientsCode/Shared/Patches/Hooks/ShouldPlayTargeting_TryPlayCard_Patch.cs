@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.Runs;
 
-namespace HadesAncients.HadesAncientsCode.Shared.Patches;
+namespace HadesAncients.HadesAncientsCode.Shared.Patches.Hooks;
 
 [HarmonyPatch(typeof(NCardPlay), "TryPlayCard")]
 public static class ShouldPlayTargeting_TryPlayCard_Patch
