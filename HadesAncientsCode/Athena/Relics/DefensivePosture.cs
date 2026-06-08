@@ -60,7 +60,7 @@ public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModi
             return Task.CompletedTask;
         if (UsedThisCombat)
         {
-            Status = RelicStatus.Disabled;
+            Status = RelicStatus.Normal;
         }
 
         return Task.CompletedTask;
