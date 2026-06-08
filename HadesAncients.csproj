@@ -55,9 +55,11 @@
         <Folder Include="HadesAncientsCode\Dionysus\"/>
         <Folder Include="HadesAncientsCode\Poseidon\"/>
         <Folder Include="HadesAncientsCode\Zeus\"/>
+        <Folder Include="HadesAncients\Aphrodite\localization\kor\"/>
         <Folder Include="HadesAncients\Dionysus\"/>
         <Folder Include="HadesAncients\Poseidon\"/>
         <Folder Include="HadesAncients\Shared\images\"/>
+        <Folder Include="HadesAncients\Shared\localization\kor\"/>
         <Folder Include="HadesAncients\Zeus\"/>
         <Folder Include="Screenshots\"/>
     </ItemGroup>

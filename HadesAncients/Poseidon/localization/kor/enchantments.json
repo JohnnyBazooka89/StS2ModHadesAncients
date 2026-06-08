@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-SPLASH.title": "물보라",
+  "HADESANCIENTS-SPLASH.description": "적중할 때마다 [gold]균열[/gold]을 [blue]{Amount}[/blue] 적용합니다.",
+  "HADESANCIENTS-SPLASH.extraCardText": "물보라 {Amount}."
+}

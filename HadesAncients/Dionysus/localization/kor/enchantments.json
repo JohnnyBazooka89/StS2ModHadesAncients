@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-INTOXICATE.title": "만취",
+  "HADESANCIENTS-INTOXICATE.description": "모든 적에게 [gold]숙취[/gold]를 [blue]{Amount}[/blue] 적용합니다.",
+  "HADESANCIENTS-INTOXICATE.extraCardText": "만취 {Amount}."
+}

@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-HANGOVER_POWER.title": "숙취",
+  "HADESANCIENTS-HANGOVER_POWER.description": "숙취 상태의 생물은 자신의 턴 종료 시 피해를 받습니다. 매 턴 [gold]숙취[/gold]가 [blue]1[/blue] 감소합니다.",
+  "HADESANCIENTS-HANGOVER_POWER.smartDescription": "{OnPlayer:턴 종료 시|자신의 턴 종료 시} [blue]{Amount}[/blue] 피해를 받고, [gold]숙취[/gold]가 [blue]1[/blue] 감소합니다."
+}

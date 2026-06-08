@@ -1,0 +1,8 @@
+{
+  "HADESANCIENTS-DOUBLE_ENCHANTMENT.description": "이 카드는 [gold]재사용[/gold] [blue]1[/blue]을 얻습니다.",
+  "HADESANCIENTS-DOUBLE_ENCHANTMENT.title": "이중",
+  "HADESANCIENTS-DOUBLE_ENCHANTMENT.titlePrefix": "이중 ",
+  "HADESANCIENTS-THUNDERCALL.title": "천둥의 부름",
+  "HADESANCIENTS-THUNDERCALL.description": "[gold]번개[/gold] [blue]{LightningToChannel}[/blue]개를 [gold]생성[/gold]합니다.",
+  "HADESANCIENTS-THUNDERCALL.extraCardText": "천둥의 부름."
+}

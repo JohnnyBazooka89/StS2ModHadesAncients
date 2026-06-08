@@ -1,0 +1,11 @@
+{
+  "HADESANCIENTS-BLITZ_POWER.title": "뇌격",
+  "HADESANCIENTS-BLITZ_POWER.description": "이 생물이 막히지 않은 공격 피해를 [blue]15[/blue] 더 받으면 [blue]4[/blue] 피해를 받습니다. 또한 이 생물에 대한 이후 모든 [gold]뇌격[/gold] 발동 피해가 [blue]1[/blue] 증가합니다. 여러 개의 [gold]뇌격[/gold]은 각각 독립적으로 피해량을 추적합니다.",
+  "HADESANCIENTS-BLITZ_POWER.smartDescription": "이 생물이 막히지 않은 공격 피해를 [blue]{UnblockedDamageLeft}[/blue] 더 받으면 [blue]{BlitzDamage::diff()}[/blue] 피해를 받습니다. 또한 이후 모든 [gold]뇌격[/gold] 발동 피해가 [blue]{BlitzDamageIncrease}[/blue] 증가합니다.",
+  "HADESANCIENTS-HEAVEN_STRUCK_POWER.title": "천벌",
+  "HADESANCIENTS-HEAVEN_STRUCK_POWER.description": "이 생물은 [gold]뇌격[/gold]으로부터 더 많은 피해를 받습니다.",
+  "HADESANCIENTS-HEAVEN_STRUCK_POWER.smartDescription": "이 생물은 [gold]뇌격[/gold]으로부터 [blue]{Amount}[/blue]의 추가 피해를 받습니다.",
+  "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.title": "폭풍의 낙인",
+  "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.description": "이 생물이 죽을 때까지 반드시 이 생물을 대상으로 해야 합니다.",
+  "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.smartDescription": "이 생물이 죽을 때까지 반드시 이 생물을 대상으로 해야 합니다."
+}

@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-CHARM_POWER.title": "매혹",
+  "HADESANCIENTS-CHARM_POWER.description": "이 생물이 [blue]6[/blue]중첩의 [gold]매혹[/gold]을 얻을 때마다 [gold]기절[/gold]합니다.",
+  "HADESANCIENTS-CHARM_POWER.smartDescription": "이 생물이 [blue]{StacksToStun}[/blue]중첩의 [gold]매혹[/gold]을 얻을 때마다 [gold]기절[/gold]합니다."
+}

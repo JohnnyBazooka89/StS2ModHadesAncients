@@ -1,5 +1,20 @@
 {
   "HADESANCIENTS-BRILLIANT_RIPOSTE.title": "Brilliant Riposte",
   "HADESANCIENTS-BRILLIANT_RIPOSTE.description": "Fully blocked attack damage is reflected to your attacker.",
-  "HADESANCIENTS-BRILLIANT_RIPOSTE.flavor": ""
+  "HADESANCIENTS-BRILLIANT_RIPOSTE.flavor": "",
+  "HADESANCIENTS-BRONZE_SKIN.title": "Bronze Skin",
+  "HADESANCIENTS-BRONZE_SKIN.description": "You take [blue]{LessDamagePercent}%[/blue] less damage from enemy attacks.",
+  "HADESANCIENTS-BRONZE_SKIN.flavor": "",
+  "HADESANCIENTS-DEFENSIVE_POSTURE.title": "Defensive Posture",
+  "HADESANCIENTS-DEFENSIVE_POSTURE.description": "The first time you are hit by an enemy each combat, prevent that damage and become immune to enemy damage until the start of your next turn.",
+  "HADESANCIENTS-DEFENSIVE_POSTURE.flavor": "",
+  "HADESANCIENTS-DIVINE_DASH.title": "Divine Dash",
+  "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Every time you play [blue]{Cards}[/blue] Skills, gain [blue]{BlurPower}[/blue] [gold]Blur[/gold].",
+  "HADESANCIENTS-DIVINE_DASH.flavor": "",
+  "HADESANCIENTS-DIVINE_INTERVENTION.title": "Divine Intervention",
+  "HADESANCIENTS-DIVINE_INTERVENTION.description": "At the end of your [blue]{DamageTurn}th[/blue] turn, win the combat automatically. In Boss combats, deal [blue]{Damage}[/blue] damage to ALL enemies instead.",
+  "HADESANCIENTS-DIVINE_INTERVENTION.flavor": "",
+  "HADESANCIENTS-DIVINE_PROTECTION.title": "Divine Protection",
+  "HADESANCIENTS-DIVINE_PROTECTION.description": "Every [blue]{Turns}[/blue] turns, gain [blue]{BufferPower}[/blue] [gold]Buffer[/gold].",
+  "HADESANCIENTS-DIVINE_PROTECTION.flavor": ""
 }
