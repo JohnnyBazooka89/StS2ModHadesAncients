@@ -17,7 +17,7 @@ namespace HadesAncients.HadesAncientsCode.Athena.Relics;
 [Pool(typeof(EventRelicPool))]
 public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
 {
-    private const string _damageTurnKey = "DamageTurn";
+    private const string DamageTurnKey = "DamageTurn";
     private bool _isActivating;
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

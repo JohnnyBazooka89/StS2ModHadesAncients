@@ -5,7 +5,6 @@ using HadesAncients.HadesAncientsCode.Athena.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace HadesAncients.HadesAncientsCode.Athena.Ancients;
 
@@ -26,8 +25,17 @@ public class AthenaAncient : CustomAncientModel
             List<AncientOption> relics =
             [
                 AncientOption<BrilliantRiposte>(),
-                AncientOption<Vajra>(),
-                AncientOption<OddlySmoothStone>()
+                AncientOption<BronzeSkin>(),
+                AncientOption<DefensivePosture>(),
+                AncientOption<DivineDash>(),
+                AncientOption<DivineIntervention>(),
+                AncientOption<DivineProtection>(),
+                AncientOption<MentalBlock>(),
+                AncientOption<PhalanxShot>(),
+                AncientOption<ProudBearing>(),
+                AncientOption<RenewedFaith>(),
+                AncientOption<RighteousPike>(),
+                AncientOption<StalwartStand>(),
             ];
 
             return new OptionPools(

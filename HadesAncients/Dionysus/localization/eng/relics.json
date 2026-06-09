@@ -23,7 +23,7 @@
   "HADESANCIENTS-PERSONAL_LOAN.title": "Personal Loan",
   "HADESANCIENTS-PERSONAL_LOAN.description": "Upon pickup, give up all your [gold]Gold[/gold]. After vanquishing the next Elite, gain [blue]{TotalGold::diff()}[/blue] [gold]Gold[/gold] and obtain [gold]Charon's Obol[/gold].",
   "HADESANCIENTS-PERSONAL_LOAN.eventDescription": "Upon pickup, give up all your [gold]Gold[/gold]. After vanquishing the next Elite, gain that much and an additional [blue]{Gold}[/blue] [gold]Gold[/gold] and obtain [gold]Charon's Obol[/gold].",
-  "HADESANCIENTS-PERSONAL_LOAN.flavor": "\"Don't anybody worry about a thing, we've got it all under control!\"",
+  "HADESANCIENTS-PERSONAL_LOAN.flavor": "\"Hey look man let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!\"",
   "HADESANCIENTS-PREMIUM_VINTAGE.title": "Premium Vintage",
   "HADESANCIENTS-PREMIUM_VINTAGE.description": "Whenever you use a potion, gain [blue]{MaxHp}[/blue] Max HP. Upon pickup, fill all your empty potion slots with random potions.",
   "HADESANCIENTS-PREMIUM_VINTAGE.flavor": "\"... So I would like to propose another toast. To feasting! Cheers!!\"",
@@ -39,5 +39,5 @@
   "HADESANCIENTS-TIPSY_SHOT.flavor": "\"... another round, you say? Well I don't see why not! Ah, haha!\"",
   "HADESANCIENTS-WORRY_FREE.title": "Worry Free",
   "HADESANCIENTS-WORRY_FREE.description": "Gain a random amount of Max HP between [blue]{MinMaxHp}[/blue] to [blue]{MaxMaxHp}[/blue]. Future healing effects are randomized between [blue]{MinHealingPercent}%[/blue] and [blue]{MaxHealingPercent}%[/blue] effectiveness.",
-  "HADESANCIENTS-WORRY_FREE.flavor": "\"Hey look man let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!\""
+  "HADESANCIENTS-WORRY_FREE.flavor": "\"Don't anybody worry about a thing, we've got it all under control!\""
 }
