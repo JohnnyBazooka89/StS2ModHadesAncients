@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Aphrodite.Relics;
 
@@ -27,6 +28,7 @@ public class FlutterFlourish() : HadesAncientsRelic(HadesAncient.Aphrodite)
         new CardsVar(4)
     ];
 
+    [SavedProperty]
     private int SkillsPlayed
     {
         get => _skillsPlayed;

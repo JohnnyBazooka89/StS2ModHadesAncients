@@ -16,7 +16,7 @@
   "HADESANCIENTS-DIVINE_INTERVENTION.flavor": "\"For we do not fail; merely take the necessary time to succeed.\"",
   "HADESANCIENTS-DIVINE_PROTECTION.title": "Divine Protection",
   "HADESANCIENTS-DIVINE_PROTECTION.description": "Every [blue]{Turns}[/blue] turns, gain [blue]{BufferPower}[/blue] [gold]Buffer[/gold].",
-  "HADESANCIENTS-DIVINE_PROTECTION.flavor": "\"May it protect you and strike fear into the hearts of your enemies, whenever I am not around to do the same.\"",
+  "HADESANCIENTS-DIVINE_PROTECTION.flavor": "\"You bear the Amulet I gave to you. May it protect you and strike fear into the hearts of your enemies, whenever I am not around to do the same.\"",
   "HADESANCIENTS-MENTAL_BLOCK.title": "Mental Block",
   "HADESANCIENTS-MENTAL_BLOCK.description": "Start each combat with [blue]{ArtifactPower}[/blue] [gold]Artifact[/gold]. Whenever your [gold]Artifact[/gold] triggers, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
   "HADESANCIENTS-MENTAL_BLOCK.flavor": "\"You hide your troubles well, Melinoë.\"",

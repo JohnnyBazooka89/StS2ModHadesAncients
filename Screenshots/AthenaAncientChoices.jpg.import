@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jqfain0mrk18"
-path="res://.godot/imported/map_icon_outline.png-526a1b9d4195abef6199323187dfcc8d.ctex"
+uid="uid://dbvdv3uqxwx61"
+path="res://.godot/imported/AthenaAncientChoices.jpg-6a0239fcd720f780a38ed442d449eb84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Athena/images/ancients/map_icon_outline.png"
-dest_files=["res://.godot/imported/map_icon_outline.png-526a1b9d4195abef6199323187dfcc8d.ctex"]
+source_file="res://Screenshots/AthenaAncientChoices.jpg"
+dest_files=["res://.godot/imported/AthenaAncientChoices.jpg-6a0239fcd720f780a38ed442d449eb84.ctex"]
 
 [params]
 

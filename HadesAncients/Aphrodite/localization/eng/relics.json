@@ -6,7 +6,7 @@
   "HADESANCIENTS-DIFFERENT_LEAGUE.description": "You take [blue]{LessDamage}[/blue] less damage from enemy attacks.",
   "HADESANCIENTS-DIFFERENT_LEAGUE.flavor": "\"We're just two lovely goddesses together having a night out!\"",
   "HADESANCIENTS-FLUTTER_FLOURISH.title": "Flutter Flourish",
-  "HADESANCIENTS-FLUTTER_FLOURISH.description": "Every [blue]4th[/blue] Skill you play is free.",
+  "HADESANCIENTS-FLUTTER_FLOURISH.description": "Every [blue]4th[/blue] Skill you play from your [gold]Hand[/gold] is free.",
   "HADESANCIENTS-FLUTTER_FLOURISH.flavor": "\"The more distracted you can make them, the easier they are to kill!\"",
   "HADESANCIENTS-GLAMOUR_GAIN.title": "Glamour Gain",
   "HADESANCIENTS-GLAMOUR_GAIN.description": "The first time each turn you apply a debuff to an enemy, gain {Energy:energyIcons()}.",
