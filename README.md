@@ -4,10 +4,10 @@
 
 This mod introduces a collection of new Ancients from the hit game Hades 2. Currently 5 Ancients are available:
 
-| Act   | Ancient | Focus                                                                                        |
+| Act   | Ancient | Specializations                                                                              |
 |-------|---|----------------------------------------------------------------------------------------------|
 | Act 2 | Poseidon | Awarding playing many Attacks, applying Froth/Rupture, gaining Energy, getting more rewards. |
-| Act 2 | Zeus | Applying Blitz, gaining Energy, buffing Attacks, dealing AOE damage,                         |
+| Act 2 | Zeus | Applying Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                         |
 | Act 2 | Athena | Granting different types of Defense, preventing death, and a little bit of Offense.          |
 | Act 3 | Aphrodite | Weak, Charm, debuffs, healing, dealing more Attack damage.                                   |
 | Act 3 | Dionysus | Applying Hangover, potions, max HP, healing, unpredictable combat effects.                   |
