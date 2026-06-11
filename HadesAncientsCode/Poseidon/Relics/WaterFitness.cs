@@ -1,5 +1,4 @@
-﻿using BaseLib.Cards.Variables;
-using BaseLib.Utils;
+﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Hooks;
@@ -31,7 +30,7 @@ public class WaterFitness() : HadesAncientsRelic(HadesAncient.Poseidon), IAfterA
 
     public async Task AfterAnyRelicObtained(Player player, RelicModel relic)
     {
-        if (relic == this)
+        if (relic == this || relic.Owner != Owner)
         {
             return;
         }

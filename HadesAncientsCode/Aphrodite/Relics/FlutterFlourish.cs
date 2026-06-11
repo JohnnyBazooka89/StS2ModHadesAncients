@@ -90,20 +90,16 @@ public class FlutterFlourish() : HadesAncientsRelic(HadesAncient.Aphrodite)
             SkillsPlayed != DynamicVars.Cards.BaseValue - 1M || card.Type != CardType.Skill)
             return false;
         PileType? type = card.Pile?.Type;
-        bool flag;
         if (type.HasValue)
         {
             switch (type.GetValueOrDefault())
             {
                 case PileType.Hand:
                 case PileType.Play:
-                    flag = true;
-                    goto @return;
+                    return true;
             }
         }
 
-        flag = false;
-        @return:
-        return flag;
+        return false;
     }
 }
