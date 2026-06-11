@@ -1,7 +1,7 @@
 from pathlib import Path
 import json
 
-ANCIENTS = ["Aphrodite", "Dionysus", "Poseidon", "Zeus"]
+ANCIENTS = ["Shared", "Athena", "Aphrodite", "Dionysus", "Poseidon", "Zeus"]
 
 BASE_DIR = Path("HadesAncients")
 SOURCE_LANG = "eng"
