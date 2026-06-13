@@ -12,6 +12,9 @@ public class HadesAncientsModConfig : SimpleModConfig
     public static bool DisableAphrodite { get; set; } = false;
     public static bool DisableDionysus { get; set; } = false;
 
+    [ConfigSection("BaseGameAncients")] // 
+    public static bool DisableBaseGameAncients { get; set; } = false;
+
     [ConfigSection("Poseidon")] //
     public static bool PoseidonDisableSeaStarSoundEffects { get; set; } = false;
 }
