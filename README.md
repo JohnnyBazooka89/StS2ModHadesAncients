@@ -36,6 +36,7 @@ Chinese localization would be welcome.
 ![AthenaAncientChoices](Screenshots/AthenaAncientChoices.jpg)
 ![AphroditeAncientChoices](Screenshots/AphroditeAncientChoices.jpg)
 ![DionysusAncientChoices](Screenshots/DionysusAncientChoices.jpg)
+![ModConfiguration](Screenshots/ModConfiguration.jpg)
 
 ## 🤝 Contact
 If you run into any issues or have suggestions for balance changes, feel free to reach out on the official Slay the Spire 2 Discord (nickname: JohnnyBazooka89).
