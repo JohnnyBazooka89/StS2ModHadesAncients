@@ -13,10 +13,6 @@ namespace HadesAncients.HadesAncientsCode.Poseidon.Powers;
 public class HighSurfPower()
     : HadesAncientsTemporaryPower<HighSurf, DexterityPower>(HadesAncient.Poseidon)
 {
-    protected override Func<PlayerChoiceContext, Creature, decimal, Creature?, CardModel?, bool, Task> ApplyPowerFunc
-        => (playerChoiceContext, creature, amount, applier, cardSource, _)
-            => PowerCmd.Apply<DexterityPower>(playerChoiceContext, creature,
-                amount, applier, cardSource);
     public override LocString Description => new("powers", "TEMPORARY_DEXTERITY_POWER.description");
     protected override string SmartDescriptionLocKey => "TEMPORARY_DEXTERITY_POWER.smartDescription";
 }
