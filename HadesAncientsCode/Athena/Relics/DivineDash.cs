@@ -11,6 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Athena.Relics;
 
@@ -38,6 +39,7 @@ public class DivineDash() : HadesAncientsRelic(HadesAncient.Athena)
         HoverTipFactory.FromPower<BlurPower>(),
     ];
 
+    [SavedProperty]
     private int SkillsPlayed
     {
         get => _skillsPlayed;
