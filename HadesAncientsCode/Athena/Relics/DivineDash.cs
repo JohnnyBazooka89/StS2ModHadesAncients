@@ -68,13 +68,11 @@ public class DivineDash() : HadesAncientsRelic(HadesAncient.Athena)
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (!CombatManager.Instance.IsInProgress || cardPlay.IsAutoPlay || cardPlay.Card.Owner != Owner)
+        if (!CombatManager.Instance.IsInProgress || cardPlay.IsAutoPlay || cardPlay.Card.Owner != Owner ||
+            cardPlay.Card.Type != CardType.Skill)
             return;
-        if (cardPlay.Card.Type == CardType.Skill)
-        {
-            ++SkillsPlayed;
-        }
 
+        ++SkillsPlayed;
         SkillsPlayed %= DynamicVars.Cards.IntValue;
         if (SkillsPlayed == 0)
         {
