@@ -60,8 +60,8 @@
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Message Text="Copying .dll and .json to Steam Workshop Release content folder." Importance="high"/>
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content"/>
-        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
+        <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
     </Target>
 
     <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
@@ -81,7 +81,7 @@
               EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
               ContinueOnError="WarnAndContinue"/>
         <Message Text="Exporting Godot .pck to Steam Workshop Release content folder" Importance="high"/>
-        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName).pck&quot;"
+        <Exec Command="&quot;$(GodotPath)&quot; --headless --export-pack &quot;BasicExport&quot; &quot;$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)/$(MSBuildProjectName).pck&quot;"
               EnvironmentVariables="IsInnerGodotExport=true;MSBUILDDISABLENODEREUSE=1"
               ContinueOnError="WarnAndContinue"/>
     </Target>
