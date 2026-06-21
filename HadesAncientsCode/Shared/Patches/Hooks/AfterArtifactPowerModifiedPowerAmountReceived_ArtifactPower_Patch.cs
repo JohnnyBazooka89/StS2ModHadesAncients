@@ -14,11 +14,16 @@ public static class AfterArtifactPowerModifiedPowerAmountReceived_ArtifactPower_
         ref Task __result
     )
     {
-        __result = HadesAncientsHooks.AfterArtifactPowerModifiedPowerAmountReceived(
-            __result,
-            __instance.Owner.CombatState?.RunState,
-            __instance.Owner.CombatState,
-            __instance,
+        __result = PostfixAsync(__instance, power, __result);
+    }
+
+    private static async Task PostfixAsync(ArtifactPower artifactPower, PowerModel power, Task originalTask)
+    {
+        await originalTask;
+        await HadesAncientsHooks.AfterArtifactPowerModifiedPowerAmountReceived(
+            artifactPower.Owner.CombatState?.RunState,
+            artifactPower.Owner.CombatState,
+            artifactPower,
             power
         );
     }

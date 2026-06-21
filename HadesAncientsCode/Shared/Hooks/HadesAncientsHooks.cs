@@ -36,16 +36,12 @@ public class HadesAncientsHooks
     }
 
     public static async Task AfterArtifactPowerModifiedPowerAmountReceived(
-        Task originalTask,
         IRunState? runState,
         ICombatState? combatState,
         ArtifactPower artifactPower,
         PowerModel blockedPower
     )
     {
-        // Wait for ArtifactPower.AfterModifyingPowerAmountReceived first.
-        await originalTask;
-
         await DispatchAsync<IAfterArtifactPowerModifiedPowerAmountReceived>(
             runState,
             combatState,
