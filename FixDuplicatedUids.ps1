@@ -1,5 +1,3 @@
-$projectRoot = "D:\SlayTheSpire2Modding\HadesAncients\HadesAncients"
-
 Write-Host "Scanning .import files..."
 $seenImportUids = @{}
 $duplicateImportFiles = @()
