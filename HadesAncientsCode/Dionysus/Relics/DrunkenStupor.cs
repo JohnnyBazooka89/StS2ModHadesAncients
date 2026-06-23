@@ -41,6 +41,6 @@ public class DrunkenStupor() : HadesAncientsRelic(HadesAncient.Dionysus)
             .Where(c => c.IsAlive);
         Flash();
         await PowerCmd.Apply<HangoverPower>(choiceContext, targets,
-            DynamicVars["HangoverPower"].BaseValue, null, null);
+            DynamicVars["HangoverPower"].BaseValue, Owner.Creature, null);
     }
 }

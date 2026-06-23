@@ -39,7 +39,7 @@ public class SweetSurrender() : HadesAncientsRelic(HadesAncient.Aphrodite)
         }
 
         Flash();
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, power.Owner, amount, null, null);
-        await PowerCmd.Apply<CharmPower>(choiceContext, power.Owner, amount, null, null);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, power.Owner, amount, Owner.Creature, null);
+        await PowerCmd.Apply<CharmPower>(choiceContext, power.Owner, amount, Owner.Creature, null);
     }
 }
