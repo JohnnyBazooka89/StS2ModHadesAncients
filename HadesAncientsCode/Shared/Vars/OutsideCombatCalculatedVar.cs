@@ -23,12 +23,12 @@ public class OutsideCombatCalculatedVar(string name) : CustomCalculatedVar(name)
             case CardModel:
                 return Calculate(target);
             case PowerModel power:
-                var mult = PowerCalcRef(this)?.Invoke(power, target) ??
+                var mult = PowerCalcRef(this)?.Invoke(power, target!) ??
                            throw new InvalidOperationException(
                                $"CustomCalculatedVar {Name} does not have multiplier calc defined for powers in {_owner.Id}");
                 return GetBaseVar().BaseValue + GetExtraVar().BaseValue * mult;
             case RelicModel relic:
-                mult = RelicCalcRef(this)?.Invoke(relic, target) ?? throw new InvalidOperationException(
+                mult = RelicCalcRef(this)?.Invoke(relic, target!) ?? throw new InvalidOperationException(
                     $"CustomCalculatedVar {Name} does not have multiplier calc defined for relics in {_owner.Id}");
                 return GetBaseVar().BaseValue + GetExtraVar().BaseValue * mult;
             default:

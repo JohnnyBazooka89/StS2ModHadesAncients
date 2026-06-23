@@ -34,7 +34,7 @@ public class DivineVengeance() : HadesAncientsRelic(HadesAncient.Zeus)
             return;
         Flash();
         await ZeusUtils.DealLightningDamageToAll(choiceContext, Owner.Creature,
-            Owner.Creature.CombatState?.HittableEnemies ?? [],
+            Owner.Creature.CombatState!.HittableEnemies ?? [],
             DynamicVars.Damage.BaseValue);
     }
 }

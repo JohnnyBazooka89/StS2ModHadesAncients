@@ -34,11 +34,11 @@ public class PowerSurge() : HadesAncientsRelic(HadesAncient.Zeus)
         IEnumerable<Creature> participants)
     {
         Decimal finalDamage = CalculateFinalDamage();
-        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState?.Energy <= 0 || finalDamage <= 0)
+        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState!.Energy <= 0 || finalDamage <= 0)
             return;
 
         await ZeusUtils.DealLightningDamageToAll(choiceContext, Owner.Creature,
-            Owner.Creature.CombatState?.HittableEnemies ?? [], finalDamage);
+            Owner.Creature.CombatState!.HittableEnemies, finalDamage);
     }
 
     public override Task BeforeHandDraw(
@@ -63,6 +63,6 @@ public class PowerSurge() : HadesAncientsRelic(HadesAncient.Zeus)
 
     private decimal CalculateFinalDamage()
     {
-        return DynamicVars.Damage.BaseValue * Owner.PlayerCombatState?.TurnNumber ?? 0;
+        return DynamicVars.Damage.BaseValue * Owner.PlayerCombatState!.TurnNumber;
     }
 }

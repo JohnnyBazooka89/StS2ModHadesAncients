@@ -21,7 +21,7 @@ public class NervousWreck() : HadesAncientsRelic(HadesAncient.Aphrodite)
         Creature? target,
         CardModel? cardSource)
     {
-        return power.Type != PowerType.Debuff || !Owner.Creature.CombatState.Enemies.Contains(target) ||
+        return power.Type != PowerType.Debuff || !Owner.Creature.CombatState!.Enemies.Contains(target) ||
                giver != Owner.Creature
             ? 1
             : 2;

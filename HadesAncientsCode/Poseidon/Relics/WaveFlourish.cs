@@ -85,7 +85,7 @@ public class WaveFlourish() : HadesAncientsRelic(HadesAncient.Poseidon)
         bool fromHandDraw)
     {
         if (fromHandDraw || card.Owner != Owner ||
-            card.Owner.Creature.CombatState.CurrentSide != card.Owner.Creature.Side)
+            card.Owner.Creature.CombatState!.CurrentSide != card.Owner.Creature.Side)
         {
             return;
         }
@@ -97,7 +97,7 @@ public class WaveFlourish() : HadesAncientsRelic(HadesAncient.Poseidon)
             return;
         }
 
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 

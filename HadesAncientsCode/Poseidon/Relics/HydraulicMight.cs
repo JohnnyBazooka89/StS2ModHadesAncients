@@ -32,6 +32,6 @@ public class HydraulicMight() : HadesAncientsRelic(HadesAncient.Poseidon)
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
             return 1M;
 
-        return Owner.Creature.CombatState?.RoundNumber <= DynamicVars[TurnsKey].BaseValue ? 2M : 1M;
+        return Owner.Creature.CombatState!.RoundNumber <= DynamicVars[TurnsKey].BaseValue ? 2M : 1M;
     }
 }

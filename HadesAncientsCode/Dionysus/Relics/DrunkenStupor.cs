@@ -37,7 +37,7 @@ public class DrunkenStupor() : HadesAncientsRelic(HadesAncient.Dionysus)
             return;
         }
 
-        IEnumerable<Creature> targets = Owner.Creature.CombatState.GetOpponentsOf(Owner.Creature)
+        IEnumerable<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
             .Where(c => c.IsAlive);
         Flash();
         await PowerCmd.Apply<HangoverPower>(choiceContext, targets,

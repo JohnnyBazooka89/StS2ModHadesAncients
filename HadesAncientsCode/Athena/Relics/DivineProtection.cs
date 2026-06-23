@@ -75,7 +75,7 @@ public class DivineProtection() : HadesAncientsRelic(HadesAncient.Athena)
             : RelicStatus.Normal;
         if (TurnsSeen != 0)
             return;
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
         await PowerCmd.Apply<BufferPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
             DynamicVars[nameof(BufferPower)].BaseValue,
             Owner.Creature, null);

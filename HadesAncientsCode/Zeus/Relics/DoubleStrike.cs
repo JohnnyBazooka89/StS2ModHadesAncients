@@ -31,12 +31,11 @@ public class DoubleStrike() : HadesAncientsRelic(HadesAncient.Zeus)
             if (ModelDb.Enchantment<DoubleEnchantment>().CanEnchant(card))
             {
                 CardCmd.Enchant<DoubleEnchantment>(card, 1M);
-                NCardEnchantVfx child = NCardEnchantVfx.Create(card);
+                NCardEnchantVfx? child = NCardEnchantVfx.Create(card);
                 if (child != null)
                 {
-                    NRun instance = NRun.Instance;
-                    if (instance != null)
-                        instance.GlobalUi.CardPreviewContainer.AddChildSafely(child);
+                    NRun? instance = NRun.Instance;
+                    instance?.GlobalUi.CardPreviewContainer.AddChildSafely(child);
                 }
             }
         }

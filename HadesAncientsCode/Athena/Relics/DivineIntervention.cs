@@ -32,7 +32,7 @@ public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
             int intValue = DynamicVars["DamageTurn"].IntValue;
             if (IsActivating)
                 return intValue;
-            int turnNumber = Owner.PlayerCombatState.TurnNumber;
+            int turnNumber = Owner.PlayerCombatState!.TurnNumber;
             return turnNumber >= intValue ? -1 : turnNumber;
         }
     }
@@ -62,7 +62,7 @@ public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
     {
         if (!participants.Contains(Owner.Creature))
             return Task.CompletedTask;
-        if (Owner.PlayerCombatState.TurnNumber == DynamicVars["DamageTurn"].IntValue)
+        if (Owner.PlayerCombatState!.TurnNumber == DynamicVars["DamageTurn"].IntValue)
             Status = RelicStatus.Active;
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
@@ -76,22 +76,22 @@ public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
         if (!participants.Contains(Owner.Creature))
             return;
         int intValue = DynamicVars["DamageTurn"].IntValue;
-        int turnNumber = Owner.PlayerCombatState.TurnNumber;
+        int turnNumber = Owner.PlayerCombatState!.TurnNumber;
         Status = RelicStatus.Normal;
         if (turnNumber != intValue)
             return;
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
 
-        if (Owner.RunState.CurrentRoom.RoomType == RoomType.Boss)
+        if (Owner.RunState.CurrentRoom?.RoomType == RoomType.Boss)
         {
             await CreatureCmd.Damage(choiceContext,
-                Owner.Creature.CombatState.HittableEnemies,
+                Owner.Creature.CombatState!.HittableEnemies,
                 DynamicVars.Damage, Owner.Creature);
             InvokeDisplayAmountChanged();
         }
         else
         {
-            await KillEnemies(Owner.Creature.CombatState.Enemies.ToList());
+            await KillEnemies(Owner.Creature.CombatState!.Enemies.ToList());
         }
     }
 

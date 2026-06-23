@@ -26,9 +26,9 @@ public class Thundercall() : HadesAncientsEnchantment(HadesAncient.Zeus)
         HoverTipFactory.FromOrb<LightningOrb>()
     ];
 
-    public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
-        if (cardPlay.Card != Card)
+        if (cardPlay?.Card != Card)
         {
             return;
         }

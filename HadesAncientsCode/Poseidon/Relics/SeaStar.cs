@@ -153,9 +153,9 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
 
         if (reward is SpecialCardReward specialCardReward)
         {
-            CardModel specialCard = specialCardReward._card;
+            CardModel? specialCard = specialCardReward._card;
             return new SpecialCardReward(
-                specialCard,
+                specialCard!,
                 specialCardReward.Player
             );
         }
@@ -183,7 +183,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
             Stream = sound,
             VolumeLinear = finalLinear
         };
-        NGame.Instance.AddChild(player);
+        NGame.Instance?.AddChild(player);
         player.Play();
         player.Finished += player.QueueFree;
     }
@@ -192,7 +192,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
     {
         newReward.MarkContentAsSeen();
 
-        var screen = NOverlayStack.Instance
+        var screen = NOverlayStack.Instance?
             .GetChildren()
             .OfType<NRewardsScreen>()
             .LastOrDefault();

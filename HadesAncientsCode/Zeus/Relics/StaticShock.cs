@@ -39,7 +39,7 @@ public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
             return;
         }
 
-        IEnumerable<Creature> targets = Owner.Creature.CombatState.GetOpponentsOf(Owner.Creature)
+        IEnumerable<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
             .Where(c => c.IsAlive);
         List<Creature> otherTargets = targets.Where(t => t != target).ToList();
 

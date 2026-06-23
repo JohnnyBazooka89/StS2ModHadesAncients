@@ -40,7 +40,7 @@ public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModi
         if (Status != RelicStatus.Active ||
             amount <= 0 ||
             target != Owner.Creature ||
-            (!Owner.Creature.CombatState?.Enemies.Contains(dealer) ?? true))
+            !Owner.Creature.CombatState!.Enemies.Contains(dealer))
         {
             return amount;
         }

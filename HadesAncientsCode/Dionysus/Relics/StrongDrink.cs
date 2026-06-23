@@ -56,7 +56,7 @@ public class StrongDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
             return currentExtraText;
         }
 
-        return [..currentExtraText, AdditionalRestSiteHealText];
+        return [..currentExtraText, AdditionalRestSiteHealText!];
     }
 
     public override Decimal ModifyRestSiteHealAmount(Creature creature, Decimal amount)

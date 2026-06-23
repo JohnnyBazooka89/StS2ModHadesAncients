@@ -42,10 +42,10 @@ public class DrunkenDash() : HadesAncientsRelic(HadesAncient.Dionysus)
                      prefs))
         {
             CardCmd.Enchant<Intoxicate>(card, DynamicVars[IntoxicateKey].BaseValue);
-            NCardEnchantVfx child = NCardEnchantVfx.Create(card);
+            NCardEnchantVfx? child = NCardEnchantVfx.Create(card);
             if (child != null)
             {
-                NRun instance = NRun.Instance;
+                NRun? instance = NRun.Instance;
                 if (instance != null)
                     instance.GlobalUi.CardPreviewContainer.AddChildSafely(child);
             }

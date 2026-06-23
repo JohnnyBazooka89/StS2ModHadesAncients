@@ -49,7 +49,7 @@ public class HappyHaze() : HadesAncientsRelic(HadesAncient.Dionysus)
                 DynamicVars.Strength.BaseValue, Owner.Creature, null);
             await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
                 DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
-            if (Owner.PlayerCombatState?.OrbQueue.Capacity > 0)
+            if (Owner.PlayerCombatState!.OrbQueue.Capacity > 0)
             {
                 await PowerCmd.Apply<FocusPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
                     DynamicVars["FocusPower"].BaseValue, Owner.Creature, null);

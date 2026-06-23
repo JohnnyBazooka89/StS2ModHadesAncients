@@ -32,7 +32,7 @@ public class SweetSurrender() : HadesAncientsRelic(HadesAncient.Aphrodite)
         Creature? applier,
         CardModel? cardSource)
     {
-        if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState.Enemies.Contains(power.Owner) ||
+        if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
             power.Id != ModelDb.GetId<WeakPower>())
         {
             return;

@@ -67,7 +67,7 @@ public class RighteousPike() : HadesAncientsRelic(HadesAncient.Athena)
         EnergySpent += cardPlay.Resources.EnergySpent;
         while (EnergySpent >= DynamicVars.Energy.IntValue)
         {
-            TaskHelper.RunSafely(DoActivateVisuals());
+            _ = TaskHelper.RunSafely(DoActivateVisuals());
 
             for (int i = 0; i < DynamicVars.Repeat.BaseValue; i++)
             {
@@ -86,7 +86,7 @@ public class RighteousPike() : HadesAncientsRelic(HadesAncient.Athena)
         Decimal value,
         PlayerChoiceContext choiceContext)
     {
-        List<Creature> hittableEnemies = Owner.Creature.CombatState?.GetOpponentsOf(Owner.Creature)
+        List<Creature> hittableEnemies = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
             .Where(e => e.IsHittable).ToList() ?? [];
         if (hittableEnemies.Count == 0)
             return;

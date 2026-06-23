@@ -33,7 +33,7 @@ public class Intoxicate() : HadesAncientsEnchantment(HadesAncient.Dionysus)
             return;
         }
 
-        IEnumerable<Creature> targets = Card.Owner.Creature.CombatState?.GetOpponentsOf(Card.Owner.Creature)
+        IEnumerable<Creature> targets = Card.Owner.Creature.CombatState!.GetOpponentsOf(Card.Owner.Creature)
             .Where(c => c.IsAlive) ?? [];
         await PowerCmd.Apply<HangoverPower>(choiceContext, targets,
             Amount, Card.Owner.Creature, Card);

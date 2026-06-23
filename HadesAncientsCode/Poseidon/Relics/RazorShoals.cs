@@ -42,10 +42,10 @@ public class RazorShoals() : HadesAncientsRelic(HadesAncient.Poseidon)
                      prefs))
         {
             CardCmd.Enchant<Splash>(card, DynamicVars[SplashKey].BaseValue);
-            NCardEnchantVfx child = NCardEnchantVfx.Create(card);
+            NCardEnchantVfx? child = NCardEnchantVfx.Create(card);
             if (child != null)
             {
-                NRun instance = NRun.Instance;
+                NRun? instance = NRun.Instance;
                 if (instance != null)
                     instance.GlobalUi.CardPreviewContainer.AddChildSafely(child);
             }

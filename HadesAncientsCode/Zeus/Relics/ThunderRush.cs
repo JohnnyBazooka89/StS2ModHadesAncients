@@ -39,10 +39,10 @@ public class ThunderRush() : HadesAncientsRelic(HadesAncient.Zeus)
             if (ModelDb.Enchantment<Thundercall>().CanEnchant(card))
             {
                 CardCmd.Enchant<Thundercall>(card, 1M);
-                NCardEnchantVfx child = NCardEnchantVfx.Create(card);
+                NCardEnchantVfx? child = NCardEnchantVfx.Create(card);
                 if (child != null)
                 {
-                    NRun instance = NRun.Instance;
+                    NRun? instance = NRun.Instance;
                     if (instance != null)
                         instance.GlobalUi.CardPreviewContainer.AddChildSafely(child);
                 }
@@ -57,7 +57,7 @@ public class ThunderRush() : HadesAncientsRelic(HadesAncient.Zeus)
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState.TurnNumber > 1)
+        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState!.TurnNumber > 1)
             return;
         Flash();
         await OrbCmd.AddSlots(Owner, DynamicVars.Repeat.IntValue);

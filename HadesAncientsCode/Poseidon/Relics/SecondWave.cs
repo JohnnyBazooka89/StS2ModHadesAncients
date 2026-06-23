@@ -76,7 +76,7 @@ public class SecondWave() : HadesAncientsRelic(HadesAncient.Poseidon)
             : RelicStatus.Normal;
         if (TurnsSeen != 0)
             return;
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.BaseValue, Owner);
     }

@@ -40,7 +40,7 @@ public class ElectricOverload() : HadesAncientsRelic(HadesAncient.Zeus)
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        Decimal finalDamage = DynamicVars.Damage.BaseValue * Owner.PlayerCombatState?.Energy ?? 0;
+        Decimal finalDamage = DynamicVars.Damage.BaseValue * Owner.PlayerCombatState!.Energy;
         if (!participants.Contains(Owner.Creature) || finalDamage <= 0)
             return;
         await ZeusUtils.DealLightningDamage(choiceContext, Owner.Creature, Owner.Creature, finalDamage);

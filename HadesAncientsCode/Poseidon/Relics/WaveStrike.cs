@@ -81,7 +81,7 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
         int intValue = DynamicVars.Cards.IntValue;
         if (!CombatManager.Instance.IsInProgress || AttacksPlayed != intValue)
             return Task.CompletedTask;
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
         return Task.CompletedTask;
     }
 

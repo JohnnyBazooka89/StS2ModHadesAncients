@@ -82,7 +82,7 @@ public class HadesAncientsHooks
         if (changed)
         {
             Decimal cappedDamage = Decimal.MaxValue;
-            foreach (AbstractModel iterateHookListener in runState.IterateHookListeners(combatState))
+            foreach (AbstractModel iterateHookListener in runState!.IterateHookListeners(combatState))
             {
                 Decimal capToCompare = iterateHookListener.ModifyDamageCap(target, props, dealer, cardSource);
                 if (capToCompare < cappedDamage)

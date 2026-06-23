@@ -55,15 +55,9 @@ public static class HadesAncients_AdjustLayout_Patch
 
     private static readonly ConditionalWeakTable<NAncientEventLayout, Box> State = new();
 
-    private static bool TryGetLayoutMod(NAncientEventLayout layout, out LayoutMod mod)
+    private static bool TryGetLayoutMod(NAncientEventLayout layout, out LayoutMod? mod)
     {
         var ancientEvent = layout._ancientEvent;
-
-        if (ancientEvent == null)
-        {
-            mod = null;
-            return false;
-        }
 
         foreach (var candidateMod in Mods)
         {
@@ -96,7 +90,7 @@ public static class HadesAncients_AdjustLayout_Patch
         }
 
         content.Position = new Vector2(
-            state.BaseContentX + mod.XOffset,
+            state.BaseContentX + mod!.XOffset,
             content.Position.Y
         );
 
@@ -131,7 +125,7 @@ public static class HadesAncients_AdjustLayout_Patch
         if (!TryGetLayoutMod(layout, out var mod))
             return originalSpacing;
 
-        var adjustedYOffset = mod.YOffset;
+        var adjustedYOffset = mod!.YOffset;
 
         var line = layout._dialogueContainer.GetChildOrNull<NAncientDialogueLine>(
             layout._currentDialogueLine

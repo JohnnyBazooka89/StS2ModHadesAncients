@@ -77,11 +77,11 @@ public class IonicGain() : HadesAncientsRelic(HadesAncient.Zeus)
             : RelicStatus.Normal;
         if (TurnsSeen != 0)
             return;
-        TaskHelper.RunSafely(DoActivateVisuals());
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
         List<CardModel> cardsToAdd = new List<CardModel>();
         for (int i = 0; i < DynamicVars.Cards.IntValue; i++)
         {
-            cardsToAdd.Add(Owner.Creature.CombatState.CreateCard<AetherFont>(Owner));
+            cardsToAdd.Add(Owner.Creature.CombatState!.CreateCard<AetherFont>(Owner));
         }
 
         await CardPileCmd.AddGeneratedCardsToCombat(cardsToAdd, PileType.Hand, Owner);

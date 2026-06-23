@@ -26,12 +26,12 @@ public class SisyphusAid() : HadesAncientsRelic(HadesAncient.Aphrodite)
         PlayerChoiceContext choiceContext,
         Player player)
     {
-        if (player != Owner || player.Creature.CombatState.RoundNumber > 1)
+        if (player != Owner || player.Creature.CombatState!.RoundNumber > 1)
         {
             return;
         }
 
-        CardModel rollingBoulderCard = player.Creature.CombatState.CreateCard<RollingBoulder>(Owner);
+        CardModel rollingBoulderCard = player.Creature.CombatState!.CreateCard<RollingBoulder>(Owner);
 
         await CardCmd.AutoPlay(choiceContext, rollingBoulderCard, null);
     }

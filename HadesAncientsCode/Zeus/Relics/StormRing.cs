@@ -46,7 +46,7 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
             return true;
         }
 
-        if (!(Owner.Creature.CombatState?.Enemies.Contains(cardTarget) ?? false))
+        if (!Owner.Creature.CombatState!.Enemies.Contains(cardTarget))
         {
             return true;
         }
@@ -80,7 +80,7 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
             return;
         }
 
-        IReadOnlyList<Creature>? enemies = Owner.Creature.CombatState?.Enemies;
+        IReadOnlyList<Creature>? enemies = Owner.Creature.CombatState!.Enemies;
 
         if (enemies == null || !enemies.Contains(target))
         {

@@ -21,7 +21,7 @@ public static class AfterArtifactPowerModifiedPowerAmountReceived_ArtifactPower_
     {
         await originalTask;
         await HadesAncientsHooks.AfterArtifactPowerModifiedPowerAmountReceived(
-            artifactPower.Owner.CombatState?.RunState,
+            artifactPower.Owner.CombatState!.RunState,
             artifactPower.Owner.CombatState,
             artifactPower,
             power
