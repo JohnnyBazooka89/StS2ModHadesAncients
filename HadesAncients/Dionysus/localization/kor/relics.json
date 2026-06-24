@@ -21,7 +21,7 @@
   "HADESANCIENTS-HIGH_TOLERANCE.description": "매 턴 시작 시 {Energy:energyIcons()}를 얻습니다. 모든 전투를 [blue]{HangoverPower}[/blue] [gold]숙취[/gold]와 함께 시작합니다.",
   "HADESANCIENTS-HIGH_TOLERANCE.flavor": "\"목마를 때는 피할 수 없는 걸 억지로 거스를 필요가 없잖아, 그렇지?\"",
   "HADESANCIENTS-PERSONAL_LOAN.title": "개인 대출",
-  "HADESANCIENTS-PERSONAL_LOAN.description": "획득 시 보유한 모든 [gold]골드[/gold]를 잃습니다. 다음 엘리트를 처치한 후 [blue]{TotalGold::diff()}[/blue] [gold]골드[/gold]를 얻고 [gold]카론의 오볼로스[/gold]를 획득합니다.",
+  "HADESANCIENTS-PERSONAL_LOAN.description": "획득 시 보유한 모든 [gold]골드[/gold]를 잃습니다. 다음 엘리트를 처치한 후 [blue]{TotalGold}[/blue] [gold]골드[/gold]를 얻고 [gold]카론의 오볼로스[/gold]를 획득합니다.",
   "HADESANCIENTS-PERSONAL_LOAN.eventDescription": "획득 시 보유한 모든 [gold]골드[/gold]를 잃습니다. 다음 엘리트를 처치한 후 잃은 골드와 추가로 [blue]{Gold}[/blue] [gold]골드[/gold]를 얻고 [gold]카론의 오볼로스[/gold]를 획득합니다.",
   "HADESANCIENTS-PERSONAL_LOAN.flavor": "\"이봐 친구, 그런 얘기는 여기서 하지 말자고. 그냥 편하게 쉬자! 그런 일로 기분 가라앉을 필요 없잖아!\"",
   "HADESANCIENTS-PREMIUM_VINTAGE.title": "최고급 빈티지",

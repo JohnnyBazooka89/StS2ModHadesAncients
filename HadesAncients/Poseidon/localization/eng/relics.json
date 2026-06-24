@@ -28,7 +28,7 @@
   "HADESANCIENTS-SLIPPERY_SLOPE.flavor": "\"You are swimming in dangerous waters with such antics, Niece.\"",
   "HADESANCIENTS-WATER_FITNESS.title": "Water Fitness",
   "HADESANCIENTS-WATER_FITNESS.description": "Upon pickup, gain [blue]{MaxHp}[/blue] Max HP for each relic you have, including this one. Whenever you obtain a relic, gain [blue]{MaxHp}[/blue] Max HP.",
-  "HADESANCIENTS-WATER_FITNESS.eventDescription": "Upon pickup, gain [blue]{MaxHp}[/blue] Max HP for each relic you have, including this one. (Gain [blue]{TotalHpToGain::diff()}[/blue] Max HP.) Whenever you obtain a relic, gain [blue]{MaxHp}[/blue] Max HP.",
+  "HADESANCIENTS-WATER_FITNESS.eventDescription": "Upon pickup, gain [blue]{MaxHp}[/blue] Max HP for each relic you have, including this one. (Gain [blue]{TotalHpToGain}[/blue] Max HP.) Whenever you obtain a relic, gain [blue]{MaxHp}[/blue] Max HP.",
   "HADESANCIENTS-WATER_FITNESS.flavor": "\"Your injuries shall make you stronger, Niece!\"",
   "HADESANCIENTS-WAVE_FLOURISH.title": "Wave Flourish",
   "HADESANCIENTS-WAVE_FLOURISH.description": "The first time each turn you draw [blue]{Cards}[/blue] cards during your turn, gain {Energy:energyIcons()}.",

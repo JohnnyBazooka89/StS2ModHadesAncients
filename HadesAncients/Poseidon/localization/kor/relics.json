@@ -28,7 +28,7 @@
   "HADESANCIENTS-SLIPPERY_SLOPE.flavor": "\"그런 짓을 하다간 위험한 물살에 휩쓸릴 게다, 조카야.\"",
   "HADESANCIENTS-WATER_FITNESS.title": "수중 단련",
   "HADESANCIENTS-WATER_FITNESS.description": "획득 시 이 유물을 포함해 보유한 유물 1개당 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다. 이후 유물을 획득할 때마다 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다.",
-  "HADESANCIENTS-WATER_FITNESS.eventDescription": "획득 시 이 유물을 포함해 보유한 유물 1개당 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다. (최대 체력을 [blue]{TotalHpToGain::diff()}[/blue] 얻습니다.) 이후 유물을 획득할 때마다 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다.",
+  "HADESANCIENTS-WATER_FITNESS.eventDescription": "획득 시 이 유물을 포함해 보유한 유물 1개당 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다. (최대 체력을 [blue]{TotalHpToGain}[/blue] 얻습니다.) 이후 유물을 획득할 때마다 최대 체력을 [blue]{MaxHp}[/blue] 얻습니다.",
   "HADESANCIENTS-WATER_FITNESS.flavor": "\"상처는 널 더욱 강하게 만들 것이다, 조카야!\"",
   "HADESANCIENTS-WAVE_FLOURISH.title": "파도의 흐름",
   "HADESANCIENTS-WAVE_FLOURISH.description": "매 턴 처음으로 자신의 턴에 카드를 [blue]{Cards}[/blue]장 뽑으면 {Energy:energyIcons()}를 얻습니다.",
