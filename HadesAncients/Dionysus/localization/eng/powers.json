@@ -1,5 +1,5 @@
 {
   "HADESANCIENTS-HANGOVER_POWER.title": "Hangover",
-  "HADESANCIENTS-HANGOVER_POWER.description": "Hungover creatures take damage at the end of their turn. Each turn, Hangover is reduced by [blue]1[/blue].",
+  "HADESANCIENTS-HANGOVER_POWER.description": "Hungover creatures take damage at the end of their turn. Each turn, [gold]Hangover[/gold] is reduced by [blue]1[/blue].",
   "HADESANCIENTS-HANGOVER_POWER.smartDescription": "At the end of {OnPlayer:your turn, take|its turn, takes} [blue]{Amount}[/blue] damage, then reduce [gold]Hangover[/gold] by [blue]1[/blue]."
 }

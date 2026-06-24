@@ -1,3 +1,14 @@
 {
-
+  "HADESANCIENTS-FURNACE_BLAST.title": "Furnace Blast",
+  "HADESANCIENTS-FURNACE_BLAST.description": "At the start of your turn, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] and [blue]{VulnerablePower}[/blue] [gold]Vulnerable[/gold] to the enemy with the lowest HP.",
+  "HADESANCIENTS-FURNACE_BLAST.flavor": "",
+  "HADESANCIENTS-GRAND_CALDERA.title": "Grand Caldera",
+  "HADESANCIENTS-GRAND_CALDERA.description": "At the start of each combat, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to ALL enemies.",
+  "HADESANCIENTS-GRAND_CALDERA.flavor": "",
+  "HADESANCIENTS-VOLCANIC_STRIKE.title": "Volcanic Strike",
+  "HADESANCIENTS-VOLCANIC_STRIKE.description": "The first Attack you play each turn applies [gold]Blast[/gold] equal to the damage dealt.",
+  "HADESANCIENTS-VOLCANIC_STRIKE.flavor": "",
+  "HADESANCIENTS-VOLCANIC_FLOURISH.title": "Volcanic Flourish",
+  "HADESANCIENTS-VOLCANIC_FLOURISH.description": "Whenever you play a Skill, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to a random enemy.",
+  "HADESANCIENTS-VOLCANIC_FLOURISH.flavor": ""
 }

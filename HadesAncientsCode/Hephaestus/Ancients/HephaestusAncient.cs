@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Models;
@@ -24,7 +25,10 @@ public class HephaestusAncient : CustomAncientModel
         {
             List<AncientOption> blastRelicsPool =
             [
-                AncientOption<Vajra>()
+                AncientOption<FurnaceBlast>(),
+                AncientOption<GrandCaldera>(),
+                AncientOption<VolcanicFlourish>(),
+                AncientOption<VolcanicStrike>()
             ];
 
             List<AncientOption> forgeArmorRelicsPool =
