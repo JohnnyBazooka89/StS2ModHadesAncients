@@ -4,6 +4,7 @@ using Godot;
 using HadesAncients.HadesAncientsCode.Aphrodite.Ancients;
 using HadesAncients.HadesAncientsCode.Athena.Ancients;
 using HadesAncients.HadesAncientsCode.Dionysus.Ancients;
+using HadesAncients.HadesAncientsCode.Hephaestus.Ancients;
 using HadesAncients.HadesAncientsCode.Poseidon.Ancients;
 using HadesAncients.HadesAncientsCode.Zeus.Ancients;
 using HarmonyLib;
@@ -22,13 +23,13 @@ public static class HadesAncients_AdjustLayout_Patch
     private static readonly IReadOnlyList<LayoutMod> Mods =
     [
         new(
-            ancientEvent => ancientEvent.Id == ModelDb.GetId<AphroditeAncient>(),
-            xOffset: 185f,
-            yOffset: -5f,
-            scaleAmount: 1.0f
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<AthenaAncient>(),
+            xOffset: 138f,
+            yOffset: 47f,
+            scaleAmount: 0.85f
         ),
         new(
-            ancientEvent => ancientEvent.Id == ModelDb.GetId<PoseidonAncient>(),
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<AphroditeAncient>(),
             xOffset: 185f,
             yOffset: -5f,
             scaleAmount: 1.0f
@@ -40,10 +41,16 @@ public static class HadesAncients_AdjustLayout_Patch
             scaleAmount: 0.85f
         ),
         new(
-            ancientEvent => ancientEvent.Id == ModelDb.GetId<AthenaAncient>(),
-            xOffset: 138f,
-            yOffset: 47f,
-            scaleAmount: 0.85f
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<HephaestusAncient>(),
+            xOffset: 185f,
+            yOffset: -5f,
+            scaleAmount: 1.0f
+        ),
+        new(
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<PoseidonAncient>(),
+            xOffset: 185f,
+            yOffset: -5f,
+            scaleAmount: 1.0f
         ),
         new(
             ancientEvent => ancientEvent.Id == ModelDb.GetId<ZeusAncient>(),

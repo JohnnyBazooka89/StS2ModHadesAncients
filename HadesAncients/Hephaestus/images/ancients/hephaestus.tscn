@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bxa6vlqeby20" path="res://HadesAncients/Shared/images/vfx/light.png" id="2_t0ynh"]
 [ext_resource type="Texture2D" uid="uid://d2srbops1xqm0" path="res://HadesAncients/Shared/images/vfx/dot.png" id="3_bvpiv"]
-[ext_resource type="Texture2D" uid="uid://brtw65l1ysxa2" path="res://HadesAncients/Hephaestus/images/ancients/hephaestus_placeholder.png" id="3_ljq1i"]
+[ext_resource type="Texture2D" uid="uid://bvmayj3wiv5mb" path="res://HadesAncients/Hephaestus/images/ancients/hephaestus_placeholder.png" id="3_ljq1i"]
 [ext_resource type="Material" uid="uid://c4ycqv0gdxvmr" path="res://HadesAncients/Shared/themes/canvas_item_material_additive_shared.tres" id="shared_additive_mat"]
 
 [sub_resource type="Curve" id="Curve_fu2b4"]
