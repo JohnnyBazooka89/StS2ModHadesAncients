@@ -6,6 +6,8 @@ namespace HadesAncients.HadesAncientsCode.Shared.Extensions;
 //Mostly utilities to get asset paths.
 public static class StringExtensions
 {
+    public const string SharedPath = "Shared";
+
     public static string ImagePath(this string path, HadesAncient hadesAncient)
     {
         return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", path);
@@ -17,7 +19,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find card image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "card_portraits",
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "card_portraits",
             "card.png");
     }
 
@@ -28,7 +30,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find big card image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "card_portraits", "big",
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "card_portraits", "big",
             "card.png");
     }
 
@@ -38,7 +40,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find power image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "powers", "power.png");
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "powers", "power.png");
     }
 
     public static string BigPowerImagePath(this string path, HadesAncient hadesAncient)
@@ -47,7 +49,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find big power image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "powers", "big",
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "powers", "big",
             "power.png");
     }
 
@@ -57,7 +59,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find relic image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "relics", "relic.png");
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "relics", "relic.png");
     }
 
     public static string RelicOutlineImagePath(this string path, HadesAncient hadesAncient)
@@ -66,7 +68,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find relic image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "relics", "outline",
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "relics", "outline",
             "relic.png");
     }
 
@@ -76,7 +78,7 @@ public static class StringExtensions
         if (ResourceLoader.Exists(path)) return path;
 
         HadesAncientsMainFile.Logger.Info("Could not find big relic image path: " + path);
-        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "relics", "big",
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "relics", "big",
             "relic.png");
     }
 

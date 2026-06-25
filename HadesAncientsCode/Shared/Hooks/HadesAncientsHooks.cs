@@ -134,6 +134,41 @@ public class HadesAncientsHooks
         return amount;
     }
 
+    public static decimal ModifyHpLostBeforeOstyAfterLate(
+        IRunState? runState,
+        ICombatState? combatState,
+        Creature target,
+        decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        ref IEnumerable<AbstractModel> modifiers)
+    {
+        foreach (IModifyHpLostBeforeOstyAfterLate model in runState?.IterateHookListeners(combatState)
+                     .OfType<IModifyHpLostBeforeOstyAfterLate>() ?? [])
+        {
+            decimal oldAmount = amount;
+
+            amount = model.ModifyHpLostBeforeOstyAfterLate(
+                target,
+                amount,
+                props,
+                dealer,
+                cardSource
+            );
+
+            if (decimal.Truncate(oldAmount) != decimal.Truncate(amount))
+            {
+                if (model is AbstractModel abstractModel)
+                {
+                    modifiers = modifiers.Append(abstractModel);
+                }
+            }
+        }
+
+        return amount;
+    }
+
     public static bool ShouldPlayTargeting(
         IRunState? runState,
         ICombatState? combatState,

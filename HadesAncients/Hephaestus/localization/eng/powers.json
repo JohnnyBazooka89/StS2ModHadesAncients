@@ -1,5 +1,8 @@
 {
   "HADESANCIENTS-BLAST_POWER.title": "Blast",
   "HADESANCIENTS-BLAST_POWER.description": "Blasted creatures take damage at the end of their turn. Each turn, [gold]Blast[/gold] is reduced by half.",
-  "HADESANCIENTS-BLAST_POWER.smartDescription": "At the end of {OnPlayer:your turn, take|its turn, takes} [blue]{Amount}[/blue] damage, then reduce [gold]Blast[/gold] by [blue]{HalfAmount}[/blue]."
+  "HADESANCIENTS-BLAST_POWER.smartDescription": "At the end of {OnPlayer:your turn, take|its turn, takes} [blue]{Amount}[/blue] damage, then reduce [gold]Blast[/gold] by [blue]{HalfAmount}[/blue].",
+  "HADESANCIENTS-FORGE_ARMOR_POWER.title": "Forge Armor",
+  "HADESANCIENTS-FORGE_ARMOR_POWER.description": "A different version of [gold]Block[/gold] that is not lost at the start of your turn. Triggers after your regular [gold]Block[/gold], before [gold]Osty[/gold].",
+  "HADESANCIENTS-FORGE_ARMOR_POWER.smartDescription": "Prevent [blue]{Amount}[/blue] damage."
 }
