@@ -32,9 +32,14 @@ public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IM
         Creature? dealer,
         CardModel? cardSource)
     {
+        if (target != Owner)
+        {
+            return amount;
+        }
+
         int min = (int)Math.Min(amount, Amount);
         BlockedDamage += min;
-        return target != Owner ? amount : amount - min;
+        return amount - min;
     }
 
     public override async Task AfterModifyingHpLostBeforeOsty()
@@ -42,11 +47,5 @@ public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IM
         await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this,
             -BlockedDamage, null, null);
         BlockedDamage = 0;
-    }
-
-    public override Task AfterRoomEntered(AbstractRoom room)
-    {
-        BlockedDamage = 0;
-        return Task.CompletedTask;
     }
 }

@@ -42,7 +42,7 @@ public class HeavyMetal() : HadesAncientsRelic(HadesAncient.Hephaestus)
         await PowerCmd.Apply<ForgeArmorPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
             DynamicVars[nameof(ForgeArmorPower)].BaseValue, Owner.Creature, null);
         Flash();
-        await Cmd.Wait(0.5f);
+        await Cmd.Wait(0.25f);
 
         if (targets.Count >= 1)
         {
