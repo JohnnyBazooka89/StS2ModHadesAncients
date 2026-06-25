@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Powers;
@@ -41,5 +42,11 @@ public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IM
         await PowerCmd.ModifyAmount(new ThrowingPlayerChoiceContext(), this,
             -BlockedDamage, null, null);
         BlockedDamage = 0;
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        BlockedDamage = 0;
+        return Task.CompletedTask;
     }
 }

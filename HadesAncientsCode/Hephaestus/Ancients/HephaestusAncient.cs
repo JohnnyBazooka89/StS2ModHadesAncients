@@ -31,9 +31,12 @@ public class HephaestusAncient : CustomAncientModel
                 AncientOption<VolcanicStrike>()
             ];
 
-            List<AncientOption> forgeArmorRelicsPool =
+            List<AncientOption> forgeArmorAndBlockRelicsPool =
             [
-                AncientOption<OddlySmoothStone>()
+                AncientOption<HeavyMetal>(),
+                AncientOption<SecuritySystem>(),
+                AncientOption<SmithyRush>(),
+                AncientOption<TrustyShield>()
             ];
 
             List<AncientOption> otherRelicsPool =
@@ -43,7 +46,7 @@ public class HephaestusAncient : CustomAncientModel
 
             return new OptionPools(
                 MakePool(blastRelicsPool.ToArray()),
-                MakePool(forgeArmorRelicsPool.ToArray()),
+                MakePool(forgeArmorAndBlockRelicsPool.ToArray()),
                 MakePool(otherRelicsPool.ToArray())
             );
         }
