@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Hooks;
@@ -48,6 +49,30 @@ public class HadesAncientsHooks
             model => model.AfterArtifactPowerModifiedPowerAmountReceived(
                 artifactPower,
                 blockedPower
+            )
+        );
+    }
+
+    public static async Task AfterCardUpgrade(IRunState? runState,
+        ICombatState? combatState,
+        CardModel cardModel)
+    {
+        await DispatchAsync<IAfterCardUpgrade>(
+            runState,
+            combatState,
+            model => model.AfterCardUpgrade(
+                cardModel
+            )
+        );
+    }
+
+    public static async Task AfterLoadRun(RunState runState, SerializableRoom? preFinishedRoom)
+    {
+        await DispatchAsync<IAfterLoadRun>(
+            runState,
+            null,
+            model => model.AfterLoadRun(
+                preFinishedRoom
             )
         );
     }

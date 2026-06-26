@@ -5,7 +5,6 @@ using HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Ancients;
 
@@ -41,7 +40,7 @@ public class HephaestusAncient : CustomAncientModel
 
             List<AncientOption> otherRelicsPool =
             [
-                AncientOption<DataDisk>()
+                AncientOption<UncannyFortitude>()
             ];
 
             return new OptionPools(
