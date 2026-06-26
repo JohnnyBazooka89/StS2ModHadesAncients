@@ -40,6 +40,7 @@ public class HephaestusAncient : CustomAncientModel
 
             List<AncientOption> otherRelicsPool =
             [
+                AncientOption<PremiumService>(),
                 AncientOption<UncannyFortitude>()
             ];
 

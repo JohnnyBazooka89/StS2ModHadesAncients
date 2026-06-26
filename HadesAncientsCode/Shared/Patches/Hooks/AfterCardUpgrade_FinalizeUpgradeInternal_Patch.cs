@@ -10,7 +10,7 @@ public static class AfterCardUpgrade_FinalizeUpgradeInternal_Patch
 {
     public static void Postfix(CardModel __instance)
     {
-        TaskHelper.RunSafely(HadesAncientsHooks.AfterCardUpgrade(__instance.Owner?.RunState,
+        _ = TaskHelper.RunSafely(HadesAncientsHooks.AfterCardUpgrade(__instance.Owner?.RunState,
             __instance.Owner?.Creature.CombatState, __instance));
     }
 }
