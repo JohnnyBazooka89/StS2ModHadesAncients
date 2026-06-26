@@ -6,7 +6,7 @@
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.2-0r.ancient": "So I say, can't we just, you know, invite him over to a feast and hash things out over a cup of wine, yeah? And they look at me like I'm completely daft, hahahaha.",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.3-0r.ancient": "... So I would like to propose another toast. To all of you! Cheers!!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.4-0r.ancient": "... So I would like to propose another toast. To feasting! Cheers!!",
-  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.5-0r.ancient": "Hey look man let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!",
+  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.5-0r.ancient": "Hey look, mate, let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.6-0r.ancient": "... another round, you say? Well I don't see why not! Ah, haha!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.7-0r.ancient": "So I say, can't we just, wait ... have I not already told this one before? You'll tell me if I did? Or if you don't remember, that's cool! Neither do I, haha. What were we on about?",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.8-0r.ancient": "Now come, my friends, drink up, like there's no tomorrow!",
@@ -17,12 +17,12 @@
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.13-0r.ancient": "Hahaha, yeah! Come, everybody, let's have another round!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.14-0r.ancient": "I ever tell you lot about the time I traveled east, across the seas? There's quite an island over there, good people too. You ever been to other parts or what?",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.15-0r.ancient": "So you know what I say? I say, Dad ... hah. I say Dad, what if I just don't want to? And he says, Then get out of my sight! So I say, Outta sight? All right! Hahahaha!",
-  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.16-0r.ancient": "Hahahahaha, naughty, now be quiet everyone, I think that's her again, be on your best behavior yeah?",
+  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.16-0r.ancient": "Hahahahaha, naughty, now be quiet everyone, I think that's {pronounObject} again, be on your best behavior yeah?",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.17-0r.ancient": "Drink! Drink! Drink! Drink! Drink! Drink! Drink! Hehe, yeah!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.18-0r.ancient": "Don't anybody worry about a thing, we've got it all under control!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.19-0r.ancient": "Come on you've got to keep your hooves inside the pool, yeah? Or I'll have no choice but to go in and drag you out!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.20-0r.ancient": "All right, come on now, I don't even want to know what's happening out there. What's really happening is here!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.21-0r.ancient": "Whoa easy there, no biting, Maena, I keep telling you that is a Satyr! Not a goat!",
   "HADESANCIENTS-DIONYSUS_ANCIENT.talk.ANY.22-0r.ancient": "Whew, it's getting kind of hot in here! Or maybe it's you Nymphs there in the corner, yeah? Oh I see you!",
-  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.firstVisitEver.0-0.ancient": "Now who is this, what sort of Nymph do we have here? Not from the waters nor the woods, but wait wait wait! Those eyes! Zag, man, is that you?! You've changed! I like it!"
+  "HADESANCIENTS-DIONYSUS_ANCIENT.talk.firstVisitEver.0-0.ancient": "Now who is this, what sort of {:gendered:Satyr|Nymph|Spirit} do we have here? Not from the waters nor the woods, but wait wait wait! Those eyes! Zag, man, is that you?! You've changed! I like it!"
 }

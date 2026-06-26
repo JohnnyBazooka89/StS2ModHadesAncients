@@ -23,7 +23,7 @@
   "HADESANCIENTS-PERSONAL_LOAN.title": "Personal Loan",
   "HADESANCIENTS-PERSONAL_LOAN.description": "Upon pickup, give up all your [gold]Gold[/gold]. After vanquishing the next Elite, gain [blue]{TotalGold}[/blue] [gold]Gold[/gold] and obtain [gold]Charon's Obol[/gold].",
   "HADESANCIENTS-PERSONAL_LOAN.eventDescription": "Upon pickup, give up all your [gold]Gold[/gold]. After vanquishing the next Elite, gain that much and an additional [blue]{Gold}[/blue] [gold]Gold[/gold] and obtain [gold]Charon's Obol[/gold].",
-  "HADESANCIENTS-PERSONAL_LOAN.flavor": "\"Hey look man let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!\"",
+  "HADESANCIENTS-PERSONAL_LOAN.flavor": "\"Hey look, mate, let's not talk about that sort of thing in here, let's just relax! No need to get all down about that stuff!\"",
   "HADESANCIENTS-PREMIUM_VINTAGE.title": "Premium Vintage",
   "HADESANCIENTS-PREMIUM_VINTAGE.description": "Whenever you use a potion, gain [blue]{MaxHp}[/blue] Max HP. Upon pickup, fill all your empty potion slots with random potions.",
   "HADESANCIENTS-PREMIUM_VINTAGE.flavor": "\"... So I would like to propose another toast. To feasting! Cheers!!\"",
