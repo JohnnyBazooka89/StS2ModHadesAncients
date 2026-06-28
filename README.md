@@ -6,11 +6,12 @@ This mod introduces a collection of new Ancients from the hit game Hades 2. Curr
 
 | Act   | Ancient | Specializations                                                                              |
 |-------|---|----------------------------------------------------------------------------------------------|
-| Act 2 | Poseidon | Awarding playing many Attacks, applying Froth/Rupture, gaining Energy, getting more rewards. |
-| Act 2 | Zeus | Applying Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                         |
 | Act 2 | Athena | Granting different types of Defense, preventing death, and a little bit of Offense.          |
+| Act 2 | Poseidon | Awarding playing many Attacks, applying Froth/Rupture, gaining Energy, getting more rewards. |
+| Act 2 | Zeus | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                  |
 | Act 3 | Aphrodite | Weak, Charm, debuffs, healing, dealing more Attack damage.                                   |
-| Act 3 | Dionysus | Applying Hangover, potions, max HP, healing, unpredictable combat effects.                   |
+| Act 3 | Dionysus | Hangover, potions, max HP, healing, unpredictable combat effects.                            |
+| Act 3 | Hephaestus | Blast, Forge Armor, upgrades & enchantments, self-harm.                                      |
 
 This mod should work properly in multiplayer. In case of any problems, please report them and include the logs (%APPDATA%\SlayTheSpire2\logs\godot.log file) if possible.
 
@@ -33,11 +34,12 @@ Chinese localization would be welcome.
 
 ## 🖼️ Screenshots
 
-![PoseidonAncientChoices](Screenshots/PoseidonAncientChoices.jpg)
-![ZeusAncientChoices](Screenshots/ZeusAncientChoices.jpg)
-![AthenaAncientChoices](Screenshots/AthenaAncientChoices.jpg)
 ![AphroditeAncientChoices](Screenshots/AphroditeAncientChoices.jpg)
 ![DionysusAncientChoices](Screenshots/DionysusAncientChoices.jpg)
+![HephaestusAncientChoices](Screenshots/HephaestusAncientChoices.jpg)
+![AthenaAncientChoices](Screenshots/AthenaAncientChoices.jpg)
+![PoseidonAncientChoices](Screenshots/PoseidonAncientChoices.jpg)
+![ZeusAncientChoices](Screenshots/ZeusAncientChoices.jpg)
 ![ModConfiguration](Screenshots/ModConfiguration.jpg)
 
 ## 🤝 Contact

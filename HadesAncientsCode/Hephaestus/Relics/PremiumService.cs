@@ -40,7 +40,7 @@ public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
         new CardsVar(10)
     ];
 
-    public override async Task AfterCardDrawn(
+    public override Task AfterCardDrawn(
         PlayerChoiceContext choiceContext,
         CardModel card,
         bool fromHandDraw)
@@ -50,13 +50,14 @@ public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
             Charges <= 0 ||
             !card.IsUpgradable)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         CardCmd.Upgrade(card);
         Charges--;
 
         Flash();
+        return Task.CompletedTask;
     }
 
     public override Task BeforeHandDraw(
