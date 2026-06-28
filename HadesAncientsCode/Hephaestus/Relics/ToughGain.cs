@@ -37,6 +37,7 @@ public class ToughGain() : HadesAncientsRelic(HadesAncient.Hephaestus)
     {
         if (player != Owner)
             return;
+        Flash();
         await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue,
             ValueProp.Unblockable | ValueProp.Unpowered, Owner.Creature, null);
     }

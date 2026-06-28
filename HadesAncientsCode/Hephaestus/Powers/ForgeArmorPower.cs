@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Powers;
@@ -32,7 +31,7 @@ public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IM
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (target != Owner)
+        if (target != Owner || props.HasFlag(ValueProp.Unblockable))
         {
             return amount;
         }
