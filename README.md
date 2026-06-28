@@ -20,8 +20,6 @@ The mod is available in:
 - English
 - Korean, thanks to karyulin88
 
-Chinese localization would be welcome.
-
 ## 📦 Dependencies
 - BaseLib version 3.2.0 or newer.
 
