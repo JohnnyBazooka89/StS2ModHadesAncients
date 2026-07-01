@@ -1,4 +1,5 @@
 ﻿using BaseLib.Utils;
+using HadesAncients.HadesAncientsCode.Athena.Patches;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Hooks;
@@ -38,7 +39,16 @@ public class MentalBlock() : HadesAncientsRelic(HadesAncient.Athena), IAfterArti
             return;
 
         Flash();
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
+        bool forceFalsePreviousValue = MentalBlock_FixGainingBlock_Patch.ForceFalse.Value;
+        try
+        {
+            MentalBlock_FixGainingBlock_Patch.ForceFalse.Value = true;
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
+        }
+        finally
+        {
+            MentalBlock_FixGainingBlock_Patch.ForceFalse.Value = forceFalsePreviousValue;
+        }
     }
 
     public override async Task AfterRoomEntered(AbstractRoom room)
