@@ -21,7 +21,7 @@ The mod is available in:
 - Korean, thanks to karyulin88
 
 ## 📦 Dependencies
-- BaseLib version 3.2.0 or newer.
+[BaseLib](https://github.com/Alchyr/BaseLib-StS2)
 
 ## ⚙️ Installation
 1. Go to the [Releases](https://github.com/JohnnyBazooka89/StS2ModHadesAncients/releases) page on GitHub and download the latest version.
