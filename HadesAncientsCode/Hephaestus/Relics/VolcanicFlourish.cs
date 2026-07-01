@@ -30,7 +30,7 @@ public class VolcanicFlourish() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type != CardType.Skill)
+        if (cardPlay.Card.Type != CardType.Skill || cardPlay.Card.Owner != Owner)
             return;
 
         List<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)

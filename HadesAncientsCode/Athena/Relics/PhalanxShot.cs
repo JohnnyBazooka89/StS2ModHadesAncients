@@ -29,7 +29,7 @@ public class PhalanxShot() : HadesAncientsRelic(HadesAncient.Athena)
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type != CardType.Skill)
+        if (cardPlay.Card.Type != CardType.Skill || cardPlay.Card.Owner != Owner)
             return;
         await PowerCmd.Apply<VigorPower>(choiceContext, Owner.Creature, DynamicVars[nameof(VigorPower)].BaseValue,
             Owner.Creature, null);

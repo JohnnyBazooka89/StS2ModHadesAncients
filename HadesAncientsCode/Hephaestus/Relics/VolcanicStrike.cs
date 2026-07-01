@@ -52,7 +52,7 @@ public class VolcanicStrike() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type != CardType.Attack)
+        if (cardPlay.Card.Type != CardType.Attack || cardPlay.Card.Owner != Owner)
             return Task.CompletedTask;
         UsedThisTurn = true;
         return Task.CompletedTask;

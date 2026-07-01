@@ -75,7 +75,7 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
     {
         Creature? target = cardPlay.Target;
 
-        if (target == null || cardPlay.IsAutoPlay)
+        if (target == null || cardPlay.IsAutoPlay || cardPlay.Card.Owner != Owner)
         {
             return;
         }

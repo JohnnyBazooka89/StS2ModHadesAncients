@@ -29,7 +29,7 @@ public class SmithyRush() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Type != CardType.Skill)
+        if (cardPlay.Card.Type != CardType.Skill || cardPlay.Card.Owner != Owner)
             return;
 
         await PowerCmd.Apply<ForgeArmorPower>(choiceContext, Owner.Creature,
