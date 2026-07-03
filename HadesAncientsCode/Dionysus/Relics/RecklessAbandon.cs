@@ -34,11 +34,11 @@ public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IMod
         new(FinalDamageProbability3Key, 10M),
     ];
 
-    public Decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource, CardPreviewMode previewMode)
+    public decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+        CardModel? cardSource, CardPlay? cardPlay, CardPreviewMode previewMode)
     {
-        if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty) ||
-            previewMode != CardPreviewMode.None)
+        if (!props.IsPoweredAttack() || cardSource == null || cardPlay == null ||
+            (dealer != Owner.Creature && dealer != Owner.Osty) || previewMode != CardPreviewMode.None)
         {
             return amount;
         }

@@ -2,6 +2,7 @@
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -34,12 +35,8 @@ public class HeartbreakStrike() : HadesAncientsRelic(HadesAncient.Aphrodite)
         HoverTipFactory.FromPower<WeakPower>()
     ];
 
-    public override Decimal ModifyDamageMultiplicative(
-        Creature? target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
+    public override Decimal ModifyDamageMultiplicative(Creature? target, Decimal amount, ValueProp props,
+        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty) ||
             target == null)

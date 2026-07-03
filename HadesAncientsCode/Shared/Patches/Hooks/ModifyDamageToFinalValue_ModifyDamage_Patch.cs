@@ -21,6 +21,7 @@ public static class ModifyDamageToFinalValue_ModifyDamage_Patch
         decimal damage,
         ValueProp props,
         CardModel? cardSource,
+        CardPlay? cardPlay,
         ModifyDamageHookType modifyDamageHookType,
         CardPreviewMode previewMode,
         ref IEnumerable<AbstractModel> modifiers,
@@ -34,6 +35,7 @@ public static class ModifyDamageToFinalValue_ModifyDamage_Patch
             props,
             dealer,
             cardSource,
+            cardPlay,
             previewMode,
             ref modifiers
         );

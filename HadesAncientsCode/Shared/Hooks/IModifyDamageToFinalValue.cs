@@ -8,5 +8,5 @@ namespace HadesAncients.HadesAncientsCode.Shared.Hooks;
 public interface IModifyDamageToFinalValue
 {
     decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource, CardPreviewMode previewMode);
+        CardModel? cardSource, CardPlay? cardPlay, CardPreviewMode previewMode);
 }

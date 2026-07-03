@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -23,7 +24,7 @@ public class DifferentLeague() : HadesAncientsRelic(HadesAncient.Aphrodite)
     ];
 
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource, CardPlay? cardPlay)
     {
         if (target != Owner.Creature || !props.IsPoweredAttack())
             return 0M;

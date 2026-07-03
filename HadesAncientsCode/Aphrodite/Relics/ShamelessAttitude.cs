@@ -2,6 +2,7 @@
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -60,12 +61,8 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite)
         Status = flag ? RelicStatus.Active : RelicStatus.Normal;
     }
 
-    public override Decimal ModifyDamageMultiplicative(
-        Creature? target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
+    public override Decimal ModifyDamageMultiplicative(Creature? target, Decimal amount, ValueProp props,
+        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
             return 1M;

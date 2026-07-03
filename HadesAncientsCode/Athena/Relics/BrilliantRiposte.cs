@@ -28,6 +28,6 @@ public class BrilliantRiposte() : HadesAncientsRelic(HadesAncient.Athena)
             !props.IsPoweredAttack() || dealer == null)
             return;
         await CreatureCmd.Damage(choiceContext, dealer, result.BlockedDamage, ValueProp.Unpowered, Owner.Creature,
-            null);
+            null, null);
     }
 }
