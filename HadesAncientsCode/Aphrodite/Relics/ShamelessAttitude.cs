@@ -1,7 +1,9 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -14,7 +16,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Aphrodite.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite)
+public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite), IModifyDamageMultiplicativeCompatibility
 {
     private const string HpThresholdKey = "HpThreshold";
 
@@ -31,6 +33,16 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite)
     [
         HoverTipFactory.ForEnergy(this)
     ];
+
+    public Decimal ModifyDamageMultiplicativeCompatibility(Creature? target, Decimal amount, ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource, CardPlay? cardPlay)
+    {
+        if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
+            return 1M;
+
+        return Status == RelicStatus.Active ? 5M / 3M : 4M / 3M;
+    }
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
@@ -58,18 +70,5 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite)
         bool flag = creature.CurrentHp >=
                     creature.MaxHp * (DynamicVars[HpThresholdKey].BaseValue / 100M);
         Status = flag ? RelicStatus.Active : RelicStatus.Normal;
-    }
-
-    public override Decimal ModifyDamageMultiplicative(
-        Creature? target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
-    {
-        if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
-            return 1M;
-
-        return Status == RelicStatus.Active ? 5M / 3M : 4M / 3M;
     }
 }

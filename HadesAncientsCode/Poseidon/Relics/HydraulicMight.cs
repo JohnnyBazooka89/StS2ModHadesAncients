@@ -1,6 +1,8 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -11,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Poseidon.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class HydraulicMight() : HadesAncientsRelic(HadesAncient.Poseidon)
+public class HydraulicMight() : HadesAncientsRelic(HadesAncient.Poseidon), IModifyDamageMultiplicativeCompatibility
 {
     private const string TurnsKey = "Turns";
 
@@ -22,12 +24,13 @@ public class HydraulicMight() : HadesAncientsRelic(HadesAncient.Poseidon)
         new(TurnsKey, 2M)
     ];
 
-    public override Decimal ModifyDamageMultiplicative(
+    public Decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
             return 1M;

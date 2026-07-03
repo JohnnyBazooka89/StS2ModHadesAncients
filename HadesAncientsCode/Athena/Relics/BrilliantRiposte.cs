@@ -1,7 +1,7 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,7 +27,7 @@ public class BrilliantRiposte() : HadesAncientsRelic(HadesAncient.Athena)
         if (target != Owner.Creature || result.BlockedDamage <= 0 || result.UnblockedDamage > 0 ||
             !props.IsPoweredAttack() || dealer == null)
             return;
-        await CreatureCmd.Damage(choiceContext, dealer, result.BlockedDamage, ValueProp.Unpowered, Owner.Creature,
+        await CreatureCmdCompatibility.Damage(choiceContext, dealer, result.BlockedDamage, ValueProp.Unpowered, Owner.Creature,
             null);
     }
 }

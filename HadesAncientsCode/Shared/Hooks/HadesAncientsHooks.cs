@@ -1,3 +1,4 @@
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -109,7 +110,13 @@ public class HadesAncientsHooks
             Decimal cappedDamage = Decimal.MaxValue;
             foreach (AbstractModel iterateHookListener in runState!.IterateHookListeners(combatState))
             {
-                Decimal capToCompare = iterateHookListener.ModifyDamageCap(target, props, dealer, cardSource);
+                Decimal capToCompare = AbstractModelCompatibility.ModifyDamageCap(
+                    iterateHookListener,
+                    target,
+                    props,
+                    dealer,
+                    cardSource
+                );
                 if (capToCompare < cappedDamage)
                 {
                     cappedDamage = capToCompare;
