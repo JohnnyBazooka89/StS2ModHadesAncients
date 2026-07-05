@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Localization;
 namespace HadesAncients.HadesAncientsCode.Shared.Patches;
 
 [HarmonyPatch(typeof(LocManager), "LoadLocFormatters")]
-public static class HadesAncients_GenderedFormatter_LoadLocFormatters
+public static class HadesAncients_GenderedFormatter_LoadLocFormatters_Patch
 {
     private static void Postfix()
     {
