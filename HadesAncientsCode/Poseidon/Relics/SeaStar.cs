@@ -42,33 +42,33 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(RewardCopyPercentChangeKey, 30M),
+        new(RewardCopyPercentChangeKey, 40M),
     ];
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public override async Task AfterRewardTaken(Player player, Reward reward)
+    public override Task AfterRewardTaken(Player player, Reward reward)
     {
         if (player != Owner)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         int random = Owner.RunState.Rng.Niche.NextInt(0, 100);
         if (random >= DynamicVars[RewardCopyPercentChangeKey].BaseValue)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         Reward? newReward = GetSameTypeReward(reward);
         if (newReward == null)
         {
-            return;
+            return Task.CompletedTask;
         }
 
         var rewardsSet = FindRewardsSetContaining(player, reward);
         if (rewardsSet == null)
-            return;
+            return Task.CompletedTask;
 
         if (!newReward.IsPopulated)
         {
@@ -82,6 +82,8 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
             PlaySound();
             AddRewardToCurrentScreen(newReward);
         }
+
+        return Task.CompletedTask;
     }
 
     private static Reward? GetSameTypeReward(Reward reward)

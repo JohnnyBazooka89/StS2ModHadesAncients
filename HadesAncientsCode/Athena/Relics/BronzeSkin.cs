@@ -21,7 +21,7 @@ public class BronzeSkin() : HadesAncientsRelic(HadesAncient.Athena), IModifyDama
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(LessDamagePercentKey, 15M)
+        new(LessDamagePercentKey, 20M)
     ];
 
     public decimal ModifyDamageMultiplicativeCompatibility(Creature? target, decimal amount, ValueProp props,

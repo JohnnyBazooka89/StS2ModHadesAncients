@@ -18,7 +18,7 @@ public class PremiumVintage() : HadesAncientsRelic(HadesAncient.Dionysus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(6M)
+        new MaxHpVar(5M)
     ];
 
     public override async Task AfterPotionUsed(PotionModel potion, Creature? target)
