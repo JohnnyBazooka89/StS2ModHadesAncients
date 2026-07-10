@@ -49,15 +49,11 @@ public static class ModifyDamageMultiplicativeCompatPatch
         object?[] __args
     )
     {
-        if (__instance is not IModifyDamageMultiplicativeCompatibility compat)
+        if (__instance is not IModifyDamageMultiplicativeCompatibility compatibility)
             return;
 
         Creature? target = (Creature?)__args[0];
-
-        // You can also use (decimal)__args[1] here.
-        // Using __result allows other earlier modifiers/patches to be preserved.
-        decimal amount = __result;
-
+        decimal amount = (decimal)__args[1]!;
         ValueProp props = (ValueProp)__args[2]!;
         Creature? dealer = (Creature?)__args[3];
         CardModel? cardSource = (CardModel?)__args[4];
@@ -66,7 +62,7 @@ public static class ModifyDamageMultiplicativeCompatPatch
             ? (CardPlay?)__args[5]
             : null;
 
-        __result = compat.ModifyDamageMultiplicativeCompatibility(
+        __result *= compatibility.ModifyDamageMultiplicativeCompatibility(
             target,
             amount,
             props,

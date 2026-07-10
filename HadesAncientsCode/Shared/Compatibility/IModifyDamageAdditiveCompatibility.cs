@@ -20,7 +20,7 @@ public interface IModifyDamageAdditiveCompatibility
 }
 
 [HarmonyPatch]
-public static class ModifyDamageAdditiveCompatPatch
+public static class ModifyDamageAdditiveCompatibilityPatch
 {
     private const string MethodName = "ModifyDamageAdditive";
 
@@ -33,10 +33,10 @@ public static class ModifyDamageAdditiveCompatPatch
             {
                 ParameterInfo[] parameters = m.GetParameters();
 
-                // Old:
+                // Old version:
                 // ModifyDamageAdditive(target, amount, props, dealer, cardSource)
 
-                // New:
+                // New version:
                 // ModifyDamageAdditive(target, amount, props, dealer, cardSource, cardPlay)
 
                 return parameters.Length is 5 or 6;
@@ -53,10 +53,7 @@ public static class ModifyDamageAdditiveCompatPatch
             return;
 
         Creature? target = (Creature?)__args[0];
-
-        // Use __result instead of __args[1] so earlier patches/modifiers are preserved.
-        decimal amount = __result;
-
+        decimal amount = (decimal)__args[1]!;
         ValueProp props = (ValueProp)__args[2]!;
         Creature? dealer = (Creature?)__args[3];
         CardModel? cardSource = (CardModel?)__args[4];
@@ -65,7 +62,7 @@ public static class ModifyDamageAdditiveCompatPatch
             ? (CardPlay?)__args[5]
             : null;
 
-        __result = compatibility.ModifyDamageAdditiveCompatibility(
+        __result += compatibility.ModifyDamageAdditiveCompatibility(
             target,
             amount,
             props,
