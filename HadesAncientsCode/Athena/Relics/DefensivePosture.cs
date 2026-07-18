@@ -68,7 +68,7 @@ public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModi
 
     public override Task AfterRoomEntered(AbstractRoom room)
     {
-        if (!(room is CombatRoom))
+        if (room is not CombatRoom)
             return Task.CompletedTask;
         UsedThisCombat = false;
         Status = RelicStatus.Active;

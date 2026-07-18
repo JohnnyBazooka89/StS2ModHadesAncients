@@ -30,7 +30,7 @@ public class GrandCaldera() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (!(room is CombatRoom))
+        if (room is not CombatRoom)
             return;
         List<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
             .Where(c => c.IsAlive).ToList();

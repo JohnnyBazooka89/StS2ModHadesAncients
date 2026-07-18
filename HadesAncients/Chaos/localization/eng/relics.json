@@ -1,0 +1,11 @@
+{
+  "HADESANCIENTS-THE_HUNTRESS.title": "The Huntress",
+  "HADESANCIENTS-THE_HUNTRESS.description": "While you have no Energy, your Attacks deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional Block from Skills.",
+  "HADESANCIENTS-THE_HUNTRESS.flavor": "",
+  "HADESANCIENTS-THE_SORCERESS.title": "The Sorceress",
+  "HADESANCIENTS-THE_SORCERESS.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, gain {Energy:energyIcons()}.",
+  "HADESANCIENTS-THE_SORCERESS.flavor": "",
+  "HADESANCIENTS-THE_WAYWARD_SON.title": "The Wayward Son",
+  "HADESANCIENTS-THE_WAYWARD_SON.description": "At the end of each combat, heal [blue]{Heal}[/blue] HP.",
+  "HADESANCIENTS-THE_WAYWARD_SON.flavor": ""
+}
