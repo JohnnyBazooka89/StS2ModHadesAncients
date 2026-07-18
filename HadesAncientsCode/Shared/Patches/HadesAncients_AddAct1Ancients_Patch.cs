@@ -1,77 +1,63 @@
 ﻿using System.Reflection;
-using System.Reflection.Emit;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using HadesAncients.HadesAncientsCode.Chaos.Ancients;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.Unlocks;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Patches;
 
-[HarmonyPatch(
-    typeof(ActModel),
-    nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool))]
+[HarmonyPatch]
 public static class HadesAncients_AddAct1Ancients_Patch
 {
-    private static readonly MethodInfo AddAncientsMethod =
-        AccessTools.Method(
-            typeof(HadesAncients_AddAct1Ancients_Patch),
-            nameof(AddAncients),
-            [
-                typeof(IEnumerable<AncientEventModel>),
-                typeof(ActModel)
-            ]);
+    private static readonly IReadOnlyList<ModelId> Act1AncientIds =
+    [
+        ModelDb.GetId<ChaosAncient>()
+    ];
 
-    private static readonly MethodInfo EnumerableConcatMethod =
-        AccessTools.Method(typeof(Enumerable), nameof(Enumerable.Concat))
-            .MakeGenericMethod(typeof(AncientEventModel));
-    private static readonly IReadOnlyList<ModelId> Act1AncientsIds = [ModelDb.GetId<ChaosAncient>()];
-
-    [HarmonyTranspiler]
-    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    [HarmonyTargetMethods]
+    public static IEnumerable<MethodBase> TargetMethods()
     {
-        foreach (CodeInstruction instruction in instructions)
-        {
-            yield return instruction;
+        MethodInfo abstractMethod = AccessTools.DeclaredMethod(
+            typeof(ActModel),
+            nameof(ActModel.GetUnlockedAncients),
+            [typeof(UnlockState)]);
 
-            // Stack after Concat:
-            // [IEnumerable<AncientEventModel>]
-            if (instruction.Calls(EnumerableConcatMethod))
-            {
-                // GenerateRooms is an instance method, so argument 0 is `this`.
-                //
-                // Stack becomes:
-                // [IEnumerable<AncientEventModel>, ActModel]
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-
-                // Calls AddAncients(ancients, actModel).
-                yield return new CodeInstruction(
-                    OpCodes.Call,
-                    AddAncientsMethod);
-            }
-        }
+        return AccessTools.AllTypes()
+            .Where(type =>
+                type != typeof(ActModel) &&
+                typeof(ActModel).IsAssignableFrom(type))
+            .Select(type => AccessTools.Method(
+                type,
+                nameof(ActModel.GetUnlockedAncients),
+                [typeof(UnlockState)]))
+            .Where(method =>
+                method is not null &&
+                !method.IsAbstract &&
+                method.GetBaseDefinition() == abstractMethod)
+            .Distinct();
     }
 
-    private static IEnumerable<AncientEventModel> AddAncients(IEnumerable<AncientEventModel> ancients,
-        ActModel actModel)
+    [HarmonyPostfix]
+    private static IEnumerable<AncientEventModel> Postfix(
+        IEnumerable<AncientEventModel> ancients,
+        ActModel __instance)
     {
-        var ancientEventModels = ancients.ToList();
-        if (actModel.ActNumber() != 1)
+        if (__instance.ActNumber() != 1)
+            return ancients;
+
+        List<AncientEventModel> result = ancients.ToList();
+
+        foreach (ModelId ancientId in Act1AncientIds)
         {
-            return ancientEventModels;
+            CustomAncientModel ancient =
+                ModelDb.GetById<CustomAncientModel>(ancientId);
+
+            if (ancient.IsValidForAct(__instance))
+                result.Add(ancient);
         }
 
-        foreach (ModelId act1AncientId in Act1AncientsIds)
-        {
-            CustomAncientModel act1Ancient = ModelDb.GetById<CustomAncientModel>(act1AncientId);
-            if (act1Ancient.IsValidForAct(actModel))
-            {
-                ancientEventModels.Add(act1Ancient);
-            }
-        }
-
-        return ancientEventModels;
+        return result;
     }
 }
