@@ -1,4 +1,5 @@
 ﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Chaos.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
@@ -23,7 +24,9 @@ public class ChaosAncient : CustomAncientModel
         {
             List<AncientOption> relics =
             [
+                AncientOption<Eternity>(),
                 AncientOption<TheHuntress>(),
+                AncientOption<TheMoon>(),
                 AncientOption<TheSorceress>(),
                 AncientOption<TheWaywardSon>(),
             ];
@@ -36,7 +39,6 @@ public class ChaosAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        //return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableChaos;
-        return false; // Don't spawn naturally, until it's finished.
+        return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableChaos;
     }
 }

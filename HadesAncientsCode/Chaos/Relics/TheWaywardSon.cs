@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheWaywardSon() : HadesAncientsRelic(HadesAncient.Chaos), ArcanaCardRelic
+public class TheWaywardSon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 

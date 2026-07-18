@@ -1,7 +1,13 @@
 {
+  "HADESANCIENTS-ETERNITY.title": "Eternity",
+  "HADESANCIENTS-ETERNITY.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
+  "HADESANCIENTS-ETERNITY.flavor": "",
   "HADESANCIENTS-THE_HUNTRESS.title": "The Huntress",
   "HADESANCIENTS-THE_HUNTRESS.description": "While you have no Energy, your Attacks deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional Block from Skills.",
   "HADESANCIENTS-THE_HUNTRESS.flavor": "",
+  "HADESANCIENTS-THE_MOON.title": "The Moon",
+  "HADESANCIENTS-THE_MOON.description": "At the start of your [blue]3rd[/blue] turn, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
+  "HADESANCIENTS-THE_MOON.flavor": "",
   "HADESANCIENTS-THE_SORCERESS.title": "The Sorceress",
   "HADESANCIENTS-THE_SORCERESS.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, gain {Energy:energyIcons()}.",
   "HADESANCIENTS-THE_SORCERESS.flavor": "",

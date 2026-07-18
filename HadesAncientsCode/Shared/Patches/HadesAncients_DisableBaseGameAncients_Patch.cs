@@ -42,20 +42,28 @@ public static class HadesAncients_DisableBaseGameAncients_Patch
         }
     }
 
-    private static IEnumerable<AncientEventModel> FilterAncients(IEnumerable<AncientEventModel> ancients)
+    private static IEnumerable<AncientEventModel> FilterAncients(
+        IEnumerable<AncientEventModel> ancients)
     {
-        if (!HadesAncientsModConfig.DisableBaseGameAncients)
-            return ancients;
+        IEnumerable<AncientEventModel> filtered = ancients;
 
-        return ancients
-            .Where(ancient =>
+        if (!HadesAncientsModConfig.DisableBaseGameAncients)
+        {
+            filtered = filtered.Where(ancient =>
                 ancient is not Nonupeipe &&
                 ancient is not Tanx &&
                 ancient is not Vakuu &&
                 ancient is not Orobas &&
                 ancient is not Pael &&
                 ancient is not Tezcatara &&
-                ancient is not Darv)
-            .ToArray();
+                ancient is not Darv);
+        }
+
+        if (HadesAncientsModConfig.DisableNeow)
+        {
+            filtered = filtered.Where(ancient => ancient is not Neow);
+        }
+
+        return filtered.ToArray();
     }
 }

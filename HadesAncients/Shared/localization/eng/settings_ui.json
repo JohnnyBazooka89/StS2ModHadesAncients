@@ -1,5 +1,7 @@
 {
   "HADESANCIENTS.mod_title": "Hades Ancients",
+  "HADESANCIENTS-ANCIENTS_ACT1.title": "Ancients - Act 1",
+  "HADESANCIENTS-DISABLE_CHAOS.title": "Disable Chaos",
   "HADESANCIENTS-ANCIENTS_ACT2.title": "Ancients - Act 2",
   "HADESANCIENTS-DISABLE_ATHENA.title": "Disable Athena",
   "HADESANCIENTS-DISABLE_POSEIDON.title": "Disable Poseidon",
@@ -9,6 +11,7 @@
   "HADESANCIENTS-DISABLE_DIONYSUS.title": "Disable Dionysus",
   "HADESANCIENTS-DISABLE_HEPHAESTUS.title": "Disable Hephaestus",
   "HADESANCIENTS-BASE_GAME_ANCIENTS.title": "Base Game Ancients",
+  "HADESANCIENTS-DISABLE_NEOW.title": "Disable Neow",
   "HADESANCIENTS-DISABLE_BASE_GAME_ANCIENTS.title": "Disable Base Game Ancients in Acts 2 and 3",
   "HADESANCIENTS-POSEIDON.title": "Poseidon",
   "HADESANCIENTS-POSEIDON_DISABLE_SEA_STAR_SOUND_EFFECTS.title": "Disable 'Sea Star' sound effects."

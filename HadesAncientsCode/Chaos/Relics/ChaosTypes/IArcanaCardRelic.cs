@@ -1,6 +1,6 @@
 ﻿namespace HadesAncients.HadesAncientsCode.Chaos.Relics.ChaosTypes;
 
-public interface ArcanaCardRelic
+public interface IArcanaCardRelic
 {
     int GetCardNumber();
 }

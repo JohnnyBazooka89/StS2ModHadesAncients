@@ -14,7 +14,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheHuntress() : HadesAncientsRelic(HadesAncient.Chaos), ArcanaCardRelic, IModifyDamageAdditiveCompatibility
+public class TheHuntress()
+    : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic, IModifyDamageAdditiveCompatibility
 {
     private const string MoreDamageKey = "MoreDamage";
     private const string MoreBlockKey = "MoreBlock";

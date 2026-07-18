@@ -10,11 +10,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic
+public class Eternity() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic
 {
     private const string EnergyThresholdKey = "EnergyThreshold";
 
@@ -24,7 +25,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCar
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1),
+        new BlockVar(8, ValueProp.Unpowered),
         new EnergyVar(EnergyThresholdKey, 2)
     ];
 
@@ -35,7 +36,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCar
 
     public int GetCardNumber()
     {
-        return 1;
+        return 4;
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
@@ -46,7 +47,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCar
             return;
         Flash();
         UsedThisCombat = true;
-        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
     }
 
     public override Task AfterRoomEntered(AbstractRoom room)
