@@ -13,6 +13,8 @@ This mod introduces a collection of new Ancients from the hit game Hades 2. Curr
 | Act 3 | Dionysus | Hangover, potions, max HP, healing, unpredictable combat effects.                            |
 | Act 3 | Hephaestus | Applying Blast, Forge Armor, upgrades & enchantments, self-harm.                             |
 
+This mod works on both the Main Branch (v0.107.1) and the Beta Branch (v0.109.0).
+
 This mod should work properly in multiplayer. In case of any problems, please report them and include the logs (%APPDATA%\SlayTheSpire2\logs\godot.log file) if possible.
 
 ## 🌐 Localization

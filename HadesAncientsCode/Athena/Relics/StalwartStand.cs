@@ -33,7 +33,7 @@ public class StalwartStand() : HadesAncientsRelic(HadesAncient.Athena)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.Static(StaticHoverTips.DeathDefiance)
+        HoverTipFactory.Static(AthenaStaticHoverTips.DeathDefiance)
     ];
 
     [SavedProperty]
