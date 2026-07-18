@@ -47,7 +47,7 @@ public static class HadesAncients_DisableBaseGameAncients_Patch
     {
         IEnumerable<AncientEventModel> filtered = ancients;
 
-        if (!HadesAncientsModConfig.DisableBaseGameAncients)
+        if (HadesAncientsModConfig.DisableBaseGameAncients)
         {
             filtered = filtered.Where(ancient =>
                 ancient is not Nonupeipe &&
