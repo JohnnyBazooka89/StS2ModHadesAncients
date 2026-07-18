@@ -15,12 +15,6 @@ namespace HadesAncients.HadesAncientsCode.Shared.Patches;
     nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool))]
 public static class HadesAncients_AddAct1Ancients_Patch
 {
-    private static readonly Lazy<IReadOnlyList<CustomAncientModel>> Act1Ancients =
-        new(() =>
-        [
-            ModelDb.AncientEvent<ChaosAncient>()
-        ]);
-
     private static readonly MethodInfo AddAncientsMethod =
         AccessTools.Method(
             typeof(HadesAncients_AddAct1Ancients_Patch),
@@ -33,7 +27,7 @@ public static class HadesAncients_AddAct1Ancients_Patch
     private static readonly MethodInfo EnumerableConcatMethod =
         AccessTools.Method(typeof(Enumerable), nameof(Enumerable.Concat))
             .MakeGenericMethod(typeof(AncientEventModel));
-    private static ChaosAncient _ancientEvent;
+    private static readonly IReadOnlyList<ModelId> Act1AncientsIds = [ModelDb.GetId<ChaosAncient>()];
 
     [HarmonyTranspiler]
     public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
@@ -69,8 +63,14 @@ public static class HadesAncients_AddAct1Ancients_Patch
             return ancientEventModels;
         }
 
-
-        ancientEventModels.AddRange(Act1Ancients.Value.Where(act1Ancient => act1Ancient.IsValidForAct(actModel)));
+        foreach (ModelId act1AncientId in Act1AncientsIds)
+        {
+            CustomAncientModel act1Ancient = ModelDb.GetById<CustomAncientModel>(act1AncientId);
+            if (act1Ancient.IsValidForAct(actModel))
+            {
+                ancientEventModels.Add(act1Ancient);
+            }
+        }
 
         return ancientEventModels;
     }
