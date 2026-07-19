@@ -4,9 +4,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Hooks;
 
-public interface IModifyHpLostAfterOstyLateFinal
+public interface IModifyHpLostAfterOstyFinal
 {
-    decimal ModifyHpLostAfterOstyLateFinal(
+    decimal ModifyHpLostAfterOstyFinal(
         Creature target,
         decimal amount,
         ValueProp props,

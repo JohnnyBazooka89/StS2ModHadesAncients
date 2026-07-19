@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Athena.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModifyHpLostAfterOstyLateFinal
+public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModifyHpLostAfterOstyFinal
 {
     private bool _usedThisCombat;
 
@@ -30,7 +30,7 @@ public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModi
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public decimal ModifyHpLostAfterOstyLateFinal(
+    public decimal ModifyHpLostAfterOstyFinal(
         Creature target,
         decimal amount,
         ValueProp props,

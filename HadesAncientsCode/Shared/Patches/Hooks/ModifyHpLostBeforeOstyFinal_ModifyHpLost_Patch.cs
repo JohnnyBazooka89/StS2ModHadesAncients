@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Shared.Patches.Hooks;
 
 [HarmonyPatch(typeof(Hook), nameof(Hook.ModifyHpLost))]
-public static class ModifyHpLostAfterOstyLateFinal_ModifyHpLost_Patch
+public static class ModifyHpLostBeforeOstyFinal_ModifyHpLost_Patch
 {
     public static void Postfix(
         IRunState runState,
@@ -24,10 +24,10 @@ public static class ModifyHpLostAfterOstyLateFinal_ModifyHpLost_Patch
         ref IEnumerable<AbstractModel> modifiers,
         ref decimal __result)
     {
-        if (!phases.HasFlag(HpLossHookPhase.AfterOsty))
+        if (!phases.HasFlag(HpLossHookPhase.BeforeOsty))
             return;
 
-        __result = HadesAncientsHooks.ModifyHpLostAfterOstyLateFinal(
+        __result = HadesAncientsHooks.ModifyHpLostBeforeOstyFinal(
             runState,
             combatState,
             target,
