@@ -1,5 +1,5 @@
 ﻿using BaseLib.Utils;
-using HadesAncients.HadesAncientsCode.Chaos.Relics.ChaosTypes;
+using HadesAncients.HadesAncientsCode.Chaos.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheWaywardSon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic
+public class TheWaywardSon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
@@ -20,7 +20,7 @@ public class TheWaywardSon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCa
         new HealVar(2M)
     ];
 
-    public int GetCardNumber()
+    public int GetArcanaRelicNumber()
     {
         return 2;
     }

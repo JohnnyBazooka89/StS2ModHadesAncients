@@ -1,5 +1,5 @@
 ﻿using BaseLib.Utils;
-using HadesAncients.HadesAncientsCode.Chaos.Relics.ChaosTypes;
+using HadesAncients.HadesAncientsCode.Chaos.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
@@ -15,7 +15,7 @@ namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
 public class TheHuntress()
-    : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic, IModifyDamageAdditiveCompatibility
+    : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic, IModifyDamageAdditiveCompatibility
 {
     private const string MoreDamageKey = "MoreDamage";
     private const string MoreBlockKey = "MoreBlock";
@@ -27,7 +27,7 @@ public class TheHuntress()
         new(MoreBlockKey, 3),
     ];
 
-    public int GetCardNumber()
+    public int GetArcanaRelicNumber()
     {
         return 3;
     }

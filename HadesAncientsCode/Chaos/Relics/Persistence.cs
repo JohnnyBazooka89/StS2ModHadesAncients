@@ -6,25 +6,25 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheMoon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
+public class Persistence()
+    : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
 {
-    private const string TurnKey = "Turn";
+    private const string MoreDamagePercentKey = "MoreDamagePercent";
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(TurnKey, 3M),
-        new EnergyVar(1),
-        new CardsVar(2),
+        new MaxHpVar(6M),
+        new EnergyVar(1)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -34,7 +34,12 @@ public class TheMoon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
 
     public int GetArcanaRelicNumber()
     {
-        return 5;
+        return 7;
+    }
+
+    public override async Task AfterObtained()
+    {
+        await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.BaseValue);
     }
 
     public override async Task AfterSideTurnStart(
@@ -42,15 +47,15 @@ public class TheMoon() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        if (!participants.Contains(Owner.Creature))
-            return;
-        if (combatState.RoundNumber == DynamicVars[TurnKey].IntValue)
+        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState!.TurnNumber > 1 ||
+            (Owner.RunState.CurrentRoom?.RoomType != RoomType.Elite &&
+             Owner.RunState.CurrentRoom?.RoomType != RoomType.Boss)
+           )
         {
-            Flash();
-            await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
-            await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), DynamicVars.Cards.BaseValue, Owner);
+            return;
         }
 
-        InvokeDisplayAmountChanged();
+        Flash();
+        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 }

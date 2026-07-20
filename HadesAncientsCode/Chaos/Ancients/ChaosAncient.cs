@@ -25,7 +25,10 @@ public class ChaosAncient : CustomAncientModel
             List<AncientOption> relics =
             [
                 AncientOption<Eternity>(),
+                AncientOption<Persistence>(),
+                AncientOption<TheFuries>(),
                 AncientOption<TheHuntress>(),
+                AncientOption<TheMessenger>(),
                 AncientOption<TheMoon>(),
                 AncientOption<TheSorceress>(),
                 AncientOption<TheWaywardSon>(),

@@ -26,13 +26,11 @@ public class HeartbreakStrike() : HadesAncientsRelic(HadesAncient.Aphrodite), IM
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(MoreDamagePercentKey, 10M),
-        new PowerVar<StrengthPower>(3M),
         new PowerVar<WeakPower>(1M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<StrengthPower>(),
         HoverTipFactory.FromPower<WeakPower>()
     ];
 

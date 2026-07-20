@@ -1,5 +1,5 @@
 ﻿using BaseLib.Utils;
-using HadesAncients.HadesAncientsCode.Chaos.Relics.ChaosTypes;
+using HadesAncients.HadesAncientsCode.Chaos.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,7 +14,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Chaos.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCardRelic
+public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaRelic
 {
     private const string EnergyThresholdKey = "EnergyThreshold";
 
@@ -33,7 +33,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Chaos), IArcanaCar
         HoverTipFactory.ForEnergy(this)
     ];
 
-    public int GetCardNumber()
+    public int GetArcanaRelicNumber()
     {
         return 1;
     }
