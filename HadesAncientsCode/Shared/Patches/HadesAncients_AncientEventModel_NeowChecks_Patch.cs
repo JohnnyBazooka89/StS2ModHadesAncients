@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
-using HadesAncients.HadesAncientsCode.Chaos.Ancients;
+using HadesAncients.HadesAncientsCode.Hecate.Ancients;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Events;
@@ -99,7 +99,7 @@ public static class HadesAncients_AncientEventModel_NeowChecks_Patch
     /// </summary>
     private static object? IsNeowLike(object? ancient)
     {
-        return ancient is Neow or ChaosAncient
+        return ancient is Neow or HecateAncient
             ? ancient
             : null;
     }

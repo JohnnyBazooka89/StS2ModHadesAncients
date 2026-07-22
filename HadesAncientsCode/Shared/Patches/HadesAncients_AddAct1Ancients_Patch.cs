@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using HadesAncients.HadesAncientsCode.Chaos.Ancients;
+using HadesAncients.HadesAncientsCode.Hecate.Ancients;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Unlocks;
@@ -13,7 +13,7 @@ public static class HadesAncients_AddAct1Ancients_Patch
 {
     private static readonly IReadOnlyList<ModelId> Act1AncientIds =
     [
-        ModelDb.GetId<ChaosAncient>()
+        ModelDb.GetId<HecateAncient>()
     ];
 
     [HarmonyTargetMethods]

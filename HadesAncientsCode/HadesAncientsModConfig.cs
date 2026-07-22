@@ -5,7 +5,7 @@ namespace HadesAncients.HadesAncientsCode;
 public class HadesAncientsModConfig : SimpleModConfig
 {
     [ConfigSection("AncientsAct1")] //
-    public static bool DisableChaos { get; set; } = false;
+    public static bool DisableHecate { get; set; } = false;
     [ConfigSection("AncientsAct2")] //
     public static bool DisableAthena { get; set; } = false;
     public static bool DisablePoseidon { get; set; } = false;
