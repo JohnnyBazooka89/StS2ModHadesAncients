@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csw1aee78k3t0"
-path="res://.godot/imported/persistence.png-b3814e3ae25faecce840205c268d85fc.ctex"
+path="res://.godot/imported/persistence.png-466402892f7e9a9f976cf1586d0a5db2.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/persistence.png"
-dest_files=["res://.godot/imported/persistence.png-b3814e3ae25faecce840205c268d85fc.ctex"]
+dest_files=["res://.godot/imported/persistence.png-466402892f7e9a9f976cf1586d0a5db2.ctex"]
 
 [params]
 

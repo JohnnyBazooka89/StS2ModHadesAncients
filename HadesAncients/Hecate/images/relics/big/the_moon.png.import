@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cim4r7rgivht3"
-path="res://.godot/imported/the_moon.png-003a4d0c834651acb1c7490ce838dd23.ctex"
+path="res://.godot/imported/the_moon.png-8c1583f37250b4b1e0a3ac429f1ad73e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_moon.png"
-dest_files=["res://.godot/imported/the_moon.png-003a4d0c834651acb1c7490ce838dd23.ctex"]
+dest_files=["res://.godot/imported/the_moon.png-8c1583f37250b4b1e0a3ac429f1ad73e.ctex"]
 
 [params]
 

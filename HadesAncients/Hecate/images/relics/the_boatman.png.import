@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx8rk7koo8iw7"
-path="res://.godot/imported/the_boatman.png-e30dd7712258d0f189ca8792f2037e37.ctex"
+path="res://.godot/imported/the_boatman.png-923fe2276d1c2681394c30c4ddf3e090.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/the_boatman.png"
-dest_files=["res://.godot/imported/the_boatman.png-e30dd7712258d0f189ca8792f2037e37.ctex"]
+dest_files=["res://.godot/imported/the_boatman.png-923fe2276d1c2681394c30c4ddf3e090.ctex"]
 
 [params]
 

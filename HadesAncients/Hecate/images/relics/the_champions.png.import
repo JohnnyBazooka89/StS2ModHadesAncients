@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bed7633xfkubt"
-path="res://.godot/imported/the_champions.png-cb27407595372b649fa2da0b6da6f787.ctex"
+path="res://.godot/imported/the_champions.png-51219a1bc2247b0385ae57077d425c91.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/the_champions.png"
-dest_files=["res://.godot/imported/the_champions.png-cb27407595372b649fa2da0b6da6f787.ctex"]
+dest_files=["res://.godot/imported/the_champions.png-51219a1bc2247b0385ae57077d425c91.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
   "HADESANCIENTS-DEATH.description": "Upon pickup, gain [blue]{DeathDefianceToGain}[/blue] [gold]Death Defiance[/gold].",
   "HADESANCIENTS-DEATH.flavor": "",
   "HADESANCIENTS-ETERNITY.title": "Eternity",
-  "HADESANCIENTS-ETERNITY.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
+  "HADESANCIENTS-ETERNITY.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, ALL enemies lose [blue]{StrengthLoss:diff()}[/blue] [gold]Strength[/gold] this turn.",
   "HADESANCIENTS-ETERNITY.flavor": "",
   "HADESANCIENTS-NIGHT.title": "Night",
   "HADESANCIENTS-NIGHT.description": "The [blue]3rd[/blue] Attack played each combat is played an additional time.",

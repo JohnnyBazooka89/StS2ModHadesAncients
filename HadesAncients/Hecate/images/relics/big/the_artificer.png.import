@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://craxsn22w2ppj"
-path="res://.godot/imported/the_artificer.png-ebabdc555f13318a879075e4faa34920.ctex"
+path="res://.godot/imported/the_artificer.png-59bee6cb6cffc91f3fa6fe19b7ec695f.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_artificer.png"
-dest_files=["res://.godot/imported/the_artificer.png-ebabdc555f13318a879075e4faa34920.ctex"]
+dest_files=["res://.godot/imported/the_artificer.png-59bee6cb6cffc91f3fa6fe19b7ec695f.ctex"]
 
 [params]
 

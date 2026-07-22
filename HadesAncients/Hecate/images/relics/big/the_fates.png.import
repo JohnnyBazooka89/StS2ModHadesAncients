@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwwbmorcntljb"
-path="res://.godot/imported/the_fates.png-96b7455da76c0f6234a11bd9d55db279.ctex"
+path="res://.godot/imported/the_fates.png-b10a3c7774474b2c2b7530e9d0d2e52f.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_fates.png"
-dest_files=["res://.godot/imported/the_fates.png-96b7455da76c0f6234a11bd9d55db279.ctex"]
+dest_files=["res://.godot/imported/the_fates.png-b10a3c7774474b2c2b7530e9d0d2e52f.ctex"]
 
 [params]
 

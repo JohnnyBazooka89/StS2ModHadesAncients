@@ -1,13 +1,16 @@
 ﻿using BaseLib.Utils;
+using HadesAncients.HadesAncientsCode.Hecate.Powers;
 using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -17,6 +20,7 @@ namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 [Pool(typeof(EventRelicPool))]
 public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
+    public const string StrengthLossKey = "StrengthLoss";
     private const string EnergyThresholdKey = "EnergyThreshold";
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
@@ -26,12 +30,14 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(8, ValueProp.Unpowered),
-        new EnergyVar(EnergyThresholdKey, 2)
+        new EnergyVar(EnergyThresholdKey, 2),
+        new(StrengthLossKey, 6M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.ForEnergy(this)
+        HoverTipFactory.ForEnergy(this),
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
 
     public int GetArcanaRelicNumber()
@@ -47,7 +53,12 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
             return;
         Flash();
         UsedThisCombat = true;
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
+        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
+        foreach (Creature hittableEnemy in Owner.Creature.CombatState!.HittableEnemies)
+        {
+            await PowerCmd.Apply<EternityPower>(context, hittableEnemy, DynamicVars[StrengthLossKey].BaseValue,
+                Owner.Creature, null);
+        }
     }
 
     public override Task AfterRoomEntered(AbstractRoom room)

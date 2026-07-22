@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://drt25sljldus3"
-path="res://.godot/imported/excellence.png-b6a7b12095ae9487d63732450da3383b.ctex"
+path="res://.godot/imported/excellence.png-db96d70d2e7e2f1a19629ed8dfed016e.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/outline/excellence.png"
-dest_files=["res://.godot/imported/excellence.png-b6a7b12095ae9487d63732450da3383b.ctex"]
+dest_files=["res://.godot/imported/excellence.png-db96d70d2e7e2f1a19629ed8dfed016e.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co2jpyu7v4yb3"
-path="res://.godot/imported/the_enchantress.png-9c8634e68e777c52247dfde3257c955a.ctex"
+path="res://.godot/imported/the_enchantress.png-f83d837fd3ffdbcc3b325a2f0dc44582.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_enchantress.png"
-dest_files=["res://.godot/imported/the_enchantress.png-9c8634e68e777c52247dfde3257c955a.ctex"]
+dest_files=["res://.godot/imported/the_enchantress.png-f83d837fd3ffdbcc3b325a2f0dc44582.ctex"]
 
 [params]
 

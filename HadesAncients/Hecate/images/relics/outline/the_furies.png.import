@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpf3aa2vaay7h"
-path="res://.godot/imported/the_furies.png-92f0091fb1f036146de38e69497d0c1b.ctex"
+path="res://.godot/imported/the_furies.png-6a2946f4f31690a5aa7225d95128f4b4.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/outline/the_furies.png"
-dest_files=["res://.godot/imported/the_furies.png-92f0091fb1f036146de38e69497d0c1b.ctex"]
+dest_files=["res://.godot/imported/the_furies.png-6a2946f4f31690a5aa7225d95128f4b4.ctex"]
 
 [params]
 

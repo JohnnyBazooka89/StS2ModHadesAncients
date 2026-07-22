@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c00gcwwtkigt7"
-path="res://.godot/imported/the_sorceress.png-a8c019fd9131dfc99801bbf67693acd9.ctex"
+uid="uid://d337xw4glftwd"
+path="res://.godot/imported/eternity_power.png-c47f3e03b1e60d6d5c2411d5ff6f7a11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hecate/images/relics/outline/the_sorceress.png"
-dest_files=["res://.godot/imported/the_sorceress.png-a8c019fd9131dfc99801bbf67693acd9.ctex"]
+source_file="res://HadesAncients/Hecate/images/powers/eternity_power.png"
+dest_files=["res://.godot/imported/eternity_power.png-c47f3e03b1e60d6d5c2411d5ff6f7a11.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://xjqr7lprsdpp"
-path="res://.godot/imported/judgement.png-e722e198df6dca6deaa5fcf68e275b0d.ctex"
+path="res://.godot/imported/judgement.png-cc23d02e113b62975ee4d3da0964dcd6.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/judgement.png"
-dest_files=["res://.godot/imported/judgement.png-e722e198df6dca6deaa5fcf68e275b0d.ctex"]
+dest_files=["res://.godot/imported/judgement.png-cc23d02e113b62975ee4d3da0964dcd6.ctex"]
 
 [params]
 

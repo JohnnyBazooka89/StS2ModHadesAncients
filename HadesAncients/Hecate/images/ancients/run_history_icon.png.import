@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8yo5h21mkih0"
-path="res://.godot/imported/run_history_icon.png-337515b418e0178c547096b4ea6282ea.ctex"
+path="res://.godot/imported/run_history_icon.png-a48296d52289066ed0ef81bad8eada81.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-337515b418e0178c547096b4ea6282ea.ctex"]
+dest_files=["res://.godot/imported/run_history_icon.png-a48296d52289066ed0ef81bad8eada81.ctex"]
 
 [params]
 

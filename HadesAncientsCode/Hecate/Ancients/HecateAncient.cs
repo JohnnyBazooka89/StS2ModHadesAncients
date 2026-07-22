@@ -24,13 +24,17 @@ public class HecateAncient : CustomAncientModel
         {
             List<AncientOption> relics =
             [
+                AncientOption<Death>(),
                 AncientOption<Eternity>(),
+                AncientOption<Night>(),
                 AncientOption<Persistence>(),
                 AncientOption<TheFuries>(),
                 AncientOption<TheHuntress>(),
                 AncientOption<TheMessenger>(),
                 AncientOption<TheMoon>(),
                 AncientOption<TheSorceress>(),
+                AncientOption<TheSwiftRunner>(),
+                AncientOption<TheUnseen>(),
                 AncientOption<TheWaywardSon>(),
             ];
 

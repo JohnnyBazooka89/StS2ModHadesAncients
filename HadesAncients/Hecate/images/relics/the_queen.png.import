@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byoar1d010iqa"
-path="res://.godot/imported/the_queen.png-4b07929a2e3476b799f4c04b503fa0ee.ctex"
+path="res://.godot/imported/the_queen.png-4eb80f0a6c06ac045ad888ee49b97a9d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/the_queen.png"
-dest_files=["res://.godot/imported/the_queen.png-4b07929a2e3476b799f4c04b503fa0ee.ctex"]
+dest_files=["res://.godot/imported/the_queen.png-4eb80f0a6c06ac045ad888ee49b97a9d.ctex"]
 
 [params]
 

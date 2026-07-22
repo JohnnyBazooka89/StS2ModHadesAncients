@@ -24,8 +24,8 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRe
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1),
-        new EnergyVar(EnergyThresholdKey, 2)
+        new EnergyVar(2),
+        new EnergyVar(EnergyThresholdKey, 3)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>

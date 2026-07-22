@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qibcthbncyq"
-path="res://.godot/imported/the_sorceress.png-392753ccb902ab1a109df2521ad8872c.ctex"
+path="res://.godot/imported/the_sorceress.png-4fd2aca803084c2e2dd18d02cb7f560c.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/the_sorceress.png"
-dest_files=["res://.godot/imported/the_sorceress.png-392753ccb902ab1a109df2521ad8872c.ctex"]
+dest_files=["res://.godot/imported/the_sorceress.png-4fd2aca803084c2e2dd18d02cb7f560c.ctex"]
 
 [params]
 

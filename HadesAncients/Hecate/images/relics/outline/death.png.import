@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8rq82wvkghdf"
-path="res://.godot/imported/death.png-a470b679e4822d7ea2043beba2dab2a3.ctex"
+path="res://.godot/imported/death.png-fd1426b3401df79002bb218ea774a514.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/outline/death.png"
-dest_files=["res://.godot/imported/death.png-a470b679e4822d7ea2043beba2dab2a3.ctex"]
+dest_files=["res://.godot/imported/death.png-fd1426b3401df79002bb218ea774a514.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c48n51upbeh2l"
-path="res://.godot/imported/map_icon.png-c965b3b3ff00ddd3549b42cde0da77ae.ctex"
+path="res://.godot/imported/map_icon.png-bc41ec5a44e5530292296b87ead0ab67.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/ancients/map_icon.png"
-dest_files=["res://.godot/imported/map_icon.png-c965b3b3ff00ddd3549b42cde0da77ae.ctex"]
+dest_files=["res://.godot/imported/map_icon.png-bc41ec5a44e5530292296b87ead0ab67.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://byonehmu2wh14"
-path="res://.godot/imported/the_huntress.png-be5c2fa332fd51adbc30f50192884748.ctex"
+path="res://.godot/imported/the_huntress.png-47a9d84f7f3853328009ced57bcdf7cc.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_huntress.png"
-dest_files=["res://.godot/imported/the_huntress.png-be5c2fa332fd51adbc30f50192884748.ctex"]
+dest_files=["res://.godot/imported/the_huntress.png-47a9d84f7f3853328009ced57bcdf7cc.ctex"]
 
 [params]
 

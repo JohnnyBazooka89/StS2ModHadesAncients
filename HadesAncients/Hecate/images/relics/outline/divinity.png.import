@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://da00s7shp0w0p"
-path="res://.godot/imported/divinity.png-512d1d2b6f76d7fd95c53fa8f8ce739e.ctex"
+path="res://.godot/imported/divinity.png-016c072f942c0abf501d4d701bb05e12.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/outline/divinity.png"
-dest_files=["res://.godot/imported/divinity.png-512d1d2b6f76d7fd95c53fa8f8ce739e.ctex"]
+dest_files=["res://.godot/imported/divinity.png-016c072f942c0abf501d4d701bb05e12.ctex"]
 
 [params]
 

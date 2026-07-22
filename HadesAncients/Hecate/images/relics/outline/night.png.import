@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://u5fbgn1m267o"
-path="res://.godot/imported/night.png-b9fb062f23e9af15dc2697e03a3fe194.ctex"
+path="res://.godot/imported/night.png-e308d8e4a26885b6611b3821e0d6b4ea.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/outline/night.png"
-dest_files=["res://.godot/imported/night.png-b9fb062f23e9af15dc2697e03a3fe194.ctex"]
+dest_files=["res://.godot/imported/night.png-e308d8e4a26885b6611b3821e0d6b4ea.ctex"]
 
 [params]
 

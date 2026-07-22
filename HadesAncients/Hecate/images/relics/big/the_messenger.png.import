@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvbdck5uhuph3"
-path="res://.godot/imported/the_messenger.png-ad9cbb7c1059545256c8e77e0d15ea4c.ctex"
+path="res://.godot/imported/the_messenger.png-567f9a70e15ac7c229d689db28ff3e78.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://HadesAncients/Hecate/images/relics/big/the_messenger.png"
-dest_files=["res://.godot/imported/the_messenger.png-ad9cbb7c1059545256c8e77e0d15ea4c.ctex"]
+dest_files=["res://.godot/imported/the_messenger.png-567f9a70e15ac7c229d689db28ff3e78.ctex"]
 
 [params]
 
