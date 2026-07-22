@@ -4,6 +4,7 @@ using Godot;
 using HadesAncients.HadesAncientsCode.Aphrodite.Ancients;
 using HadesAncients.HadesAncientsCode.Athena.Ancients;
 using HadesAncients.HadesAncientsCode.Dionysus.Ancients;
+using HadesAncients.HadesAncientsCode.Hecate.Ancients;
 using HadesAncients.HadesAncientsCode.Hephaestus.Ancients;
 using HadesAncients.HadesAncientsCode.Poseidon.Ancients;
 using HadesAncients.HadesAncientsCode.Zeus.Ancients;
@@ -19,6 +20,8 @@ public static class HadesAncients_AdjustLayout_Patch
     private const float OriginalSpacing = 10f;
 
     private const float ReferenceLineBottom = 68f;
+
+    private const float ReferenceThreeButtonHeight = 292f;
 
     private static readonly IReadOnlyList<LayoutMod> Mods =
     [
@@ -41,6 +44,12 @@ public static class HadesAncients_AdjustLayout_Patch
             scaleAmount: 0.85f
         ),
         new(
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<HecateAncient>(),
+            xOffset: 138f,
+            yOffset: 85f,
+            scaleAmount: 0.85f
+        ),
+        new(
             ancientEvent => ancientEvent.Id == ModelDb.GetId<HephaestusAncient>(),
             xOffset: 185f,
             yOffset: -5f,
@@ -60,11 +69,17 @@ public static class HadesAncients_AdjustLayout_Patch
         ),
     ];
 
-    private static readonly ConditionalWeakTable<NAncientEventLayout, Box> State = new();
+    private static readonly ConditionalWeakTable<NAncientEventLayout, LayoutState> State = new();
 
     private static bool TryGetLayoutMod(NAncientEventLayout layout, out LayoutMod? mod)
     {
         var ancientEvent = layout._ancientEvent;
+
+        if (ancientEvent == null)
+        {
+            mod = null;
+            return false;
+        }
 
         foreach (var candidateMod in Mods)
         {
@@ -79,7 +94,7 @@ public static class HadesAncients_AdjustLayout_Patch
         return false;
     }
 
-    static void Prefix(NAncientEventLayout __instance)
+    private static void Prefix(NAncientEventLayout __instance)
     {
         if (!TryGetLayoutMod(__instance, out var mod))
             return;
@@ -90,10 +105,32 @@ public static class HadesAncients_AdjustLayout_Patch
         if (content == null || contentContainer == null)
             return;
 
+        var optionCount = __instance.OptionButtons.Count();
+
         if (!State.TryGetValue(__instance, out var state))
         {
-            state = new Box(content.Position.X, contentContainer.Size.X);
+            state = new LayoutState(
+                content.Position.X,
+                contentContainer.Size.X,
+                optionCount
+            );
+
             State.Add(__instance, state);
+        }
+
+        if (state.InitialOptionCount == 1 && optionCount == 1)
+        {
+            var optionsContainer = __instance._optionsContainer;
+
+            optionsContainer.CustomMinimumSize = new Vector2(
+                optionsContainer.CustomMinimumSize.X,
+                ReferenceThreeButtonHeight
+            );
+
+            optionsContainer.Alignment = BoxContainer.AlignmentMode.End;
+
+            optionsContainer.ResetSize();
+            content.ResetSize();
         }
 
         content.Position = new Vector2(
@@ -101,33 +138,25 @@ public static class HadesAncients_AdjustLayout_Patch
             content.Position.Y
         );
 
-        content.Scale = new Vector2(mod.ScaleAmount, mod.ScaleAmount);
+        content.Scale = new Vector2(
+            mod.ScaleAmount,
+            mod.ScaleAmount
+        );
 
         contentContainer.ClipContents = false;
 
-        float extraWidth = Mathf.Abs(mod.XOffset) * 2f;
+        var extraWidth = Mathf.Abs(mod.XOffset) * 2f;
 
         contentContainer.Size = new Vector2(
             state.BaseContainerWidth + extraWidth,
             contentContainer.Size.Y
         );
-
-        var line = __instance._dialogueContainer.GetChildOrNull<NAncientDialogueLine>(
-            __instance._currentDialogueLine
-        );
-
-        if (line != null)
-        {
-            HadesAncientsMainFile.Logger.Warn(
-                $"line.Position.Y={line.Position.Y}, " +
-                $"line.Size.Y={line.Size.Y}, " +
-                $"lineBottom={line.Position.Y + line.Size.Y}, " +
-                $"dialogueContainer.Size.Y={__instance._dialogueContainer.Size.Y}"
-            );
-        }
     }
 
-    private static float GetSpacingForEvent(NAncientEventLayout layout, float originalSpacing)
+    private static float GetSpacingForEvent(
+        NAncientEventLayout layout,
+        float originalSpacing
+    )
     {
         if (!TryGetLayoutMod(layout, out var mod))
             return originalSpacing;
@@ -146,73 +175,96 @@ public static class HadesAncients_AdjustLayout_Patch
             adjustedYOffset += lineDelta * (1f - mod.ScaleAmount);
         }
 
-        return originalSpacing - adjustedYOffset;
+        var spacing = originalSpacing - adjustedYOffset;
+
+        /*
+         * In the normal flow, the content includes the reference dialogue
+         * extent before the three option buttons become a Proceed button.
+         *
+         * A restored event can start directly with Proceed and no dialogue
+         * line. The tween loses the full unscaled extent, while the visible
+         * scaled layout loses only extent * scale. Compensate for the
+         * difference.
+         */
+        if (line == null &&
+            State.TryGetValue(layout, out var state) &&
+            state.InitialOptionCount == 1 &&
+            layout.OptionButtons.Count() == 1)
+        {
+            spacing += ReferenceLineBottom * (1f - mod.ScaleAmount);
+        }
+
+        return spacing;
     }
 
-    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    private static IEnumerable<CodeInstruction> Transpiler(
+        IEnumerable<CodeInstruction> instructions
+    )
     {
         var codes = instructions.ToList();
 
-        var targetIndex = -1;
+        var targetIndices = codes
+            .Select((instruction, index) => (instruction, index))
+            .Where(entry =>
+                entry.instruction.opcode == OpCodes.Ldc_R4 &&
+                entry.instruction.operand is float value &&
+                value == OriginalSpacing
+            )
+            .Select(entry => entry.index)
+            .ToList();
 
-        for (var i = 0; i < codes.Count; i++)
+        if (targetIndices.Count != 1)
         {
-            if (codes[i].opcode == OpCodes.Ldc_R4 &&
-                codes[i].operand is float f &&
-                f == OriginalSpacing)
-            {
-                targetIndex = i;
-            }
+            HadesAncientsMainFile.Logger.Error(
+                $"{nameof(HadesAncients_AdjustLayout_Patch)}: " +
+                $"expected exactly one {OriginalSpacing}f constant in " +
+                $"SetDialogueLineAndAnimate, but found {targetIndices.Count}. " +
+                "The spacing adjustment was not applied."
+            );
+
+            return codes;
         }
 
-        for (var i = 0; i < codes.Count; i++)
+        var targetIndex = targetIndices[0];
+        var originalInstruction = codes[targetIndex];
+
+        var loadLayout = new CodeInstruction(OpCodes.Ldarg_0);
+
+        loadLayout.labels.AddRange(originalInstruction.labels);
+        loadLayout.blocks.AddRange(originalInstruction.blocks);
+
+        var replacement = new[]
         {
-            if (i == targetIndex)
-            {
-                yield return new CodeInstruction(OpCodes.Ldarg_0);
-                yield return new CodeInstruction(OpCodes.Ldc_R4, OriginalSpacing);
-                yield return CodeInstruction.Call(
-                    typeof(HadesAncients_AdjustLayout_Patch),
-                    nameof(GetSpacingForEvent)
-                );
-            }
-            else
-            {
-                yield return codes[i];
-            }
-        }
+            loadLayout,
+            new CodeInstruction(OpCodes.Ldc_R4, OriginalSpacing),
+            CodeInstruction.Call(
+                typeof(HadesAncients_AdjustLayout_Patch),
+                nameof(GetSpacingForEvent)
+            ),
+        };
+
+        codes.RemoveAt(targetIndex);
+        codes.InsertRange(targetIndex, replacement);
+
+        return codes;
     }
 
-    private sealed class LayoutMod
+    private sealed class LayoutMod(
+        Predicate<AncientEventModel> isTargetEvent,
+        float xOffset,
+        float yOffset,
+        float scaleAmount)
     {
-        public readonly Predicate<AncientEventModel> IsTargetEvent;
-        public readonly float ScaleAmount;
-        public readonly float XOffset;
-        public readonly float YOffset;
-
-        public LayoutMod(
-            Predicate<AncientEventModel> isTargetEvent,
-            float xOffset,
-            float yOffset,
-            float scaleAmount
-        )
-        {
-            IsTargetEvent = isTargetEvent;
-            XOffset = xOffset;
-            YOffset = yOffset;
-            ScaleAmount = scaleAmount;
-        }
+        public readonly Predicate<AncientEventModel> IsTargetEvent = isTargetEvent;
+        public readonly float ScaleAmount = scaleAmount;
+        public readonly float XOffset = xOffset;
+        public readonly float YOffset = yOffset;
     }
 
-    private sealed class Box
+    private sealed class LayoutState(float x, float width, int initialOptionCount)
     {
-        public readonly float BaseContainerWidth;
-        public readonly float BaseContentX;
-
-        public Box(float x, float width)
-        {
-            BaseContentX = x;
-            BaseContainerWidth = width;
-        }
+        public readonly float BaseContainerWidth = width;
+        public readonly float BaseContentX = x;
+        public readonly int InitialOptionCount = initialOptionCount;
     }
 }
