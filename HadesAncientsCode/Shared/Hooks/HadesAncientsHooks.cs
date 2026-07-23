@@ -78,6 +78,19 @@ public class HadesAncientsHooks
         );
     }
 
+    public static Task AfterOfferRoomEndRewards(
+        IRunState? runState,
+        ICombatState? combatState,
+        CombatRoom room
+    )
+    {
+        return DispatchAsync<IAfterOfferRoomEndRewards>(
+            runState,
+            combatState,
+            model => model.AfterOfferRoomEndRewards(room)
+        );
+    }
+
     public static void AfterRoomTypeRolled(IRunState runState, RoomType roomType)
     {
         Dispatch<IAfterRoomTypeRolled>(runState, null, m => m.AfterRoomTypeRolled(runState, roomType));
