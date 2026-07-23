@@ -27,15 +27,18 @@ public class HecateAncient : CustomAncientModel
                 AncientOption<Death>(),
                 AncientOption<Eternity>(),
                 AncientOption<Night>(),
+                AncientOption<Origination>(),
                 AncientOption<Persistence>(),
+                AncientOption<TheCentaur>(),
                 AncientOption<TheFuries>(),
                 AncientOption<TheHuntress>(),
+                AncientOption<TheLovers>(),
                 AncientOption<TheMessenger>(),
                 AncientOption<TheMoon>(),
                 AncientOption<TheSorceress>(),
                 AncientOption<TheSwiftRunner>(),
                 AncientOption<TheUnseen>(),
-                AncientOption<TheWaywardSon>(),
+                AncientOption<TheWaywardSon>()
             ];
 
             return new OptionPools(
