@@ -30,6 +30,8 @@ public class HecateAncient : CustomAncientModel
                 AncientOption<Origination>(),
                 AncientOption<Persistence>(),
                 AncientOption<TheCentaur>(),
+                AncientOption<TheEnchantress>(),
+                AncientOption<TheFates>(),
                 AncientOption<TheFuries>(),
                 AncientOption<TheHuntress>(),
                 AncientOption<TheLovers>(),

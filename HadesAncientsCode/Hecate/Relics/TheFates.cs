@@ -3,7 +3,6 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Hecate.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using HadesAncients.HadesAncientsCode.Shared.Hooks;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -15,7 +14,7 @@ using MegaCrit.Sts2.Core.Saves.Runs;
 namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheFates() : HadesAncientsRelic(HadesAncient.Hecate), IAfterOfferRoomEndRewards, IArcanaRelic
+public class TheFates() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
     private const string CombatsKey = "Combats";
     private int _charges;
@@ -43,24 +42,16 @@ public class TheFates() : HadesAncientsRelic(HadesAncient.Hecate), IAfterOfferRo
         new(CombatsKey, 5M)
     ];
 
-    public Task AfterOfferRoomEndRewards(CombatRoom room)
-    {
-        if (Owner.Creature.IsDead)
-            return Task.CompletedTask;
-        Charges--;
-        return Task.CompletedTask;
-    }
-
     public int GetArcanaRelicNumber()
     {
         return 21;
     }
 
-    public override Task AfterCombatVictory(CombatRoom _)
+    public override Task AfterModifyingRewards()
     {
         if (Owner.Creature.IsDead)
             return Task.CompletedTask;
-        Flash();
+        Charges--;
         return Task.CompletedTask;
     }
 
@@ -70,6 +61,7 @@ public class TheFates() : HadesAncientsRelic(HadesAncient.Hecate), IAfterOfferRo
             return false;
         foreach (CardReward cardReward in rewards.OfType<CardReward>())
             HecateSpireFields.TheFuriesRerolls.Set(cardReward, HecateSpireFields.TheFuriesRerolls.Get(cardReward) + 1);
+        Flash();
         return true;
     }
 

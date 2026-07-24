@@ -46,7 +46,7 @@ public static class HadesAncients_AdjustLayout_Patch
         new(
             ancientEvent => ancientEvent.Id == ModelDb.GetId<HecateAncient>(),
             xOffset: 138f,
-            yOffset: 85f,
+            yOffset: 47,
             scaleAmount: 0.85f
         ),
         new(
