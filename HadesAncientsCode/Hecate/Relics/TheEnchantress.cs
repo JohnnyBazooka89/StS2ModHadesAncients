@@ -41,7 +41,7 @@ public class TheEnchantress() : HadesAncientsRelic(HadesAncient.Hecate), IArcana
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(CombatsKey, 3M)
+        new(CombatsKey, 2M)
     ];
 
     public int GetArcanaRelicNumber()
