@@ -94,7 +94,7 @@ public static class HadesAncients_AdjustLayout_Patch
         return false;
     }
 
-    private static void Prefix(NAncientEventLayout __instance)
+    private static void Prefix(NAncientEventLayout __instance, int lineIndex)
     {
         if (!TryGetLayoutMod(__instance, out var mod))
             return;
@@ -104,6 +104,14 @@ public static class HadesAncients_AdjustLayout_Patch
 
         if (content == null || contentContainer == null)
             return;
+
+        /*
+         * This must happen before changing content.Position.X.
+         *
+         * The original method will see _contentTween == null and skip its own
+         * cleanup block, so the cleanup is not performed twice.
+         */
+        FinishPreviousContentTween(__instance);
 
         var optionCount = __instance.OptionButtons.Count();
 
@@ -127,30 +135,135 @@ public static class HadesAncients_AdjustLayout_Patch
                 ReferenceThreeButtonHeight
             );
 
-            optionsContainer.Alignment = BoxContainer.AlignmentMode.End;
+            optionsContainer.Alignment =
+                BoxContainer.AlignmentMode.End;
 
             optionsContainer.ResetSize();
             content.ResetSize();
         }
 
+        var hasMultipleDialogueLines =
+            __instance._dialogue.Count > 1;
+
+        float appliedXOffset;
+
+        if (!hasMultipleDialogueLines)
+        {
+            // Preserve the original working one-line layout.
+            appliedXOffset = mod!.XOffset;
+        }
+        else if (lineIndex == 0)
+        {
+            /*
+             * The initial multi-line dialogue already has the correct natural
+             * horizontal origin. Applying mod.XOffset here would move it too
+             * far to the right.
+             */
+            appliedXOffset = 0f;
+        }
+        else
+        {
+            /*
+             * From the first click onward, the changed dialogue layout needs
+             * the Ancient-specific offset applied twice. The first clicked
+             * line also becomes the global-center reference for later lines.
+             */
+            appliedXOffset = mod!.XOffset * 2f;
+        }
+
         content.Position = new Vector2(
-            state.BaseContentX + mod!.XOffset,
+            state.BaseContentX + appliedXOffset,
             content.Position.Y
         );
 
         content.Scale = new Vector2(
-            mod.ScaleAmount,
+            mod!.ScaleAmount,
             mod.ScaleAmount
         );
 
         contentContainer.ClipContents = false;
 
-        var extraWidth = Mathf.Abs(mod.XOffset) * 2f;
+        /*
+         * Reserve enough width for the largest provisional offset.
+         * Later global-center corrections should be relatively small.
+         */
+        var maximumXOffset =
+            hasMultipleDialogueLines
+                ? Mathf.Abs(mod.XOffset * 2f)
+                : Mathf.Abs(mod.XOffset);
+
+        var extraWidth = maximumXOffset * 2f;
 
         contentContainer.Size = new Vector2(
             state.BaseContainerWidth + extraWidth,
             contentContainer.Size.Y
         );
+    }
+
+    private static void AlignOptionsForCurrentDialogue(
+        NAncientEventLayout layout,
+        int lineIndex
+    )
+    {
+        if (layout._dialogue.Count <= 1)
+            return;
+
+        if (lineIndex <= 0)
+            return;
+
+        if (!State.TryGetValue(layout, out var state))
+            return;
+
+        var content = layout._content;
+
+        if (content == null)
+            return;
+
+        var currentCenterX =
+            GetOptionGlobalCenterX(layout);
+
+        /*
+         * The first clicked line is the known-good reference. Prefix has
+         * already applied the additional mod.XOffset at this point.
+         */
+        if (!state.TargetOptionCenterX.HasValue)
+        {
+            state.TargetOptionCenterX = currentCenterX;
+            return;
+        }
+
+        var correction =
+            state.TargetOptionCenterX.Value -
+            currentCenterX;
+
+        /*
+         * Position is in the parent coordinate space. Since correction is
+         * measured in global coordinates, apply it directly without scaling.
+         */
+        content.Position = new Vector2(
+            content.Position.X + correction,
+            content.Position.Y
+        );
+    }
+
+    private static float GetOptionGlobalCenterX(
+        NAncientEventLayout layout
+    )
+    {
+        var optionButton = layout.OptionButtons.FirstOrDefault();
+
+        Control control =
+            optionButton != null
+                ? optionButton
+                : layout._optionsContainer;
+
+        var localCenter = control.Size * 0.5f;
+
+        var globalCenter =
+            control.GetGlobalTransformWithCanvas() *
+            localCenter;
+
+        return globalCenter.X;
     }
 
     private static float GetSpacingForEvent(
@@ -169,23 +282,26 @@ public static class HadesAncients_AdjustLayout_Patch
 
         if (line != null)
         {
-            var lineBottom = line.Position.Y + line.Size.Y;
-            var lineDelta = lineBottom - ReferenceLineBottom;
+            var dialogueBottom = line.Position.Y + line.Size.Y;
+            var optionsHeight = layout._optionsContainer.Size.Y;
 
-            adjustedYOffset += lineDelta * (1f - mod.ScaleAmount);
+            var currentFinalExtent =
+                dialogueBottom +
+                optionsHeight;
+
+            var referenceFinalExtent =
+                ReferenceLineBottom +
+                ReferenceThreeButtonHeight;
+
+            var extentDelta =
+                currentFinalExtent -
+                referenceFinalExtent;
+
+            adjustedYOffset += extentDelta * (1f - mod.ScaleAmount);
         }
 
         var spacing = originalSpacing - adjustedYOffset;
 
-        /*
-         * In the normal flow, the content includes the reference dialogue
-         * extent before the three option buttons become a Proceed button.
-         *
-         * A restored event can start directly with Proceed and no dialogue
-         * line. The tween loses the full unscaled extent, while the visible
-         * scaled layout loses only extent * scale. Compensate for the
-         * difference.
-         */
         if (line == null &&
             State.TryGetValue(layout, out var state) &&
             state.InitialOptionCount == 1 &&
@@ -203,7 +319,10 @@ public static class HadesAncients_AdjustLayout_Patch
     {
         var codes = instructions.ToList();
 
-        var targetIndices = codes
+        /*
+         * Existing vertical-spacing replacement.
+         */
+        var spacingIndices = codes
             .Select((instruction, index) => (instruction, index))
             .Where(entry =>
                 entry.instruction.opcode == OpCodes.Ldc_R4 &&
@@ -213,40 +332,142 @@ public static class HadesAncients_AdjustLayout_Patch
             .Select(entry => entry.index)
             .ToList();
 
-        if (targetIndices.Count != 1)
+        if (spacingIndices.Count == 1)
+        {
+            var targetIndex = spacingIndices[0];
+            var originalInstruction = codes[targetIndex];
+
+            var loadLayout = new CodeInstruction(OpCodes.Ldarg_0);
+
+            loadLayout.labels.AddRange(originalInstruction.labels);
+            loadLayout.blocks.AddRange(originalInstruction.blocks);
+
+            codes.RemoveAt(targetIndex);
+
+            codes.InsertRange(
+                targetIndex,
+                [
+                    loadLayout,
+                    new CodeInstruction(
+                        OpCodes.Ldc_R4,
+                        OriginalSpacing
+                    ),
+                    CodeInstruction.Call(
+                        typeof(HadesAncients_AdjustLayout_Patch),
+                        nameof(GetSpacingForEvent)
+                    ),
+                ]
+            );
+        }
+        else
         {
             HadesAncientsMainFile.Logger.Error(
                 $"{nameof(HadesAncients_AdjustLayout_Patch)}: " +
                 $"expected exactly one {OriginalSpacing}f constant in " +
-                $"SetDialogueLineAndAnimate, but found {targetIndices.Count}. " +
-                "The spacing adjustment was not applied."
+                $"SetDialogueLineAndAnimate, but found " +
+                $"{spacingIndices.Count}. The vertical spacing adjustment " +
+                "was not applied."
+            );
+        }
+
+        /*
+         * Insert horizontal alignment after the new tween is assigned, but
+         * before TweenProperty captures content.Position.X.
+         */
+        var createTweenMethod = AccessTools.Method(
+            typeof(Node),
+            nameof(Node.CreateTween),
+            Type.EmptyTypes
+        );
+
+        var contentTweenField = AccessTools.Field(
+            typeof(NAncientEventLayout),
+            nameof(NAncientEventLayout._contentTween)
+        );
+
+        var createTweenCallIndex = codes.FindIndex(instruction => instruction.Calls(createTweenMethod)
+        );
+
+        var tweenAssignmentIsValid =
+            createTweenCallIndex >= 0 &&
+            createTweenCallIndex + 1 < codes.Count &&
+            codes[createTweenCallIndex + 1].opcode == OpCodes.Stfld &&
+            Equals(
+                codes[createTweenCallIndex + 1].operand,
+                contentTweenField
+            );
+
+        if (!tweenAssignmentIsValid)
+        {
+            HadesAncientsMainFile.Logger.Error(
+                $"{nameof(HadesAncients_AdjustLayout_Patch)}: " +
+                "could not find the _contentTween CreateTween assignment. " +
+                "The dialogue X alignment was not applied."
             );
 
             return codes;
         }
 
-        var targetIndex = targetIndices[0];
-        var originalInstruction = codes[targetIndex];
+        var insertionIndex = createTweenCallIndex + 2;
 
-        var loadLayout = new CodeInstruction(OpCodes.Ldarg_0);
+        var loadLayoutForAlignment =
+            new CodeInstruction(OpCodes.Ldarg_0);
 
-        loadLayout.labels.AddRange(originalInstruction.labels);
-        loadLayout.blocks.AddRange(originalInstruction.blocks);
-
-        var replacement = new[]
+        /*
+         * Preserve any branch targets or exception blocks attached to the
+         * instruction that originally followed the assignment.
+         */
+        if (insertionIndex < codes.Count)
         {
-            loadLayout,
-            new CodeInstruction(OpCodes.Ldc_R4, OriginalSpacing),
-            CodeInstruction.Call(
-                typeof(HadesAncients_AdjustLayout_Patch),
-                nameof(GetSpacingForEvent)
-            ),
-        };
+            loadLayoutForAlignment.labels.AddRange(
+                codes[insertionIndex].labels
+            );
 
-        codes.RemoveAt(targetIndex);
-        codes.InsertRange(targetIndex, replacement);
+            codes[insertionIndex].labels.Clear();
+
+            loadLayoutForAlignment.blocks.AddRange(
+                codes[insertionIndex].blocks
+            );
+
+            codes[insertionIndex].blocks.Clear();
+        }
+
+        codes.InsertRange(
+            insertionIndex,
+            [
+                loadLayoutForAlignment,
+                new CodeInstruction(OpCodes.Ldarg_1),
+                CodeInstruction.Call(
+                    typeof(HadesAncients_AdjustLayout_Patch),
+                    nameof(AlignOptionsForCurrentDialogue)
+                ),
+            ]
+        );
 
         return codes;
+    }
+
+    private static void FinishPreviousContentTween(
+        NAncientEventLayout layout
+    )
+    {
+        var tween = layout._contentTween;
+
+        if (tween == null)
+            return;
+
+        /*
+         * Settle the previous tween before applying our X position.
+         *
+         * The original method performs the same cleanup, but it does so after
+         * the Harmony Prefix. That can overwrite content.Position.X when the
+         * player advances the dialogue before the tween has finished.
+         */
+        tween.Pause();
+        tween.CustomStep(1.0);
+        tween.Kill();
+
+        layout._contentTween = null;
     }
 
     private sealed class LayoutMod(
@@ -261,10 +482,14 @@ public static class HadesAncients_AdjustLayout_Patch
         public readonly float YOffset = yOffset;
     }
 
-    private sealed class LayoutState(float x, float width, int initialOptionCount)
+    private sealed class LayoutState(
+        float x,
+        float width,
+        int initialOptionCount)
     {
         public readonly float BaseContainerWidth = width;
         public readonly float BaseContentX = x;
         public readonly int InitialOptionCount = initialOptionCount;
+        public float? TargetOptionCenterX;
     }
 }

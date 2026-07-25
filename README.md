@@ -2,10 +2,11 @@
 
 ## 📄 Description
 
-This mod introduces a collection of new Ancients from the hit game Hades 2. Currently 5 Ancients are available:
+This mod introduces a collection of new Ancients from the hit game Hades 2. Currently 7 Ancients are available:
 
 | Act   | Ancient | Specializations                                                                              |
 |-------|---|----------------------------------------------------------------------------------------------|
+| Act 1 | Hecate | 25 Relics with Various effects, based on Arcana Cards.                                       |
 | Act 2 | Athena | Granting different types of Defense, preventing death, and a little bit of Offense.          |
 | Act 2 | Poseidon | Awarding playing many Attacks, applying Froth/Rupture, gaining Energy, getting more rewards. |
 | Act 2 | Zeus | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                  |
@@ -20,7 +21,7 @@ This mod should work properly in multiplayer. In case of any problems, please re
 ## 🌐 Localization
 The mod is available in:
 - English
-- Korean, thanks to karyulin88
+- Korean (partially), thanks to karyulin88. An update for Hephaestus and Hecate would be welcome.
 
 ## 📦 Dependencies
 [BaseLib](https://github.com/Alchyr/BaseLib-StS2)
