@@ -69,7 +69,7 @@
   "HADESANCIENTS-THE_SWIFT_RUNNER.description": "You may ignore paths when traveling to and from Shops.",
   "HADESANCIENTS-THE_SWIFT_RUNNER.flavor": "Those who attempted to confront the greatest of the Greeks merely met his spear.",
   "HADESANCIENTS-THE_UNSEEN.title": "The Unseen",
-  "HADESANCIENTS-THE_UNSEEN.description": "Every [blue]{Turns}[/blue] turns, gain {Energy:energyIcons()}.",
+  "HADESANCIENTS-THE_UNSEEN.description": "Every {Energy:energyIcons()} you spend, gain {EnergyToGain:energyIcons()}.",
   "HADESANCIENTS-THE_UNSEEN.flavor": "Upon their ancient oath, in shadow, they serve; and to shadow, they return.",
   "HADESANCIENTS-THE_WAYWARD_SON.title": "The Wayward Son",
   "HADESANCIENTS-THE_WAYWARD_SON.description": "At the end of each combat, heal [blue]{Heal}[/blue] HP.",

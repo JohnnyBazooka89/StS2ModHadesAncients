@@ -2,12 +2,11 @@
 using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
@@ -18,25 +17,24 @@ namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 [Pool(typeof(EventRelicPool))]
 public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
-    private const string TurnsKey = "Turns";
-    private bool _isActivating;
-    private int _turnsSeen;
-    public override RelicRarity Rarity => RelicRarity.Ancient;
+    private const string EnergyToGainKey = "EnergyToGain";
 
-    public override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new EnergyVar(2),
-        new(TurnsKey, 5M)
-    ];
+    private int _energySpent;
+    private bool _isActivating;
+
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override bool ShowCounter => true;
 
-    public override int DisplayAmount => !IsActivating ? TurnsSeen : DynamicVars[TurnsKey].IntValue;
+    public override int DisplayAmount => !IsActivating ? EnergySpent : DynamicVars.Energy.IntValue;
 
-    public override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.ForEnergy(this)];
+    public override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new EnergyVar(9),
+        new EnergyVar(EnergyToGainKey, 1)
+    ];
 
-
-    public bool IsActivating
+    private bool IsActivating
     {
         get => _isActivating;
         set
@@ -48,13 +46,13 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     }
 
     [SavedProperty]
-    public int TurnsSeen
+    private int EnergySpent
     {
-        get => _turnsSeen;
+        get => _energySpent;
         set
         {
             AssertMutable();
-            _turnsSeen = value;
+            _energySpent = value;
             InvokeDisplayAmountChanged();
         }
     }
@@ -64,21 +62,26 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         return 9;
     }
 
-    public override async Task AfterSideTurnStart(
-        CombatSide side,
-        IReadOnlyList<Creature> participants,
-        ICombatState combatState)
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (!participants.Contains(Owner.Creature))
+        if (cardPlay.Card.Owner != Owner)
+        {
             return;
-        TurnsSeen = (TurnsSeen + 1) % DynamicVars[TurnsKey].IntValue;
-        Status = TurnsSeen == DynamicVars[TurnsKey].IntValue - 1
+        }
+
+        EnergySpent += cardPlay.Resources.EnergySpent;
+        while (EnergySpent >= DynamicVars.Energy.IntValue)
+        {
+            _ = TaskHelper.RunSafely(DoActivateVisuals());
+
+            await PlayerCmd.GainEnergy(DynamicVars[EnergyToGainKey].BaseValue, Owner);
+
+            EnergySpent -= DynamicVars.Energy.IntValue;
+        }
+
+        Status = EnergySpent == DynamicVars.Energy.IntValue - 1
             ? RelicStatus.Active
             : RelicStatus.Normal;
-        if (TurnsSeen != 0)
-            return;
-        _ = TaskHelper.RunSafely(DoActivateVisuals());
-        await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 
     private async Task DoActivateVisuals()
