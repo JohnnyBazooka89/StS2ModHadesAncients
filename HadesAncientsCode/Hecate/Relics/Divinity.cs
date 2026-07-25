@@ -79,7 +79,7 @@ public class Divinity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 
         List<CardCreationResult> candidatesToUpgrade =
             cardRewards.Where(reward => reward.Card is { IsUpgraded: false, IsUpgradable: true }).ToList();
-        if (candidatesToUpgrade.Capacity == 0)
+        if (candidatesToUpgrade.Count == 0)
         {
             return false;
         }
