@@ -35,6 +35,7 @@ The mod is available in:
 
 ## 🖼️ Screenshots
 
+![HecateAncientChoices](Screenshots/HecateAncientChoices.jpg)
 ![AphroditeAncientChoices](Screenshots/AphroditeAncientChoices.jpg)
 ![DionysusAncientChoices](Screenshots/DionysusAncientChoices.jpg)
 ![HephaestusAncientChoices](Screenshots/HephaestusAncientChoices.jpg)

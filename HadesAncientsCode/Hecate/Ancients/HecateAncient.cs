@@ -35,10 +35,7 @@ public class HecateAncient : CustomAncientModel
     {
         return
         [
-            AncientOption<TheEnchantress>(),
-            AncientOption<Origination>(),
-            AncientOption<TheSwiftRunner>(),
-            /*AncientOption<Death>(),
+            AncientOption<Death>(),
             AncientOption<Divinity>(),
             AncientOption<Eternity>(),
             AncientOption<Excellence>(),
@@ -62,7 +59,7 @@ public class HecateAncient : CustomAncientModel
             AncientOption<TheSorceress>(),
             AncientOption<TheSwiftRunner>(),
             AncientOption<TheUnseen>(),
-            AncientOption<TheWaywardSon>()*/
+            AncientOption<TheWaywardSon>()
         ];
     }
 
