@@ -26,7 +26,7 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(2),
-        new(TurnsKey, 4M)
+        new(TurnsKey, 5M)
     ];
 
     public override bool ShowCounter => true;
