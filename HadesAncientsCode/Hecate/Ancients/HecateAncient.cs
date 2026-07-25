@@ -29,6 +29,8 @@ public class HecateAncient : CustomAncientModel
                 AncientOption<Night>(),
                 AncientOption<Origination>(),
                 AncientOption<Persistence>(),
+                AncientOption<TheArtificer>(),
+                AncientOption<TheBoatman>(),
                 AncientOption<TheCentaur>(),
                 AncientOption<TheEnchantress>(),
                 AncientOption<TheFates>(),

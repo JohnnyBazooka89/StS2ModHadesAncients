@@ -24,7 +24,7 @@ public class Persistence()
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new MaxHpVar(6M),
-        new EnergyVar(1)
+        new EnergyVar(2)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
