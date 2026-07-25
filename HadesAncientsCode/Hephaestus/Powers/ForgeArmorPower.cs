@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Powers;
 
-public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IModifyHpLostBeforeOstyAfterLate
+public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IModifyHpLostBeforeOstyFinal
 {
     private int _blockedDamage;
     public override PowerType Type => PowerType.Buff;
@@ -27,7 +27,7 @@ public class ForgeArmorPower() : HadesAncientsPower(HadesAncient.Hephaestus), IM
         }
     }
 
-    public decimal ModifyHpLostBeforeOstyAfterLate(Creature target, decimal amount, ValueProp props,
+    public decimal ModifyHpLostBeforeOstyFinal(Creature target, decimal amount, ValueProp props,
         Creature? dealer,
         CardModel? cardSource)
     {

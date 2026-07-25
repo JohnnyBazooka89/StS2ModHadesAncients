@@ -34,7 +34,7 @@ public class HighSurf() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (!(room is CombatRoom))
+        if (room is not CombatRoom)
             return;
         Flash();
         await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,

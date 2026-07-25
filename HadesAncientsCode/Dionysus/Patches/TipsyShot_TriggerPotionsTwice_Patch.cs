@@ -58,7 +58,7 @@ public static class TipsyShot_TriggerPotionsTwice_Patch
 
         if (!patched)
         {
-            HadesAncientsMainFile.Logger.Warn("Tipsy Shot patch warning: could not find PotionModel.OnUse call.");
+            throw new Exception("Tipsy Shot patch failed: could not find PotionModel.OnUse call.");
         }
     }
 

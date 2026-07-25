@@ -115,7 +115,7 @@ public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
 
     public override Task AfterRoomEntered(AbstractRoom room)
     {
-        if (!(room is CombatRoom))
+        if (room is not CombatRoom)
             return Task.CompletedTask;
         Status = RelicStatus.Normal;
         InvokeDisplayAmountChanged();

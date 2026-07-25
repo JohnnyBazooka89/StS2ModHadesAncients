@@ -4,6 +4,8 @@ namespace HadesAncients.HadesAncientsCode;
 
 public class HadesAncientsModConfig : SimpleModConfig
 {
+    [ConfigSection("AncientsAct1")] //
+    public static bool DisableHecate { get; set; } = false;
     [ConfigSection("AncientsAct2")] //
     public static bool DisableAthena { get; set; } = false;
     public static bool DisablePoseidon { get; set; } = false;
@@ -13,7 +15,8 @@ public class HadesAncientsModConfig : SimpleModConfig
     public static bool DisableDionysus { get; set; } = false;
     public static bool DisableHephaestus { get; set; } = false;
 
-    [ConfigSection("BaseGameAncients")] // 
+    [ConfigSection("BaseGameAncients")] //
+    public static bool DisableNeow { get; set; } = false;
     public static bool DisableBaseGameAncients { get; set; } = false;
 
     [ConfigSection("Poseidon")] //

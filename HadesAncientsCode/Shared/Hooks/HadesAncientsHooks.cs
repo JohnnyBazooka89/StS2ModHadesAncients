@@ -131,7 +131,7 @@ public class HadesAncientsHooks
         return amount;
     }
 
-    public static decimal ModifyHpLostAfterOstyLateFinal(
+    public static decimal ModifyHpLostAfterOstyFinal(
         IRunState? runState,
         ICombatState? combatState,
         Creature target,
@@ -141,12 +141,12 @@ public class HadesAncientsHooks
         CardModel? cardSource,
         ref IEnumerable<AbstractModel> modifiers)
     {
-        foreach (IModifyHpLostAfterOstyLateFinal model in runState?.IterateHookListeners(combatState)
-                     .OfType<IModifyHpLostAfterOstyLateFinal>() ?? [])
+        foreach (IModifyHpLostAfterOstyFinal model in runState?.IterateHookListeners(combatState)
+                     .OfType<IModifyHpLostAfterOstyFinal>() ?? [])
         {
             decimal oldAmount = amount;
 
-            amount = model.ModifyHpLostAfterOstyLateFinal(
+            amount = model.ModifyHpLostAfterOstyFinal(
                 target,
                 amount,
                 props,
@@ -166,7 +166,7 @@ public class HadesAncientsHooks
         return amount;
     }
 
-    public static decimal ModifyHpLostBeforeOstyAfterLate(
+    public static decimal ModifyHpLostBeforeOstyFinal(
         IRunState? runState,
         ICombatState? combatState,
         Creature target,
@@ -176,12 +176,12 @@ public class HadesAncientsHooks
         CardModel? cardSource,
         ref IEnumerable<AbstractModel> modifiers)
     {
-        foreach (IModifyHpLostBeforeOstyAfterLate model in runState?.IterateHookListeners(combatState)
-                     .OfType<IModifyHpLostBeforeOstyAfterLate>() ?? [])
+        foreach (IModifyHpLostBeforeOstyFinal model in runState?.IterateHookListeners(combatState)
+                     .OfType<IModifyHpLostBeforeOstyFinal>() ?? [])
         {
             decimal oldAmount = amount;
 
-            amount = model.ModifyHpLostBeforeOstyAfterLate(
+            amount = model.ModifyHpLostBeforeOstyFinal(
                 target,
                 amount,
                 props,
