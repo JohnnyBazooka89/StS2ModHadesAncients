@@ -47,13 +47,13 @@ public partial class NCustomLinkedRewardSet : Control
         return textureRec;
     });
     private readonly List<NRewardButton> _rewardButtons = [];
-    private Control _chainsContainer;
-    private Control _rewardContainer;
+    private Control? _chainsContainer;
+    private Control? _rewardContainer;
 
     // The game groups some assets in AssetSets which exists to not clutter PreloadManager. We aren't using it yet.
     // public static IEnumerable<string> AssetPaths => [ScenePath, ChainImagePath];
 
-    private NRewardsScreen _rewardsScreen;
+    private NRewardsScreen? _rewardsScreen;
     private bool _signalAlreadyReceived;
 
 
@@ -61,7 +61,7 @@ public partial class NCustomLinkedRewardSet : Control
     private static string ScenePath => "res://HadesAncients/Shared/scenes/linked_reward_set.tscn";
     private static string ChainImagePath => ImageHelper.GetImagePath("/ui/reward_screen/reward_chain.png");
 
-    public CustomLinkedRewardSet CustomLinkedRewardSet { get; private set; }
+    public CustomLinkedRewardSet? CustomLinkedRewardSet { get; private set; }
 
 
     public static NCustomLinkedRewardSet Create(CustomLinkedRewardSet linkedReward, NRewardsScreen screen)
@@ -105,21 +105,21 @@ public partial class NCustomLinkedRewardSet : Control
         }
 
         _rewardButtons.Clear();
-        for (var i = 0; i < CustomLinkedRewardSet.Rewards.Count; i++)
+        for (var i = 0; i < CustomLinkedRewardSet!.Rewards.Count; i++)
         {
             var reward = CustomLinkedRewardSet.Rewards[i];
-            var nRewardButton = NRewardButton.Create(reward, _rewardsScreen);
+            var nRewardButton = NRewardButton.Create(reward, _rewardsScreen!);
             _rewardButtons.Add(nRewardButton);
             nRewardButton.CustomMinimumSize -= Vector2.Right * 20f;
-            _rewardContainer.AddChildSafely(nRewardButton);
+            _rewardContainer!.AddChildSafely(nRewardButton);
             nRewardButton.Connect(NRewardButton.SignalName.RewardClaimed, Callable.From<NRewardButton>(GetReward));
             if (i >= CustomLinkedRewardSet.Rewards.Count - 1) continue;
             var textureRect = new TextureRect();
             textureRect.MouseFilter = MouseFilterEnum.Ignore;
             textureRect.Texture = PreloadManager.Cache.GetCompressedTexture2D(ChainImagePath);
             textureRect.Size = Vector2.One * 50f;
-            _chainsContainer.AddChildSafely(textureRect);
-            textureRect.GlobalPosition = _chainsContainer.GlobalPosition +
+            _chainsContainer!.AddChildSafely(textureRect);
+            textureRect.GlobalPosition = _chainsContainer!.GlobalPosition +
                                          Vector2.Down * (-8 + i * (5f + nRewardButton.CustomMinimumSize.Y));
         }
     }
@@ -127,7 +127,7 @@ public partial class NCustomLinkedRewardSet : Control
     private void OnFocused(NRewardButton button)
     {
         if (!_rewardButtons.Contains(button)) return;
-        switch (CustomLinkedRewardSet.LinkedRewardType)
+        switch (CustomLinkedRewardSet!.LinkedRewardType)
         {
             case LinkedRewardType.Exclusive:
                 foreach (var rewardButton in _rewardButtons)
@@ -158,7 +158,7 @@ public partial class NCustomLinkedRewardSet : Control
 
     private void GetReward(NRewardButton button)
     {
-        if (CustomLinkedRewardSet.LinkedRewardType == LinkedRewardType.Bundled)
+        if (CustomLinkedRewardSet!.LinkedRewardType == LinkedRewardType.Bundled)
         {
             if (_signalAlreadyReceived) return;
             _signalAlreadyReceived = true;

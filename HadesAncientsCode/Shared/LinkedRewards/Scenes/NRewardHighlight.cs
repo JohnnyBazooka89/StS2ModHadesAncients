@@ -19,7 +19,7 @@ public partial class NRewardHighlight : TextureRect
 
     private Tween? _curTween;
 
-    private ShaderMaterial _shaderMaterial;
+    private ShaderMaterial? _shaderMaterial;
 
     public override void _Ready()
     {
@@ -64,11 +64,11 @@ public partial class NRewardHighlight : TextureRect
 
     private float GetShaderParameter()
     {
-        return _shaderMaterial.GetShaderParameter(_shaderParameterWidth).AsSingle();
+        return _shaderMaterial!.GetShaderParameter(_shaderParameterWidth).AsSingle();
     }
 
     private void SetShaderParameter(float val)
     {
-        _shaderMaterial.SetShaderParameter(_shaderParameterWidth, val);
+        _shaderMaterial!.SetShaderParameter(_shaderParameterWidth, val);
     }
 }
