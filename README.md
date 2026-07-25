@@ -2,11 +2,11 @@
 
 ## 📄 Description
 
-This mod introduces a collection of new Ancients from the hit game Hades 2. Currently 7 Ancients are available:
+This mod introduces a collection of new Ancients from the hit game Hades 2. Current list of available Ancients:
 
 | Act   | Ancient | Specializations                                                                              |
 |-------|---|----------------------------------------------------------------------------------------------|
-| Act 1 | Hecate | 25 Relics with Various effects, based on Arcana Cards.                                       |
+| Act 1 | Hecate | 25 Relics with various effects, based on Arcana Cards.                                       |
 | Act 2 | Athena | Granting different types of Defense, preventing death, and a little bit of Offense.          |
 | Act 2 | Poseidon | Awarding playing many Attacks, applying Froth/Rupture, gaining Energy, getting more rewards. |
 | Act 2 | Zeus | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                  |
