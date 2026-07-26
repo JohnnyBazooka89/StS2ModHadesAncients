@@ -51,7 +51,7 @@
   "HADESANCIENTS-THE_HUNTRESS.description": "While you have no Energy, your Attacks deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional [gold]Block[/gold] from Skills.",
   "HADESANCIENTS-THE_HUNTRESS.flavor": "Through discipline and instinct comes sustaining skill both in shadow and the light of the moon.",
   "HADESANCIENTS-THE_LOVERS.title": "The Lovers",
-  "HADESANCIENTS-THE_LOVERS.description": "At the start of each combat, apply [blue]{InfatuatedPower}[/blue] [gold]Infatuated[/gold] to ALL enemies.",
+  "HADESANCIENTS-THE_LOVERS.description": "At the start of each Elite or Boss combat, apply [blue]{InfatuatedPower}[/blue] [gold]Infatuated[/gold] to ALL enemies.",
   "HADESANCIENTS-THE_LOVERS.flavor": "Their music brought them together, and not even Death could keep them apart for long.",
   "HADESANCIENTS-THE_MESSENGER.title": "The Messenger",
   "HADESANCIENTS-THE_MESSENGER.description": "The first time each combat you play [blue]{Cards}[/blue] Skills in a single turn, gain [blue]{BufferPower}[/blue] [gold]Buffer[/gold].",
