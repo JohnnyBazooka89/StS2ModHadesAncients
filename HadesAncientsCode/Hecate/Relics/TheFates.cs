@@ -59,7 +59,13 @@ public class TheFates() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     {
         if (player != Owner || Charges <= 0)
             return false;
-        foreach (CardReward cardReward in rewards.OfType<CardReward>())
+
+        List<CardReward> cardRewards = rewards.OfType<CardReward>().ToList();
+
+        if (cardRewards.Count == 0)
+            return false;
+
+        foreach (CardReward cardReward in cardRewards)
             HecateSpireFields.TheFuriesRerolls.Set(cardReward, HecateSpireFields.TheFuriesRerolls.Get(cardReward) + 1);
         Flash();
         return true;
