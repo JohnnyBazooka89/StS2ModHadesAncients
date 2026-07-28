@@ -56,6 +56,7 @@ public class TheEnchantress() : HadesAncientsRelic(HadesAncient.Hecate), IArcana
      * - Inky - it doesn't check whether a card is an Attack and doesn't work correctly with some Attacks, e.g. Sword Boomerang.
      * - Slumbering Essence - it's unused in the base game.
      * - Spiral - it only works with basic Attacks and Defends.
+     * - TezcatarasEmber - it doesn't have a spawn condition, and a lot of its effects are wasted on average.
      * - DeprecatedEnchantment - it's used as a fallback when loading saves that reference missing enchantments.
      * - MockFreeEnchantment - it appears to be unused in the base game and is likely intended for testing only.
      */
@@ -78,7 +79,6 @@ public class TheEnchantress() : HadesAncientsRelic(HadesAncient.Hecate), IArcana
             new EnchantmentOption(ModelDb.Enchantment<Sown>(), 1M),
             new EnchantmentOption(ModelDb.Enchantment<Steady>(), 1M),
             new EnchantmentOption(ModelDb.Enchantment<Swift>(), 2M),
-            new EnchantmentOption(ModelDb.Enchantment<TezcatarasEmber>(), 1M),
             new EnchantmentOption(ModelDb.Enchantment<Vigorous>(), 8M)
         ];
     }
