@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using HadesAncients.HadesAncientsCode.Dionysus.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
@@ -11,6 +12,8 @@ namespace HadesAncients.HadesAncientsCode.Dionysus.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class DionysusAncient : CustomAncientModel
 {
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 110f);
+
     public override string CustomScenePath => "dionysus.tscn".AncientImagePath(HadesAncient.Dionysus);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Dionysus);
     public override string CustomMapIconOutlinePath => "map_icon_outline.png".AncientImagePath(HadesAncient.Dionysus);

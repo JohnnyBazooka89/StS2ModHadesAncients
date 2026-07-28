@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using HadesAncients.HadesAncientsCode.Aphrodite.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
@@ -11,6 +12,8 @@ namespace HadesAncients.HadesAncientsCode.Aphrodite.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class AphroditeAncient : CustomAncientModel
 {
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(500f, 110f);
+
     public override string CustomScenePath => "aphrodite.tscn".AncientImagePath(HadesAncient.Aphrodite);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Aphrodite);
     public override string CustomMapIconOutlinePath =>

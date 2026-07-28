@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using HadesAncients.HadesAncientsCode.Hecate.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
@@ -12,6 +13,8 @@ namespace HadesAncients.HadesAncientsCode.Hecate.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class HecateAncient : CustomAncientModel
 {
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 110f);
+
     public override string CustomScenePath => "hecate.tscn".AncientImagePath(HadesAncient.Hecate);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Hecate);
     public override string CustomMapIconOutlinePath => "map_icon_outline.png".AncientImagePath(HadesAncient.Hecate);
