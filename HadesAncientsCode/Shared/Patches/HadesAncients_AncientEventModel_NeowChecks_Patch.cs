@@ -56,51 +56,98 @@ public static class HadesAncients_AncientEventModel_NeowChecks_Patch
 
         foreach (CodeInstruction instruction in instructions)
         {
-            // Original:
-            // ancientEventModel is Neow
-            //
-            // IL:
-            // isinst Neow
-            //
-            // Replacement:
-            // IsNeowLike(ancientEventModel)
             if (instruction.opcode == OpCodes.Isinst &&
                 instruction.operand is Type checkedType &&
                 checkedType == typeof(Neow))
             {
-                // Mutating the existing instruction preserves its
-                // labels and exception-block metadata.
-                instruction.opcode = OpCodes.Call;
-                instruction.operand = IsNeowLikeMethod;
+                /*
+                 * Original:
+                 *
+                 *     ancient
+                 *     isinst Neow
+                 *
+                 * Replacement:
+                 *
+                 *     ancient
+                 *     dup
+                 *     isinst Neow
+                 *     call IsNeowLike
+                 *
+                 * Stack:
+                 *
+                 *     ancient
+                 *     ancient, ancient
+                 *     ancient, originalResult
+                 *     extendedResult
+                 *
+                 * The original `isinst Neow` instruction remains unchanged,
+                 * so transpilers running after this one can still find it.
+                 */
+                var duplicateInstruction =
+                    new CodeInstruction(OpCodes.Dup);
+
+                var extendResultInstruction =
+                    new CodeInstruction(
+                        OpCodes.Call,
+                        IsNeowLikeMethod);
+
+                /*
+                 * A branch targeting the original isinst must execute the
+                 * inserted dup first.
+                 */
+                instruction.MoveLabelsTo(duplicateInstruction);
+
+                /*
+                 * Keep the complete inserted sequence inside the same
+                 * exception region:
+                 *
+                 * - beginning boundaries go on the first instruction;
+                 * - ending boundaries go on the final instruction.
+                 */
+                foreach (ExceptionBlock block in instruction.ExtractBlocks())
+                {
+                    if (block.blockType == ExceptionBlockType.EndExceptionBlock)
+                    {
+                        extendResultInstruction.blocks.Add(block);
+                    }
+                    else
+                    {
+                        duplicateInstruction.blocks.Add(block);
+                    }
+                }
+
+                yield return duplicateInstruction;
+                yield return instruction;
+                yield return extendResultInstruction;
 
                 replacements++;
+                continue;
             }
 
             yield return instruction;
         }
 
-        // The supplied game method currently contains exactly two checks:
-        //
-        // 1. SetCurrentHpInternal(0)
-        // 2. TopBar.Hp.LerpAtNeow()
         if (replacements != 2)
         {
             throw new InvalidOperationException(
-                $"Expected to replace 2 Neow checks in " +
+                $"Expected to extend 2 Neow checks in " +
                 $"{nameof(AncientEventModel)}.BeforeEventStarted, " +
-                $"but replaced {replacements}. The game method may have changed.");
+                $"but extended {replacements}. The game method or another " +
+                $"transpiler may have changed.");
         }
     }
 
     /// <summary>
-    ///     Behaves like an extended `is Neow` instruction.
-    ///     Returning the original object or null preserves the stack behavior
-    ///     of `isinst Neow`, which also returns an object reference or null.
+    ///     Extends the result of the original `isinst Neow` instruction.
+    ///     A non-null original result is retained. This also composes with
+    ///     another transpiler that replaces the preserved isinst with a
+    ///     compatible object-to-object check.
     /// </summary>
-    private static object? IsNeowLike(object? ancient)
+    private static object? IsNeowLike(
+        object? ancient,
+        object? originalResult)
     {
-        return ancient is Neow or HecateAncient
-            ? ancient
-            : null;
+        return originalResult
+               ?? (ancient is HecateAncient ? ancient : null);
     }
 }
