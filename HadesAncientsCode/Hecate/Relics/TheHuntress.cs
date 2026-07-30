@@ -3,6 +3,7 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -23,8 +24,8 @@ public class TheHuntress()
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(MoreDamageKey, 3),
-        new(MoreBlockKey, 3),
+        new(MoreDamageKey, 1),
+        new(MoreBlockKey, 1),
     ];
 
     public int GetArcanaRelicNumber()
@@ -39,7 +40,9 @@ public class TheHuntress()
             (dealer != Owner.Creature && dealer != Owner.Osty))
             return 0M;
 
-        return Owner.PlayerCombatState!.Energy == 0 ? DynamicVars[MoreDamageKey].IntValue : 0;
+        return cardSource.EnergyCost.GetWithModifiers(CostModifiers.All) == 0 && !cardSource.EnergyCost.CostsX
+            ? DynamicVars[MoreDamageKey].IntValue
+            : 0;
     }
 
     public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource,
@@ -49,6 +52,8 @@ public class TheHuntress()
             (target != Owner.Creature && target != Owner.Osty))
             return 0M;
 
-        return Owner.PlayerCombatState!.Energy == 0 ? DynamicVars[MoreBlockKey].IntValue : 0;
+        return cardSource.EnergyCost.GetWithModifiers(CostModifiers.All) == 0 && !cardSource.EnergyCost.CostsX
+            ? DynamicVars[MoreBlockKey].IntValue
+            : 0;
     }
 }

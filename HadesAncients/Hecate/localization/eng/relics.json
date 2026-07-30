@@ -48,7 +48,7 @@
   "HADESANCIENTS-THE_FURIES.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage to enemies that do not intend to attack.",
   "HADESANCIENTS-THE_FURIES.flavor": "In the deepest reaches of the Underworld, three are as feared as the god of the dead himself.",
   "HADESANCIENTS-THE_HUNTRESS.title": "The Huntress",
-  "HADESANCIENTS-THE_HUNTRESS.description": "While you have no Energy, your Attacks deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional [gold]Block[/gold] from Skills.",
+  "HADESANCIENTS-THE_HUNTRESS.description": "Your Attacks that cost {energyPrefix:energyIcons(0)} deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional [gold]Block[/gold] from Skills that cost {energyPrefix:energyIcons(0)}.",
   "HADESANCIENTS-THE_HUNTRESS.flavor": "Through discipline and instinct comes sustaining skill both in shadow and the light of the moon.",
   "HADESANCIENTS-THE_LOVERS.title": "The Lovers",
   "HADESANCIENTS-THE_LOVERS.description": "At the start of each Elite or Boss combat, apply [blue]{InfatuatedPower}[/blue] [gold]Infatuated[/gold] to ALL enemies.",
