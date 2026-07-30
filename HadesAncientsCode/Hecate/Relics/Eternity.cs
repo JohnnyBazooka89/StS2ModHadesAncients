@@ -20,7 +20,7 @@ namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 [Pool(typeof(EventRelicPool))]
 public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
-    public const string StrengthLossKey = "StrengthLoss";
+    private const string StrengthLossKey = "StrengthLoss";
     private const string EnergyThresholdKey = "EnergyThreshold";
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
@@ -31,7 +31,7 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     [
         new BlockVar(8, ValueProp.Unpowered),
         new EnergyVar(EnergyThresholdKey, 2),
-        new(StrengthLossKey, 6M)
+        new(StrengthLossKey, 3M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
