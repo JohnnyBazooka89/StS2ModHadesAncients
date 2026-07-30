@@ -37,7 +37,7 @@ public class TheHuntress()
     {
         if (!props.IsPoweredAttack() || cardSource is not { Type: CardType.Attack } ||
             (dealer != Owner.Creature && dealer != Owner.Osty))
-            return 1M;
+            return 0M;
 
         return Owner.PlayerCombatState!.Energy == 0 ? DynamicVars[MoreDamageKey].IntValue : 0;
     }
@@ -47,7 +47,7 @@ public class TheHuntress()
     {
         if (!props.IsPoweredCardOrMonsterMoveBlock() || cardSource is not { Type: CardType.Skill } ||
             (target != Owner.Creature && target != Owner.Osty))
-            return 1M;
+            return 0M;
 
         return Owner.PlayerCombatState!.Energy == 0 ? DynamicVars[MoreBlockKey].IntValue : 0;
     }
