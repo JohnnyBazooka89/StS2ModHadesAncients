@@ -47,13 +47,6 @@ public class CharonsObol() : HadesAncientsRelic(HadesAncient.Dionysus), IAfterRo
     public override IReadOnlySet<RoomType> ModifyUnknownMapPointRoomTypes(
         IReadOnlySet<RoomType> roomTypes)
     {
-        if (WasUsed)
-        {
-            return roomTypes;
-        }
-
-        HashSet<RoomType> newRoomTypes = new HashSet<RoomType>();
-        newRoomTypes.Add(RoomType.Shop);
-        return newRoomTypes;
+        return WasUsed ? roomTypes : new HashSet<RoomType> { RoomType.Shop };
     }
 }
