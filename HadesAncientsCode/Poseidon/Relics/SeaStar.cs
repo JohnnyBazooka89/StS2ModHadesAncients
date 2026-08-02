@@ -26,7 +26,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
 {
     private const string RewardCopyPercentChangeKey = "RewardCopyPercentChange";
 
-    private static readonly List<String> SoundPaths =
+    private static readonly List<string> SoundPaths =
     [
         "sea_star/Poseidon [247].ogg".SoundPath(HadesAncient.Poseidon),
         "sea_star/Poseidon [248].ogg".SoundPath(HadesAncient.Poseidon),
@@ -90,18 +90,18 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
     {
         if (reward is CardReward cardReward)
         {
-            var cardsWereManuallySet = cardReward._cardsWereManuallySet;
+            bool cardsWereManuallySet = cardReward._cardsWereManuallySet;
             var synchronizer = cardReward._synchronizer;
+
             if (cardsWereManuallySet)
             {
                 var options = cardReward.Options;
                 var rerollOptions = cardReward.RerollOptions;
 
                 var originalCards = PoseidonSpireFields.SeaStarOriginalCards.Get(cardReward) ?? [];
+
                 var cardsToOffer = originalCards
-                    .Select<CardModel, CardModel>(card =>
-                        cardReward.Player.RunState.CloneCard(card)
-                    )
+                    .Select(card => cardReward.Player.RunState.CloneCard(card))
                     .ToList();
 
                 return new CardReward(
@@ -112,18 +112,13 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
                     synchronizer
                 );
             }
-            else
-            {
-                var options = cardReward.Options;
-                var optionCount = cardReward.OptionCount;
 
-                return new CardReward(
-                    options,
-                    optionCount,
-                    cardReward.Player,
-                    synchronizer
-                );
-            }
+            return new CardReward(
+                cardReward.Options,
+                cardReward.OptionCount,
+                cardReward.Player,
+                synchronizer
+            );
         }
 
         if (reward is CardRemovalReward cardRemovalReward)
@@ -156,8 +151,16 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         if (reward is SpecialCardReward specialCardReward)
         {
             CardModel? specialCard = specialCardReward._card;
+
+            if (specialCard == null)
+            {
+                return null;
+            }
+
+            CardModel clonedCard = specialCardReward.Player.RunState.CloneCard(specialCard);
+
             return new SpecialCardReward(
-                specialCard!,
+                clonedCard,
                 specialCardReward.Player
             );
         }
@@ -167,96 +170,74 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     private void PlaySound()
     {
-        String soundPath = SoundPaths[Owner.RunState.Rng.Niche.NextInt(0, SoundPaths.Count)];
-
         if (HadesAncientsModConfig.PoseidonDisableSeaStarSoundEffects)
         {
             return;
         }
 
+        string soundPath = SoundPaths[Random.Shared.Next(SoundPaths.Count)];
+
         float master = SaveManager.Instance.SettingsSave.VolumeMaster;
         float sfx = SaveManager.Instance.SettingsSave.VolumeSfx;
 
-        float finalLinear = master * sfx;
-
         AudioStream sound = GD.Load<AudioStream>(soundPath);
-        AudioStreamPlayer player = new()
+
+        AudioStreamPlayer audioPlayer = new()
         {
             Stream = sound,
-            VolumeLinear = finalLinear
+            VolumeLinear = master * sfx
         };
-        NGame.Instance?.AddChild(player);
-        player.Play();
-        player.Finished += player.QueueFree;
+
+        NGame.Instance?.AddChild(audioPlayer);
+        audioPlayer.Play();
+        audioPlayer.Finished += audioPlayer.QueueFree;
     }
 
     private static void AddRewardToCurrentScreen(Reward newReward)
     {
         newReward.MarkContentAsSeen();
 
-        var screen = NOverlayStack.Instance?
+        NRewardsScreen? screen = NOverlayStack.Instance?
             .GetChildren()
             .OfType<NRewardsScreen>()
             .LastOrDefault();
 
         if (screen == null)
+        {
             return;
-
-        var rewardButtons = screen._rewardButtons;
-        var rewardsContainer = screen._rewardsContainer;
-
-        Control option;
-
-        if (newReward is LinkedRewardSet linkedReward)
-        {
-            option = NLinkedRewardSet.Create(linkedReward, screen);
-            option.Connect(
-                NLinkedRewardSet.SignalName.RewardClaimed,
-                Callable.From<NLinkedRewardSet>(screen.RewardCollectedFrom)
-            );
-        }
-        else
-        {
-            var button = NRewardButton.Create(newReward, screen);
-
-            button.Connect(
-                NRewardButton.SignalName.RewardClaimed,
-                Callable.From<NRewardButton>(screen.RewardCollectedFrom)
-            );
-
-            button.Connect(
-                NRewardButton.SignalName.RewardSkipped,
-                Callable.From<NRewardButton>(screen.RewardSkippedFrom)
-            );
-
-            option = button;
         }
 
-        rewardButtons.Add(option);
-        rewardsContainer.AddChildSafely(option);
+        var button = NRewardButton.Create(newReward, screen);
+
+        button.Connect(
+            NRewardButton.SignalName.RewardClaimed,
+            Callable.From<NRewardButton>(screen.RewardCollectedFrom)
+        );
+
+        button.Connect(
+            NRewardButton.SignalName.RewardSkipped,
+            Callable.From<NRewardButton>(screen.RewardSkippedFrom)
+        );
+
+        screen._rewardButtons.Add(button);
+        screen._rewardsContainer.AddChildSafely(button);
 
         screen.UpdateScreenState();
         screen.TryEnableProceedButton();
     }
-
+    
     private static RewardsSet? FindRewardsSetContaining(Player player, Reward reward)
     {
         var synchronizer = RunManager.Instance.RewardsSetSynchronizer;
-        if (synchronizer == null)
-            return null;
-
+        if (synchronizer == null) return null;
         var rewardStates = synchronizer._rewardStates;
-
         foreach (var playerState in rewardStates)
         {
             var rewardsStack = playerState.rewardsStack;
-
             foreach (var setState in rewardsStack)
             {
                 var set = setState.set;
-
-                if (set.Player == player && set.Rewards.Contains(reward))
-                    return set;
+                if (set.Player == player && set.Rewards.Contains(reward)) return set;
             }
         }
 
