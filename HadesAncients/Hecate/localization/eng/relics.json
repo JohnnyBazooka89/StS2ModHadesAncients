@@ -60,7 +60,7 @@
   "HADESANCIENTS-THE_MOON.description": "At the start of your [blue]3rd[/blue] turn, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] cards.",
   "HADESANCIENTS-THE_MOON.flavor": "Even as she races across the fathomless sky, she bears witness to all.",
   "HADESANCIENTS-THE_QUEEN.title": "The Queen",
-  "HADESANCIENTS-THE_QUEEN.description": "Every [blue]{Combats}[/blue] normal combats, obtain a card reward from another character.",
+  "HADESANCIENTS-THE_QUEEN.description": "Every [blue]{Combats}[/blue] normal combats, obtain an additional card reward from another character.",
   "HADESANCIENTS-THE_QUEEN.flavor": "From Olympus she descends to reign in Underworld as the surface-land grows cold.",
   "HADESANCIENTS-THE_SORCERESS.title": "The Sorceress",
   "HADESANCIENTS-THE_SORCERESS.description": "The first time each combat you play a card that costs {EnergyThreshold:energyIcons()} or more, gain {Energy:energyIcons()}.",
