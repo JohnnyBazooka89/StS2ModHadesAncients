@@ -24,8 +24,8 @@ public class TheHuntress()
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(MoreDamageKey, 1),
-        new(MoreBlockKey, 1),
+        new(MoreDamageKey, 2),
+        new(MoreBlockKey, 2),
     ];
 
     public int GetArcanaRelicNumber()
