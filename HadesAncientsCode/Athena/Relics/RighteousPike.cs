@@ -30,7 +30,7 @@ public class RighteousPike() : HadesAncientsRelic(HadesAncient.Athena)
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(3),
-        new DamageVar(5, ValueProp.Unpowered),
+        new DamageVar(4, ValueProp.Unpowered),
         new RepeatVar(3)
     ];
 
