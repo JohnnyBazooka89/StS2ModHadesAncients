@@ -12,7 +12,7 @@
   "HADESANCIENTS-GLAMOUR_GAIN.description": "매 턴 처음으로 적에게 디버프를 부여할 때 [E]를 얻습니다.",
   "HADESANCIENTS-GLAMOUR_GAIN.flavor": "\"은빛 달빛 아래서 정말 눈부시게 아름답구나!\"",
   "HADESANCIENTS-HEALTHY_REBOUND.title": "건강한 회복",
-  "HADESANCIENTS-HEALTHY_REBOUND.description": "일반/엘리트/보스 전투 시작 시 체력을 [blue]{NormalCombatHeal}[/blue]/[blue]{EliteCombatHeal}[/blue]/[blue]{BossCombatHeal}[/blue] 회복합니다.",
+  "HADESANCIENTS-HEALTHY_REBOUND.description": "일반/엘리트/보스 전투 시작 시 체력을 [green]{NormalCombatHeal}[/green]/[green]{EliteCombatHeal}[/green]/[green]{BossCombatHeal}[/green] 회복합니다.",
   "HADESANCIENTS-HEALTHY_REBOUND.flavor": "\"하지만 절망하진 마! 아직 심장은 뛰고 있잖아?\"",
   "HADESANCIENTS-HEARTBREAK_STRIKE.title": "상심의 일격",
   "HADESANCIENTS-HEARTBREAK_STRIKE.description": "공격이 대상의 [gold]약화[/gold] 1중첩당 [blue]{MoreDamagePercent}%[/blue] 더 큰 피해를 주며, 적중 시 [blue]{WeakPower}[/blue] [gold]약화[/gold]를 부여합니다.",

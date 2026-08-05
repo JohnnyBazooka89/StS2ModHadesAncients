@@ -1,5 +1,4 @@
 ﻿using BaseLib.Utils;
-using HadesAncients.HadesAncientsCode.Hephaestus.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Hooks;
@@ -11,12 +10,12 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class UncannyFortitude() : HadesAncientsRelic(HadesAncient.Hephaestus), IAfterCardUpgrade, IAfterLoadRun
+public class UncannyFortitude()
+    : HadesAncientsRelic(HadesAncient.Hephaestus), IAfterCardBecameUpgradedOrEnchanted
 {
     private const string TotalHpToGainKey = "TotalHpToGain";
 
@@ -31,19 +30,20 @@ public class UncannyFortitude() : HadesAncientsRelic(HadesAncient.Hephaestus), I
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public async Task AfterCardUpgrade(CardModel card)
+    public async Task AfterCardBecameUpgradedOrEnchanted(
+        CardModel card)
     {
-        await AddMaxHpIfNotAddedAlready(card);
-    }
-
-    public Task AfterLoadRun(SerializableRoom? room)
-    {
-        foreach (CardModel card in CardUtils.GetUpgradedOrEnchantedCards(Owner))
+        if (card.Owner != Owner ||
+            card.Pile?.Type != PileType.Deck)
         {
-            HephaestusSpireFields.UncannyFortitudeUpgradedOrEnchantedCards.Set(card, true);
+            return;
         }
 
-        return Task.CompletedTask;
+        Flash();
+        await CreatureCmd.GainMaxHp(
+            Owner.Creature,
+            DynamicVars.MaxHp.BaseValue
+        );
     }
 
     public override async Task AfterCardChangedPiles(
@@ -51,31 +51,34 @@ public class UncannyFortitude() : HadesAncientsRelic(HadesAncient.Hephaestus), I
         PileType oldPileType,
         AbstractModel? clonedBy)
     {
-        await AddMaxHpIfNotAddedAlready(card);
-    }
-
-    private async Task AddMaxHpIfNotAddedAlready(CardModel card)
-    {
-        if (card.Owner != Owner || card.Pile?.Type != PileType.Deck ||
-            !CardUtils.IsUpgradedOrEnchanted(card) ||
-            HephaestusSpireFields.UncannyFortitudeUpgradedOrEnchantedCards.Get(card))
+        if (oldPileType == PileType.Deck ||
+            card.Owner != Owner ||
+            card.Pile?.Type != PileType.Deck ||
+            !CardUtils.IsUpgradedOrEnchanted(card))
         {
             return;
         }
 
         Flash();
-        await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.BaseValue);
-        HephaestusSpireFields.UncannyFortitudeUpgradedOrEnchantedCards.Set(card, true);
+        await CreatureCmd.GainMaxHp(
+            Owner.Creature,
+            DynamicVars.MaxHp.BaseValue
+        );
     }
 
     public override async Task AfterObtained()
     {
-        Flash();
-        await CreatureCmd.GainMaxHp(Owner.Creature,
-            ((OutsideCombatCalculatedVar)DynamicVars[TotalHpToGainKey]).CalculateCustom(null));
-        foreach (CardModel card in CardUtils.GetUpgradedOrEnchantedCards(Owner))
+        int eligibleCards = CardUtils.GetUpgradedOrEnchantedCards(Owner).Count;
+
+        if (eligibleCards == 0)
         {
-            HephaestusSpireFields.UncannyFortitudeUpgradedOrEnchantedCards.Set(card, true);
+            return;
         }
+
+        Flash();
+        await CreatureCmd.GainMaxHp(
+            Owner.Creature,
+            eligibleCards * DynamicVars.MaxHp.BaseValue
+        );
     }
 }

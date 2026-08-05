@@ -12,7 +12,7 @@
   "HADESANCIENTS-GLAMOUR_GAIN.description": "The first time each turn you apply a debuff to an enemy, gain {Energy:energyIcons()}.",
   "HADESANCIENTS-GLAMOUR_GAIN.flavor": "\"Why, you look positively stunning in all that silver light!\"",
   "HADESANCIENTS-HEALTHY_REBOUND.title": "Healthy Rebound",
-  "HADESANCIENTS-HEALTHY_REBOUND.description": "At the start of each Normal/Elite/Boss combat, heal [blue]{NormalCombatHeal}[/blue]/[blue]{EliteCombatHeal}[/blue]/[blue]{BossCombatHeal}[/blue] HP.",
+  "HADESANCIENTS-HEALTHY_REBOUND.description": "At the start of each Normal/Elite/Boss combat, heal [green]{NormalCombatHeal}[/green]/[green]{EliteCombatHeal}[/green]/[green]{BossCombatHeal}[/green] HP.",
   "HADESANCIENTS-HEALTHY_REBOUND.flavor": "\"Though don't despair! Your heart yet beats, doesn't it?\"",
   "HADESANCIENTS-HEARTBREAK_STRIKE.title": "Heartbreak Strike",
   "HADESANCIENTS-HEARTBREAK_STRIKE.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage for each [gold]Weak[/gold] on the enemy and apply [blue]{WeakPower}[/blue] [gold]Weak[/gold] on every hit.",

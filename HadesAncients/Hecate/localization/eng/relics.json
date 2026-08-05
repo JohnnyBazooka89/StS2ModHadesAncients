@@ -21,7 +21,7 @@
   "HADESANCIENTS-ORIGINATION.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage to enemies with at least [blue]{DebuffsThreshold}[/blue] different Debuffs.",
   "HADESANCIENTS-ORIGINATION.flavor": "From the infinite void emerged all that exists, and back to that void it all may yet return.",
   "HADESANCIENTS-PERSISTENCE.title": "Persistence",
-  "HADESANCIENTS-PERSISTENCE.description": "Upon pickup, gain [blue]{MaxHp}[/blue] Max HP. Start each Elite or Boss combat with an additional {Energy:energyIcons()}.",
+  "HADESANCIENTS-PERSISTENCE.description": "Start each Elite or Boss combat with an additional {Energy:energyIcons()}. At the end of each Elite or Boss combat, gain [blue]{MaxHp}[/blue] Max HP.",
   "HADESANCIENTS-PERSISTENCE.flavor": "He stole from the gods the gift of fire, for mortals; thus he suffered, but grew strong.",
   "HADESANCIENTS-STRENGTH.title": "Strength",
   "HADESANCIENTS-STRENGTH.description": "While your HP is at or below [blue]{HpThreshold}%[/blue], you have [blue]{StrengthPower}[/blue] additional [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] additional [gold]Dexterity[/gold].",
@@ -48,7 +48,7 @@
   "HADESANCIENTS-THE_FURIES.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage to enemies that do not intend to attack.",
   "HADESANCIENTS-THE_FURIES.flavor": "In the deepest reaches of the Underworld, three are as feared as the god of the dead himself.",
   "HADESANCIENTS-THE_HUNTRESS.title": "The Huntress",
-  "HADESANCIENTS-THE_HUNTRESS.description": "Your Attacks that cost {energyPrefix:energyIcons(0)} deal [blue]{MoreDamage}[/blue] additional damage, and you gain [blue]{MoreBlock}[/blue] additional [gold]Block[/gold] from Skills that cost {energyPrefix:energyIcons(0)}.",
+  "HADESANCIENTS-THE_HUNTRESS.description": "Cards that cost {energyPrefix:energyIcons(0)} deal [blue]{MoreDamage}[/blue] additional damage, and give [blue]{MoreBlock}[/blue] additional [gold]Block[/gold].",
   "HADESANCIENTS-THE_HUNTRESS.flavor": "Through discipline and instinct comes sustaining skill both in shadow and the light of the moon.",
   "HADESANCIENTS-THE_LOVERS.title": "The Lovers",
   "HADESANCIENTS-THE_LOVERS.description": "At the start of each Elite or Boss combat, apply [blue]{InfatuatedPower}[/blue] [gold]Infatuated[/gold] to ALL enemies.",
@@ -72,6 +72,6 @@
   "HADESANCIENTS-THE_UNSEEN.description": "Every {Energy:energyIcons()} you spend, gain {EnergyToGain:energyIcons()}.",
   "HADESANCIENTS-THE_UNSEEN.flavor": "Upon their ancient oath, in shadow, they serve; and to shadow, they return.",
   "HADESANCIENTS-THE_WAYWARD_SON.title": "The Wayward Son",
-  "HADESANCIENTS-THE_WAYWARD_SON.description": "At the end of each combat, heal [blue]{Heal}[/blue] HP.",
+  "HADESANCIENTS-THE_WAYWARD_SON.description": "At the end of each combat, heal [green]{Heal}[/green] HP.",
   "HADESANCIENTS-THE_WAYWARD_SON.flavor": "Even the Underworld itself struggled to contain him, such was his lust for life."
 }

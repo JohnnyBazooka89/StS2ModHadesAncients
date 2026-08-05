@@ -3,7 +3,6 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -36,7 +35,7 @@ public class TheHuntress()
     public Decimal ModifyDamageAdditiveCompatibility(Creature? target, Decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
-        if (!props.IsPoweredAttack() || cardSource is not { Type: CardType.Attack } ||
+        if (!props.IsPoweredAttack() || cardSource == null ||
             (dealer != Owner.Creature && dealer != Owner.Osty))
             return 0M;
 
@@ -48,7 +47,7 @@ public class TheHuntress()
     public override decimal ModifyBlockAdditive(Creature target, decimal block, ValueProp props, CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (!props.IsPoweredCardOrMonsterMoveBlock() || cardSource is not { Type: CardType.Skill } ||
+        if (!props.IsPoweredCardOrMonsterMoveBlock() || cardSource == null ||
             (target != Owner.Creature && target != Owner.Osty))
             return 0M;
 

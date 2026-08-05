@@ -7,7 +7,6 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
-using MegaCrit.Sts2.Core.Saves.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Hooks;
@@ -54,26 +53,15 @@ public class HadesAncientsHooks
         );
     }
 
-    public static async Task AfterCardUpgrade(IRunState? runState,
+    public static async Task AfterCardBecameUpgradedOrEnchanted(IRunState? runState,
         ICombatState? combatState,
         CardModel cardModel)
     {
-        await DispatchAsync<IAfterCardUpgrade>(
+        await DispatchAsync<IAfterCardBecameUpgradedOrEnchanted>(
             runState,
             combatState,
-            model => model.AfterCardUpgrade(
+            model => model.AfterCardBecameUpgradedOrEnchanted(
                 cardModel
-            )
-        );
-    }
-
-    public static async Task AfterLoadRun(RunState runState, SerializableRoom? preFinishedRoom)
-    {
-        await DispatchAsync<IAfterLoadRun>(
-            runState,
-            null,
-            model => model.AfterLoadRun(
-                preFinishedRoom
             )
         );
     }

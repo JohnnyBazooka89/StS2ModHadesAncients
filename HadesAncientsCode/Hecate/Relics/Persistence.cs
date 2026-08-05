@@ -23,7 +23,7 @@ public class Persistence()
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new MaxHpVar(6M),
+        new MaxHpVar(2M),
         new EnergyVar(2)
     ];
 
@@ -37,9 +37,19 @@ public class Persistence()
         return 7;
     }
 
-    public override async Task AfterObtained()
+    public override async Task AfterCombatVictory(CombatRoom room)
     {
-        await CreatureCmd.GainMaxHp(Owner.Creature, DynamicVars.MaxHp.BaseValue);
+        if (Owner.Creature.IsDead ||
+            (room.RoomType != RoomType.Elite &&
+             room.RoomType != RoomType.Boss))
+        {
+            return;
+        }
+
+        Flash();
+        await CreatureCmd.GainMaxHp(
+            Owner.Creature,
+            DynamicVars.MaxHp.BaseValue);
     }
 
     public override async Task AfterSideTurnStart(
