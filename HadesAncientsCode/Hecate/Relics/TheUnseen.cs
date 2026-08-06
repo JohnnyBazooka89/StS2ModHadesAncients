@@ -64,7 +64,7 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner)
+        if (cardPlay.Card.Owner != Owner || cardPlay.IsAutoPlay)
         {
             return;
         }
