@@ -37,7 +37,7 @@ public class TheCentaur() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(CombatsKey, 3M),
-        new MaxHpVar(3M)
+        new MaxHpVar(4M)
     ];
 
     public int GetArcanaRelicNumber()

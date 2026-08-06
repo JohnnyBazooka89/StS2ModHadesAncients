@@ -31,7 +31,7 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     [
         new BlockVar(8, ValueProp.Unpowered),
         new EnergyVar(EnergyThresholdKey, 2),
-        new(StrengthLossKey, 3M)
+        new(StrengthLossKey, 4M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
