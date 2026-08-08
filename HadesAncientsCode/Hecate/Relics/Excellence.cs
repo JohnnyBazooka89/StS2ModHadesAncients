@@ -112,7 +112,8 @@ public class Excellence() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
 
     public override Task BeforeCombatRewardOffered(RewardsSet rewards, CombatRoom room)
     {
-        if (rewards.Player != Owner || rewards.Rewards.All(r => r is not CardReward))
+        if (rewards.Player != Owner || rewards.Rewards.All(r => r is not CardReward) ||
+            room.Encounter.RoomType != RoomType.Monster)
             return Task.CompletedTask;
         if (IsInTriggeringCombat)
             TaskHelper.RunSafely(DoActivateVisuals());

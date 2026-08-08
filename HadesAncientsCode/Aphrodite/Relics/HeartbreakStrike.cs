@@ -25,7 +25,7 @@ public class HeartbreakStrike() : HadesAncientsRelic(HadesAncient.Aphrodite), IM
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(MoreDamagePercentKey, 10M),
+        new(MoreDamagePercentKey, 5M),
         new PowerVar<WeakPower>(1M)
     ];
 

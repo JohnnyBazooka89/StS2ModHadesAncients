@@ -95,7 +95,7 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack)
+        if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || cardPlay.IsAutoPlay)
         {
             return Task.CompletedTask;
         }

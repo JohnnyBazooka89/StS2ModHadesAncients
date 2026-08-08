@@ -37,7 +37,7 @@ public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(2)
+        new CardsVar(3)
     ];
 
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
@@ -66,13 +66,13 @@ public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus)
             return Task.CompletedTask;
         }
 
-        Charges = 2;
+        Charges = DynamicVars.Cards.IntValue;
         return Task.CompletedTask;
     }
 
     public override Task AfterObtained()
     {
-        Charges = 2;
+        Charges = DynamicVars.Cards.IntValue;
         return Task.CompletedTask;
     }
 }

@@ -34,6 +34,6 @@
   "HADESANCIENTS-WAVE_FLOURISH.description": "The first time each turn you draw [blue]{Cards}[/blue] cards during your turn, gain {Energy:energyIcons()}.",
   "HADESANCIENTS-WAVE_FLOURISH.flavor": "\"Oh, this is swell!\"",
   "HADESANCIENTS-WAVE_STRIKE.title": "Wave Strike",
-  "HADESANCIENTS-WAVE_STRIKE.description": "The [blue]3rd[/blue] Attack played each turn is played an additional time.",
+  "HADESANCIENTS-WAVE_STRIKE.description": "The [blue]3rd[/blue] Attack you play from your [gold]Hand[/gold] each turn is played an additional time.",
   "HADESANCIENTS-WAVE_STRIKE.flavor": "\"Here comes the wave!\""
 }

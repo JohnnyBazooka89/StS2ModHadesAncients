@@ -12,7 +12,7 @@
   "HADESANCIENTS-ELECTRIC_OVERLOAD.description": "매 턴 시작 시 {Energy:energyIcons()}를 얻습니다. 턴 종료 시 사용하지 않은 에너지 1당 [blue]{Damage}[/blue] 피해를 받습니다.",
   "HADESANCIENTS-ELECTRIC_OVERLOAD.flavor": "\"올림포스의 분노에는 끝이 없다. 다시는 그 분노를 자초하지 않는 편이 좋을 것이다.\"",
   "HADESANCIENTS-HEAVEN_FLOURISH.title": "천상의 개화",
-  "HADESANCIENTS-HEAVEN_FLOURISH.description": "전투마다 처음 사용하는 스킬 카드 [blue]2[/blue]장이 한 번 더 발동됩니다.",
+  "HADESANCIENTS-HEAVEN_FLOURISH.description": "전투마다 처음 사용하는 스킬 카드 [blue]{Cards}[/blue]장이 한 번 더 발동됩니다.",
   "HADESANCIENTS-HEAVEN_FLOURISH.flavor": "\"너희 마녀들에겐 원래부터 불꽃이 깃들어 있지. 하지만 여기, 하나 더 주마.\"",
   "HADESANCIENTS-HEAVEN_STRIKE.title": "천상의 강타",
   "HADESANCIENTS-HEAVEN_STRIKE.description": "막히지 않은 공격 피해를 줄 때마다 [gold]뇌격[/gold]을 적용합니다.",
