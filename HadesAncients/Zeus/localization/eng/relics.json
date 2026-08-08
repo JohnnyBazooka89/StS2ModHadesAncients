@@ -12,7 +12,7 @@
   "HADESANCIENTS-ELECTRIC_OVERLOAD.description": "Gain {Energy:energyIcons()} at the start of each turn. At the end of your turn, take [blue]{Damage:diff()}[/blue] damage for each unspent Energy.",
   "HADESANCIENTS-ELECTRIC_OVERLOAD.flavor": "\"There is no limit to the wrath of Olympus. Best not invite it on yourself again.\"",
   "HADESANCIENTS-HEAVEN_FLOURISH.title": "Heaven Flourish",
-  "HADESANCIENTS-HEAVEN_FLOURISH.description": "The first [blue]{Cards}[/blue] Skills you play each combat are played an additional time.",
+  "HADESANCIENTS-HEAVEN_FLOURISH.description": "The first [blue]{Cards}[/blue] Skills you play from your [gold]Hand[/gold] each combat are played an additional time.",
   "HADESANCIENTS-HEAVEN_FLOURISH.flavor": "\"You witches have a natural spark in you, I know, but here! I've got another.\"",
   "HADESANCIENTS-HEAVEN_STRIKE.title": "Heaven Strike",
   "HADESANCIENTS-HEAVEN_STRIKE.description": "Whenever you deal unblocked attack damage, apply [gold]Blitz[/gold].",
