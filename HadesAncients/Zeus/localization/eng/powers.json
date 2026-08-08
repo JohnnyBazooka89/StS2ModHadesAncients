@@ -1,6 +1,6 @@
 {
   "HADESANCIENTS-BLITZ_POWER.title": "Blitz",
-  "HADESANCIENTS-BLITZ_POWER.description": "After this creature takes [blue]15[/blue] more unblocked attack damage, it takes [blue]4[/blue] damage, and the damage of all future [gold]Blitz[/gold] triggers on this creature is increased by [blue]1[/blue]. Multiple instances of [gold]Blitz[/gold] track damage separately.",
+  "HADESANCIENTS-BLITZ_POWER.description": "After this creature takes [blue]15[/blue] more unblocked attack damage, it takes [blue]8[/blue] damage, and the damage of all future [gold]Blitz[/gold] triggers on this creature is increased by [blue]4[/blue].",
   "HADESANCIENTS-BLITZ_POWER.smartDescription": "After this creature takes [blue]{UnblockedDamageLeft}[/blue] more unblocked attack damage, it takes [blue]{BlitzDamage}[/blue] damage, and the damage of all future [gold]Blitz[/gold] triggers on this creature is increased by [blue]{BlitzDamageIncrease}[/blue].",
   "HADESANCIENTS-HEAVEN_STRUCK_POWER.title": "Heaven Struck",
   "HADESANCIENTS-HEAVEN_STRUCK_POWER.description": "This creature takes more damage from [gold]Blitz[/gold].",

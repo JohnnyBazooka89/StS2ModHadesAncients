@@ -32,8 +32,11 @@ public class HeavenStrike() : HadesAncientsRelic(HadesAncient.Zeus)
         CardModel? cardSource)
     {
         if ((dealer != Owner.Creature && dealer != Owner.Osty) || !props.IsPoweredAttack() ||
-            result.UnblockedDamage <= 0)
+            result.UnblockedDamage <= 0 || target.Powers.OfType<BlitzPower>().Any())
+        {
             return;
+        }
+
         Flash();
         await PowerCmd.Apply<BlitzPower>(choiceContext, target, 1M, Owner.Creature, cardSource);
     }

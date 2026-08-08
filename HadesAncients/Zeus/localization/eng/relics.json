@@ -15,7 +15,7 @@
   "HADESANCIENTS-HEAVEN_FLOURISH.description": "The first [blue]{Cards}[/blue] Skills you play from your [gold]Hand[/gold] each combat are played an additional time.",
   "HADESANCIENTS-HEAVEN_FLOURISH.flavor": "\"You witches have a natural spark in you, I know, but here! I've got another.\"",
   "HADESANCIENTS-HEAVEN_STRIKE.title": "Heaven Strike",
-  "HADESANCIENTS-HEAVEN_STRIKE.description": "Whenever you deal unblocked attack damage, apply [gold]Blitz[/gold].",
+  "HADESANCIENTS-HEAVEN_STRIKE.description": "Whenever you deal unblocked attack damage to an enemy without [gold]Blitz[/gold], apply [gold]Blitz[/gold].",
   "HADESANCIENTS-HEAVEN_STRIKE.flavor": "\"My lightning bolt is yours!\"",
   "HADESANCIENTS-IONIC_GAIN.title": "Ionic Gain",
   "HADESANCIENTS-IONIC_GAIN.description": "Every [blue]2nd[/blue] turn, add [blue]{Cards}[/blue] [gold]Aether Font[/gold] into your [gold]Hand[/gold].",

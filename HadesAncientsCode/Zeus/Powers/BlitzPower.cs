@@ -31,11 +31,11 @@ public class BlitzPower() : HadesAncientsPower(HadesAncient.Zeus), IHasSecondAmo
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(UnblockedDamageLeftKey, 15M),
-        new(BlitzDamageIncreaseKey, 1M),
-        new(BlitzDamageKey + "Base", 4M),
+        new(BlitzDamageIncreaseKey, 4M),
+        new(BlitzDamageKey + "Base", 8M),
         new(BlitzDamageKey + "Extra", 1M),
         new CustomCalculatedDamageVar(BlitzDamageKey, ValueProp.Unpowered).WithMultiplier(static (power, target) =>
-            power.Owner.GetPowerAmount<HeavenStruckPower>())
+                power.Owner.GetPowerAmount<HeavenStruckPower>())
     ];
 
     public string GetSecondAmount()
