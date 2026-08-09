@@ -1,5 +1,5 @@
 {
   "HADESANCIENTS-INFATUATED_POWER.title": "Infatuated",
-  "HADESANCIENTS-INFATUATED_POWER.description": "Your next Attack deals [blue]0[/blue] damage.",
+  "HADESANCIENTS-INFATUATED_POWER.description": "This creature's next Attack deals [blue]0[/blue] damage.",
   "HADESANCIENTS-INFATUATED_POWER.smartDescription": "{OnPlayer:Your|This creature's} next Attack deals [blue]0[/blue] damage."
 }
