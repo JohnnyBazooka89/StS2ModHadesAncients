@@ -72,7 +72,8 @@ public class FlutterFlourish() : HadesAncientsRelic(HadesAncient.Aphrodite)
 
     public override Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (!CombatManager.Instance.IsInProgress || cardPlay.IsAutoPlay || cardPlay.Card.Owner != Owner)
+        if (!CombatManager.Instance.IsInProgress || cardPlay.IsAutoPlay || !cardPlay.IsFirstInSeries ||
+            cardPlay.Card.Owner != Owner)
             return Task.CompletedTask;
         if (cardPlay.Card.Type == CardType.Skill)
         {

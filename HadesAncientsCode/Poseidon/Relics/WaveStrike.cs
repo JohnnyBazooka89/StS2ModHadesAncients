@@ -72,7 +72,8 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || cardPlay.IsAutoPlay)
+        if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || cardPlay.IsAutoPlay ||
+            !cardPlay.IsFirstInSeries)
         {
             return Task.CompletedTask;
         }
