@@ -1,5 +1,4 @@
-﻿using BaseLib.Cards.Variables;
-using BaseLib.Utils;
+﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Vars;

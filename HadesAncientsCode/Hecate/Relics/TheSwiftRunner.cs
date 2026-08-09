@@ -2,10 +2,8 @@
 using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rooms;
 
 namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 

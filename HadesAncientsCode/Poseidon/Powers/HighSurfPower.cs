@@ -1,11 +1,7 @@
 using HadesAncients.HadesAncientsCode.Poseidon.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace HadesAncients.HadesAncientsCode.Poseidon.Powers;

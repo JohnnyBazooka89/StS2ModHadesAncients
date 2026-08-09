@@ -2,7 +2,6 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models.Powers;
 

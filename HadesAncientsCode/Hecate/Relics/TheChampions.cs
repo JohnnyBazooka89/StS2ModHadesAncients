@@ -3,7 +3,6 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.LinkedRewards.LinkedRewardSet;
-using HarmonyLib;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
