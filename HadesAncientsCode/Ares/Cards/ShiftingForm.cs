@@ -24,10 +24,19 @@ public class ShiftingForm() : HadesAncientsCard(HadesAncient.Ares, 3, CardType.P
         ReaperForm reaperForm = combatState.CreateCard<ReaperForm>(Owner);
         EchoForm echoForm = combatState.CreateCard<EchoForm>(Owner);
 
+        if (IsUpgraded)
+        {
+            CardCmd.Upgrade(demonForm);
+            CardCmd.Upgrade(serpentForm);
+            CardCmd.Upgrade(voidForm);
+            CardCmd.Upgrade(reaperForm);
+            CardCmd.Upgrade(echoForm);
+        }
+
         List<CardModel> formCards = [demonForm, serpentForm, voidForm, reaperForm, echoForm];
 
         Owner.Creature.CombatState!.RunState.Rng.Niche.Shuffle(formCards);
-        
+
         await CardCmd.AutoPlay(choiceContext, formCards[0], null);
     }
 }
