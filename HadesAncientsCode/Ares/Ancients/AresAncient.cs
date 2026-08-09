@@ -27,7 +27,9 @@ public class AresAncient : CustomAncientModel
         {
             List<AncientOption> relics =
             [
-                AncientOption<VisceralImpact>(),
+                AncientOption<ViciousFlourish>(),
+                AncientOption<ViciousStrike>(),
+                AncientOption<VisceralImpact>()
             ];
 
             return new OptionPools(

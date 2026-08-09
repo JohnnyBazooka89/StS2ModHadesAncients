@@ -1,4 +1,10 @@
 {
+  "HADESANCIENTS-VICIOUS_FLOURISH.title": "Vicious Flourish",
+  "HADESANCIENTS-VICIOUS_FLOURISH.description": "Whenever you play a Skill card, apply [blue]{WoundsPower}[/blue] [gold]Wounds[/gold] to a random enemy.",
+  "HADESANCIENTS-VICIOUS_FLOURISH.flavor": "",
+  "HADESANCIENTS-VICIOUS_STRIKE.title": "Vicious Strike",
+  "HADESANCIENTS-VICIOUS_STRIKE.description": "Upon pickup, choose [blue]{Cards}[/blue] Attacks in your [gold]Deck[/gold]. [gold]Enchant[/gold] them with [purple]Vicious[/purple].",
+  "HADESANCIENTS-VICIOUS_STRIKE.flavor": "",
   "HADESANCIENTS-VISCERAL_IMPACT.title": "Visceral Impact",
   "HADESANCIENTS-VISCERAL_IMPACT.description": "At the start of each turn, lose [blue]{HpLoss}[/blue] HP. At the end of your first turn, your Form card is played for free.",
   "HADESANCIENTS-VISCERAL_IMPACT.flavor": ""
