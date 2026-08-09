@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿using BaseLib.Common.Rewards;
+using BaseLib.Utils;
 using Godot;
 using HadesAncients.HadesAncientsCode.Poseidon.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
@@ -165,6 +166,29 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
             );
         }
 
+        // BaseLib rewards (for mod compatibility)
+        if (reward is CardUpgradeReward cardUpgradeReward)
+        {
+            return new CardUpgradeReward(cardUpgradeReward.Player)
+            {
+                Amount = cardUpgradeReward.Amount
+            };
+        }
+
+        if (reward is CardTransformReward cardTransformReward)
+        {
+            return new CardTransformReward(cardTransformReward.Player)
+            {
+                Amount = cardTransformReward.Amount,
+                Upgrade = cardTransformReward.Upgrade
+            };
+        }
+
+        if (reward is RandomCardUpgradeReward randomCardUpgradeReward)
+        {
+            return new RandomCardUpgradeReward(randomCardUpgradeReward.Player);
+        }
+
         return null;
     }
 
@@ -225,7 +249,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         screen.UpdateScreenState();
         screen.TryEnableProceedButton();
     }
-    
+
     private static RewardsSet? FindRewardsSetContaining(Player player, Reward reward)
     {
         var synchronizer = RunManager.Instance.RewardsSetSynchronizer;
