@@ -61,8 +61,7 @@ public class Excellence() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
     ];
 
     private bool IsInTriggeringCombat => CombatsSeen > 0 &&
-                                         CombatsSeen % DynamicVars[CombatsKey].BaseValue ==
-                                         DynamicVars[CombatsKey].BaseValue - 1;
+                                         CombatsSeen % DynamicVars[CombatsKey].BaseValue == 0;
 
     public int GetArcanaRelicNumber()
     {
@@ -75,8 +74,7 @@ public class Excellence() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
         CardCreationOptions creationOptions)
     {
         if (Owner != player || creationOptions.Source != CardCreationSource.Encounter || !IsInTriggeringCombat ||
-            !creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward) ||
-            !creationOptions.Flags.HasFlag(CardCreationFlags.IsFromCombat))
+            !creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward))
             return false;
         bool allowDupes = false;
         List<CardModel> list = creationOptions.GetPossibleCards(player).ToList();
@@ -110,14 +108,13 @@ public class Excellence() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
         return card != null;
     }
 
-    public override Task BeforeCombatRewardOffered(RewardsSet rewards, CombatRoom room)
+    public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (rewards.Player != Owner || rewards.Rewards.All(r => r is not CardReward) ||
-            room.Encounter.RoomType != RoomType.Monster)
+        if (room.Encounter.RoomType != RoomType.Monster)
             return Task.CompletedTask;
+        ++CombatsSeen;
         if (IsInTriggeringCombat)
             TaskHelper.RunSafely(DoActivateVisuals());
-        ++CombatsSeen;
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
