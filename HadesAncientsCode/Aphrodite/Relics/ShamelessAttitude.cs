@@ -27,8 +27,7 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite), I
     ];
 
     public decimal ModifyDamageMultiplicativeCompatibility(Creature? target, decimal amount, ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource, CardPlay? cardPlay)
+        Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))
             return 1M;
