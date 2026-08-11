@@ -23,9 +23,9 @@ public class AirQuality() : HadesAncientsRelic(HadesAncient.Zeus)
         new(DamageThresholdKey, 9M)
     ];
 
-    public override Decimal ModifyHpLostAfterOstyLate(
+    public override decimal ModifyHpLostAfterOstyLate(
         Creature target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource)

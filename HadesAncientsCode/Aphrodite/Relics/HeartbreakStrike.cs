@@ -34,9 +34,9 @@ public class HeartbreakStrike() : HadesAncientsRelic(HadesAncient.Aphrodite), IM
         HoverTipFactory.FromPower<WeakPower>()
     ];
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

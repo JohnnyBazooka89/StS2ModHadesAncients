@@ -33,7 +33,7 @@ public class PowerSurge() : HadesAncientsRelic(HadesAncient.Zeus)
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        Decimal finalDamage = CalculateFinalDamage();
+        decimal finalDamage = CalculateFinalDamage();
         if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState!.Energy <= 0 || finalDamage <= 0)
             return;
 

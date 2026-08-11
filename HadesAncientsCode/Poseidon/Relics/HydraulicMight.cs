@@ -24,9 +24,9 @@ public class HydraulicMight() : HadesAncientsRelic(HadesAncient.Poseidon), IModi
         new(TurnsKey, 2M)
     ];
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

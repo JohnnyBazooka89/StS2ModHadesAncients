@@ -46,7 +46,7 @@ public class MutualDestruction() : HadesAncientsRelic(HadesAncient.Ares), IModif
         new(MoreDamageHighHpKey, 25M)
     ];
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(Creature? target, Decimal amount, ValueProp props,
+    public decimal ModifyDamageMultiplicativeCompatibility(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty))

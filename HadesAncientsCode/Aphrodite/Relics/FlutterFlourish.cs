@@ -48,8 +48,8 @@ public class FlutterFlourish() : HadesAncientsRelic(HadesAncient.Aphrodite)
 
     public override bool TryModifyEnergyCostInCombat(
         CardModel card,
-        Decimal originalCost,
-        out Decimal modifiedCost)
+        decimal originalCost,
+        out decimal modifiedCost)
     {
         modifiedCost = originalCost;
         if (!ShouldModifyCost(card))
@@ -60,8 +60,8 @@ public class FlutterFlourish() : HadesAncientsRelic(HadesAncient.Aphrodite)
 
     public override bool TryModifyStarCost(
         CardModel card,
-        Decimal originalCost,
-        out Decimal modifiedCost)
+        decimal originalCost,
+        out decimal modifiedCost)
     {
         modifiedCost = originalCost;
         if (!ShouldModifyCost(card))

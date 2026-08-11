@@ -78,9 +78,9 @@ public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares)
         TaskHelper.RunSafely(DoActivateVisuals());
     }
 
-    public override Decimal ModifyDamageMultiplicative(
+    public override decimal ModifyDamageMultiplicative(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

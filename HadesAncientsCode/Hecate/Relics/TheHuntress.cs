@@ -32,7 +32,7 @@ public class TheHuntress()
         return 3;
     }
 
-    public Decimal ModifyDamageAdditiveCompatibility(Creature? target, Decimal amount, ValueProp props,
+    public decimal ModifyDamageAdditiveCompatibility(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null ||

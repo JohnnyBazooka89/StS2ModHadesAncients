@@ -49,10 +49,10 @@ public class TheBoatman() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
         return Task.CompletedTask;
     }
 
-    public override Decimal ModifyMerchantPrice(
+    public override decimal ModifyMerchantPrice(
         Player player,
         MerchantEntry entry,
-        Decimal originalPrice)
+        decimal originalPrice)
     {
         return WasUsed || player != Owner || entry is not MerchantRelicEntry ? originalPrice : 0;
     }

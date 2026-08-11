@@ -34,9 +34,9 @@ public class WoundsPower() : HadesAncientsPower(HadesAncient.Ares)
         return Task.CompletedTask;
     }
 
-    public override Decimal ModifyDamageAdditive(
+    public override decimal ModifyDamageAdditive(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

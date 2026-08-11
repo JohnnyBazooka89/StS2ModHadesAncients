@@ -7,13 +7,13 @@ namespace HadesAncients.HadesAncientsCode.Shared.Vars;
 
 public class OutsideCombatCalculatedVar(string name) : CustomCalculatedVar(name)
 {
-    private static readonly AccessTools.FieldRef<CustomCalculatedVar, Func<PowerModel, Creature, Decimal>>
+    private static readonly AccessTools.FieldRef<CustomCalculatedVar, Func<PowerModel, Creature, decimal>>
         PowerCalcRef =
-            AccessTools.FieldRefAccess<CustomCalculatedVar, Func<PowerModel, Creature, Decimal>>("_powerCalc");
+            AccessTools.FieldRefAccess<CustomCalculatedVar, Func<PowerModel, Creature, decimal>>("_powerCalc");
 
-    private static readonly AccessTools.FieldRef<CustomCalculatedVar, Func<RelicModel, Creature, Decimal>>
+    private static readonly AccessTools.FieldRef<CustomCalculatedVar, Func<RelicModel, Creature, decimal>>
         RelicCalcRef =
-            AccessTools.FieldRefAccess<CustomCalculatedVar, Func<RelicModel, Creature, Decimal>>("_relicCalc");
+            AccessTools.FieldRefAccess<CustomCalculatedVar, Func<RelicModel, Creature, decimal>>("_relicCalc");
 
 
     public override decimal CalculateCustom(Creature? target)

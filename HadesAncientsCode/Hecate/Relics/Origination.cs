@@ -34,9 +34,9 @@ public class Origination()
         return 14;
     }
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

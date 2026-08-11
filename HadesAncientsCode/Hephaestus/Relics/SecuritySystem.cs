@@ -23,9 +23,9 @@ public class SecuritySystem() : HadesAncientsRelic(HadesAncient.Hephaestus)
         new(TurnsKey, 3M)
     ];
 
-    public override Decimal ModifyBlockMultiplicative(
+    public override decimal ModifyBlockMultiplicative(
         Creature target,
-        Decimal block,
+        decimal block,
         ValueProp props,
         CardModel? cardSource,
         CardPlay? cardPlay)

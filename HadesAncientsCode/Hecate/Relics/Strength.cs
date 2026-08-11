@@ -64,7 +64,7 @@ public class Strength() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         return Task.CompletedTask;
     }
 
-    public override async Task AfterCurrentHpChanged(Creature creature, Decimal _)
+    public override async Task AfterCurrentHpChanged(Creature creature, decimal _)
     {
         if (!CombatManager.Instance.IsInProgress)
             return;
@@ -77,8 +77,8 @@ public class Strength() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         bool flag = creature.CurrentHp >
                     creature.MaxHp * (DynamicVars[HpThresholdKey].BaseValue / 100M);
         Status = flag ? RelicStatus.Normal : RelicStatus.Active;
-        Decimal strengthBaseValue = DynamicVars.Strength.BaseValue;
-        Decimal dexterityBaseValue = DynamicVars.Dexterity.BaseValue;
+        decimal strengthBaseValue = DynamicVars.Strength.BaseValue;
+        decimal dexterityBaseValue = DynamicVars.Dexterity.BaseValue;
         if (flag && StrengthAndDexterityApplied)
         {
             Flash();

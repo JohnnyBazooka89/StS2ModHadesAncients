@@ -32,7 +32,7 @@ public class StabbingRush() : HadesAncientsRelic(HadesAncient.Ares)
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
     ];
 
-    public override Decimal ModifyHandDraw(Player player, Decimal count)
+    public override decimal ModifyHandDraw(Player player, decimal count)
     {
         return player != Owner ? count : count + DynamicVars.Cards.BaseValue;
     }
