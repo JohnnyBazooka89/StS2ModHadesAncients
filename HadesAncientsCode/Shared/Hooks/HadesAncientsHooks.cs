@@ -76,7 +76,7 @@ public class HadesAncientsHooks
         ValueProp props, Creature? dealer, CardModel? cardSource, CardPreviewMode previewMode,
         ref IEnumerable<AbstractModel> modifiers)
     {
-        Boolean changed = false;
+        bool changed = false;
         foreach (IModifyDamageToFinalValue model in runState?.IterateHookListeners(combatState)
                      .OfType<IModifyDamageToFinalValue>() ?? [])
         {

@@ -11,7 +11,7 @@ public class CardUtils
         return PileType.Deck.GetPile(player).Cards.Where(IsUpgradedOrEnchanted).ToList();
     }
 
-    public static Boolean IsUpgradedOrEnchanted(CardModel card)
+    public static bool IsUpgradedOrEnchanted(CardModel card)
     {
         return card.IsUpgraded || card.Enchantment != null;
     }
