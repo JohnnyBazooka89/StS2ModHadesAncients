@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -24,17 +23,10 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite), I
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(HpThresholdKey, 50M),
-        new EnergyVar(1),
-        new CardsVar(1)
+        new(HpThresholdKey, 50M)
     ];
 
-    public override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.ForEnergy(this)
-    ];
-
-    public Decimal ModifyDamageMultiplicativeCompatibility(Creature? target, Decimal amount, ValueProp props,
+    public decimal ModifyDamageMultiplicativeCompatibility(Creature? target, decimal amount, ValueProp props,
         Creature? dealer,
         CardModel? cardSource, CardPlay? cardPlay)
     {
@@ -64,11 +56,12 @@ public class ShamelessAttitude() : HadesAncientsRelic(HadesAncient.Aphrodite), I
         await SetActiveIfNecessary();
     }
 
-    private async Task SetActiveIfNecessary()
+    private Task SetActiveIfNecessary()
     {
         Creature creature = Owner.Creature;
         bool flag = creature.CurrentHp >=
                     creature.MaxHp * (DynamicVars[HpThresholdKey].BaseValue / 100M);
         Status = flag ? RelicStatus.Active : RelicStatus.Normal;
+        return Task.CompletedTask;
     }
 }
