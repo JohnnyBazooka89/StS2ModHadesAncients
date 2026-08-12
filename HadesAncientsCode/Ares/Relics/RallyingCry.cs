@@ -19,7 +19,6 @@ public class RallyingCry() : HadesAncientsRelic(HadesAncient.Ares)
     private const string GloryToGainKey = "GloryToGain";
     private int _glory;
 
-
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override bool ShowCounter => true;
