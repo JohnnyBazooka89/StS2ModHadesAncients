@@ -1,5 +1,5 @@
 {
-  "HADESANCIENTS-SPLASH.title": "Splash",
-  "HADESANCIENTS-SPLASH.description": "Apply [blue]{Amount}[/blue] [gold]Rupture[/gold] on every hit.",
-  "HADESANCIENTS-SPLASH.extraCardText": "Splash {Amount}."
+  "HADESANCIENTS-SPLASH.title": "Splashing",
+  "HADESANCIENTS-SPLASH.description": "Apply [blue]{Amount}[/blue] [gold]Riptide[/gold] on every hit.",
+  "HADESANCIENTS-SPLASH.extraCardText": "Splashing {Amount}."
 }

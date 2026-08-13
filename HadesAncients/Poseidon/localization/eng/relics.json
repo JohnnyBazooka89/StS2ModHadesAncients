@@ -15,7 +15,7 @@
   "HADESANCIENTS-KING_TIDE.description": "At the start of each Normal/Elite/Boss combat, gain [blue]{NormalCombatStrength}[/blue]/[blue]{EliteCombatStrength}[/blue]/[blue]{BossCombatStrength}[/blue] [gold]Strength[/gold].",
   "HADESANCIENTS-KING_TIDE.flavor": "\"A storm is brewing, Niece. Big one, this time, why, even bigger than the last! Prepare!\"",
   "HADESANCIENTS-RAZOR_SHOALS.title": "Razor Shoals",
-  "HADESANCIENTS-RAZOR_SHOALS.description": "Choose [blue]{Cards}[/blue] Attacks in your [gold]Deck[/gold]. [gold]Enchant[/gold] them with [purple]Splash[/purple] [blue]{Splash}[/blue].",
+  "HADESANCIENTS-RAZOR_SHOALS.description": "Choose [blue]{Cards}[/blue] Attacks in your [gold]Deck[/gold]. [gold]Enchant[/gold] them with [purple]Splashing[/purple] [blue]{Splash}[/blue].",
   "HADESANCIENTS-RAZOR_SHOALS.flavor": "\"Even the mortals know the sea is bountiful, yet also capable of deadly force!\"",
   "HADESANCIENTS-SEA_STAR.title": "Sea Star",
   "HADESANCIENTS-SEA_STAR.description": "Whenever you take a combat reward, there is a [blue]{RewardCopyPercentChange}%[/blue] chance for another reward of the same type to appear. Rewards created this way can also trigger this effect.",
