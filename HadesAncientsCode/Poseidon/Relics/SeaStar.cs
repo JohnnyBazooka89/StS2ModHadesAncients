@@ -17,6 +17,7 @@ using MegaCrit.Sts2.Core.Nodes.Rewards;
 using MegaCrit.Sts2.Core.Nodes.Screens;
 using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Rewards;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
 
@@ -50,7 +51,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     public override Task AfterRewardTaken(Player player, Reward reward)
     {
-        if (player != Owner)
+        if (player != Owner || player.RunState.CurrentRoom is not CombatRoom)
         {
             return Task.CompletedTask;
         }
