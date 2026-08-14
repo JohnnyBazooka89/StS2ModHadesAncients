@@ -179,7 +179,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         {
             return new CardTransformReward(cardTransformReward.Player)
             {
-                Amount = cardTransformReward.Amount,
+                MaxCards = cardTransformReward.MaxCards,
                 Upgrade = cardTransformReward.Upgrade
             };
         }

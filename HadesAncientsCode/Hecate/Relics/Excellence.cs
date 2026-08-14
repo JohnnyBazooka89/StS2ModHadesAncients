@@ -11,7 +11,6 @@ using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -74,7 +73,8 @@ public class Excellence() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaReli
         CardCreationOptions creationOptions)
     {
         if (Owner != player || creationOptions.Source != CardCreationSource.Encounter || !IsInTriggeringCombat ||
-            !creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward))
+            !creationOptions.Flags.HasFlag(CardCreationFlags.IsCardReward) ||
+            player.RunState.CurrentRoom?.RoomType != RoomType.Monster)
             return false;
         bool allowDupes = false;
         List<CardModel> list = creationOptions.GetPossibleCards(player).ToList();
