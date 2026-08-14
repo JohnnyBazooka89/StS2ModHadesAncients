@@ -1,9 +1,9 @@
 {
   "HADESANCIENTS-FURNACE_BLAST.title": "Furnace Blast",
-  "HADESANCIENTS-FURNACE_BLAST.description": "At the start of each turn, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to the enemy with the lowest HP. Increase this amount by [blue]{BlastIncrease}[/blue] after each activation.",
+  "HADESANCIENTS-FURNACE_BLAST.description": "At the start of each turn, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to the enemy with the lowest HP and increase this amount by [blue]{BlastIncrease}[/blue] for this combat.",
   "HADESANCIENTS-FURNACE_BLAST.flavor": "\"Don't like what I see, down comes my hammer just like that!\"",
   "HADESANCIENTS-GRAND_CALDERA.title": "Grand Caldera",
-  "HADESANCIENTS-GRAND_CALDERA.description": "Every [blue]{Turns}[/blue] turns, deal {Damage:diff} damage to ALL enemies.",
+  "HADESANCIENTS-GRAND_CALDERA.description": "Every [blue]{Turns}[/blue] turns, deal [blue]{Damage}[/blue] damage to ALL enemies.",
   "HADESANCIENTS-GRAND_CALDERA.flavor": "\"Was as close as I am liable to get to blowing up. Still working at it, mind!\"",
   "HADESANCIENTS-HEAVY_METAL.title": "Heavy Metal",
   "HADESANCIENTS-HEAVY_METAL.description": "At the start of each turn, gain [blue]{ForgeArmorPower}[/blue] [gold]Forge Armor[/gold] and deal damage equal to your [gold]Forge Armor[/gold] to a random enemy.",

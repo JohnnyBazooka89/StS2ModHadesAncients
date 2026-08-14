@@ -14,7 +14,7 @@ public class AresAncient : CustomAncientModel
 {
     public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 110f);
 
-    public override string CustomScenePath => "dionysus.tscn".AncientImagePath(HadesAncient.Ares);
+    public override string CustomScenePath => "ares.tscn".AncientImagePath(HadesAncient.Ares);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Ares);
     public override string CustomMapIconOutlinePath => "map_icon_outline.png".AncientImagePath(HadesAncient.Ares);
     public override string CustomRunHistoryIconPath => "run_history_icon.png".AncientImagePath(HadesAncient.Ares);
@@ -25,16 +25,36 @@ public class AresAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            List<AncientOption> otherRelics =
             [
+                AncientOption<GrievousBlow>(),
+                AncientOption<GrislyGain>(),
+                AncientOption<MeatGrinder>(),
+                AncientOption<MutualDestruction>(),
+                AncientOption<ProfuseBleeding>(),
+                AncientOption<RallyingCry>(),
                 AncientOption<ViciousFlourish>(),
                 AncientOption<ViciousStrike>(),
+            ];
+
+            List<AncientOption> sacrificialRelics =
+            [
+                AncientOption<BloodSpree>(),
+                AncientOption<SanguinarySavor>(),
+                AncientOption<StabbingRush>(),
                 AncientOption<VisceralImpact>()
             ];
 
             return new OptionPools(
-                MakePool(relics.ToArray())
+                MakePool(otherRelics.ToArray()),
+                MakePool(sacrificialRelics.ToArray())
             );
+
+            /*return new OptionPools(
+                MakePool(AncientOption<ViciousStrike>()),
+                MakePool(AncientOption<RallyingCry>()),
+                MakePool(AncientOption<VisceralImpact>())
+            );*/
         }
     }
 

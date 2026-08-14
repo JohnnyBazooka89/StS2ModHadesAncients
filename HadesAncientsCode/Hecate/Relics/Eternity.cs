@@ -48,7 +48,7 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner ||
-            cardPlay.Resources.EnergyValue < DynamicVars[EnergyThresholdKey].IntValue ||
+            cardPlay.Resources.EnergySpent < DynamicVars[EnergyThresholdKey].IntValue ||
             UsedThisCombat)
             return;
         Flash();
