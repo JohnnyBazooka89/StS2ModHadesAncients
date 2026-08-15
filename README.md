@@ -11,7 +11,7 @@ This mod introduces a collection of new Ancients from the hit game Hades 2. Curr
 | Act 2 | Poseidon   | Rewarding playing many Attacks, applying Froth/Riptide, gaining Energy, getting more rewards. |
 | Act 2 | Zeus       | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                   |
 | Act 3 | Aphrodite  | Weak, Charm, debuffs, healing, dealing more Attack damage.                                    |
-| Act 3 | Ares       | Applying Wounds, Strength, buffing Attacks, sacrificing Max Hp for many rewards.              |
+| Act 3 | Ares       | Applying Wounds, Strength, buffing Attacks, sacrificing Max Hp for rewards.                   |
 | Act 3 | Dionysus   | Hangover, potions, max HP, healing, unpredictable combat effects.                             |
 | Act 3 | Hephaestus | Applying Blast, Forge Armor, upgrades & enchantments, self-harm.                              |
 
