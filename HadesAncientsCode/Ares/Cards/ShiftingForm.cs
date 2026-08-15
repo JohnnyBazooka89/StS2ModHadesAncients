@@ -16,7 +16,7 @@ public class ShiftingForm() : HadesAncientsCard(HadesAncient.Ares, 3, CardType.P
 {
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ICombatState combatState = cardPlay.Player.Creature.CombatState!;
+        ICombatState combatState = cardPlay.Card.Owner.Creature.CombatState!;
 
         DemonForm demonForm = combatState.CreateCard<DemonForm>(Owner);
         SerpentForm serpentForm = combatState.CreateCard<SerpentForm>(Owner);

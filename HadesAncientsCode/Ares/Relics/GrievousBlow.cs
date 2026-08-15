@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +16,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Ares.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares)
+public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares), IModifyDamageMultiplicativeCompatibility
 {
     private const int AttacksThreshold = 3;
     private int _attacksPlayed;
@@ -78,7 +79,7 @@ public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares)
         TaskHelper.RunSafely(DoActivateVisuals());
     }
 
-    public override decimal ModifyDamageMultiplicative(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
         decimal amount,
         ValueProp props,

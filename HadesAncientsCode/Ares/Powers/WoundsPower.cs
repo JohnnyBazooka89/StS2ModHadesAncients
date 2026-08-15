@@ -1,4 +1,5 @@
 ﻿using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
@@ -11,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Ares.Powers;
 
-public class WoundsPower() : HadesAncientsPower(HadesAncient.Ares)
+public class WoundsPower() : HadesAncientsPower(HadesAncient.Ares), IModifyDamageAdditiveCompatibility
 {
     public override PowerType Type => PowerType.Debuff;
 
@@ -34,7 +35,7 @@ public class WoundsPower() : HadesAncientsPower(HadesAncient.Ares)
         return Task.CompletedTask;
     }
 
-    public override decimal ModifyDamageAdditive(
+    public decimal ModifyDamageAdditiveCompatibility(
         Creature? target,
         decimal amount,
         ValueProp props,
