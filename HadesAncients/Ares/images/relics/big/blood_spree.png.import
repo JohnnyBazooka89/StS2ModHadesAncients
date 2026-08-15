@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://dsji22mbigvvn"
+path="res://.godot/imported/blood_spree.png-49100ba2493b25f801dbc131f7fcc19f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/big/blood_spree.png"
+dest_files=["res://.godot/imported/blood_spree.png-49100ba2493b25f801dbc131f7fcc19f.ctex"]
 
 [params]
 

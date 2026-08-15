@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://bb76s4qm4l5y2"
+path="res://.godot/imported/rallying_cry.png-f49ddb467469468c98e114ef23cfb89f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/outline/rallying_cry.png"
+dest_files=["res://.godot/imported/rallying_cry.png-f49ddb467469468c98e114ef23cfb89f.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://dwrgt3w8tqpfh"
+path="res://.godot/imported/grisly_gain.png-5fdc8b13b3fd838b9bd49c50c3af90ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/outline/grisly_gain.png"
+dest_files=["res://.godot/imported/grisly_gain.png-5fdc8b13b3fd838b9bd49c50c3af90ba.ctex"]
 
 [params]
 

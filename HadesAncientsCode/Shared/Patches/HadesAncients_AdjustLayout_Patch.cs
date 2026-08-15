@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using Godot;
 using HadesAncients.HadesAncientsCode.Aphrodite.Ancients;
+using HadesAncients.HadesAncientsCode.Ares.Ancients;
 using HadesAncients.HadesAncientsCode.Athena.Ancients;
 using HadesAncients.HadesAncientsCode.Dionysus.Ancients;
 using HadesAncients.HadesAncientsCode.Hecate.Ancients;
@@ -27,6 +28,12 @@ public static class HadesAncients_AdjustLayout_Patch
     [
         new(
             ancientEvent => ancientEvent.Id == ModelDb.GetId<AthenaAncient>(),
+            xOffset: 138f,
+            yOffset: 47f,
+            scaleAmount: 0.85f
+        ),
+        new(
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<AresAncient>(),
             xOffset: 138f,
             yOffset: 47f,
             scaleAmount: 0.85f

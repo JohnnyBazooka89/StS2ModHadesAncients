@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://dy75kivtd6drg"
+path="res://.godot/imported/mutual_destruction.png-8eb694f3c97ee98e29461dbb88152e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/outline/mutual_destruction.png"
+dest_files=["res://.godot/imported/mutual_destruction.png-8eb694f3c97ee98e29461dbb88152e6a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://d1xyxpdu2mmfg"
+path="res://.godot/imported/meat_grinder.png-ca1384118e5fc28c73812604a20fe145.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/big/meat_grinder.png"
+dest_files=["res://.godot/imported/meat_grinder.png-ca1384118e5fc28c73812604a20fe145.ctex"]
 
 [params]
 

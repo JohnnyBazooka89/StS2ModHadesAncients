@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://b0id0ekgf5gwh"
+path="res://.godot/imported/vicious_strike.png-cb78aeee1d5f3bd40f0a6ba8f9f50644.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/big/vicious_strike.png"
+dest_files=["res://.godot/imported/vicious_strike.png-cb78aeee1d5f3bd40f0a6ba8f9f50644.ctex"]
 
 [params]
 

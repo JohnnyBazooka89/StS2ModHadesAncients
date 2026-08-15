@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://ttcjq5tu767s"
+path="res://.godot/imported/grievous_blow.png-af5fc462ba383f1988b048d2e09fa3e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/relics/grievous_blow.png"
+dest_files=["res://.godot/imported/grievous_blow.png-af5fc462ba383f1988b048d2e09fa3e9.ctex"]
 
 [params]
 

@@ -12,7 +12,7 @@ namespace HadesAncients.HadesAncientsCode.Ares.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class AresAncient : CustomAncientModel
 {
-    public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 110f);
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(600f, 110f);
 
     public override string CustomScenePath => "ares.tscn".AncientImagePath(HadesAncient.Ares);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Ares);
@@ -25,16 +25,20 @@ public class AresAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> otherRelics =
+            List<AncientOption> attackRelatedRelics =
             [
                 AncientOption<GrievousBlow>(),
                 AncientOption<GrislyGain>(),
-                AncientOption<MeatGrinder>(),
                 AncientOption<MutualDestruction>(),
+                AncientOption<ViciousStrike>(),
+            ];
+
+            List<AncientOption> otherRelics =
+            [
+                AncientOption<MeatGrinder>(),
                 AncientOption<ProfuseBleeding>(),
                 AncientOption<RallyingCry>(),
                 AncientOption<ViciousFlourish>(),
-                AncientOption<ViciousStrike>(),
             ];
 
             List<AncientOption> sacrificialRelics =
@@ -46,15 +50,10 @@ public class AresAncient : CustomAncientModel
             ];
 
             return new OptionPools(
+                MakePool(attackRelatedRelics.ToArray()),
                 MakePool(otherRelics.ToArray()),
                 MakePool(sacrificialRelics.ToArray())
             );
-
-            /*return new OptionPools(
-                MakePool(AncientOption<ViciousStrike>()),
-                MakePool(AncientOption<RallyingCry>()),
-                MakePool(AncientOption<VisceralImpact>())
-            );*/
         }
     }
 

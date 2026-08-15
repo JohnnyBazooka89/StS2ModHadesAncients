@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vd5o0qpjm7x4"
-path="res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"
+uid="uid://crbgjgl3uuoor"
+path="res://.godot/imported/wounds_power.png-7a95e68d07164ee7b8f60a3862d9682e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Ares/images/ancients/ares_placeholder.png"
-dest_files=["res://.godot/imported/ares_placeholder.png-7c0a64b0faf1aea8a2d44b484169c965.ctex"]
+source_file="res://HadesAncients/Ares/images/powers/wounds_power.png"
+dest_files=["res://.godot/imported/wounds_power.png-7a95e68d07164ee7b8f60a3862d9682e.ctex"]
 
 [params]
 
