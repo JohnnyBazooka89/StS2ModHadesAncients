@@ -59,7 +59,7 @@ public class StrongDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
         return [..currentExtraText, AdditionalRestSiteHealText!];
     }
 
-    public override Decimal ModifyRestSiteHealAmount(Creature creature, Decimal amount)
+    public override decimal ModifyRestSiteHealAmount(Creature creature, decimal amount)
     {
         return creature.Player != Owner && creature.PetOwner != Owner ? amount : creature.MaxHp;
     }

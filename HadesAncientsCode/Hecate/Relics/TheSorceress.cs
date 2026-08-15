@@ -41,7 +41,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRe
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner ||
-            cardPlay.Resources.EnergyValue < DynamicVars[EnergyThresholdKey].IntValue ||
+            cardPlay.Resources.EnergySpent < DynamicVars[EnergyThresholdKey].IntValue ||
             UsedThisCombat)
             return;
         Flash();

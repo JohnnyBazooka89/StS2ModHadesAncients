@@ -3,9 +3,9 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -34,9 +34,9 @@ public class Origination()
         return 14;
     }
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,
@@ -46,11 +46,7 @@ public class Origination()
             target == null)
             return 1M;
 
-        int numberOfDebuffsOnMonster = target.Monster?.Creature.Powers
-            .Where(power => power.Type == PowerType.Debuff)
-            .Select(power => power.Id)
-            .Distinct()
-            .Count() ?? 0;
+        int numberOfDebuffsOnMonster = PowerUtils.GetUniqueDebuffsCount(target.Monster?.Creature);
         return 1M + (numberOfDebuffsOnMonster >= DynamicVars[DebuffsThresholdKey].IntValue
             ? DynamicVars[MoreDamagePercentKey].BaseValue / 100M
             : 0);

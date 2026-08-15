@@ -28,7 +28,7 @@ public class SweetSurrender() : HadesAncientsRelic(HadesAncient.Aphrodite)
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
-        Decimal amount,
+        decimal amount,
         Creature? applier,
         CardModel? cardSource)
     {

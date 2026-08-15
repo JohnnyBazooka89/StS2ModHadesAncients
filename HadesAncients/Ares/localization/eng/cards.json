@@ -1,0 +1,4 @@
+{
+  "HADESANCIENTS-SHIFTING_FORM.title": "Shifting Form",
+  "HADESANCIENTS-SHIFTING_FORM.description": "Play [gold]{IfUpgraded:show:Demon Form+|Demon Form}[/gold], [gold]{IfUpgraded:show:Serpent Form+|Serpent Form}[/gold], [gold]{IfUpgraded:show:Void Form+|Void Form}[/gold], [gold]{IfUpgraded:show:Reaper Form+|Reaper Form}[/gold], or [gold]{IfUpgraded:show:Echo Form+|Echo Form}[/gold] at random."
+}

@@ -28,7 +28,7 @@ public class WorryFree() : HadesAncientsRelic(HadesAncient.Dionysus), IHealAmoun
         new(MaxHealingPercentKey, 100M),
     ];
 
-    public Decimal ModifyHealMultiplicative(Creature creature, Decimal amount)
+    public decimal ModifyHealMultiplicative(Creature creature, decimal amount)
     {
         if (creature.Player != Owner || RandomHealSuppressor.SuppressRandomHeal)
         {

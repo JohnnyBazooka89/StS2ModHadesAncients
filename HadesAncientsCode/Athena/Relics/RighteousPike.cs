@@ -83,7 +83,7 @@ public class RighteousPike() : HadesAncientsRelic(HadesAncient.Athena)
     }
 
     private async Task DealSpearDamage(
-        Decimal value,
+        decimal value,
         PlayerChoiceContext choiceContext)
     {
         List<Creature> hittableEnemies = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)

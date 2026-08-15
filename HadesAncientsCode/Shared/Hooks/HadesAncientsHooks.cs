@@ -71,12 +71,12 @@ public class HadesAncientsHooks
         Dispatch<IAfterRoomTypeRolled>(runState, null, m => m.AfterRoomTypeRolled(runState, roomType));
     }
 
-    public static Decimal ModifyDamageToFinalValue(IRunState? runState, ICombatState? combatState, Creature? target,
-        Decimal amount,
+    public static decimal ModifyDamageToFinalValue(IRunState? runState, ICombatState? combatState, Creature? target,
+        decimal amount,
         ValueProp props, Creature? dealer, CardModel? cardSource, CardPreviewMode previewMode,
         ref IEnumerable<AbstractModel> modifiers)
     {
-        Boolean changed = false;
+        bool changed = false;
         foreach (IModifyDamageToFinalValue model in runState?.IterateHookListeners(combatState)
                      .OfType<IModifyDamageToFinalValue>() ?? [])
         {
@@ -95,10 +95,10 @@ public class HadesAncientsHooks
 
         if (changed)
         {
-            Decimal cappedDamage = Decimal.MaxValue;
+            decimal cappedDamage = decimal.MaxValue;
             foreach (AbstractModel iterateHookListener in runState!.IterateHookListeners(combatState))
             {
-                Decimal capToCompare = AbstractModelCompatibility.ModifyDamageCap(
+                decimal capToCompare = AbstractModelCompatibility.ModifyDamageCap(
                     iterateHookListener,
                     target,
                     props,

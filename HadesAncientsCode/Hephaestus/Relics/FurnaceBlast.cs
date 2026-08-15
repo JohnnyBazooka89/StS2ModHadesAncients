@@ -9,26 +9,43 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 
 [Pool(typeof(EventRelicPool))]
 public class FurnaceBlast() : HadesAncientsRelic(HadesAncient.Hephaestus)
 {
+    private const string BlastIncreaseKey = "BlastIncrease";
+    private int _blastToApply;
+
+    public override bool ShowCounter => CombatManager.Instance.IsInProgress;
+
+    public override int DisplayAmount => BlastToApply;
+
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<BlastPower>(8M),
-        new PowerVar<VulnerablePower>(1M)
+        new PowerVar<BlastPower>(6M),
+        new(BlastIncreaseKey, 1M)
     ];
+
+    private int BlastToApply
+    {
+        get => _blastToApply;
+        set
+        {
+            AssertMutable();
+            _blastToApply = value;
+            InvokeDisplayAmountChanged();
+        }
+    }
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<BlastPower>(),
-        HoverTipFactory.FromPower<VulnerablePower>()
+        HoverTipFactory.FromPower<BlastPower>()
     ];
 
     public override async Task AfterSideTurnStart(
@@ -37,7 +54,14 @@ public class FurnaceBlast() : HadesAncientsRelic(HadesAncient.Hephaestus)
         ICombatState combatState)
     {
         if (!participants.Contains(Owner.Creature))
+        {
             return;
+        }
+
+        if (Owner.PlayerCombatState!.TurnNumber == 1)
+        {
+            BlastToApply = DynamicVars[nameof(BlastPower)].IntValue;
+        }
 
         List<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
             .Where(c => c.IsAlive)
@@ -54,11 +78,16 @@ public class FurnaceBlast() : HadesAncientsRelic(HadesAncient.Hephaestus)
             Owner.RunState.Rng.CombatTargets.Shuffle(lowestHpTargets);
 
             await PowerCmd.Apply<BlastPower>(new ThrowingPlayerChoiceContext(), lowestHpTargets[0],
-                DynamicVars[nameof(BlastPower)].BaseValue, Owner.Creature, null);
-
-            await PowerCmd.Apply<VulnerablePower>(new ThrowingPlayerChoiceContext(), lowestHpTargets[0],
-                DynamicVars[nameof(VulnerablePower)].BaseValue, Owner.Creature, null);
+                BlastToApply, Owner.Creature, null);
             Flash();
         }
+
+        BlastToApply += DynamicVars[BlastIncreaseKey].IntValue;
+    }
+
+    public override Task AfterCombatEnd(CombatRoom _)
+    {
+        InvokeDisplayAmountChanged();
+        return Task.CompletedTask;
     }
 }

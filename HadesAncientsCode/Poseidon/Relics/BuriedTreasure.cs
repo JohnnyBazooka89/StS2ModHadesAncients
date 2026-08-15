@@ -27,7 +27,7 @@ public class BuriedTreasure() : HadesAncientsRelic(HadesAncient.Poseidon), IHeal
         new HealVar(10),
     ];
 
-    public Decimal ModifyHealMultiplicative(Creature creature, Decimal amount)
+    public decimal ModifyHealMultiplicative(Creature creature, decimal amount)
     {
         if (creature.Player != Owner)
         {
@@ -38,12 +38,12 @@ public class BuriedTreasure() : HadesAncientsRelic(HadesAncient.Poseidon), IHeal
         return 1 + DynamicVars[MorePercentHealKey].BaseValue / 100M;
     }
 
-    public override Decimal ModifyGoldGained(Player player, Decimal amount)
+    public override decimal ModifyGoldGained(Player player, decimal amount)
     {
         return player != Owner ? amount : amount * (1 + DynamicVars[MorePercentGoldKey].BaseValue / 100M);
     }
 
-    public override Task AfterModifyingGoldGained(Player player, Decimal amount)
+    public override Task AfterModifyingGoldGained(Player player, decimal amount)
     {
         Flash();
         return Task.CompletedTask;

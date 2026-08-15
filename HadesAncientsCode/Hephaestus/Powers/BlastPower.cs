@@ -31,15 +31,15 @@ public class BlastPower() : HadesAncientsPower(HadesAncient.Hephaestus)
             Math.Ceiling(power.Amount / 2M))
     ];
 
-    public override async Task AfterSideTurnEnd(
-        PlayerChoiceContext choiceContext,
+    public override async Task AfterSideTurnStart(
         CombatSide side,
-        IEnumerable<Creature> participants)
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
     {
         if (!participants.Contains(Owner))
             return;
 
-        await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered,
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, Amount, ValueProp.Unpowered,
             Applier!);
 
         if (Owner.IsAlive)

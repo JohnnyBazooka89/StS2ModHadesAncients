@@ -43,7 +43,7 @@ public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
             .Where(c => c.IsAlive);
         List<Creature> otherTargets = targets.Where(t => t != target).ToList();
 
-        Decimal finalDamage = result.UnblockedDamage * DynamicVars[PercentDamageKey].BaseValue / 100M;
+        decimal finalDamage = result.UnblockedDamage * DynamicVars[PercentDamageKey].BaseValue / 100M;
 
         if (otherTargets.Count >= 1)
         {

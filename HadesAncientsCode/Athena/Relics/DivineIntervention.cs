@@ -29,11 +29,11 @@ public class DivineIntervention() : HadesAncientsRelic(HadesAncient.Athena)
         {
             if (!CombatManager.Instance.IsInProgress || IsCanonical)
                 return -1;
-            int intValue = DynamicVars["DamageTurn"].IntValue;
+            int damageTurnNumber = DynamicVars["DamageTurn"].IntValue;
             if (IsActivating)
-                return intValue;
-            int turnNumber = Owner.PlayerCombatState!.TurnNumber;
-            return turnNumber >= intValue ? -1 : turnNumber;
+                return damageTurnNumber;
+            int currentTurnNumber = Owner.PlayerCombatState!.TurnNumber;
+            return currentTurnNumber >= damageTurnNumber ? -1 : currentTurnNumber;
         }
     }
 

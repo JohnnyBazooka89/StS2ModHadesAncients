@@ -14,10 +14,10 @@ public class NervousWreck() : HadesAncientsRelic(HadesAncient.Aphrodite)
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public override Decimal ModifyPowerAmountGivenMultiplicative(
+    public override decimal ModifyPowerAmountGivenMultiplicative(
         PowerModel power,
         Creature giver,
-        Decimal amount,
+        decimal amount,
         Creature? target,
         CardModel? cardSource)
     {

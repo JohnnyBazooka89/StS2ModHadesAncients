@@ -25,7 +25,7 @@ public class DivineVengeance() : HadesAncientsRelic(HadesAncient.Zeus)
     public override async Task BeforeDamageReceived(
         PlayerChoiceContext choiceContext,
         Creature target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource)

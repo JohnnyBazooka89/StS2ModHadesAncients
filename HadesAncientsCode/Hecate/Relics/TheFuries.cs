@@ -31,9 +31,9 @@ public class TheFuries()
         return 6;
     }
 
-    public Decimal ModifyDamageMultiplicativeCompatibility(
+    public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
-        Decimal amount,
+        decimal amount,
         ValueProp props,
         Creature? dealer,
         CardModel? cardSource,

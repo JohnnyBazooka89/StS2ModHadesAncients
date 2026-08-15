@@ -12,6 +12,7 @@ public class HadesAncientsModConfig : SimpleModConfig
     public static bool DisableZeus { get; set; } = false;
     [ConfigSection("AncientsAct3")] // 
     public static bool DisableAphrodite { get; set; } = false;
+    public static bool DisableAres { get; set; } = false;
     public static bool DisableDionysus { get; set; } = false;
     public static bool DisableHephaestus { get; set; } = false;
 

@@ -1,0 +1,4 @@
+{
+  "HADESANCIENTS-PAY_TRIBUTE.title": "Pay Tribute",
+  "HADESANCIENTS-PAY_TRIBUTE.description": "Lose [red]{MaxHpLoss}[/red] Max HP to obtain [blue]{RelicsToObtain}[/blue] relic, [gold]Upgrade[/gold] [blue]{CardsToUpgrade}[/blue] card, remove [blue]{CardsToRemove}[/blue] card, and procure [blue]{PotionsToProcure}[/blue] potion."
+}

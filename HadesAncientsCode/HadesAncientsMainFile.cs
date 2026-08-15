@@ -12,7 +12,7 @@ namespace HadesAncients.HadesAncientsCode;
 [ModInitializer(nameof(Initialize))]
 public partial class HadesAncientsMainFile : Node
 {
-    private const string ModId = "HadesAncients"; //Used for resource filepath
+    public const string ModId = "HadesAncients"; //Used for resource filepath
     public const string ResPath = $"res://{ModId}";
 
     public static Logger Logger { get; } =

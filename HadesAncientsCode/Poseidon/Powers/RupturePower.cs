@@ -13,7 +13,7 @@ namespace HadesAncients.HadesAncientsCode.Poseidon.Powers;
 
 public class RupturePower() : HadesAncientsPower(HadesAncient.Poseidon)
 {
-    private static readonly Color Color = new(110 / 255f, 0, 0);
+    private static readonly Color Color = new(7 / 255f, 132 / 255f, 255 / 255f);
 
     public override PowerType Type => PowerType.Debuff;
 

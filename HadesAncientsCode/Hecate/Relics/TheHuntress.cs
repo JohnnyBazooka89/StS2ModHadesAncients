@@ -6,6 +6,7 @@ using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -26,13 +27,18 @@ public class TheHuntress()
         new(MoreDamageKey, 2),
         new(MoreBlockKey, 2),
     ];
+    
+    public override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.ForEnergy(this)
+    ];
 
     public int GetArcanaRelicNumber()
     {
         return 3;
     }
 
-    public Decimal ModifyDamageAdditiveCompatibility(Creature? target, Decimal amount, ValueProp props,
+    public decimal ModifyDamageAdditiveCompatibility(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
         if (!props.IsPoweredAttack() || cardSource == null ||
