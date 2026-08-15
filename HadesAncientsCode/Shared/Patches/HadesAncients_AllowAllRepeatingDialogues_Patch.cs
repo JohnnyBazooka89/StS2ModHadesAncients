@@ -34,7 +34,7 @@ public static class HadesAncients_AllowAllRepeatingDialogues_Patch
 
         __instance.CharacterDialogues.TryGetValue(
             characterId.Entry,
-            out IReadOnlyList<AncientDialogue> characterDialogues);
+            out IReadOnlyList<AncientDialogue>? characterDialogues);
 
         if (characterDialogues != null)
             result.AddRange(characterDialogues);
