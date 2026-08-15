@@ -23,7 +23,7 @@ public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares), IModifyDama
     private CardModel? _attackToDouble;
     private bool _isActivating;
 
-    public override RelicRarity Rarity => RelicRarity.Uncommon;
+    public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override bool ShowCounter => true;
 
@@ -62,23 +62,6 @@ public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares), IModifyDama
         }
     }
 
-    private void UpdateDisplay()
-    {
-        if (IsActivating)
-            Status = RelicStatus.Normal;
-        else
-            Status = AttacksPlayed == AttacksThreshold - 1 ? RelicStatus.Active : RelicStatus.Normal;
-        InvokeDisplayAmountChanged();
-    }
-
-    private void NotifyAttackPlayed()
-    {
-        ++AttacksPlayed;
-        if (AttacksPlayed != 0)
-            return;
-        TaskHelper.RunSafely(DoActivateVisuals());
-    }
-
     public decimal ModifyDamageMultiplicativeCompatibility(
         Creature? target,
         decimal amount,
@@ -98,6 +81,23 @@ public class GrievousBlow() : HadesAncientsRelic(HadesAncient.Ares), IModifyDama
         }
 
         return cardSource == AttackToDouble ? 2M : 1M;
+    }
+
+    private void UpdateDisplay()
+    {
+        if (IsActivating)
+            Status = RelicStatus.Normal;
+        else
+            Status = AttacksPlayed == AttacksThreshold - 1 ? RelicStatus.Active : RelicStatus.Normal;
+        InvokeDisplayAmountChanged();
+    }
+
+    private void NotifyAttackPlayed()
+    {
+        ++AttacksPlayed;
+        if (AttacksPlayed != 0)
+            return;
+        TaskHelper.RunSafely(DoActivateVisuals());
     }
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
