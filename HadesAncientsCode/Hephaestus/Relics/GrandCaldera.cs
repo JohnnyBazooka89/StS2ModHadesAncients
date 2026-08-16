@@ -30,7 +30,7 @@ public class GrandCaldera() : HadesAncientsRelic(HadesAncient.Hephaestus)
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(TurnsKey, 3M),
-        new DamageVar(24, ValueProp.Unpowered),
+        new DamageVar(30, ValueProp.Unpowered),
     ];
 
     private bool IsActivating

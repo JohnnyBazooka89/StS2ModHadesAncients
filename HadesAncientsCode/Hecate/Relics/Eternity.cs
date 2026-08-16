@@ -53,6 +53,7 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
             return;
         Flash();
         UsedThisCombat = true;
+        Status = RelicStatus.Normal;
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
         foreach (Creature hittableEnemy in Owner.Creature.CombatState!.HittableEnemies)
         {
@@ -66,12 +67,14 @@ public class Eternity() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         if (room is not CombatRoom)
             return Task.CompletedTask;
         UsedThisCombat = false;
+        Status = RelicStatus.Active;
         return Task.CompletedTask;
     }
 
     public override Task AfterCombatEnd(CombatRoom _)
     {
         UsedThisCombat = false;
+        Status = RelicStatus.Normal;
         return Task.CompletedTask;
     }
 }

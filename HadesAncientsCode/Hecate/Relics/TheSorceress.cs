@@ -46,6 +46,7 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRe
             return;
         Flash();
         UsedThisCombat = true;
+        Status = RelicStatus.Normal;
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }
 
@@ -54,12 +55,14 @@ public class TheSorceress() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRe
         if (room is not CombatRoom)
             return Task.CompletedTask;
         UsedThisCombat = false;
+        Status = RelicStatus.Active;
         return Task.CompletedTask;
     }
 
     public override Task AfterCombatEnd(CombatRoom _)
     {
         UsedThisCombat = false;
+        Status = RelicStatus.Normal;
         return Task.CompletedTask;
     }
 }
