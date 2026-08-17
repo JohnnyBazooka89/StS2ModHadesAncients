@@ -4,8 +4,10 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.Orbs;
 
 namespace HadesAncients.HadesAncientsCode.Zeus.Enchantments;
@@ -13,12 +15,14 @@ namespace HadesAncients.HadesAncientsCode.Zeus.Enchantments;
 public class Thundercall() : HadesAncientsEnchantment(HadesAncient.Zeus)
 {
     private const string LightningToChannelKey = "LightningToChannel";
+    private const string BlockIncreaseKey = "BlockIncrease";
 
     public override bool HasExtraCardText => true;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new IntVar(LightningToChannelKey, 1M)
+        new IntVar(LightningToChannelKey, 1M),
+        new IntVar(BlockIncreaseKey, 3M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -48,4 +52,6 @@ public class Thundercall() : HadesAncientsEnchantment(HadesAncient.Zeus)
             return false;
         return c.Rarity == CardRarity.Basic && c.Tags.Contains(CardTag.Defend);
     }
+
+    public override Decimal EnchantBlockAdditive(Decimal originalBlock) => DynamicVars[BlockIncreaseKey].IntValue;
 }

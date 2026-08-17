@@ -6,7 +6,7 @@
   "HADESANCIENTS-BRONZE_SKIN.description": "You take [blue]{LessDamagePercent}%[/blue] less damage from enemy attacks.",
   "HADESANCIENTS-BRONZE_SKIN.flavor": "\"You fight as though you're unencumbered, but I know the surface weighs on you.\"",
   "HADESANCIENTS-DEFENSIVE_POSTURE.title": "Defensive Posture",
-  "HADESANCIENTS-DEFENSIVE_POSTURE.description": "The first time you are hit by an enemy each combat, prevent that damage and become immune to enemy damage until the start of your next turn.",
+  "HADESANCIENTS-DEFENSIVE_POSTURE.description": "The first time you would receive unblocked attack damage, prevent that damage and become immune to enemy damage until the start of your next turn.",
   "HADESANCIENTS-DEFENSIVE_POSTURE.flavor": "\"Hold fast, Cousin!\"",
   "HADESANCIENTS-DIVINE_DASH.title": "Divine Dash",
   "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Every time you play [blue]{Cards}[/blue] Skills, gain [blue]{BlurPower}[/blue] [gold]Blur[/gold].",

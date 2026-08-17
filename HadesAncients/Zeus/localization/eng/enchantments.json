@@ -3,6 +3,6 @@
   "HADESANCIENTS-DOUBLE_ENCHANTMENT.title": "Double",
   "HADESANCIENTS-DOUBLE_ENCHANTMENT.titlePrefix": "Double ",
   "HADESANCIENTS-THUNDERCALL.title": "Thundercall",
-  "HADESANCIENTS-THUNDERCALL.description": "[gold]Channel[/gold] [blue]{LightningToChannel}[/blue] [gold]Lightning[/gold].",
+  "HADESANCIENTS-THUNDERCALL.description": "Increases [gold]Block[/gold] gained from this card by [blue]{BlockIncrease}[/blue]. On play, [gold]Channel[/gold] [blue]{LightningToChannel}[/blue] [gold]Lightning[/gold].",
   "HADESANCIENTS-THUNDERCALL.extraCardText": "Thundercall."
 }
