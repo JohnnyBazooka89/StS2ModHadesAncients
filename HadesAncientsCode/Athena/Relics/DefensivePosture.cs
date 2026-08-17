@@ -40,7 +40,8 @@ public class DefensivePosture() : HadesAncientsRelic(HadesAncient.Athena), IModi
         if (Status != RelicStatus.Active ||
             amount <= 0 ||
             target != Owner.Creature ||
-            !Owner.Creature.CombatState!.Enemies.Contains(dealer))
+            !Owner.Creature.CombatState!.Enemies.Contains(dealer) ||
+            props.HasFlag(ValueProp.Unpowered))
         {
             return amount;
         }
