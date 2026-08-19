@@ -25,7 +25,7 @@ public class WorryFree() : HadesAncientsRelic(HadesAncient.Dionysus), IHealAmoun
         new(MinMaxHpKey, 40M),
         new(MaxMaxHpKey, 60M),
         new(MinHealingPercentKey, 50M),
-        new(MaxHealingPercentKey, 100M),
+        new(MaxHealingPercentKey, 125M),
     ];
 
     public decimal ModifyHealMultiplicative(Creature creature, decimal amount)
