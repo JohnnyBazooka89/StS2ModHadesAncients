@@ -26,7 +26,7 @@ public class MartialArt() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.ForEnergy(this)
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
 
     public override async Task AfterPowerAmountChanged(
