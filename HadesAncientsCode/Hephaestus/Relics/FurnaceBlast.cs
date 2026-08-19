@@ -29,7 +29,7 @@ public class FurnaceBlast() : HadesAncientsRelic(HadesAncient.Hephaestus)
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<BlastPower>(6M),
-        new(BlastIncreaseKey, 1M)
+        new(BlastIncreaseKey, 2M)
     ];
 
     private int BlastToApply
