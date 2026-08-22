@@ -6,7 +6,9 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -30,7 +32,15 @@ public class GrandCaldera() : HadesAncientsRelic(HadesAncient.Hephaestus)
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(TurnsKey, 3M),
-        new DamageVar(30, ValueProp.Unpowered),
+        new DamageVar(24, ValueProp.Unpowered),
+        new PowerVar<VulnerablePower>(1M),
+        new PowerVar<WeakPower>(1M)
+    ];
+
+    public override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<VulnerablePower>(),
+        HoverTipFactory.FromPower<WeakPower>()
     ];
 
     private bool IsActivating
@@ -72,6 +82,10 @@ public class GrandCaldera() : HadesAncientsRelic(HadesAncient.Hephaestus)
         VfxCmd.PlayOnCreatures(Owner.Creature.CombatState!.HittableEnemies, VfxCmd.bluntPath);
         await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner.Creature.CombatState!.HittableEnemies,
             DynamicVars.Damage.IntValue, ValueProp.Unpowered, Owner.Creature);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, Owner.Creature.CombatState!.HittableEnemies,
+            DynamicVars.Vulnerable.BaseValue, Owner.Creature, null);
+        await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature.CombatState!.HittableEnemies,
+            DynamicVars.Weak.BaseValue, Owner.Creature, null);
     }
 
     private async Task DoActivateVisuals()

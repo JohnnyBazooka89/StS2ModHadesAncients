@@ -1,9 +1,9 @@
 {
   "HADESANCIENTS-FURNACE_BLAST.title": "Furnace Blast",
-  "HADESANCIENTS-FURNACE_BLAST.description": "At the start of each turn, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to the enemy with the lowest HP and increase this amount by [blue]{BlastIncrease}[/blue] for this combat.",
+  "HADESANCIENTS-FURNACE_BLAST.description": "Whenever you apply a debuff to an enemy, they take [blue]{Damage}[/blue] damage.",
   "HADESANCIENTS-FURNACE_BLAST.flavor": "\"Don't like what I see, down comes my hammer just like that!\"",
   "HADESANCIENTS-GRAND_CALDERA.title": "Grand Caldera",
-  "HADESANCIENTS-GRAND_CALDERA.description": "Every [blue]{Turns}[/blue] turns, deal [blue]{Damage}[/blue] damage to ALL enemies.",
+  "HADESANCIENTS-GRAND_CALDERA.description": "Every [blue]{Turns}[/blue] turns, deal [blue]{Damage}[/blue] damage and apply [blue]{VulnerablePower}[/blue] [gold]Vulnerable[/gold] and [blue]{WeakPower}[/blue] [gold]Weak[/gold] to ALL enemies.",
   "HADESANCIENTS-GRAND_CALDERA.flavor": "\"Was as close as I am liable to get to blowing up. Still working at it, mind!\"",
   "HADESANCIENTS-HEAVY_METAL.title": "Heavy Metal",
   "HADESANCIENTS-HEAVY_METAL.description": "At the start of each turn, gain [blue]{ForgeArmorPower}[/blue] [gold]Forge Armor[/gold] and deal damage equal to your [gold]Forge Armor[/gold] to a random enemy.",
@@ -24,7 +24,7 @@
   "HADESANCIENTS-TOUGH_GAIN.description": "At the start of each turn, gain {Energy:energyIcons()} and lose [blue]{HpLoss}[/blue] HP.",
   "HADESANCIENTS-TOUGH_GAIN.flavor": "\"So you took some hits along the way, so what? You're an extension of your weapon, witchie! And a decent one can take a lot of punishment.\"",
   "HADESANCIENTS-TRUSTY_SHIELD.title": "Trusty Shield",
-  "HADESANCIENTS-TRUSTY_SHIELD.description": "Start each combat with [blue]{ForgeArmorPower}[/blue] [gold]Forge Armor[/gold].",
+  "HADESANCIENTS-TRUSTY_SHIELD.description": "Whenever you end your turn with any unspent Energy, gain [blue]{Block}[/blue] [gold]Block[/gold].",
   "HADESANCIENTS-TRUSTY_SHIELD.flavor": "\"You got a dangerous line of work, witchie. Though I can get you some protection here.\"",
   "HADESANCIENTS-UNCANNY_FORTITUDE.title": "Uncanny Fortitude",
   "HADESANCIENTS-UNCANNY_FORTITUDE.description": "Upon pickup, gain [blue]{MaxHp}[/blue] Max HP for each [gold]Upgraded[/gold] or [gold]Enchanted[/gold] card in your [gold]Deck[/gold]. Whenever a card in your [gold]Deck[/gold] becomes [gold]Upgraded[/gold] or [gold]Enchanted[/gold], or such a card is added to your [gold]Deck[/gold], gain [blue]{MaxHp}[/blue] Max HP.",
@@ -34,6 +34,6 @@
   "HADESANCIENTS-VOLCANIC_STRIKE.description": "The first Attack you play each turn applies [gold]Blast[/gold] equal to the damage dealt.",
   "HADESANCIENTS-VOLCANIC_STRIKE.flavor": "\"You want to see my handiwork, then fine! Might get a wee bit noisy, though.\"",
   "HADESANCIENTS-VOLCANIC_FLOURISH.title": "Volcanic Flourish",
-  "HADESANCIENTS-VOLCANIC_FLOURISH.description": "Whenever you play a Skill, apply [blue]{BlastPower}[/blue] [gold]Blast[/gold] to a random enemy.",
+  "HADESANCIENTS-VOLCANIC_FLOURISH.description": "At the start of your turn, add a random [gold]Skill[/gold] into your [gold]Hand[/gold]. It's free to play this turn.",
   "HADESANCIENTS-VOLCANIC_FLOURISH.flavor": "\"Just clanking away as always, though let's do some clanking now on your behalf.\""
 }

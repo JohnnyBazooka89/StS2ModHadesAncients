@@ -25,15 +25,15 @@ public class HephaestusAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> blastRelicsPool =
+            List<AncientOption> offensiveRelicsPool =
             [
                 AncientOption<FurnaceBlast>(),
                 AncientOption<GrandCaldera>(),
-                AncientOption<VolcanicFlourish>(),
+                AncientOption<MartialArt>(),
                 AncientOption<VolcanicStrike>()
             ];
 
-            List<AncientOption> forgeArmorAndBlockRelicsPool =
+            List<AncientOption> defensiveRelicsPool =
             [
                 AncientOption<HeavyMetal>(),
                 AncientOption<SecuritySystem>(),
@@ -43,15 +43,15 @@ public class HephaestusAncient : CustomAncientModel
 
             List<AncientOption> otherRelicsPool =
             [
-                AncientOption<MartialArt>(),
                 AncientOption<PremiumService>(),
                 AncientOption<ToughGain>(),
-                AncientOption<UncannyFortitude>()
+                AncientOption<UncannyFortitude>(),
+                AncientOption<VolcanicFlourish>()
             ];
 
             return new OptionPools(
-                MakePool(blastRelicsPool.ToArray()),
-                MakePool(forgeArmorAndBlockRelicsPool.ToArray()),
+                MakePool(offensiveRelicsPool.ToArray()),
+                MakePool(defensiveRelicsPool.ToArray()),
                 MakePool(otherRelicsPool.ToArray())
             );
         }

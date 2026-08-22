@@ -1,14 +1,14 @@
 ﻿using BaseLib.Utils;
-using HadesAncients.HadesAncientsCode.Hephaestus.Powers;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 
@@ -19,22 +19,17 @@ public class TrustyShield() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<ForgeArmorPower>(20M)
+        new BlockVar(14, ValueProp.Unpowered)
     ];
 
-    public override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromPower<ForgeArmorPower>()
-    ];
-
-    public override async Task AfterRoomEntered(AbstractRoom room)
+    public override async Task BeforeSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (room is not CombatRoom)
+        if (!participants.Contains(Owner.Creature) || Owner.PlayerCombatState!.Energy <= 0)
             return;
 
-        await PowerCmd.Apply<ForgeArmorPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            DynamicVars[nameof(ForgeArmorPower)].BaseValue, Owner.Creature, null);
-
-        Flash();
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
     }
 }

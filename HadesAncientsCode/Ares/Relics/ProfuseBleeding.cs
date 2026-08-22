@@ -25,7 +25,7 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5M, ValueProp.Unblockable | ValueProp.Unpowered)
+        new DamageVar(8M, ValueProp.Unblockable | ValueProp.Unpowered)
     ];
 
     public IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
