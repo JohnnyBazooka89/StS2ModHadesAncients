@@ -16,7 +16,11 @@ namespace HadesAncients.HadesAncientsCode.Hephaestus.Relics;
 [Pool(typeof(EventRelicPool))]
 public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
 {
+    private readonly List<CardModel> _deferredOpeningCards = [];
     private int _charges;
+
+    // Only needed during the initial hand draw.
+    private bool _deferOpeningHand;
 
     private int Charges
     {
@@ -30,15 +34,29 @@ public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
     }
 
     public override bool ShowCounter => CombatManager.Instance.IsInProgress;
-
     public override int DisplayAmount => Charges;
-
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(10)
     ];
+
+    public override Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        ICombatState combatState)
+    {
+        if (player != Owner || combatState.RoundNumber != 1)
+            return Task.CompletedTask;
+
+        Charges = DynamicVars.Cards.IntValue;
+
+        _deferredOpeningCards.Clear();
+        _deferOpeningHand = true;
+
+        return Task.CompletedTask;
+    }
 
     public override Task AfterCardDrawn(
         PlayerChoiceContext choiceContext,
@@ -47,31 +65,53 @@ public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
     {
         if (card.Owner != Owner ||
             card.Owner.Creature.CombatState!.CurrentSide != card.Owner.Creature.Side ||
-            Charges <= 0 ||
-            !card.IsUpgradable)
+            Charges <= 0)
         {
             return Task.CompletedTask;
         }
 
-        CardCmd.Upgrade(card);
-        Charges--;
+        // The opening hand needs to wait until Bellows has resolved.
+        //
+        // Store the cards in draw order so that Premium Service still
+        // correctly affects the "first" eligible cards.
+        if (_deferOpeningHand && fromHandDraw)
+        {
+            _deferredOpeningCards.Add(card);
+            return Task.CompletedTask;
+        }
 
-        Flash();
+        UpgradeIfPossible(card);
+
         return Task.CompletedTask;
     }
 
-    public override Task BeforeHandDraw(
-        Player player,
+    public override Task AfterPlayerTurnStartLate(
         PlayerChoiceContext choiceContext,
-        ICombatState combatState)
+        Player player)
     {
-        if (player != Owner || combatState.RoundNumber != 1)
-        {
+        if (player != Owner || !_deferOpeningHand)
             return Task.CompletedTask;
+
+        _deferOpeningHand = false;
+
+        foreach (CardModel card in _deferredOpeningCards)
+        {
+            UpgradeIfPossible(card);
         }
 
-        Charges = DynamicVars.Cards.IntValue;
+        _deferredOpeningCards.Clear();
+
         return Task.CompletedTask;
+    }
+
+    private void UpgradeIfPossible(CardModel card)
+    {
+        if (Charges <= 0 || !card.IsUpgradable)
+            return;
+
+        CardCmd.Upgrade(card);
+        Charges--;
+        Flash();
     }
 
     public override Task AfterObtained()
@@ -82,6 +122,9 @@ public class PremiumService() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
     public override Task AfterCombatEnd(CombatRoom _)
     {
+        _deferOpeningHand = false;
+        _deferredOpeningCards.Clear();
+
         InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
