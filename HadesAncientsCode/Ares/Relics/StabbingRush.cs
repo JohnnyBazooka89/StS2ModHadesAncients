@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -44,6 +45,6 @@ public class StabbingRush() : HadesAncientsRelic(HadesAncient.Ares)
         foreach (CardModel card in await CardSelectCmd.FromHand(choiceContext, player,
                      new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt,
                          DynamicVars[CardsToExhaustKey].IntValue), null, this))
-            await CardCmd.Exhaust(choiceContext, card);
+            await CardCmdCompatibility.Exhaust(choiceContext, card);
     }
 }
