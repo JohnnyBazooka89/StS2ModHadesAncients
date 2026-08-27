@@ -8,6 +8,7 @@ public enum HadesAncient
     Dionysus,
     Hecate,
     Hephaestus,
+    Hestia,
     Poseidon,
     Zeus,
 }

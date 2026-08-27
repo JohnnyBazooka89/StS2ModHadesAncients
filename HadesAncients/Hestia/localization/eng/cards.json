@@ -1,0 +1,4 @@
+{
+  "HADESANCIENTS-FIREBALL.title": "Fireball",
+  "HADESANCIENTS-FIREBALL.description": "Deal {Damage:diff()} damage to ALL enemies.\nWhen [gold]Retained[/gold], increase this card's damage by {DamageIncrease} this combat."
+}
