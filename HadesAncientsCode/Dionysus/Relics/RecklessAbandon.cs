@@ -2,9 +2,11 @@
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Hooks;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -22,6 +24,8 @@ public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IMod
     private const string FinalDamageProbability2Key = "FinalDamageProbability2";
     private const string FinalDamageProbability3Key = "FinalDamageProbability3";
 
+    private decimal? _damageForCurrentAttack;
+
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
@@ -37,10 +41,24 @@ public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IMod
     public decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPreviewMode previewMode)
     {
-        if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty) ||
-            previewMode != CardPreviewMode.None)
+        if (!props.IsPoweredAttack() ||
+            cardSource == null ||
+            (dealer != Owner.Creature && dealer != Owner.Osty) ||
+            previewMode != CardPreviewMode.None ||
+            _damageForCurrentAttack == null)
         {
             return amount;
+        }
+
+        return _damageForCurrentAttack.Value;
+    }
+
+    public override Task BeforeAttack(AttackCommand command)
+    {
+        if (command.Attacker != Owner.Creature &&
+            command.Attacker != Owner.Osty)
+        {
+            return Task.CompletedTask;
         }
 
         var probability1 = DynamicVars[FinalDamageProbability1Key].BaseValue;
@@ -48,17 +66,20 @@ public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IMod
 
         var roll = Owner.RunState.Rng.Niche.NextInt(0, 100);
 
-        if (roll < probability1)
-        {
-            return DynamicVars[FinalDamageValue1Key].BaseValue;
-        }
+        _damageForCurrentAttack =
+            roll < probability1
+                ? DynamicVars[FinalDamageValue1Key].BaseValue
+                : roll < probability1 + probability2
+                    ? DynamicVars[FinalDamageValue2Key].BaseValue
+                    : DynamicVars[FinalDamageValue3Key].BaseValue;
 
-        if (roll < probability1 + probability2)
-        {
-            return DynamicVars[FinalDamageValue2Key].BaseValue;
-        }
+        return Task.CompletedTask;
+    }
 
-        return DynamicVars[FinalDamageValue3Key].BaseValue;
+    public override Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    {
+        _damageForCurrentAttack = null;
+        return Task.CompletedTask;
     }
 
     public override Task AfterModifyingDamageAmount(CardModel? cardSource)
