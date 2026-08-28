@@ -8,6 +8,7 @@ public class HadesAncientsModConfig : SimpleModConfig
     public static bool DisableHecate { get; set; } = false;
     [ConfigSection("AncientsAct2")] //
     public static bool DisableAthena { get; set; } = false;
+    public static bool DisableHestia { get; set; } = false;
     public static bool DisablePoseidon { get; set; } = false;
     public static bool DisableZeus { get; set; } = false;
     [ConfigSection("AncientsAct3")] // 

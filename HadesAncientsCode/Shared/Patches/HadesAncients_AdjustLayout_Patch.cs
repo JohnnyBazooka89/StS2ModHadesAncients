@@ -7,6 +7,7 @@ using HadesAncients.HadesAncientsCode.Athena.Ancients;
 using HadesAncients.HadesAncientsCode.Dionysus.Ancients;
 using HadesAncients.HadesAncientsCode.Hecate.Ancients;
 using HadesAncients.HadesAncientsCode.Hephaestus.Ancients;
+using HadesAncients.HadesAncientsCode.Hestia.Ancients;
 using HadesAncients.HadesAncientsCode.Poseidon.Ancients;
 using HadesAncients.HadesAncientsCode.Zeus.Ancients;
 using HarmonyLib;
@@ -61,6 +62,12 @@ public static class HadesAncients_AdjustLayout_Patch
             xOffset: 185f,
             yOffset: -5f,
             scaleAmount: 1.0f
+        ),
+        new(
+            ancientEvent => ancientEvent.Id == ModelDb.GetId<HestiaAncient>(),
+            xOffset: 138f,
+            yOffset: 47f,
+            scaleAmount: 0.85f
         ),
         new(
             ancientEvent => ancientEvent.Id == ModelDb.GetId<PoseidonAncient>(),

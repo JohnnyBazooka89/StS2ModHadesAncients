@@ -3,12 +3,11 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Saves.Runs;
@@ -34,7 +33,7 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         new EnergyVar(9),
         new EnergyVar(EnergyToGainKey, 1)
     ];
-    
+
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.ForEnergy(this)
@@ -68,14 +67,14 @@ public class TheUnseen() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         return 9;
     }
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterEnergySpent(CardModel card, int amount)
     {
-        if (cardPlay.Card.Owner != Owner || cardPlay.IsAutoPlay || !cardPlay.IsFirstInSeries)
+        if (card.Owner != Owner || amount <= 0)
         {
             return;
         }
 
-        EnergySpent += cardPlay.Resources.EnergySpent;
+        EnergySpent += amount;
         while (EnergySpent >= DynamicVars.Energy.IntValue)
         {
             _ = TaskHelper.RunSafely(DoActivateVisuals());
