@@ -52,7 +52,7 @@ public class RallyingCry() : HadesAncientsRelic(HadesAncient.Ares)
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (room is not CombatRoom || Owner.Creature.IsDead)
+        if (room is not CombatRoom || Owner.Creature.IsDead || Glory == 0)
         {
             return;
         }

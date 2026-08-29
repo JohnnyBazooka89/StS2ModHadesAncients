@@ -1,5 +1,8 @@
 {
   "HADESANCIENTS-GLOWING_COAL.title": "Glowing Coal",
   "HADESANCIENTS-GLOWING_COAL.description": "At the start of each combat, add [blue]{Cards}[/blue] [gold]{Cards:plural:Fireball|Fireballs}[/gold] into your [gold]Hand[/gold].",
-  "HADESANCIENTS-GLOWING_COAL.flavor": ""
+  "HADESANCIENTS-GLOWING_COAL.flavor": "",
+  "HADESANCIENTS-SLOW_COOKER.title": "Slow Cooker",
+  "HADESANCIENTS-SLOW_COOKER.description": "You can now [gold]Slow Cook[/gold] at Rest Sites.",
+  "HADESANCIENTS-SLOW_COOKER.flavor": ""
 } 
