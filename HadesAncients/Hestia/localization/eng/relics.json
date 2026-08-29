@@ -1,2 +1,5 @@
 {
+  "HADESANCIENTS-GLOWING_COAL.title": "Glowing Coal",
+  "HADESANCIENTS-GLOWING_COAL.description": "At the start of each combat, add [blue]{Cards}[/blue] [gold]{Cards:plural:Fireball|Fireballs}[/gold] into your [gold]Hand[/gold].",
+  "HADESANCIENTS-GLOWING_COAL.flavor": ""
 } 

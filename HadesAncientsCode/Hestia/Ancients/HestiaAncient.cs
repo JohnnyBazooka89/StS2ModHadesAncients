@@ -2,6 +2,7 @@
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
+using HadesAncients.HadesAncientsCode.Hestia.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Models;
@@ -30,7 +31,7 @@ public class HestiaAncient : CustomAncientModel
             ];
 
             return new OptionPools(
-                MakePool(AncientOption<Vajra>()),
+                MakePool(AncientOption<GlowingCoal>()),
                 MakePool(AncientOption<OddlySmoothStone>()),
                 MakePool(AncientOption<DataDisk>())
             );
