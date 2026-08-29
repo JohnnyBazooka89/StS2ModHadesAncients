@@ -43,16 +43,6 @@
         </Reference>
     </ItemGroup>
 
-    <ItemGroup>
-        <None Condition="Exists('Directory.Build.props')" Include="Directory.Build.props"/>
-        <None Include=".gitignore"/>
-        <None Include="HadesAncients.json"/>
-        <None Include="images\ui\run_history\hadesancients-hestia_ancient.png"/>
-        <None Include="images\ui\run_history\hadesancients-hestia_ancient.png.import"/>
-        <None Include="project.godot"/>
-        <None Include="HadesAncients/**"/>
-    </ItemGroup>
-
     <Target Name="CheckDependencyPaths">
         <Error Text="Slay the Spire 2 data not found at path '$(Sts2DataDir)'" Condition="'$(Sts2DataDir)' == '' or !Exists('$(Sts2DataDir)')"/>
     </Target>
