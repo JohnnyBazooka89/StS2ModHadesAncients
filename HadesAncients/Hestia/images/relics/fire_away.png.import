@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://jje144gdbyno"
+path="res://.godot/imported/fire_away.png-e2d3846b9d4d1866f1bbca09bfe7cce7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/fire_away.png"
+dest_files=["res://.godot/imported/fire_away.png-e2d3846b9d4d1866f1bbca09bfe7cce7.ctex"]
 
 [params]
 

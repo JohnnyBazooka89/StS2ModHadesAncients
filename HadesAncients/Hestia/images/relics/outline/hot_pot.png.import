@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://cxyxb3eukdrkb"
+path="res://.godot/imported/hot_pot.png-9cb60da85be6177c2496b070c0a6cbec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/outline/hot_pot.png"
+dest_files=["res://.godot/imported/hot_pot.png-9cb60da85be6177c2496b070c0a6cbec.ctex"]
 
 [params]
 

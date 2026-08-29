@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://bnm6asy3818gs"
+path="res://.godot/imported/heat_rush.png-162cd18bcc8cbd7a263f046649373f11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/heat_rush.png"
+dest_files=["res://.godot/imported/heat_rush.png-162cd18bcc8cbd7a263f046649373f11.ctex"]
 
 [params]
 

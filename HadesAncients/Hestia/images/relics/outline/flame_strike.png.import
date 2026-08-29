@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://cu0nv6fwokogt"
+path="res://.godot/imported/flame_strike.png-0ea6240555a9553d5f46bccbd839453a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/outline/flame_strike.png"
+dest_files=["res://.godot/imported/flame_strike.png-0ea6240555a9553d5f46bccbd839453a.ctex"]
 
 [params]
 

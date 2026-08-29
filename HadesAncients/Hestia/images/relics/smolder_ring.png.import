@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://pbablayn4v7"
+path="res://.godot/imported/smolder_ring.png-7bdaad758d34be52e4a06bd5b3a1bf1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/smolder_ring.png"
+dest_files=["res://.godot/imported/smolder_ring.png-7bdaad758d34be52e4a06bd5b3a1bf1a.ctex"]
 
 [params]
 

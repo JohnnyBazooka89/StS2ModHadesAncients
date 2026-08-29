@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://bkmxbbv5li008"
+path="res://.godot/imported/cardio_gain.png-b88fe1c4f79d5693c439c53d636383ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/cardio_gain.png"
+dest_files=["res://.godot/imported/cardio_gain.png-b88fe1c4f79d5693c439c53d636383ed.ctex"]
 
 [params]
 

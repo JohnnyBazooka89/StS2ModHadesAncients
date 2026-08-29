@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn3vwfap2ng0v"
-path="res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"
+uid="uid://cmq1kwfngfypb"
+path="res://.godot/imported/slow_cooker.png-ffd36426cbadbe39945468a165128a2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-8b881ab070761070d223dc89ff805a7e.ctex"]
+source_file="res://HadesAncients/Hestia/images/relics/slow_cooker.png"
+dest_files=["res://.godot/imported/slow_cooker.png-ffd36426cbadbe39945468a165128a2e.ctex"]
 
 [params]
 
