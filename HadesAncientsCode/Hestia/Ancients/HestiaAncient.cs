@@ -6,7 +6,6 @@ using HadesAncients.HadesAncientsCode.Hestia.Relics;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace HadesAncients.HadesAncientsCode.Hestia.Ancients;
 
@@ -26,15 +25,26 @@ public class HestiaAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            List<AncientOption> attackRelics =
             [
+                AncientOption<CardioGain>(),
+                AncientOption<FireAway>(),
+                AncientOption<FlameStrike>(),
             ];
 
-            return new OptionPools(
-                MakePool(AncientOption<GlowingCoal>()),
-                MakePool(AncientOption<OddlySmoothStone>()),
-                MakePool(AncientOption<DataDisk>())
-            );
+            List<AncientOption> otherRelics =
+            [
+                AncientOption<ControlledBurn>(),
+                AncientOption<GlowingCoal>(),
+                AncientOption<HighlyFlammable>(),
+                AncientOption<HotPot>(),
+                AncientOption<SlowCooker>()
+            ];
+
+            WeightedList<AncientOption> attackRelicsPool = MakePool(attackRelics.ToArray());
+            WeightedList<AncientOption> otherRelicsPool = MakePool(otherRelics.ToArray());
+
+            return new OptionPools(attackRelicsPool, otherRelicsPool, otherRelicsPool);
         }
     }
 
