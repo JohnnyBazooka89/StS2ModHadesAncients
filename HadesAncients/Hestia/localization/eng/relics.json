@@ -1,4 +1,7 @@
 {
+  "HADESANCIENTS-CONTROLLED_BURN.title": "Controlled Burn",
+  "HADESANCIENTS-CONTROLLED_BURN.description": "You may [gold]Burn[/gold] card rewards to Hestia. For each card burned, upgrade a random card in your [gold]Deck[/gold].",
+  "HADESANCIENTS-CONTROLLED_BURN.flavor": "",
   "HADESANCIENTS-GLOWING_COAL.title": "Glowing Coal",
   "HADESANCIENTS-GLOWING_COAL.description": "At the start of each combat, add [blue]{Cards}[/blue] [gold]{Cards:plural:Fireball|Fireballs}[/gold] into your [gold]Hand[/gold].",
   "HADESANCIENTS-GLOWING_COAL.flavor": "",
