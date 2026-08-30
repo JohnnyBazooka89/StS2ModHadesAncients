@@ -36,7 +36,9 @@ public class HestiaAncient : CustomAncientModel
             List<AncientOption> otherRelics =
             [
                 AncientOption<ControlledBurn>(),
+                AncientOption<FlameFlourish>(),
                 AncientOption<GlowingCoal>(),
+                AncientOption<HeatRush>(),
                 AncientOption<HighlyFlammable>(),
                 AncientOption<HotPot>(),
                 AncientOption<SlowCooker>()
