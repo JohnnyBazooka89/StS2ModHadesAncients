@@ -30,6 +30,7 @@ public class HestiaAncient : CustomAncientModel
                 AncientOption<CardioGain>(),
                 AncientOption<FireAway>(),
                 AncientOption<FlameStrike>(),
+                AncientOption<SmolderRing>()
             ];
 
             List<AncientOption> otherRelics =

@@ -22,5 +22,8 @@
   "HADESANCIENTS-HOT_POT.flavor": "",
   "HADESANCIENTS-SLOW_COOKER.title": "Slow Cooker",
   "HADESANCIENTS-SLOW_COOKER.description": "You can now [gold]Slow Cook[/gold] at Rest Sites.",
-  "HADESANCIENTS-SLOW_COOKER.flavor": ""
+  "HADESANCIENTS-SLOW_COOKER.flavor": "",
+  "HADESANCIENTS-SMOLDER_RING.title": "Smolder Ring",
+  "HADESANCIENTS-SMOLDER_RING.description": "At the end of your turn, deal damage to ALL enemies equal to [blue]{Damage:diff()}[/blue] times the number of Attacks played this turn.",
+  "HADESANCIENTS-SMOLDER_RING.flavor": ""
 } 
