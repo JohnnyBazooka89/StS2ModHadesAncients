@@ -1,7 +1,13 @@
 {
+  "HADESANCIENTS-CARDIO_GAIN.title": "Cardio Gain",
+  "HADESANCIENTS-CARDIO_GAIN.description": "Every [blue]{HitsNeeded}[/blue] times you hit an enemy with an Attack, gain {Energy:energyIcons()}.",
+  "HADESANCIENTS-CARDIO_GAIN.flavor": "",
   "HADESANCIENTS-CONTROLLED_BURN.title": "Controlled Burn",
   "HADESANCIENTS-CONTROLLED_BURN.description": "You may [gold]Burn[/gold] card rewards to Hestia. For each card burned, upgrade a random card in your [gold]Deck[/gold].",
   "HADESANCIENTS-CONTROLLED_BURN.flavor": "",
+  "HADESANCIENTS-FIRE_AWAY.title": "Fire Away",
+  "HADESANCIENTS-FIRE_AWAY.description": "Whenever you hit an enemy with an Attack, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
+  "HADESANCIENTS-FIRE_AWAY.flavor": "",
   "HADESANCIENTS-FLAME_STRIKE.title": "Flame Strike",
   "HADESANCIENTS-FLAME_STRIKE.description": "The first [blue]{Cards}[/blue] Attacks you play from your [gold]Hand[/gold] each combat are played an additional time.",
   "HADESANCIENTS-FLAME_STRIKE.flavor": "",
