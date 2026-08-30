@@ -11,6 +11,9 @@
   "HADESANCIENTS-HIGHLY_FLAMMABLE.title": "Highly Flammable",
   "HADESANCIENTS-HIGHLY_FLAMMABLE.description": "Whenever you apply a debuff to an enemy, apply [blue]{MoreStacks}[/blue] additional stacks.",
   "HADESANCIENTS-HIGHLY_FLAMMABLE.flavor": "",
+  "HADESANCIENTS-HOT_POT.title": "Hot Pot",
+  "HADESANCIENTS-HOT_POT.description": "Whenever you would lose HP, lose [blue]{HpLossReduction}[/blue] less.",
+  "HADESANCIENTS-HOT_POT.flavor": "",
   "HADESANCIENTS-SLOW_COOKER.title": "Slow Cooker",
   "HADESANCIENTS-SLOW_COOKER.description": "You can now [gold]Slow Cook[/gold] at Rest Sites.",
   "HADESANCIENTS-SLOW_COOKER.flavor": ""
