@@ -37,6 +37,7 @@ public class HestiaAncient : CustomAncientModel
             [
                 AncientOption<ControlledBurn>(),
                 AncientOption<FlameFlourish>(),
+                AncientOption<FlashFry>(),
                 AncientOption<GlowingCoal>(),
                 AncientOption<HeatRush>(),
                 AncientOption<HighlyFlammable>(),

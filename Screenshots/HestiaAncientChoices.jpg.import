@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blp60arfj2d04"
-path="res://.godot/imported/map_icon_outline.png-c71a3b4e84f6a753c378ad822aa0d88a.ctex"
+uid="uid://w13ldl65tc3k"
+path="res://.godot/imported/HestiaAncientChoices.jpg-6c4dc1cc1428acd5bee96eb11c9b0404.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hestia/images/ancients/map_icon_outline.png"
-dest_files=["res://.godot/imported/map_icon_outline.png-c71a3b4e84f6a753c378ad822aa0d88a.ctex"]
+source_file="res://Screenshots/HestiaAncientChoices.jpg"
+dest_files=["res://.godot/imported/HestiaAncientChoices.jpg-6c4dc1cc1428acd5bee96eb11c9b0404.ctex"]
 
 [params]
 
