@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using Godot;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -65,7 +66,11 @@ public class Fireball()
             instance?.CombatVfxContainer.AddChildSafely(child);
         }
 
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, cardPlay)
+        await DamageCmdCompatibility
+            .FromCard(
+                DamageCmd.Attack(DynamicVars.Damage.BaseValue),
+                this,
+                cardPlay)
             .TargetingAllOpponents(CombatState!)
             .Execute(choiceContext);
     }
