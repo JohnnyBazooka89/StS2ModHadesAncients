@@ -5,17 +5,14 @@ using HadesAncients.HadesAncientsCode.Poseidon.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
+using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Nodes;
-using MegaCrit.Sts2.Core.Nodes.Rewards;
-using MegaCrit.Sts2.Core.Nodes.Screens;
-using MegaCrit.Sts2.Core.Nodes.Screens.Overlays;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -82,7 +79,7 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         if (LocalContext.IsMe(player))
         {
             PlaySound();
-            AddRewardToCurrentScreen(newReward);
+            RewardUtils.AddRewardToCurrentScreen(newReward);
         }
 
         return Task.CompletedTask;
@@ -216,39 +213,6 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         NGame.Instance?.AddChild(audioPlayer);
         audioPlayer.Play();
         audioPlayer.Finished += audioPlayer.QueueFree;
-    }
-
-    private static void AddRewardToCurrentScreen(Reward newReward)
-    {
-        newReward.MarkContentAsSeen();
-
-        NRewardsScreen? screen = NOverlayStack.Instance?
-            .GetChildren()
-            .OfType<NRewardsScreen>()
-            .LastOrDefault();
-
-        if (screen == null)
-        {
-            return;
-        }
-
-        var button = NRewardButton.Create(newReward, screen);
-
-        button.Connect(
-            NRewardButton.SignalName.RewardClaimed,
-            Callable.From<NRewardButton>(screen.RewardCollectedFrom)
-        );
-
-        button.Connect(
-            NRewardButton.SignalName.RewardSkipped,
-            Callable.From<NRewardButton>(screen.RewardSkippedFrom)
-        );
-
-        screen._rewardButtons.Add(button);
-        screen._rewardsContainer.AddChildSafely(button);
-
-        screen.UpdateScreenState();
-        screen.TryEnableProceedButton();
     }
 
     private static RewardsSet? FindRewardsSetContaining(Player player, Reward reward)

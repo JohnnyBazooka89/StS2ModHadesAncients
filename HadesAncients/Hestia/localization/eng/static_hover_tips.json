@@ -1,0 +1,4 @@
+{
+  "HADESANCIENTS-SLOW_COOK.title": "Slow Cook",
+  "HADESANCIENTS-SLOW_COOK.description": "Remove [blue]{CardsToRemove}[/blue] {CardsToRemove:plural:card|cards} from your [gold]Deck[/gold] and gain [blue]{StrengthToGain}[/blue] [gold]Strength[/gold] at the start of each combat."
+}

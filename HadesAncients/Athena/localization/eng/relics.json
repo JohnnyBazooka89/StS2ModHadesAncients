@@ -21,7 +21,7 @@
   "HADESANCIENTS-MENTAL_BLOCK.description": "Start each combat with [blue]{ArtifactPower}[/blue] [gold]Artifact[/gold]. Whenever your [gold]Artifact[/gold] triggers, gain [blue]{Block:diff()}[/blue] [gold]Block[/gold].",
   "HADESANCIENTS-MENTAL_BLOCK.flavor": "\"You hide your troubles well, Melinoë.\"",
   "HADESANCIENTS-PHALANX_SHOT.title": "Phalanx Shot",
-  "HADESANCIENTS-PHALANX_SHOT.description": "Whenever you play a Skill, gain [blue]{VigorPower}[/blue] [gold]Vigor[/gold].",
+  "HADESANCIENTS-PHALANX_SHOT.description": "At the end of your turn, deal damage equal to [blue]{BlockPercent}%[/blue] of your [gold]Block[/gold] to ALL enemies.",
   "HADESANCIENTS-PHALANX_SHOT.flavor": "\"For Olympus!\"",
   "HADESANCIENTS-PROUD_BEARING.title": "Proud Bearing",
   "HADESANCIENTS-PROUD_BEARING.description": "Start each combat with [blue]{PlatingPower}[/blue] [gold]Plating[/gold].",

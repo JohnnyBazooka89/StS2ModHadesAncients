@@ -18,7 +18,7 @@
   "HADESANCIENTS-HEARTBREAK_STRIKE.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage for each [gold]Weak[/gold] on the enemy and apply [blue]{WeakPower}[/blue] [gold]Weak[/gold] on every hit.",
   "HADESANCIENTS-HEARTBREAK_STRIKE.flavor": "\"At this rate, you'll end up breaking more hearts than me!\"",
   "HADESANCIENTS-NERVOUS_WRECK.title": "Nervous Wreck",
-  "HADESANCIENTS-NERVOUS_WRECK.description": "Whenever you apply debuffs on enemies, apply twice as much.",
+  "HADESANCIENTS-NERVOUS_WRECK.description": "Whenever you apply a debuff to an enemy, apply twice as much.",
   "HADESANCIENTS-NERVOUS_WRECK.flavor": "\"Our emotions ran a little hot there, didn't they... I still can feel my heart racing, and if I'm not mistaken, yours might have been, too!\"",
   "HADESANCIENTS-SHAMELESS_ATTITUDE.title": "Shameless Attitude",
   "HADESANCIENTS-SHAMELESS_ATTITUDE.description": "Your Attacks deal [blue]33.(3)%[/blue] more damage. If you have [blue]50%[/blue] HP or more, your Attacks deal [blue]66.(6)%[/blue] more damage instead.",

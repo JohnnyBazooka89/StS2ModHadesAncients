@@ -8,6 +8,7 @@ This mod introduces a collection of new Ancients from the hit game Hades 2. Curr
 |-------|------------|-----------------------------------------------------------------------------------------------|
 | Act 1 | Hecate     | 25 Relics with various effects, based on Arcana Cards.                                        |
 | Act 2 | Athena     | Granting different types of Defense, preventing death, and a little bit of Offense.           |
+| Act 2 | Hestia     | Rewarding many attack hits, permanent upgrades, stronger debuffs, killing enemies quickly.    |
 | Act 2 | Poseidon   | Rewarding playing many Attacks, applying Froth/Riptide, gaining Energy, getting more rewards. |
 | Act 2 | Zeus       | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                   |
 | Act 3 | Aphrodite  | Weak, Charm, debuffs, healing, dealing more Attack damage.                                    |
@@ -42,6 +43,7 @@ The mod is available in:
 ![DionysusAncientChoices](Screenshots/DionysusAncientChoices.jpg)
 ![HephaestusAncientChoices](Screenshots/HephaestusAncientChoices.jpg)
 ![AthenaAncientChoices](Screenshots/AthenaAncientChoices.jpg)
+![HestiaAncientChoices](Screenshots/HestiaAncientChoices.jpg)
 ![PoseidonAncientChoices](Screenshots/PoseidonAncientChoices.jpg)
 ![ZeusAncientChoices](Screenshots/ZeusAncientChoices.jpg)
 ![ModConfiguration](Screenshots/ModConfiguration.jpg)
