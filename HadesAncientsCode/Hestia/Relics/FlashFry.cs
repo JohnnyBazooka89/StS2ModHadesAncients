@@ -60,7 +60,7 @@ public class FlashFry() : HadesAncientsRelic(HadesAncient.Hestia)
         CombatSide side,
         IEnumerable<Creature> participants)
     {
-        if (!participants.Contains(Owner.Creature))
+        if (!participants.Contains(Owner.Creature) || Favor <= 0)
             return Task.CompletedTask;
 
         Favor--;
@@ -69,7 +69,7 @@ public class FlashFry() : HadesAncientsRelic(HadesAncient.Hestia)
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        if (Owner.Creature.IsDead || Favor == 0)
+        if (Owner.Creature.IsDead || Favor <= 0)
             return Task.CompletedTask;
 
         Flash();
