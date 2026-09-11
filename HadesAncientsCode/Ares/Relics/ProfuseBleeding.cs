@@ -52,7 +52,7 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
             return Task.CompletedTask;
         }
 
-        HealthBarForecastRegistry.Register(HadesAncientsMainFile.ModId, Id.Entry, this);
+        HealthBarForecastRegistry.Register(HadesAncientsMainFile.ModId, Id.Entry + Owner.NetId, this);
 
         return Task.CompletedTask;
     }
