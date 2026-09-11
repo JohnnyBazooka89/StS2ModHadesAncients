@@ -41,7 +41,10 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
 
         return
         [
-            new HealthBarForecastSegment(hpLoss, Color, HealthBarForecastDirection.FromRight)
+            new HealthBarForecastSegment(
+                PowerUtils.GetDamageForForecast(Owner.Creature, context.Creature, hpLoss,
+                    ValueProp.Unblockable | ValueProp.Unpowered), Color,
+                HealthBarForecastDirection.FromRight)
         ];
     }
 
@@ -79,7 +82,7 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
             }
 
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), target, hpLoss, DynamicVars.Damage.Props,
-                target);
+                Owner.Creature);
         }
     }
 }

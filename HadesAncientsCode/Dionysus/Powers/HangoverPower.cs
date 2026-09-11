@@ -2,6 +2,7 @@ using BaseLib.Hooks;
 using Godot;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -38,7 +39,9 @@ public class HangoverPower() : HadesAncientsPower(HadesAncient.Dionysus)
     {
         return
         [
-            new HealthBarForecastSegment(Math.Max(0, Amount - context.Creature.Block), Color,
+            new HealthBarForecastSegment(
+                PowerUtils.GetDamageForForecast(Applier, Owner, Amount, ValueProp.Unpowered),
+                Color,
                 HealthBarForecastDirection.FromRight)
         ];
     }
