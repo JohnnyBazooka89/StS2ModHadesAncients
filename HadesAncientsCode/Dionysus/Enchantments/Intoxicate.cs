@@ -7,15 +7,11 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Dionysus.Enchantments;
 
 public class Intoxicate() : HadesAncientsEnchantment(HadesAncient.Dionysus)
 {
-    [SavedProperty]
-    private int IntoxicateMarker { get; set; }
-    
     public override bool HasExtraCardText => true;
     public override bool ShowAmount => true;
 
@@ -33,8 +29,7 @@ public class Intoxicate() : HadesAncientsEnchantment(HadesAncient.Dionysus)
             return;
         }
 
-        IEnumerable<Creature> targets = Card.Owner.Creature.CombatState!.GetOpponentsOf(Card.Owner.Creature)
-            .Where(c => c.IsAlive) ?? [];
+        IEnumerable<Creature> targets = Card.Owner.Creature.CombatState!.HittableEnemies;
         await PowerCmd.Apply<HangoverPower>(choiceContext, targets,
             Amount, Card.Owner.Creature, Card);
     }

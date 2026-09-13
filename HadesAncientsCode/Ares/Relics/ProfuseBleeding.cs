@@ -30,7 +30,7 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
 
     public IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)
     {
-        List<Creature> targets = context.CombatState?.Enemies.Where(c => c.IsAlive).ToList() ?? [];
+        List<Creature> targets = context.CombatState?.HittableEnemies.ToList() ?? [];
 
         if (!targets.Contains(context.Creature))
         {
@@ -65,7 +65,7 @@ public class ProfuseBleeding() : HadesAncientsRelic(HadesAncient.Ares), IHealthB
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
-        List<Creature> targets = combatState.GetOpponentsOf(Owner.Creature).Where(c => c.IsAlive).ToList();
+        List<Creature> targets = combatState.HittableEnemies.ToList();
 
         foreach (Creature target in targets)
         {

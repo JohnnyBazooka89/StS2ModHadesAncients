@@ -37,8 +37,7 @@ public class ViciousFlourish() : HadesAncientsRelic(HadesAncient.Ares)
             return;
         }
 
-        List<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
-            .Where(c => c.IsAlive).ToList();
+        List<Creature> targets = Owner.Creature.CombatState!.HittableEnemies.ToList();
 
         if (targets.Count <= 0)
         {

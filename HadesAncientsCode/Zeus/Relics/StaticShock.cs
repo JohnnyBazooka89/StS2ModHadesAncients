@@ -39,8 +39,7 @@ public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
             return;
         }
 
-        IEnumerable<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
-            .Where(c => c.IsAlive);
+        IEnumerable<Creature> targets = Owner.Creature.CombatState!.HittableEnemies;
         List<Creature> otherTargets = targets.Where(t => t != target).ToList();
 
         decimal finalDamage = result.UnblockedDamage * DynamicVars[PercentDamageKey].BaseValue / 100M;
