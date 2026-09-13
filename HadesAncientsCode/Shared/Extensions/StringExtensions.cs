@@ -106,4 +106,9 @@ public static class StringExtensions
     {
         return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "rest_site_options", path);
     }
+
+    public static string VfxPath(this string path, HadesAncient hadesAncient)
+    {
+        return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "vfx", path);
+    }
 }
