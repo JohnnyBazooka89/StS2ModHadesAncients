@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-SUPPORT_FIRE.title": "Support Fire",
+  "HADESANCIENTS-SUPPORT_FIRE.description": "Whenever you play a card, deal [blue]{Damage:diff()}[/blue] damage to a random enemy.",
+  "HADESANCIENTS-SUPPORT_FIRE.flavor": ""
+}
