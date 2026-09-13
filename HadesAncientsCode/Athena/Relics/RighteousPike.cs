@@ -86,8 +86,7 @@ public class RighteousPike() : HadesAncientsRelic(HadesAncient.Athena)
         decimal value,
         PlayerChoiceContext choiceContext)
     {
-        List<Creature> hittableEnemies = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
-            .Where(e => e.IsHittable).ToList() ?? [];
+        List<Creature> hittableEnemies = Owner.Creature.CombatState!.HittableEnemies.ToList();
         if (hittableEnemies.Count == 0)
             return;
         Creature? target = Owner.RunState.Rng.CombatTargets.NextItem(hittableEnemies);

@@ -37,17 +37,16 @@ public class HeavyMetal() : HadesAncientsRelic(HadesAncient.Hephaestus)
         if (!participants.Contains(Owner.Creature))
             return;
 
-        List<Creature> targets = Owner.Creature.CombatState!.GetOpponentsOf(Owner.Creature)
-            .Where(c => c.IsAlive).ToList();
+        List<Creature> targets = Owner.Creature.CombatState!.HittableEnemies.ToList();
+        Flash();
         await PowerCmd.Apply<ForgeArmorPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
             DynamicVars[nameof(ForgeArmorPower)].BaseValue, Owner.Creature, null);
-        Flash();
-        await Cmd.Wait(0.25f);
 
         if (targets.Count >= 1)
         {
             Owner.RunState.Rng.CombatTargets.Shuffle(targets);
             int damage = Owner.Creature.GetPowerAmount<ForgeArmorPower>();
+            await Cmd.Wait(0.25f);
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), targets[0], damage, ValueProp.Unpowered,
                 Owner.Creature);
         }
