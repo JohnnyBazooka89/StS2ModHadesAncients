@@ -45,7 +45,7 @@
   "HADESANCIENTS-THE_FATES.description": "For the next [blue]{Combats}[/blue] combats, you may reroll each card reward once.",
   "HADESANCIENTS-THE_FATES.flavor": "Even the gods themselves are subject to the whims of the three weavers of destiny.",
   "HADESANCIENTS-THE_FURIES.title": "The Furies",
-  "HADESANCIENTS-THE_FURIES.description": "Your Attacks deal [blue]{MoreDamagePercent}%[/blue] more damage to enemies that do not intend to attack.",
+  "HADESANCIENTS-THE_FURIES.description": "The first enemy you attack each combat gains [gold]Torment[/gold].",
   "HADESANCIENTS-THE_FURIES.flavor": "In the deepest reaches of the Underworld, three are as feared as the god of the dead himself.",
   "HADESANCIENTS-THE_HUNTRESS.title": "The Huntress",
   "HADESANCIENTS-THE_HUNTRESS.description": "Cards that cost {energyPrefix:energyIcons(0)} deal [blue]{MoreDamage}[/blue] additional damage, and give [blue]{MoreBlock}[/blue] additional [gold]Block[/gold].",

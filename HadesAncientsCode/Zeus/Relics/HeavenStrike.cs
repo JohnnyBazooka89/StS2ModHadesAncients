@@ -38,6 +38,6 @@ public class HeavenStrike() : HadesAncientsRelic(HadesAncient.Zeus)
         }
 
         Flash();
-        await PowerCmd.Apply<BlitzPower>(choiceContext, target, 1M, Owner.Creature, cardSource);
+        await PowerCmd.Apply<BlitzPower>(choiceContext, target, 1M, Owner.Creature, null);
     }
 }

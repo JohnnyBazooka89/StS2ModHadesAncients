@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k4wiy5ue8okx"
-path="res://.godot/imported/eternity_power.png-394f432a5d30ebba305301cc042f0f0d.ctex"
+uid="uid://ckfgvrmvglumn"
+path="res://.godot/imported/torment_power.png-aa33819838394f1dfd97cc75a1232788.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Hecate/images/powers/big/eternity_power.png"
-dest_files=["res://.godot/imported/eternity_power.png-394f432a5d30ebba305301cc042f0f0d.ctex"]
+source_file="res://HadesAncients/Hecate/images/powers/big/torment_power.png"
+dest_files=["res://.godot/imported/torment_power.png-aa33819838394f1dfd97cc75a1232788.ctex"]
 
 [params]
 

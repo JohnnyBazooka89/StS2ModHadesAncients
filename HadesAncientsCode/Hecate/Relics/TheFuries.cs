@@ -1,29 +1,30 @@
 ﻿using BaseLib.Utils;
+using HadesAncients.HadesAncientsCode.Hecate.Powers;
 using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
-using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class TheFuries()
-    : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic, IModifyDamageMultiplicativeCompatibility
+public class TheFuries() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
-    private const string MoreDamagePercentKey = "MoreDamagePercent";
+    private bool UsedThisCombat { get; set; }
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public override IEnumerable<DynamicVar> CanonicalVars =>
+    public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        new(MoreDamagePercentKey, 40M)
+        HoverTipFactory.FromPower<TormentPower>(1)
     ];
 
     public int GetArcanaRelicNumber()
@@ -31,19 +32,38 @@ public class TheFuries()
         return 6;
     }
 
-    public decimal ModifyDamageMultiplicativeCompatibility(
-        Creature? target,
-        decimal amount,
-        ValueProp props,
+    public override async Task AfterDamageGiven(
+        PlayerChoiceContext choiceContext,
         Creature? dealer,
-        CardModel? cardSource,
-        CardPlay? cardPlay)
+        DamageResult result,
+        ValueProp props,
+        Creature target,
+        CardModel? cardSource)
     {
-        if (!props.IsPoweredAttack() || cardSource == null || (dealer != Owner.Creature && dealer != Owner.Osty) ||
-            target == null)
-            return 1M;
+        if ((dealer != Owner.Creature && dealer != Owner.Osty) || !props.IsPoweredAttack() || UsedThisCombat)
+        {
+            return;
+        }
 
-        bool doesntIntendToAttack = !target.Monster?.IntendsToAttack ?? false;
-        return 1M + (doesntIntendToAttack ? DynamicVars[MoreDamagePercentKey].BaseValue / 100M : 0);
+        UsedThisCombat = true;
+        Status = RelicStatus.Normal;
+        Flash();
+        await PowerCmd.Apply<TormentPower>(choiceContext, target, 1M, Owner.Creature, null);
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is not CombatRoom)
+            return Task.CompletedTask;
+        UsedThisCombat = false;
+        Status = RelicStatus.Active;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterCombatEnd(CombatRoom _)
+    {
+        UsedThisCombat = false;
+        Status = RelicStatus.Normal;
+        return Task.CompletedTask;
     }
 }

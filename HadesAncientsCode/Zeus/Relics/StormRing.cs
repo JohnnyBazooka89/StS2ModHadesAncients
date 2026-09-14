@@ -41,24 +41,16 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
             return true;
         }
 
-        if (cardTarget == null)
-        {
-            return true;
-        }
+        IReadOnlyList<Creature> enemies = GetValidEnemies();
 
-        if (!Owner.Creature.CombatState!.Enemies.Contains(cardTarget))
+        if (cardTarget == null || !enemies.Contains(cardTarget))
         {
             return true;
         }
 
         Creature? lockedTarget = CreatureToTarget;
 
-        if (lockedTarget == null)
-        {
-            return true;
-        }
-
-        if (!card.IsValidTarget(lockedTarget))
+        if (lockedTarget == null || !enemies.Contains(lockedTarget) || !card.IsValidTarget(lockedTarget))
         {
             return true;
         }
@@ -80,7 +72,7 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
             return;
         }
 
-        IReadOnlyList<Creature>? enemies = Owner.Creature.CombatState!.Enemies;
+        IReadOnlyList<Creature>? enemies = GetValidEnemies();
 
         if (enemies == null || !enemies.Contains(target))
         {
@@ -111,6 +103,22 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
                 cardPlay.Card
             );
         }
+    }
+
+    private IReadOnlyList<Creature> GetValidEnemies()
+    {
+        return Owner.Creature.CombatState!.HittableEnemies
+            .Where(enemy => enemy.GetCreatureNode()?.IsInteractable ?? false)
+            .ToList();
+    }
+
+    public override Task AfterRoomEntered(AbstractRoom room)
+    {
+        if (room is not CombatRoom)
+            return Task.CompletedTask;
+
+        CreatureToTarget = null;
+        return Task.CompletedTask;
     }
 
     public override Task AfterCombatEnd(CombatRoom _)

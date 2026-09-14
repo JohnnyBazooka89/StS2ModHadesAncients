@@ -1,5 +1,8 @@
 {
   "HADESANCIENTS-INFATUATED_POWER.title": "Infatuated",
   "HADESANCIENTS-INFATUATED_POWER.description": "This creature's next Attack deals [blue]0[/blue] damage.",
-  "HADESANCIENTS-INFATUATED_POWER.smartDescription": "{OnPlayer:Your|This creature's} next Attack deals [blue]0[/blue] damage."
+  "HADESANCIENTS-INFATUATED_POWER.smartDescription": "{OnPlayer:Your|This creature's} next Attack deals [blue]0[/blue] damage.",
+  "HADESANCIENTS-TORMENT_POWER.title": "Torment",
+  "HADESANCIENTS-TORMENT_POWER.description": "This creature takes [blue]2[/blue] additional damage from each hit from your Attacks.",
+  "HADESANCIENTS-TORMENT_POWER.smartDescription": "This creature takes [blue]{AdditionalDamage}[/blue] additional damage from each hit from your Attacks."
 }
