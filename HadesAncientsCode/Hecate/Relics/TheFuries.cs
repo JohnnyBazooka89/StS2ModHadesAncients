@@ -48,7 +48,7 @@ public class TheFuries() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         UsedThisCombat = true;
         Status = RelicStatus.Normal;
         Flash();
-        await PowerCmd.Apply<TormentPower>(choiceContext, target, 1M, Owner.Creature, null);
+        await PowerCmd.Apply<TormentPower>(choiceContext, target, 2M, Owner.Creature, null);
     }
 
     public override Task AfterRoomEntered(AbstractRoom room)

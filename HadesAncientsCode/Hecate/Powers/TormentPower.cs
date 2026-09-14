@@ -14,21 +14,14 @@ namespace HadesAncients.HadesAncientsCode.Hecate.Powers;
 
 public class TormentPower() : HadesAncientsPower(HadesAncient.Hecate), IModifyDamageAdditiveCompatibility
 {
-    private const string AdditionalDamageKey = "AdditionalDamage";
+    public override PowerType Type => PowerType.Debuff;
 
-    public override PowerType Type => PowerType.None;
-
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
 
     public override bool IsVisibleInternal =>
         Applier == LocalContext.GetMe(RunManager.Instance?.DebugOnlyGetState())!.Creature;
-
-    public override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new(AdditionalDamageKey, 2M)
-    ];
 
     public decimal ModifyDamageAdditiveCompatibility(
         Creature? target,
@@ -43,6 +36,6 @@ public class TormentPower() : HadesAncientsPower(HadesAncient.Hecate), IModifyDa
             return 0;
         }
 
-        return DynamicVars[AdditionalDamageKey].BaseValue;
+        return Amount;
     }
 }
