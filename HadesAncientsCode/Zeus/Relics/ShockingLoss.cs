@@ -1,6 +1,8 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.CardSelection;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -35,8 +37,16 @@ public class ShockingLoss() : HadesAncientsRelic(HadesAncient.Zeus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new CardsVar(1),
         new(CombatsKey, 3M)
     ];
+
+    public override async Task AfterObtained()
+    {
+        CardSelectorPrefs prefs =
+            new CardSelectorPrefs(CardSelectorPrefs.RemoveSelectionPrompt, DynamicVars.Cards.IntValue);
+        await CardPileCmd.RemoveFromDeck((await CardSelectCmd.FromDeckForRemoval(Owner, prefs)).ToList());
+    }
 
     public override Task AfterCombatEnd(CombatRoom room)
     {

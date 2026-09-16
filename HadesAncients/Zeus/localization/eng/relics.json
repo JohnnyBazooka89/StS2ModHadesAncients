@@ -24,7 +24,7 @@
   "HADESANCIENTS-POWER_SURGE.description": "Whenever you end your turn with any unspent Energy, deal damage equal to [blue]{Damage}[/blue] times the current turn number to ALL enemies.",
   "HADESANCIENTS-POWER_SURGE.flavor": "\"Do show our enemies a properly electrifying time for me, would you?\"",
   "HADESANCIENTS-SHOCKING_LOSS.title": "Shocking Loss",
-  "HADESANCIENTS-SHOCKING_LOSS.description": "Every [blue]{Combats}[/blue] combats, you may remove a card from your [gold]Deck[/gold].",
+  "HADESANCIENTS-SHOCKING_LOSS.description": "Upon pickup, remove [blue]{Cards}[/blue] {Cards:plural:card|cards} from your [gold]Deck[/gold]. Every [blue]{Combats}[/blue] combats, you may remove a card from your [gold]Deck[/gold].",
   "HADESANCIENTS-SHOCKING_LOSS.flavor": "\"This shall come as a shock!\"",
   "HADESANCIENTS-STATIC_SHOCK.title": "Static Shock",
   "HADESANCIENTS-STATIC_SHOCK.description": "Whenever you deal unblocked attack damage to an enemy, deal [blue]{PercentDamage}%[/blue] of that damage to a different random enemy. If there are no other enemies, deal it to the original target instead.",
