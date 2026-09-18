@@ -7,5 +7,6 @@
   "HADESANCIENTS-HEAVEN_STRUCK_POWER.smartDescription": "This creature takes [blue]{Amount}[/blue] more damage from [gold]Blitz[/gold].",
   "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.title": "Marked by Storm Ring",
   "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.description": "You must target this creature until it dies.",
+  "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.remoteDescription": "{ApplierName} must target this creature until it dies.",
   "HADESANCIENTS-MARKED_BY_STORM_RING_POWER.smartDescription": "You must target this creature until it dies."
 }

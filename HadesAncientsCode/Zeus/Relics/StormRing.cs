@@ -72,28 +72,30 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
             return;
         }
 
-        IReadOnlyList<Creature>? enemies = GetValidEnemies();
+        IReadOnlyList<Creature> enemies = GetValidEnemies();
 
-        if (enemies == null || !enemies.Contains(target))
+        if (!enemies.Contains(target))
         {
             return;
         }
 
         foreach (Creature enemy in enemies)
         {
-            if (enemy != target)
+            if (enemy == target)
             {
-                MarkedByStormRingPower? powerOnAnotherEnemy = enemy.GetPower<MarkedByStormRingPower>();
-                if (powerOnAnotherEnemy != null && powerOnAnotherEnemy.Applier == Owner.Creature)
-                {
-                    await PowerCmd.Remove<MarkedByStormRingPower>(enemy);
-                }
+                continue;
+            }
+
+            MarkedByStormRingPower? powerOnAnotherEnemy = FindStormRingPowerAppliedByOwner(enemy);
+            if (powerOnAnotherEnemy != null)
+            {
+                await PowerCmd.Remove(powerOnAnotherEnemy);
             }
         }
 
         CreatureToTarget = target;
 
-        if (!target.HasPower<MarkedByStormRingPower>())
+        if (FindStormRingPowerAppliedByOwner(target) == null)
         {
             await PowerCmd.Apply<MarkedByStormRingPower>(
                 choiceContext,
@@ -125,5 +127,12 @@ public class StormRing() : HadesAncientsRelic(HadesAncient.Zeus), IShouldPlayTar
     {
         CreatureToTarget = null;
         return Task.CompletedTask;
+    }
+
+    private MarkedByStormRingPower? FindStormRingPowerAppliedByOwner(Creature creature)
+    {
+        return creature
+            .GetPowerInstances<MarkedByStormRingPower>()
+            .FirstOrDefault(power => power.Applier == Owner.Creature);
     }
 }
