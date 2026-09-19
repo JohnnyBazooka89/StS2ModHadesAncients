@@ -35,7 +35,7 @@ public class PayTributeRestSiteOption(Player owner, PayTributeParams payTributeP
         await CreatureCmdUtils.LoseMaxHpSafely(new ThrowingPlayerChoiceContext(), Owner.Creature,
             payTributeParams.MaxHpLoss, false);
 
-        await RewardsCmd.OfferCustom(Owner, GenerateRewards());
+        await new RewardsSet(Owner).WithCustomRewards(GenerateRewards()).WithSkippingDisallowed().Offer();
 
         return true;
     }
