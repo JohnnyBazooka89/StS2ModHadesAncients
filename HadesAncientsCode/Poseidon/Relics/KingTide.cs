@@ -23,9 +23,9 @@ public class KingTide() : HadesAncientsRelic(HadesAncient.Poseidon)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(NormalCombatStrengthKey, 1M),
+        new(NormalCombatStrengthKey, 2M),
         new(EliteCombatStrengthKey, 3M),
-        new(BossCombatStrengthKey, 5M)
+        new(BossCombatStrengthKey, 4M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
