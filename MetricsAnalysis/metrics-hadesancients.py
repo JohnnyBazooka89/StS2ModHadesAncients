@@ -306,7 +306,7 @@ def report(conn, args):
                 key=lambda row: (ancient_order[row[0]],
                                  *((value is None, value) for value in row[1:1 + len(group_columns)])),
             )
-            write_csv(args.REPORT_PATH / filename,sk
+            write_csv(args.REPORT_PATH / filename,
                       ['ancient'] + group_columns + ANCIENT_SUMMARY_HEADERS[1:],
                       summary_rows)
 
