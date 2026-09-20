@@ -266,35 +266,49 @@ def report(conn, args):
             write_csv(args.REPORT_PATH / f'06_ancient_choices_{ancient}.csv',
                       ANCIENT_REPORT_HEADERS, rows)
 
-        # Aggregate by Ancient, counting each run at most once per Ancient even
-        # when multiple mapped relics were offered in that run. An Ancient is
-        # Apply the same run filters and minimum offered-run threshold as above.
-        cur.execute(f'''
-            WITH relic_map AS (
-                SELECT entry.key AS ancient,
-                       jsonb_array_elements_text(entry.value) AS ancient_relic_id
-                FROM jsonb_each(%s::jsonb) AS entry
-            ), run_ancients AS (
-                SELECT m.ancient, a.run_file_path, r.win
-                FROM relic_map m
-                JOIN ancient_choice a ON a.ancient_relic_id = m.ancient_relic_id
-                JOIN run r ON r.file_path = a.run_file_path
-                WHERE {where}
-                GROUP BY m.ancient, a.run_file_path, r.win
-            ), counts AS (
-                SELECT ancient, COUNT(*) AS offered_runs,
-                       COUNT(*) FILTER (WHERE win) AS wins
-                FROM run_ancients GROUP BY ancient
-            )
-            SELECT ancient, offered_runs, wins, offered_runs - wins AS losses,
-                   ROUND(100.0 * wins / NULLIF(offered_runs, 0), 2) AS win_pct
-            FROM counts WHERE offered_runs >= %s
-        ''', [json.dumps(ancient_map)] + params + [args.MIN_ANCIENT_CHOICES])
-        # Match the insertion order of Ancient names in ancient-map.json.
+        # Count each run once per Ancient, even if it offered multiple mapped relics.
+        # Keep the overall summary and additionally split it by ascension, character,
+        # and their combination. Each breakdown applies the minimum to each group.
         ancient_order = {name: index for index, name in enumerate(ancient_map)}
-        summary_rows = sorted(cur.fetchall(), key=lambda row: ancient_order[row[0]])
-        write_csv(args.REPORT_PATH / '07_ancient_summary.csv',
-                  ANCIENT_SUMMARY_HEADERS, summary_rows)
+        for filename, group_columns in (
+            ('07_ancient_summary.csv', []),
+            ('07_ancient_summary_by_ascension.csv', ['ascension']),
+            ('07_ancient_summary_by_character.csv', ['character']),
+            ('07_ancient_summary_by_ascension_character.csv', ['ascension', 'character']),
+        ):
+            dimensions = ', '.join(group_columns)
+            run_dimensions = ''.join(f', r.{column}' for column in group_columns)
+            grouped_dimensions = f', {dimensions}' if dimensions else ''
+            cur.execute(f'''
+                WITH relic_map AS (
+                    SELECT entry.key AS ancient,
+                           jsonb_array_elements_text(entry.value) AS ancient_relic_id
+                    FROM jsonb_each(%s::jsonb) AS entry
+                ), run_ancients AS (
+                    SELECT DISTINCT m.ancient, a.run_file_path, r.win{run_dimensions}
+                    FROM relic_map m
+                    JOIN ancient_choice a ON a.ancient_relic_id = m.ancient_relic_id
+                    JOIN run r ON r.file_path = a.run_file_path
+                    WHERE {where}
+                ), counts AS (
+                    SELECT ancient{grouped_dimensions}, COUNT(*) AS offered_runs,
+                           COUNT(*) FILTER (WHERE win) AS wins
+                    FROM run_ancients GROUP BY ancient{grouped_dimensions}
+                )
+                SELECT ancient{grouped_dimensions}, offered_runs, wins,
+                       offered_runs - wins AS losses,
+                       ROUND(100.0 * wins / NULLIF(offered_runs, 0), 2) AS win_pct
+                FROM counts WHERE offered_runs >= %s
+            ''', [json.dumps(ancient_map)] + params + [args.MIN_ANCIENT_CHOICES])
+            # Retain the ancient-map.json ordering, then sort each breakdown.
+            summary_rows = sorted(
+                cur.fetchall(),
+                key=lambda row: (ancient_order[row[0]],
+                                 *((value is None, value) for value in row[1:1 + len(group_columns)])),
+            )
+            write_csv(args.REPORT_PATH / filename,sk
+                      ['ancient'] + group_columns + ANCIENT_SUMMARY_HEADERS[1:],
+                      summary_rows)
 
 
 def main():
