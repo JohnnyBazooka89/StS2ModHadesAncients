@@ -47,7 +47,7 @@ public class FrothPower() : HadesAncientsPower(HadesAncient.Poseidon)
         {
             Flash();
             await CreatureCmd.Damage(choiceContext, Owner, DynamicVars[DamageToTakeKey].BaseValue, ValueProp.Unpowered,
-                Owner);
+                Applier!);
             await PowerCmd.Apply<SlipperySlopePower>(choiceContext, Owner,
                 DynamicVars[TemporaryStrengthToLoseKey].BaseValue, Owner, null);
 

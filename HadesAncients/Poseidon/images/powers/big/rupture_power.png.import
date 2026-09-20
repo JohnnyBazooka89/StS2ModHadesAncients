@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj58nd8n4al7k"
-path="res://.godot/imported/rupture_power.png-25714651565de6bbb00f337b2fc1a65c.ctex"
+uid="uid://8pf1u8624xtg"
+path="res://.godot/imported/rupture_power.png-031990290dfb16560aebc3401411c83e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Poseidon/images/powers/big/rupture_power.png"
-dest_files=["res://.godot/imported/rupture_power.png-25714651565de6bbb00f337b2fc1a65c.ctex"]
+source_file="res://HadesAncients/Poseidon/images/powers/rupture_power.png"
+dest_files=["res://.godot/imported/rupture_power.png-031990290dfb16560aebc3401411c83e.ctex"]
 
 [params]
 

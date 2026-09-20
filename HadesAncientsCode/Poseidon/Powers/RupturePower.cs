@@ -28,7 +28,7 @@ public class RupturePower() : HadesAncientsPower(HadesAncient.Poseidon)
         if (!participants.Contains(Owner))
             return;
 
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, Amount, ValueProp.Unpowered, Owner);
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, Amount, ValueProp.Unpowered, Applier!);
     }
 
     public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(HealthBarForecastContext context)

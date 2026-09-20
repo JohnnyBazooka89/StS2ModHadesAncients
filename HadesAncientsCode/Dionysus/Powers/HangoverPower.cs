@@ -28,7 +28,7 @@ public class HangoverPower() : HadesAncientsPower(HadesAncient.Dionysus)
         if (!participants.Contains(Owner))
             return;
 
-        await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Owner);
+        await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, Applier!);
         if (Owner.IsAlive)
         {
             await PowerCmd.Decrement(this);
