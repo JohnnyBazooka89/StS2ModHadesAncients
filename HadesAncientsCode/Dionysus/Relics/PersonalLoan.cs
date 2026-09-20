@@ -55,7 +55,7 @@ public class PersonalLoan() : HadesAncientsRelic(HadesAncient.Dionysus)
         new GoldVar(1250),
         new(TotalGoldKey + "Base", 0M),
         new(TotalGoldKey + "Extra", 1M),
-        new OutsideCombatCalculatedVar(TotalGoldKey).WithMultiplier((relic, _) =>
+        new OutsideCombatCalculatedVar(TotalGoldKey).WithMultiplier(static (relic, _) =>
         {
             int lentMoney = relic is PersonalLoan personalLoan ? personalLoan.LentMoney : 0;
             return lentMoney + relic.DynamicVars.Gold.IntValue;
