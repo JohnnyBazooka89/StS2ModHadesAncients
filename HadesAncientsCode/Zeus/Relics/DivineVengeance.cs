@@ -19,7 +19,7 @@ public class DivineVengeance() : HadesAncientsRelic(HadesAncient.Zeus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(5M, ValueProp.Unpowered),
+        new DamageVar(6M, ValueProp.Unpowered),
     ];
 
     public override async Task BeforeDamageReceived(

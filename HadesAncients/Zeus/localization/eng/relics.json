@@ -27,7 +27,7 @@
   "HADESANCIENTS-SHOCKING_LOSS.description": "Upon pickup, remove [blue]{Cards}[/blue] {Cards:plural:card|cards} from your [gold]Deck[/gold]. Every [blue]{Combats}[/blue] combats, you may remove a card from your [gold]Deck[/gold].",
   "HADESANCIENTS-SHOCKING_LOSS.flavor": "\"This shall come as a shock!\"",
   "HADESANCIENTS-STATIC_SHOCK.title": "Static Shock",
-  "HADESANCIENTS-STATIC_SHOCK.description": "Whenever you deal unblocked attack damage to an enemy, deal [blue]{PercentDamage}%[/blue] of that damage to a different random enemy. If there are no other enemies, deal it to the original target instead.",
+  "HADESANCIENTS-STATIC_SHOCK.description": "Whenever you deal unblocked attack damage to an enemy, deal [blue]{Damage}[/blue] damage to a different random enemy. If there are no other enemies, deal [blue]{Damage}[/blue] damage to the original target instead.",
   "HADESANCIENTS-STATIC_SHOCK.flavor": "\"Our enemies will soon be in for quite the shock, I think!\"",
   "HADESANCIENTS-STORM_RING.title": "Storm Ring",
   "HADESANCIENTS-STORM_RING.description": "Gain {Energy:energyIcons()} at the start of each turn. Whenever you play a card that targets a single enemy, you must target that enemy until it dies.",

@@ -15,14 +15,11 @@ namespace HadesAncients.HadesAncientsCode.Zeus.Relics;
 [Pool(typeof(EventRelicPool))]
 public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
 {
-    private const string PercentDamageKey = "PercentDamage";
-    private const string PercentDamageSingleKey = "PercentDamageSingle";
-
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(PercentDamageKey, 50M)
+        new DamageVar(3M, ValueProp.Unpowered),
     ];
 
     public override async Task AfterDamageGiven(
@@ -42,7 +39,7 @@ public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
         IEnumerable<Creature> targets = Owner.Creature.CombatState!.HittableEnemies;
         List<Creature> otherTargets = targets.Where(t => t != target).ToList();
 
-        decimal finalDamage = result.UnblockedDamage * DynamicVars[PercentDamageKey].BaseValue / 100M;
+        decimal finalDamage = DynamicVars.Damage.BaseValue;
 
         if (otherTargets.Count >= 1)
         {
