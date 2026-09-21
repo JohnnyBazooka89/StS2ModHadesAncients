@@ -27,7 +27,7 @@
   "HADESANCIENTS-SHOCKING_LOSS.description": "[blue]{Combats}[/blue]번의 전투마다 덱에서 카드 1장을 제거할 수 있습니다.",
   "HADESANCIENTS-SHOCKING_LOSS.flavor": "\"꽤 충격적일 테지!\"",
   "HADESANCIENTS-STATIC_SHOCK.title": "정전기 충격",
-  "HADESANCIENTS-STATIC_SHOCK.description": "적에게 막히지 않은 공격 피해를 줄 때마다 해당 피해의 [blue]{PercentDamage}%[/blue]를 다른 무작위 적에게 줍니다. 다른 적이 없다면 원래 대상에게 줍니다.",
+  "HADESANCIENTS-STATIC_SHOCK.description": "적에게 막히지 않은 공격 피해를 줄 때마다 해당 피해의 [blue]{Damage}[/blue]를 다른 무작위 적에게 줍니다. 다른 적이 없다면 원래 대상에게 줍니다.",
   "HADESANCIENTS-STATIC_SHOCK.flavor": "\"적들은 곧 엄청난 충격을 받게 될 게다!\"",
   "HADESANCIENTS-STORM_RING.title": "폭풍의 반지",
   "HADESANCIENTS-STORM_RING.description": "매 턴 시작 시 {Energy:energyIcons()}를 얻습니다. 단일 적을 대상으로 하는 카드를 사용하면 그 적이 죽을 때까지 반드시 그 적만 대상으로 해야 합니다.",
