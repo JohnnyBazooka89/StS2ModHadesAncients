@@ -33,7 +33,7 @@ public class BottomlessDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
             return;
 
         Flash();
-        foreach (CardModel card in CardFactory.GetForCombat(Owner, Owner.Character.CardPool
+        foreach (CardModel card in CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool
                          .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
                          .Where(c => c.Type == CardType.Power),
                      DynamicVars.Cards.IntValue, Owner.RunState.Rng.CombatCardGeneration))

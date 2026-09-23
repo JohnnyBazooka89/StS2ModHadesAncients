@@ -24,8 +24,8 @@ public class DrunkenDash() : HadesAncientsRelic(HadesAncient.Dionysus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(5),
-        new(IntoxicateKey, 4M)
+        new CardsVar(4),
+        new(IntoxicateKey, 5M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
