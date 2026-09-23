@@ -1,6 +1,6 @@
 {
   "HADESANCIENTS-BOTTOMLESS_DRINK.title": "Bottomless Drink",
-  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "At the start of each combat, shuffle [blue]{Cards:diff()}[/blue] random Power cards into your [gold]Draw Pile[/gold]. They're free to play this combat.",
+  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "At the start of each combat, shuffle [blue]{Cards:diff()}[/blue] different random Power cards into your [gold]Draw Pile[/gold]. They're free to play this combat.",
   "HADESANCIENTS-BOTTOMLESS_DRINK.flavor": "\"Enjoying that one, yeah? Well we've got plenty more, just let me know!\"",
   "HADESANCIENTS-BOUNCE_BACK.title": "Bounce Back",
   "HADESANCIENTS-BOUNCE_BACK.description": "Start each combat with [blue]{RegenPower}[/blue] [gold]Regen[/gold].",
