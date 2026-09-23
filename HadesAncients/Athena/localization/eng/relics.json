@@ -33,6 +33,6 @@
   "HADESANCIENTS-RIGHTEOUS_PIKE.description": "Every {Energy:energyIcons()} you spend, deal [blue]{Damage:diff()}[/blue] damage to a random enemy [blue]{Repeat}[/blue] times.",
   "HADESANCIENTS-RIGHTEOUS_PIKE.flavor": "\"And I wouldn't advise getting run through by my spear, yet at times it must be done.\"",
   "HADESANCIENTS-STALWART_STAND.title": "Stalwart Stand",
-  "HADESANCIENTS-STALWART_STAND.description": "Upon pickup and at the start of each future Act, gain [blue]{DeathDefianceToGain}[/blue] [gold]Death Defiance[/gold].",
+  "HADESANCIENTS-STALWART_STAND.description": "Upon pickup and at the start of each future Act, gain [blue]{DeathDefianceToGain}[/blue] [gold]Death Defiance[/gold]. While your HP is at or below [blue]{HpThreshold}%[/blue], you have [blue]{DexterityPower}[/blue] additional [gold]Dexterity[/gold].",
   "HADESANCIENTS-STALWART_STAND.flavor": "\"Thank the Fates that you eluded Typhon's fury.\""
 }

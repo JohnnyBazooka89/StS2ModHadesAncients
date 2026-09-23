@@ -33,6 +33,6 @@
   "HADESANCIENTS-RIGHTEOUS_PIKE.description": "{Energy:energyIcons()}를 사용할 때마다 무작위 적에게 [blue]{Damage:diff()}[/blue] 피해를 [blue]{Repeat}[/blue]회 줍니다.",
   "HADESANCIENTS-RIGHTEOUS_PIKE.flavor": "\"내 창에 꿰뚫리는 일은 권하고 싶지 않지만, 때로는 필요한 법이지.\"",
   "HADESANCIENTS-STALWART_STAND.title": "불굴의 의지",
-  "HADESANCIENTS-STALWART_STAND.description": "획득 시, 그리고 이후 각 막 시작 시 [blue]{DeathDefianceToGain}[/blue] [gold]죽음 저항[/gold]을 얻습니다.",
+  "HADESANCIENTS-STALWART_STAND.description": "획득 시, 그리고 이후 각 막 시작 시 [blue]{DeathDefianceToGain}[/blue] [gold]죽음 저항[/gold]을 얻습니다. 체력이 [blue]{HpThreshold}%[/blue] 이하일 때 추가로 [blue]{DexterityPower}[/blue] [gold]민첩[/gold]을 얻습니다.",
   "HADESANCIENTS-STALWART_STAND.flavor": "\"네가 티폰의 분노를 피할 수 있었음에 운명의 여신들께 감사해야겠구나.\""
 }
