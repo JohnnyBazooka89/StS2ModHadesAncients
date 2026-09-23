@@ -20,12 +20,18 @@ namespace HadesAncients.HadesAncientsCode.Dionysus.Relics;
 [Pool(typeof(EventRelicPool))]
 public class StrongDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
 {
-    private bool _gainStrengthInNextCombat;
+    private const string RelaxationToGainKey = "RelaxationToGain";
+    private int _relaxation;
     public override RelicRarity Rarity => RelicRarity.Ancient;
+
+    public override bool ShowCounter => true;
+
+    public override int DisplayAmount => Relaxation;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<StrengthPower>(3M)
+        new(RelaxationToGainKey, 1M),
+        new PowerVar<StrengthPower>(2M)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -34,16 +40,14 @@ public class StrongDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
     ];
 
     [SavedProperty]
-    private bool GainStrengthInNextCombat
+    private int Relaxation
     {
-        get => _gainStrengthInNextCombat;
+        get => _relaxation;
         set
         {
             AssertMutable();
-            if (_gainStrengthInNextCombat == value)
-                return;
-            _gainStrengthInNextCombat = value;
-            Status = _gainStrengthInNextCombat ? RelicStatus.Active : RelicStatus.Normal;
+            _relaxation = value;
+            InvokeDisplayAmountChanged();
         }
     }
 
@@ -72,17 +76,16 @@ public class StrongDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
         }
 
         Flash();
-        GainStrengthInNextCombat = true;
+        Relaxation++;
         return Task.CompletedTask;
     }
 
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (room is not CombatRoom || !GainStrengthInNextCombat) return;
+        if (room is not CombatRoom || Relaxation <= 0) return;
 
         Flash();
         await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            DynamicVars.Strength.BaseValue, Owner.Creature, null);
-        GainStrengthInNextCombat = false;
+            Relaxation * DynamicVars.Strength.BaseValue, Owner.Creature, null);
     }
 }
