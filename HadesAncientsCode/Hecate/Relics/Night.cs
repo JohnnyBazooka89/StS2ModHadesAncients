@@ -13,7 +13,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
-using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 
@@ -22,6 +21,7 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 {
     private int _attacksPlayed;
     private bool _isActivating;
+    private CardModel? _pendingCardToActivate;
     private bool _usedThisCombat;
 
     private bool UsedThisCombat
@@ -58,8 +58,7 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         }
     }
 
-    [SavedProperty]
-    public int AttacksPlayed
+    private int AttacksPlayed
     {
         get => _attacksPlayed;
         set
@@ -83,9 +82,7 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         }
         else
         {
-            int requiredAttacks = DynamicVars.Cards.IntValue;
-
-            Status = !UsedThisCombat && AttacksPlayed == requiredAttacks - 1
+            Status = !UsedThisCombat && AttacksPlayed == DynamicVars.Cards.IntValue - 1
                 ? RelicStatus.Active
                 : RelicStatus.Normal;
         }
@@ -96,31 +93,52 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || cardPlay.IsAutoPlay ||
-            !cardPlay.IsFirstInSeries)
+            !cardPlay.IsFirstInSeries || UsedThisCombat)
         {
             return Task.CompletedTask;
         }
 
         AttacksPlayed++;
-        int intValue = DynamicVars.Cards.IntValue;
-        if (!CombatManager.Instance.IsInProgress || AttacksPlayed != intValue)
-            return Task.CompletedTask;
-        _ = TaskHelper.RunSafely(DoActivateVisuals());
-        UsedThisCombat = true;
         return Task.CompletedTask;
     }
 
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
+    public override CardLocation ModifyCardPlayResultLocation(
+        CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources,
+        CardLocation cardLocation)
     {
-        int intValue = DynamicVars.Cards.IntValue;
+        _pendingCardToActivate = null;
 
-        return UsedThisCombat
-               || !CombatManager.Instance.IsInProgress
-               || AttacksPlayed != intValue - 1
-               || card.Type != CardType.Attack
-               || card.Owner.Creature != Owner.Creature
-            ? playCount
-            : playCount + 1;
+        if (!isAutoPlay
+            && !UsedThisCombat
+            && CombatManager.Instance.IsInProgress
+            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
+            && card.Owner == Owner
+            && card.Type == CardType.Attack)
+        {
+            _pendingCardToActivate = card;
+        }
+
+        return cardLocation;
+    }
+
+    public override int ModifyCardPlayCount(
+        CardModel card,
+        Creature? target,
+        int playCount)
+    {
+        if (!ReferenceEquals(card, _pendingCardToActivate))
+            return playCount;
+
+        return playCount + 1;
+    }
+
+    public override Task AfterModifyingCardPlayCount(CardModel card)
+    {
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
+        UsedThisCombat = true;
+        return Task.CompletedTask;
     }
 
     private async Task DoActivateVisuals()
@@ -144,6 +162,7 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 
         AttacksPlayed = 0;
         UsedThisCombat = false;
+        _pendingCardToActivate = null;
 
         return Task.CompletedTask;
     }
@@ -152,6 +171,8 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
     {
         AttacksPlayed = 0;
         UsedThisCombat = false;
+        _pendingCardToActivate = null;
+
         return Task.CompletedTask;
     }
 }

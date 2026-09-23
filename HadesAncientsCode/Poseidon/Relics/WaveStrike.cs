@@ -12,7 +12,6 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
-using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Poseidon.Relics;
 
@@ -21,12 +20,25 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
 {
     private int _attacksPlayed;
     private bool _isActivating;
+    private CardModel? _pendingCardToActivate;
+    private bool _usedThisTurn;
+
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
-    public override string FlashSfx => "event:/sfx/ui/relic_activate_draw";
+    private bool UsedThisTurn
+    {
+        get => _usedThisTurn;
+        set
+        {
+            AssertMutable();
+            _usedThisTurn = value;
+            UpdateDisplay();
+        }
+    }
 
     public override bool ShowCounter =>
-        (IsActivating || AttacksPlayed < DynamicVars.Cards.IntValue) && CombatManager.Instance.IsInProgress;
+        (IsActivating || (AttacksPlayed < DynamicVars.Cards.IntValue && !UsedThisTurn)) &&
+        CombatManager.Instance.IsInProgress;
 
     public override int DisplayAmount => !IsActivating ? AttacksPlayed : DynamicVars.Cards.IntValue;
 
@@ -43,8 +55,7 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
         }
     }
 
-    [SavedProperty]
-    public int AttacksPlayed
+    private int AttacksPlayed
     {
         get => _attacksPlayed;
         set
@@ -63,8 +74,9 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
         }
         else
         {
-            int intValue = DynamicVars.Cards.IntValue;
-            Status = AttacksPlayed == intValue - 1 ? RelicStatus.Active : RelicStatus.Normal;
+            Status = !UsedThisTurn && AttacksPlayed == DynamicVars.Cards.IntValue - 1
+                ? RelicStatus.Active
+                : RelicStatus.Normal;
         }
 
         InvokeDisplayAmountChanged();
@@ -73,29 +85,52 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner != Owner || cardPlay.Card.Type != CardType.Attack || cardPlay.IsAutoPlay ||
-            !cardPlay.IsFirstInSeries)
+            !cardPlay.IsFirstInSeries || UsedThisTurn)
         {
             return Task.CompletedTask;
         }
 
         AttacksPlayed++;
-        int intValue = DynamicVars.Cards.IntValue;
-        if (!CombatManager.Instance.IsInProgress || AttacksPlayed != intValue)
-            return Task.CompletedTask;
-        _ = TaskHelper.RunSafely(DoActivateVisuals());
         return Task.CompletedTask;
     }
 
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
+    public override CardLocation ModifyCardPlayResultLocation(
+        CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources,
+        CardLocation cardLocation)
     {
-        int intValue = DynamicVars.Cards.IntValue;
+        _pendingCardToActivate = null;
 
-        return !CombatManager.Instance.IsInProgress
-               || AttacksPlayed != intValue - 1
-               || card.Type != CardType.Attack
-               || card.Owner.Creature != Owner.Creature
-            ? playCount
-            : playCount + 1;
+        if (!isAutoPlay
+            && !UsedThisTurn
+            && CombatManager.Instance.IsInProgress
+            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
+            && card.Owner == Owner
+            && card.Type == CardType.Attack)
+        {
+            _pendingCardToActivate = card;
+        }
+
+        return cardLocation;
+    }
+
+    public override int ModifyCardPlayCount(
+        CardModel card,
+        Creature? target,
+        int playCount)
+    {
+        if (!ReferenceEquals(card, _pendingCardToActivate))
+            return playCount;
+
+        return playCount + 1;
+    }
+
+    public override Task AfterModifyingCardPlayCount(CardModel card)
+    {
+        _ = TaskHelper.RunSafely(DoActivateVisuals());
+        UsedThisTurn = true;
+        return Task.CompletedTask;
     }
 
     private async Task DoActivateVisuals()
@@ -115,12 +150,18 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
         if (!participants.Contains(Owner.Creature))
             return Task.CompletedTask;
         AttacksPlayed = 0;
+        UsedThisTurn = false;
+        _pendingCardToActivate = null;
+
         return Task.CompletedTask;
     }
 
     public override Task AfterCombatEnd(CombatRoom _)
     {
         AttacksPlayed = 0;
+        UsedThisTurn = false;
+        _pendingCardToActivate = null;
+
         return Task.CompletedTask;
     }
 }
