@@ -9,7 +9,7 @@
   "HADESANCIENTS-DEFENSIVE_POSTURE.description": "The first time you would receive unblocked attack damage, prevent that damage and become immune to enemy damage until the start of your next turn.",
   "HADESANCIENTS-DEFENSIVE_POSTURE.flavor": "\"Hold fast, Cousin!\"",
   "HADESANCIENTS-DIVINE_DASH.title": "Divine Dash",
-  "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Every time you play [blue]{Cards}[/blue] Skills, gain [blue]{BlurPower}[/blue] [gold]Blur[/gold].",
+  "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Up to [blue]{Block}[/blue] [gold]Block[/gold] persists across turns.",
   "HADESANCIENTS-DIVINE_DASH.flavor": "\"Then make haste.\"",
   "HADESANCIENTS-DIVINE_INTERVENTION.title": "Divine Intervention",
   "HADESANCIENTS-DIVINE_INTERVENTION.description": "At the end of your [blue]{DamageTurn}th[/blue] turn, instantly win the combat. In Boss combats, deal [blue]{Damage}[/blue] damage to ALL enemies instead.",

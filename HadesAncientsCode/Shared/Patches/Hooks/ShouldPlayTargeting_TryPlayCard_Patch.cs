@@ -40,7 +40,6 @@ public static class ShouldPlayTargeting_TryPlayCard_Patch
                 combatState,
                 card,
                 effectiveTarget,
-                AutoPlayType.None,
                 out AbstractModel? preventer))
         {
             return true;

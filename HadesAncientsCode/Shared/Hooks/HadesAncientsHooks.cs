@@ -53,6 +53,22 @@ public class HadesAncientsHooks
         );
     }
 
+    public static async Task AfterBlockClear(
+        IRunState? runState,
+        ICombatState? combatState,
+        Creature creature,
+        int blockBeforeClearing)
+    {
+        await DispatchAsync<IAfterBlockClear>(
+            runState,
+            combatState,
+            model => model.AfterBlockClear(
+                creature,
+                blockBeforeClearing
+            )
+        );
+    }
+
     public static async Task AfterCardBecameUpgradedOrEnchanted(IRunState? runState,
         ICombatState? combatState,
         CardModel cardModel)
@@ -194,7 +210,6 @@ public class HadesAncientsHooks
         ICombatState? combatState,
         CardModel card,
         Creature? cardTarget,
-        AutoPlayType autoPlayType,
         out AbstractModel? preventer)
     {
         preventer = null;
