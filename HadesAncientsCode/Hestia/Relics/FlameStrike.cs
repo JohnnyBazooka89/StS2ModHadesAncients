@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
+using MegaCrit.Sts2.Core.Rooms;
 
 namespace HadesAncients.HadesAncientsCode.Hestia.Relics;
 
@@ -73,6 +74,12 @@ public class FlameStrike() : HadesAncientsRelic(HadesAncient.Hestia)
     public override Task AfterObtained()
     {
         Charges = DynamicVars.Cards.IntValue;
+        return Task.CompletedTask;
+    }
+    
+    public override Task AfterCombatEnd(CombatRoom _)
+    {
+        InvokeDisplayAmountChanged();
         return Task.CompletedTask;
     }
 }

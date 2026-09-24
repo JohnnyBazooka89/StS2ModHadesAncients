@@ -1,6 +1,6 @@
 {
   "HADESANCIENTS-BOTTOMLESS_DRINK.title": "끝없는 술잔",
-  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "전투 시작 시 서로 다른 무작위 [gold]파워[/gold] 카드 [blue]{Cards:diff()}[/blue]장을 [gold]드로우 더미[/gold]에 섞어 넣습니다. 이 카드들은 이번 전투 동안 비용 없이 사용할 수 있습니다.",
+  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "첫 [blue]{Turns}[/blue]턴 동안 각 턴 시작 시 무작위 [gold]파워[/gold] 카드 1장을 [gold]손패[/gold]에 추가합니다. 이 카드는 해당 턴 동안 비용 없이 사용할 수 있습니다.",
   "HADESANCIENTS-BOTTOMLESS_DRINK.flavor": "\"마음에 드는 모양이네? 걱정 마, 아직 많이 남았으니까 필요하면 말만 해!\"",
   "HADESANCIENTS-BOUNCE_BACK.title": "끈질긴 회복력",
   "HADESANCIENTS-BOUNCE_BACK.description": "모든 전투를 [blue]{RegenPower}[/blue] [gold]재생[/gold]과 함께 시작합니다.",
