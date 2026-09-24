@@ -17,7 +17,7 @@ public class Intoxicate() : HadesAncientsEnchantment(HadesAncient.Dionysus)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<HangoverPower>()
+        HoverTipFactory.FromPower<FestiveFogPower>()
     ];
 
     public override bool CanEnchantCardType(CardType cardType) => cardType == CardType.Skill;
@@ -30,7 +30,7 @@ public class Intoxicate() : HadesAncientsEnchantment(HadesAncient.Dionysus)
         }
 
         IEnumerable<Creature> targets = Card.Owner.Creature.CombatState!.HittableEnemies;
-        await PowerCmd.Apply<HangoverPower>(choiceContext, targets,
+        await PowerCmd.Apply<FestiveFogPower>(choiceContext, targets,
             Amount, Card.Owner.Creature, Card);
     }
 }
