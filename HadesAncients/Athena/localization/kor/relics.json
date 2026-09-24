@@ -27,7 +27,7 @@
   "HADESANCIENTS-PROUD_BEARING.description": "전투 시작 시 [blue]{PlatingPower}[/blue] [gold]판금[/gold]을 얻습니다.",
   "HADESANCIENTS-PROUD_BEARING.flavor": "\"자부심을 가져라, 사촌! 너는 영광스러운 성과를 이루었고, 우리 모두가 그에 감사하고 있단다.\"",
   "HADESANCIENTS-RENEWED_FAITH.title": "되살아난 신념",
-  "HADESANCIENTS-RENEWED_FAITH.description": "턴 시작 시 체력이 [blue]{HpThreshold}%[/blue] 이하라면 체력을 전부 회복하고 [blue]{StrengthPower}[/blue] [gold]힘[/gold]과 [blue]{DexterityPower}[/blue] [gold]민첩[/gold]을 얻습니다. 한 번만 발동합니다.",
+  "HADESANCIENTS-RENEWED_FAITH.description": "획득 시 [gold]신성한 유예[/gold]가 담긴 포션 슬롯을 하나 얻습니다.",
   "HADESANCIENTS-RENEWED_FAITH.flavor": "\"이제 다시 제대로 싸울 수 있는 상태로 만들어 주마.\"",
   "HADESANCIENTS-RIGHTEOUS_PIKE.title": "정의의 장창",
   "HADESANCIENTS-RIGHTEOUS_PIKE.description": "{Energy:energyIcons()}를 사용할 때마다 무작위 적에게 [blue]{Damage:diff()}[/blue] 피해를 [blue]{Repeat}[/blue]회 줍니다.",

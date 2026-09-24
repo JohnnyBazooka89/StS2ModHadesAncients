@@ -27,7 +27,7 @@
   "HADESANCIENTS-PROUD_BEARING.description": "Start each combat with [blue]{PlatingPower}[/blue] [gold]Plating[/gold].",
   "HADESANCIENTS-PROUD_BEARING.flavor": "\"Be proud, Cousin! You have achieved a glorious result, for which we all are thankful.\"",
   "HADESANCIENTS-RENEWED_FAITH.title": "Renewed Faith",
-  "HADESANCIENTS-RENEWED_FAITH.description": "At the start of your turn, if you have [blue]{HpThreshold}%[/blue] HP or less, heal to full HP and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Works once.",
+  "HADESANCIENTS-RENEWED_FAITH.description": "Upon pickup, gain [blue]{PotionsToGain}[/blue] potion slot filled with [gold]Divine Reprieve[/gold].",
   "HADESANCIENTS-RENEWED_FAITH.flavor": "\"Now let's get you back to proper fighting shape.\"",
   "HADESANCIENTS-RIGHTEOUS_PIKE.title": "Righteous Pike",
   "HADESANCIENTS-RIGHTEOUS_PIKE.description": "Every {Energy:energyIcons()} you spend, deal [blue]{Damage:diff()}[/blue] damage to a random enemy [blue]{Repeat}[/blue] times.",
