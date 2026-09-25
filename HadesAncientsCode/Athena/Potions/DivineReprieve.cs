@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using Godot;
+using HadesAncients.HadesAncientsCode.Athena.Powers;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
@@ -42,7 +43,7 @@ public class DivineReprieve() : HadesAncientsPotion(HadesAncient.Athena)
         await CreatureCmd.Heal(target, target.MaxHp);
         if (!CombatManager.Instance.IsInProgress)
             return;
-        await PowerCmd.Apply<AmbergrisPower>(choiceContext, target, 1M, Owner.Creature, null);
+        await PowerCmd.Apply<DivineReprievePower>(choiceContext, target, 1M, Owner.Creature, null);
         await PowerCmd.Apply<StrengthPower>(choiceContext, target, DynamicVars[nameof(StrengthPower)].BaseValue,
             Owner.Creature, null);
         await PowerCmd.Apply<DexterityPower>(choiceContext, target, DynamicVars[nameof(DexterityPower)].BaseValue,

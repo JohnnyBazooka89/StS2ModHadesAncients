@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿using HadesAncients.HadesAncientsCode.Shared.Compatibility;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Hooks;
@@ -18,10 +19,22 @@ public class PowerUtils
             .Count() ?? 0;
     }
 
-    public static int GetDamageForForecast(Creature? dealer, Creature target, Decimal damage, ValueProp valueProp)
+    public static int GetDamageForForecast(
+        Creature? dealer,
+        Creature target,
+        decimal damage,
+        ValueProp valueProp)
     {
-        return (int)Hook.ModifyDamage(target.CombatState!.RunState, target.CombatState, target, dealer,
-            damage, valueProp, null, null, ModifyDamageHookType.All, CardPreviewMode.None,
+        return (int)ModifyDamageCompatibility.ModifyDamage(
+            target.CombatState!.RunState,
+            target.CombatState,
+            target,
+            dealer,
+            damage,
+            valueProp,
+            null,
+            ModifyDamageHookType.All,
+            CardPreviewMode.None,
             out IEnumerable<AbstractModel> _);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -17,7 +18,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Hecate.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
+public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic, ICardPlayResultLocationCompatibility
 {
     private int _attacksPlayed;
     private bool _isActivating;
@@ -74,6 +75,27 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
         return 10;
     }
 
+    public CardLocationCompatibility ModifyCardPlayResultLocationCompatibility(
+        CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources,
+        CardLocationCompatibility cardLocation)
+    {
+        _pendingCardToActivate = null;
+
+        if (!isAutoPlay
+            && !UsedThisCombat
+            && CombatManager.Instance.IsInProgress
+            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
+            && card.Owner == Owner
+            && card.Type == CardType.Attack)
+        {
+            _pendingCardToActivate = card;
+        }
+
+        return cardLocation;
+    }
+
     private void UpdateDisplay()
     {
         if (IsActivating)
@@ -100,27 +122,6 @@ public class Night() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
 
         AttacksPlayed++;
         return Task.CompletedTask;
-    }
-
-    public override CardLocation ModifyCardPlayResultLocation(
-        CardModel card,
-        bool isAutoPlay,
-        ResourceInfo resources,
-        CardLocation cardLocation)
-    {
-        _pendingCardToActivate = null;
-
-        if (!isAutoPlay
-            && !UsedThisCombat
-            && CombatManager.Instance.IsInProgress
-            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
-            && card.Owner == Owner
-            && card.Type == CardType.Attack)
-        {
-            _pendingCardToActivate = card;
-        }
-
-        return cardLocation;
     }
 
     public override int ModifyCardPlayCount(

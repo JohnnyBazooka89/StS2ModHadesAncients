@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -16,7 +17,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Poseidon.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
+public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon), ICardPlayResultLocationCompatibility
 {
     private int _attacksPlayed;
     private bool _isActivating;
@@ -66,6 +67,27 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
         }
     }
 
+    public CardLocationCompatibility ModifyCardPlayResultLocationCompatibility(
+        CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources,
+        CardLocationCompatibility cardLocation)
+    {
+        _pendingCardToActivate = null;
+
+        if (!isAutoPlay
+            && !UsedThisTurn
+            && CombatManager.Instance.IsInProgress
+            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
+            && card.Owner == Owner
+            && card.Type == CardType.Attack)
+        {
+            _pendingCardToActivate = card;
+        }
+
+        return cardLocation;
+    }
+
     private void UpdateDisplay()
     {
         if (IsActivating)
@@ -92,27 +114,6 @@ public class WaveStrike() : HadesAncientsRelic(HadesAncient.Poseidon)
 
         AttacksPlayed++;
         return Task.CompletedTask;
-    }
-
-    public override CardLocation ModifyCardPlayResultLocation(
-        CardModel card,
-        bool isAutoPlay,
-        ResourceInfo resources,
-        CardLocation cardLocation)
-    {
-        _pendingCardToActivate = null;
-
-        if (!isAutoPlay
-            && !UsedThisTurn
-            && CombatManager.Instance.IsInProgress
-            && AttacksPlayed == DynamicVars.Cards.IntValue - 1
-            && card.Owner == Owner
-            && card.Type == CardType.Attack)
-        {
-            _pendingCardToActivate = card;
-        }
-
-        return cardLocation;
     }
 
     public override int ModifyCardPlayCount(
