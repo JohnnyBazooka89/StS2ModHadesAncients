@@ -1,9 +1,9 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
-using MegaCrit.Sts2.Core.Combat;
+using HadesAncients.HadesAncientsCode.Shared.Hooks;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -11,50 +11,42 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
-using MegaCrit.Sts2.Core.Saves.Runs;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Athena.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class DivineDash() : HadesAncientsRelic(HadesAncient.Athena)
+public class DivineDash() : HadesAncientsRelic(HadesAncient.Athena), IAfterBlockClear
 {
-    private int _skillsPlayed;
-
     public override RelicRarity Rarity => RelicRarity.Ancient;
-
-    public override bool ShowCounter => true;
-
-    public override int DisplayAmount => SkillsPlayed;
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<DexterityPower>(2M),
-        new PowerVar<BlurPower>(1M),
-        new CardsVar(8)
+        new BlockVar(10, ValueProp.Unpowered)
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromPower<DexterityPower>(),
-        HoverTipFactory.FromPower<BlurPower>(),
+        HoverTipFactory.FromPower<DexterityPower>()
     ];
 
-    [SavedProperty]
-    private int SkillsPlayed
+    public async Task AfterBlockClear(Creature creature, int blockBeforeClearing)
     {
-        get => _skillsPlayed;
-        set
-        {
-            AssertMutable();
-            _skillsPlayed = value;
-            UpdateDisplay();
-        }
-    }
+        if (creature != Owner.Creature)
+            return;
 
-    private void UpdateDisplay()
-    {
-        Status = SkillsPlayed == DynamicVars.Cards.IntValue - 1 ? RelicStatus.Active : RelicStatus.Normal;
-        InvokeDisplayAmountChanged();
+        int blockToRestore = Math.Min(
+            (int)DynamicVars.Block.BaseValue,
+            Math.Max(0, blockBeforeClearing - creature.Block)
+        );
+
+        if (blockToRestore <= 0)
+            return;
+
+        await CreatureCmd.GainBlock(Owner.Creature, blockToRestore, ValueProp.Unpowered, null);
+
+        Flash();
     }
 
     public override async Task AfterRoomEntered(AbstractRoom room)
@@ -64,20 +56,5 @@ public class DivineDash() : HadesAncientsRelic(HadesAncient.Athena)
         Flash();
         await PowerCmd.Apply<DexterityPower>(new ThrowingPlayerChoiceContext(), Owner.Creature,
             DynamicVars.Dexterity.BaseValue, Owner.Creature, null);
-    }
-
-    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
-    {
-        if (!CombatManager.Instance.IsInProgress || cardPlay.IsAutoPlay || cardPlay.Card.Owner != Owner ||
-            cardPlay.Card.Type != CardType.Skill)
-            return;
-
-        ++SkillsPlayed;
-        SkillsPlayed %= DynamicVars.Cards.IntValue;
-        if (SkillsPlayed == 0)
-        {
-            await PowerCmd.Apply<BlurPower>(context, Owner.Creature, DynamicVars[nameof(BlurPower)].BaseValue,
-                Owner.Creature, null);
-        }
     }
 }

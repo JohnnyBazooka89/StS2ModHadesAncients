@@ -18,7 +18,7 @@
   "HADESANCIENTS-PROFUSE_BLEEDING.description": "At the start of each enemy's turn, it loses [blue]{Damage:diff()}[/blue] HP for each unique debuff it has.",
   "HADESANCIENTS-PROFUSE_BLEEDING.flavor": "\"Perhaps the dead you stand against have long forgotten the experience of anguish and despair. I trust that you shall soon remind them for me?\"",
   "HADESANCIENTS-RALLYING_CRY.title": "Rallying Cry",
-  "HADESANCIENTS-RALLYING_CRY.description": "At the end of each Elite combat, gain [blue]{GloryToGain}[/blue] [gold]Glory[/gold]. Start each combat with [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{ThornsPower}[/blue] [gold]Thorns[/gold] for each [blue]1[/blue] [gold]Glory[/gold].",
+  "HADESANCIENTS-RALLYING_CRY.description": "At the end of each Elite combat, gain [blue]{GloryToGain}[/blue] [gold]Glory[/gold]. Start each combat with [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{ThornsPower}[/blue] [gold]Thorns[/gold] per [gold]Glory[/gold].",
   "HADESANCIENTS-RALLYING_CRY.flavor": "\"May all the death you bring become the stuff of legends told in fearful mortal whisperings around the world, my kin.\"",
   "HADESANCIENTS-SANGUINARY_SAVOR.title": "Sanguinary Savor",
   "HADESANCIENTS-SANGUINARY_SAVOR.description": "You can now [gold]Pay Tribute[/gold] at Rest Sites.",

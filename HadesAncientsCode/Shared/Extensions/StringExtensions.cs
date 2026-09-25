@@ -82,6 +82,25 @@ public static class StringExtensions
             "relic.png");
     }
 
+    public static string PotionImagePath(this string path, HadesAncient hadesAncient)
+    {
+        path = Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "potions", path);
+        if (ResourceLoader.Exists(path)) return path;
+
+        HadesAncientsMainFile.Logger.Info("Could not find relic image path: " + path);
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "potions", "potion.png");
+    }
+
+    public static string PotionOutlineImagePath(this string path, HadesAncient hadesAncient)
+    {
+        path = Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "potions", "outline", path);
+        if (ResourceLoader.Exists(path)) return path;
+
+        HadesAncientsMainFile.Logger.Info("Could not find relic image path: " + path);
+        return Path.Join(HadesAncientsMainFile.ResPath, SharedPath, "images", "potions", "outline",
+            "potion.png");
+    }
+
     public static string CharacterUiPath(this string path, HadesAncient hadesAncient)
     {
         return Path.Join(HadesAncientsMainFile.ResPath, hadesAncient.ToString(), "images", "charui", path);

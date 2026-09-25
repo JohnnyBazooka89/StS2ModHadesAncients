@@ -1,6 +1,6 @@
 {
   "HADESANCIENTS-BOTTOMLESS_DRINK.title": "끝없는 술잔",
-  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "전투 시작 시 무작위 [gold]파워[/gold] 카드 [blue]{Cards:diff()}[/blue]장을 [gold]드로우 더미[/gold]에 섞어 넣습니다. 이 카드들은 이번 전투 동안 비용 없이 사용할 수 있습니다.",
+  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "첫 [blue]{Turns}[/blue]턴 동안 각 턴 시작 시 무작위 [gold]파워[/gold] 카드 1장을 [gold]손패[/gold]에 추가합니다. 이 카드는 해당 턴 동안 비용 없이 사용할 수 있습니다.",
   "HADESANCIENTS-BOTTOMLESS_DRINK.flavor": "\"마음에 드는 모양이네? 걱정 마, 아직 많이 남았으니까 필요하면 말만 해!\"",
   "HADESANCIENTS-BOUNCE_BACK.title": "끈질긴 회복력",
   "HADESANCIENTS-BOUNCE_BACK.description": "모든 전투를 [blue]{RegenPower}[/blue] [gold]재생[/gold]과 함께 시작합니다.",
@@ -31,8 +31,8 @@
   "HADESANCIENTS-RECKLESS_ABANDON.description": "공격이 적중할 때마다 최종 피해가 무작위로 정확히 [blue]{FinalDamageValue1}[/blue], [blue]{FinalDamageValue2}[/blue], 또는 [blue]{FinalDamageValue3}[/blue]이 됩니다. (확률: [blue]{FinalDamageProbability1}%[/blue], [blue]{FinalDamageProbability2}%[/blue], [blue]{FinalDamageProbability3}%[/blue])",
   "HADESANCIENTS-RECKLESS_ABANDON.flavor": "\"그래서 내가 뭐라고 했는지 알아? '아버지... 하.' 내가 말했지. '아버지, 제가 그냥 하기 싫다면요?' 그랬더니 아버지가 '그럼 내 눈앞에서 사라져라!' 하시더군. 그래서 내가 '눈앞에서 사라지라고요? 좋죠!' 했지! 하하하하!\"",
   "HADESANCIENTS-STRONG_DRINK.title": "독주",
-  "HADESANCIENTS-STRONG_DRINK.description": "[gold]휴식처[/gold]에서 [gold]휴식[/gold]할 때마다 체력을 전부 회복하고, 다음 전투 시작 시 추가로 [blue]{StrengthPower}[/blue] [gold]힘[/gold]을 얻습니다.",
-  "HADESANCIENTS-STRONG_DRINK.additionalRestSiteHealText": "체력을 전부 회복하고, 다음 전투 시작 시 추가로 [blue]{StrengthPower}[/blue] [gold]힘[/gold]을 얻습니다.",
+  "HADESANCIENTS-STRONG_DRINK.description": "[gold]휴식처[/gold]에서 [gold]휴식[/gold]할 때마다 체력을 전부 회복하고 [blue]{RelaxationToGain}[/blue] [gold]휴식[/gold]을 얻습니다. 전투 시작 시 [gold]휴식[/gold] 하나당 [blue]{StrengthPower}[/blue] [gold]힘[/gold]을 얻습니다.",
+  "HADESANCIENTS-STRONG_DRINK.additionalRestSiteHealText": "체력을 전부 회복하고 [blue]{RelaxationToGain}[/blue] [gold]휴식[/gold]을 얻습니다.",
   "HADESANCIENTS-STRONG_DRINK.flavor": "\"마셔라! 마셔라! 마셔라! 마셔라! 마셔라! 마셔라! 마셔라! 헤헤, 좋아!\"",
   "HADESANCIENTS-TIPSY_SHOT.title": "취기의 한 모금",
   "HADESANCIENTS-TIPSY_SHOT.description": "물약을 사용할 때마다 그 효과가 한 번 더 적용됩니다.",

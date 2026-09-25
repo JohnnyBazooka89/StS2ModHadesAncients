@@ -9,7 +9,7 @@
   "HADESANCIENTS-DEFENSIVE_POSTURE.description": "The first time you would receive unblocked attack damage, prevent that damage and become immune to enemy damage until the start of your next turn.",
   "HADESANCIENTS-DEFENSIVE_POSTURE.flavor": "\"Hold fast, Cousin!\"",
   "HADESANCIENTS-DIVINE_DASH.title": "Divine Dash",
-  "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Every time you play [blue]{Cards}[/blue] Skills, gain [blue]{BlurPower}[/blue] [gold]Blur[/gold].",
+  "HADESANCIENTS-DIVINE_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Up to [blue]{Block}[/blue] [gold]Block[/gold] persists across turns.",
   "HADESANCIENTS-DIVINE_DASH.flavor": "\"Then make haste.\"",
   "HADESANCIENTS-DIVINE_INTERVENTION.title": "Divine Intervention",
   "HADESANCIENTS-DIVINE_INTERVENTION.description": "At the end of your [blue]{DamageTurn}th[/blue] turn, instantly win the combat. In Boss combats, deal [blue]{Damage}[/blue] damage to ALL enemies instead.",
@@ -27,12 +27,12 @@
   "HADESANCIENTS-PROUD_BEARING.description": "Start each combat with [blue]{PlatingPower}[/blue] [gold]Plating[/gold].",
   "HADESANCIENTS-PROUD_BEARING.flavor": "\"Be proud, Cousin! You have achieved a glorious result, for which we all are thankful.\"",
   "HADESANCIENTS-RENEWED_FAITH.title": "Renewed Faith",
-  "HADESANCIENTS-RENEWED_FAITH.description": "At the start of your turn, if you have [blue]{HpThreshold}%[/blue] HP or less, heal to full HP and gain [blue]{StrengthPower}[/blue] [gold]Strength[/gold] and [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold]. Works once.",
+  "HADESANCIENTS-RENEWED_FAITH.description": "Upon pickup, gain [blue]{PotionsToGain}[/blue] potion slot filled with [gold]Divine Reprieve[/gold].",
   "HADESANCIENTS-RENEWED_FAITH.flavor": "\"Now let's get you back to proper fighting shape.\"",
   "HADESANCIENTS-RIGHTEOUS_PIKE.title": "Righteous Pike",
   "HADESANCIENTS-RIGHTEOUS_PIKE.description": "Every {Energy:energyIcons()} you spend, deal [blue]{Damage:diff()}[/blue] damage to a random enemy [blue]{Repeat}[/blue] times.",
   "HADESANCIENTS-RIGHTEOUS_PIKE.flavor": "\"And I wouldn't advise getting run through by my spear, yet at times it must be done.\"",
   "HADESANCIENTS-STALWART_STAND.title": "Stalwart Stand",
-  "HADESANCIENTS-STALWART_STAND.description": "Upon pickup and at the start of each future Act, gain [blue]{DeathDefianceToGain}[/blue] [gold]Death Defiance[/gold].",
+  "HADESANCIENTS-STALWART_STAND.description": "Upon pickup and at the start of each future Act, gain [blue]{DeathDefianceToGain}[/blue] [gold]Death Defiance[/gold]. While your HP is at or below [blue]{HpThreshold}%[/blue], you have [blue]{DexterityPower}[/blue] additional [gold]Dexterity[/gold].",
   "HADESANCIENTS-STALWART_STAND.flavor": "\"Thank the Fates that you eluded Typhon's fury.\""
 }

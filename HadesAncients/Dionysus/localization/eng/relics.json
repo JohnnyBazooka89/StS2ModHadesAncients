@@ -1,6 +1,6 @@
 {
   "HADESANCIENTS-BOTTOMLESS_DRINK.title": "Bottomless Drink",
-  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "At the start of each combat, shuffle [blue]{Cards:diff()}[/blue] random Power cards into your [gold]Draw Pile[/gold]. They're free to play this combat.",
+  "HADESANCIENTS-BOTTOMLESS_DRINK.description": "At the start of each of your first [blue]{Turns}[/blue] turns, add a random [gold]Power card[/gold] into your [gold]Hand[/gold]. It's free to play this turn.",
   "HADESANCIENTS-BOTTOMLESS_DRINK.flavor": "\"Enjoying that one, yeah? Well we've got plenty more, just let me know!\"",
   "HADESANCIENTS-BOUNCE_BACK.title": "Bounce Back",
   "HADESANCIENTS-BOUNCE_BACK.description": "Start each combat with [blue]{RegenPower}[/blue] [gold]Regen[/gold].",
@@ -31,8 +31,8 @@
   "HADESANCIENTS-RECKLESS_ABANDON.description": "Your Attacks randomly deal exactly [blue]{FinalDamageValue1}[/blue], [blue]{FinalDamageValue2}[/blue], or [blue]{FinalDamageValue3}[/blue] as their final damage whenever they hit. (Probabilities are: [blue]{FinalDamageProbability1}%[/blue], [blue]{FinalDamageProbability2}%[/blue], [blue]{FinalDamageProbability3}%[/blue]).",
   "HADESANCIENTS-RECKLESS_ABANDON.flavor": "\"So you know what I say? I say, Dad ... hah. I say Dad, what if I just don't want to? And he says, Then get out of my sight! So I say, Outta sight? All right! Hahahaha!\"",
   "HADESANCIENTS-STRONG_DRINK.title": "Strong Drink",
-  "HADESANCIENTS-STRONG_DRINK.description": "Whenever you [gold]Rest[/gold] at a [gold]Rest Site[/gold], heal fully and start the next combat with an additional [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
-  "HADESANCIENTS-STRONG_DRINK.additionalRestSiteHealText": "Heal fully and start the next combat with an additional [blue]{StrengthPower}[/blue] [gold]Strength[/gold].",
+  "HADESANCIENTS-STRONG_DRINK.description": "Whenever you [gold]Rest[/gold] at a [gold]Rest Site[/gold], heal to full HP and gain [blue]{RelaxationToGain}[/blue] [gold]Relaxation[/gold]. Start each combat with [blue]{StrengthPower}[/blue] [gold]Strength[/gold] per [gold]Relaxation[/gold].",
+  "HADESANCIENTS-STRONG_DRINK.additionalRestSiteHealText": "Heal to full HP and gain [blue]{RelaxationToGain}[/blue] [gold]Relaxation[/gold].",
   "HADESANCIENTS-STRONG_DRINK.flavor": "\"Drink! Drink! Drink! Drink! Drink! Drink! Drink! Hehe, yeah!\"",
   "HADESANCIENTS-TIPSY_SHOT.title": "Tipsy Shot",
   "HADESANCIENTS-TIPSY_SHOT.description": "Whenever you use a potion, its effect is applied an additional time.",
