@@ -19,8 +19,8 @@ namespace HadesAncients.HadesAncientsCode.Dionysus.Powers;
 public class FestiveFogPower() : HadesAncientsPower(HadesAncient.Dionysus), IModifyDamageMultiplicativeCompatibility,
     IAddDumbVariablesToPowerDescription
 {
-    private const decimal DamageTakenIncreaseDefaultValue = 50;
-    private const decimal DamageDealtDecreaseDefaultValue = 25;
+    private const decimal DamageTakenIncreaseDefaultValue = 40;
+    private const decimal DamageDealtDecreaseDefaultValue = 20;
 
     private const string DamageTakenIncreaseKey = "DamageTakenIncrease";
     private const string DamageDealtDecreaseKey = "DamageDealtDecrease";
