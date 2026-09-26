@@ -1,4 +1,7 @@
 {
+  "HADESANCIENTS-HUNTERS_INSTINCT.title": "Hunter's Instinct",
+  "HADESANCIENTS-HUNTERS_INSTINCT.description": "At the start of your turn, add a random 0{energyPrefix:energyIcons(1)} card into your [gold]Hand[/gold]. It's free to play this turn.",
+  "HADESANCIENTS-HUNTERS_INSTINCT.flavor": "",
   "HADESANCIENTS-SUPPORT_FIRE.title": "Support Fire",
   "HADESANCIENTS-SUPPORT_FIRE.description": "Whenever you play a card, deal [blue]{Damage:diff()}[/blue] damage to a random enemy.",
   "HADESANCIENTS-SUPPORT_FIRE.flavor": ""
