@@ -30,10 +30,10 @@ public class VolcanicFlourish() : HadesAncientsRelic(HadesAncient.Hephaestus)
         if (possibleSkills.Count == 0)
             return;
         Flash();
-        List<CardModel> skillsToPlay = CardFactory
+        List<CardModel> skillsToAdd = CardFactory
             .GetDistinctForCombat(Owner, possibleSkills, 1, Owner.RunState.Rng.CombatCardGeneration).ToList();
-        foreach (CardModel cardModel in skillsToPlay)
+        foreach (CardModel cardModel in skillsToAdd)
             cardModel.SetToFreeThisTurn();
-        await CardPileCmd.AddGeneratedCardsToCombat(skillsToPlay, PileType.Hand, Owner);
+        await CardPileCmd.AddGeneratedCardsToCombat(skillsToAdd, PileType.Hand, Owner);
     }
 }
