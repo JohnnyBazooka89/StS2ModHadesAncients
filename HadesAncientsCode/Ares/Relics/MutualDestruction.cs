@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -46,6 +47,10 @@ public class MutualDestruction() : HadesAncientsRelic(HadesAncient.Ares), IModif
         new(MoreDamageHighHpKey, 25M)
     ];
 
+    public bool ShowCustomStringDisplayLabel => CombatManager.Instance.IsInProgress;
+
+    public string CustomStringDisplayLabel => $"+{GetMoreDamagePercent()}%";
+
     public decimal ModifyDamageMultiplicativeCompatibility(Creature? target, decimal amount, ValueProp props,
         Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
@@ -54,10 +59,6 @@ public class MutualDestruction() : HadesAncientsRelic(HadesAncient.Ares), IModif
 
         return 1M + GetMoreDamagePercent() / 100M;
     }
-
-    public bool ShowCustomStringDisplayLabel => CombatManager.Instance.IsInProgress;
-
-    public string CustomStringDisplayLabel => $"+{GetMoreDamagePercent()}%";
 
     private decimal GetMoreDamagePercent()
     {
@@ -80,6 +81,17 @@ public class MutualDestruction() : HadesAncientsRelic(HadesAncient.Ares), IModif
     public override async Task AfterRoomEntered(AbstractRoom room)
     {
         if (room is not CombatRoom)
+            return;
+        await SetActiveIfNecessary();
+    }
+
+    public override async Task BeforeSideTurnStart(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState)
+    {
+        if (!participants.Contains(Owner.Creature))
             return;
         await SetActiveIfNecessary();
     }
