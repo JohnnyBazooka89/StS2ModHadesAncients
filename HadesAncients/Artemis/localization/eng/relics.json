@@ -1,4 +1,10 @@
 {
+  "HADESANCIENTS-EASY_SHOT.title": "Easy Shot",
+  "HADESANCIENTS-EASY_SHOT.description": "The first 0{energyPrefix:energyIcons(1)} card you play from your [gold]Hand[/gold] each turn is played an additional time.",
+  "HADESANCIENTS-EASY_SHOT.flavor": "",
+  "HADESANCIENTS-FULLY_LOADED.title": "Fully Loaded",
+  "HADESANCIENTS-FULLY_LOADED.description": "At the start of each combat, add {Cards} different random Attacks into your Hand. They're free to play this turn.",
+  "HADESANCIENTS-FULLY_LOADED.flavor": "",
   "HADESANCIENTS-HUNTERS_INSTINCT.title": "Hunter's Instinct",
   "HADESANCIENTS-HUNTERS_INSTINCT.description": "At the start of your turn, add a random 0{energyPrefix:energyIcons(1)} card into your [gold]Hand[/gold]. It's free to play this turn.",
   "HADESANCIENTS-HUNTERS_INSTINCT.flavor": "",

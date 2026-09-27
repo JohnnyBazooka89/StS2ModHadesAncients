@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,9 +16,10 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Hestia.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class FlameStrike() : HadesAncientsRelic(HadesAncient.Hestia)
+public class FlameStrike() : HadesAncientsRelic(HadesAncient.Hestia), ICardPlayResultLocationCompatibility
 {
     private int _charges;
+    private CardModel? _pendingCardToActivate;
 
     private int Charges
     {
@@ -41,18 +43,40 @@ public class FlameStrike() : HadesAncientsRelic(HadesAncient.Hestia)
         new CardsVar(3)
     ];
 
-    public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
+    public CardLocationCompatibility ModifyCardPlayResultLocationCompatibility(
+        CardModel card,
+        bool isAutoPlay,
+        ResourceInfo resources,
+        CardLocationCompatibility cardLocation)
     {
-        return !CombatManager.Instance.IsInProgress
-               || Charges <= 0
-               || card.Type != CardType.Attack
-               || card.Owner.Creature != Owner.Creature
-            ? playCount
-            : playCount + 1;
+        _pendingCardToActivate = null;
+
+        if (!isAutoPlay
+            && CombatManager.Instance.IsInProgress
+            && Charges > 0
+            && card.Owner == Owner
+            && card.Type == CardType.Attack)
+        {
+            _pendingCardToActivate = card;
+        }
+
+        return cardLocation;
+    }
+
+    public override int ModifyCardPlayCount(
+        CardModel card,
+        Creature? target,
+        int playCount)
+    {
+        if (!ReferenceEquals(card, _pendingCardToActivate))
+            return playCount;
+
+        return playCount + 1;
     }
 
     public override Task AfterModifyingCardPlayCount(CardModel card)
     {
+        Flash();
         Charges--;
         return Task.CompletedTask;
     }
@@ -68,18 +92,21 @@ public class FlameStrike() : HadesAncientsRelic(HadesAncient.Hestia)
         }
 
         Charges = DynamicVars.Cards.IntValue;
+        _pendingCardToActivate = null;
         return Task.CompletedTask;
     }
 
     public override Task AfterObtained()
     {
         Charges = DynamicVars.Cards.IntValue;
+        _pendingCardToActivate = null;
         return Task.CompletedTask;
     }
-    
+
     public override Task AfterCombatEnd(CombatRoom _)
     {
-        InvokeDisplayAmountChanged();
+        Charges = 0;
+        _pendingCardToActivate = null;
         return Task.CompletedTask;
     }
 }

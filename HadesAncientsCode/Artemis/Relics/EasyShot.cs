@@ -2,6 +2,7 @@
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -13,10 +14,10 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
 using MegaCrit.Sts2.Core.Rooms;
 
-namespace HadesAncients.HadesAncientsCode.Zeus.Relics;
+namespace HadesAncients.HadesAncientsCode.Artemis.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus), ICardPlayResultLocationCompatibility
+public class EasyShot() : HadesAncientsRelic(HadesAncient.Artemis), ICardPlayResultLocationCompatibility
 {
     private int _charges;
     private CardModel? _pendingCardToActivate;
@@ -40,7 +41,7 @@ public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus), ICardPlay
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3)
+        new CardsVar(1)
     ];
 
     public CardLocationCompatibility ModifyCardPlayResultLocationCompatibility(
@@ -55,7 +56,7 @@ public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus), ICardPlay
             && CombatManager.Instance.IsInProgress
             && Charges > 0
             && card.Owner == Owner
-            && card.Type == CardType.Skill)
+            && card.IsZeroEnergyCard())
         {
             _pendingCardToActivate = card;
         }
@@ -86,7 +87,7 @@ public class HeavenFlourish() : HadesAncientsRelic(HadesAncient.Zeus), ICardPlay
         PlayerChoiceContext choiceContext,
         ICombatState combatState)
     {
-        if (player != Owner || combatState.RoundNumber != 1)
+        if (player != Owner)
         {
             return Task.CompletedTask;
         }
