@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-MARKED_POWER.title": "Marked",
+  "HADESANCIENTS-MARKED_POWER.description": "Your next Attack that deals damage to the Marked creature deals double damage.",
+  "HADESANCIENTS-MARKED_POWER.smartDescription": "Your next [blue]{Amount}[/blue] {Amount:plural:Attack that deals damage to the Marked creature deals|Attacks that deal damage to the Marked creature deal} double damage."
+}
