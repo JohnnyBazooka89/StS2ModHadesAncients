@@ -51,20 +51,6 @@ public class ShadowPouncePower() : HadesAncientsPower(HadesAncient.Artemis)
         await PowerCmd.Decrement(this);
     }
 
-    public override async Task AfterSideTurnEnd(
-        PlayerChoiceContext choiceContext,
-        CombatSide side,
-        IEnumerable<Creature> participants)
-    {
-        if (!participants.Contains(Owner))
-            return;
-
-        if (Owner.IsAlive)
-        {
-            await PowerCmd.Remove(this);
-        }
-    }
-
     private bool ShouldModifyCost(CardModel card)
     {
         if (card.Owner.Creature != Owner || card.Type != CardType.Skill)
