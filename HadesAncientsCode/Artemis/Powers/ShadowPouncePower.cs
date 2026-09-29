@@ -45,7 +45,7 @@ public class ShadowPouncePower() : HadesAncientsPower(HadesAncient.Artemis)
 
     public override async Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (!ShouldModifyCost(cardPlay.Card))
+        if (!ShouldModifyCost(cardPlay.Card) || cardPlay.IsAutoPlay)
             return;
 
         await PowerCmd.Decrement(this);
