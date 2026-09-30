@@ -25,8 +25,8 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<WeakPower>(1),
-        new PowerVar<VulnerablePower>(1),
+        new PowerVar<WeakPower>(2),
+        new PowerVar<VulnerablePower>(2),
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
