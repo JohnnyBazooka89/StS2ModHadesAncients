@@ -25,8 +25,8 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<WeakPower>(2),
-        new PowerVar<VulnerablePower>(2),
+        new PowerVar<WeakPower>(1),
+        new PowerVar<VulnerablePower>(1),
     ];
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -47,9 +47,9 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
             return;
         Flash();
         UsedThisTurn = true;
-        await PowerCmd.Apply<WeakPower>(choiceContext, power.Owner,
+        await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature.CombatState!.HittableEnemies,
             DynamicVars.Weak.BaseValue, Owner.Creature, null);
-        await PowerCmd.Apply<VulnerablePower>(choiceContext, power.Owner,
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, Owner.Creature.CombatState!.HittableEnemies,
             DynamicVars.Vulnerable.BaseValue, Owner.Creature, null);
     }
 

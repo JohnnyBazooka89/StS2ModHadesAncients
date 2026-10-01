@@ -18,7 +18,7 @@
   "HADESANCIENTS-KILLING_STROKE.description": "Upon pickup, add [blue]{Cards}[/blue] [gold]Clean Kill[/gold] to your [gold]Deck[/gold].",
   "HADESANCIENTS-KILLING_STROKE.flavor": "",
   "HADESANCIENTS-LETHAL_SNARE.title": "Lethal Snare",
-  "HADESANCIENTS-LETHAL_SNARE.description": "The first time each turn you apply a debuff to an enemy, apply [blue]{WeakPower}[/blue] [gold]Weak[/gold] and [blue]{VulnerablePower}[/blue] [gold]Vulnerable[/gold] to that enemy.",
+  "HADESANCIENTS-LETHAL_SNARE.description": "The first time each turn you apply a debuff to an enemy, apply [blue]{WeakPower}[/blue] [gold]Weak[/gold] and [blue]{VulnerablePower}[/blue] [gold]Vulnerable[/gold] to ALL enemies.",
   "HADESANCIENTS-LETHAL_SNARE.flavor": "",
   "HADESANCIENTS-PRESSURE_POINTS.title": "Pressure Points",
   "HADESANCIENTS-PRESSURE_POINTS.description": "Every [blue]5th[/blue] Attack you play deals [blue]{MoreDamagePercent}%[/blue] more damage.",
