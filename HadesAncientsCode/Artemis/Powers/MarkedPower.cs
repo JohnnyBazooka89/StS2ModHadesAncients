@@ -1,6 +1,7 @@
 ﻿using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -86,6 +87,20 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
 
         internalData.CommandToModify = null;
         internalData.WasAttacked = false;
+    }
+    
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
+    {
+        if (!participants.Contains(Owner))
+            return;
+
+        if (Owner.IsAlive)
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 
     private class Data
