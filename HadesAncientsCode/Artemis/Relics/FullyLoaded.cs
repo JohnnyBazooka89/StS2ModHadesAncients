@@ -18,7 +18,7 @@ public class FullyLoaded() : HadesAncientsRelic(HadesAncient.Artemis)
 {
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(4)
+        new CardsVar(3)
     ];
 
     public override RelicRarity Rarity => RelicRarity.Ancient;

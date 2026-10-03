@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -42,6 +43,11 @@ public class EasyShot() : HadesAncientsRelic(HadesAncient.Artemis), ICardPlayRes
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(1)
+    ];
+
+    public override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.ForEnergy(this)
     ];
 
     public CardLocationCompatibility ModifyCardPlayResultLocationCompatibility(

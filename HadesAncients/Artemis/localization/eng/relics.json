@@ -3,7 +3,7 @@
   "HADESANCIENTS-EASY_SHOT.description": "The first 0{energyPrefix:energyIcons(1)} card you play from your [gold]Hand[/gold] each turn is played an additional time.",
   "HADESANCIENTS-EASY_SHOT.flavor": "",
   "HADESANCIENTS-FULLY_LOADED.title": "Fully Loaded",
-  "HADESANCIENTS-FULLY_LOADED.description": "At the start of each combat, add {Cards} different random Attacks into your Hand. They're free to play this turn.",
+  "HADESANCIENTS-FULLY_LOADED.description": "At the start of each combat, add [blue]{Cards}[/blue] different random Attacks into your [gold]Hand[/gold]. They're free to play this turn.",
   "HADESANCIENTS-FULLY_LOADED.flavor": "",
   "HADESANCIENTS-HUNTER_DASH.title": "Hunter Dash",
   "HADESANCIENTS-HUNTER_DASH.description": "Start each combat with [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold] and [blue]{ThornsPower}[/blue] [gold]Thorns[/gold].",
