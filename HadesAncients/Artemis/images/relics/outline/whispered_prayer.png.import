@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg5mgddpd88r1"
-path="res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"
+uid="uid://ow3jgrdp0oga"
+path="res://.godot/imported/whispered_prayer.png-6455694269baf591bd1b313030d3141d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Artemis/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"]
+source_file="res://HadesAncients/Artemis/images/relics/outline/whispered_prayer.png"
+dest_files=["res://.godot/imported/whispered_prayer.png-6455694269baf591bd1b313030d3141d.ctex"]
 
 [params]
 

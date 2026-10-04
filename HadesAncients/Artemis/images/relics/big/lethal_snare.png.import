@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg5mgddpd88r1"
-path="res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"
+uid="uid://bnyf6wpk011xh"
+path="res://.godot/imported/lethal_snare.png-2db1957f3423a196ad347c93874bd825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Artemis/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"]
+source_file="res://HadesAncients/Artemis/images/relics/big/lethal_snare.png"
+dest_files=["res://.godot/imported/lethal_snare.png-2db1957f3423a196ad347c93874bd825.ctex"]
 
 [params]
 

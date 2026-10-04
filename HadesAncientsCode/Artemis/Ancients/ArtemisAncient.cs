@@ -29,7 +29,7 @@ public class ArtemisAncient : CustomAncientModel
             [
                 AncientOption<EasyShot>(),
                 AncientOption<FullyLoaded>(),
-                AncientOption<HuntersInstinct>(),
+                AncientOption<HunterInstinct>(),
                 AncientOption<ShadowPounce>(),
             ];
 

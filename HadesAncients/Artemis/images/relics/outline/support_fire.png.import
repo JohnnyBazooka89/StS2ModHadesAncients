@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg5mgddpd88r1"
-path="res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"
+uid="uid://xy2erg6n6svq"
+path="res://.godot/imported/support_fire.png-9e37ab1e680f867fbfac3e2f14f89f67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Artemis/images/ancients/run_history_icon.png"
-dest_files=["res://.godot/imported/run_history_icon.png-be9bbfbf8d5c08e658163d076582f44e.ctex"]
+source_file="res://HadesAncients/Artemis/images/relics/outline/support_fire.png"
+dest_files=["res://.godot/imported/support_fire.png-9e37ab1e680f867fbfac3e2f14f89f67.ctex"]
 
 [params]
 

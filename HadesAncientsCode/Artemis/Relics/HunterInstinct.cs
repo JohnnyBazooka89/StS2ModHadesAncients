@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.Models.RelicPools;
 namespace HadesAncients.HadesAncientsCode.Artemis.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class HuntersInstinct() : HadesAncientsRelic(HadesAncient.Artemis)
+public class HunterInstinct() : HadesAncientsRelic(HadesAncient.Artemis)
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
