@@ -12,7 +12,7 @@ namespace HadesAncients.HadesAncientsCode.Artemis.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class ArtemisAncient : CustomAncientModel
 {
-    public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 110f);
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(650f, 30f);
 
     public override string CustomScenePath => "artemis.tscn".AncientImagePath(HadesAncient.Artemis);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Artemis);
