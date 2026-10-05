@@ -83,7 +83,7 @@ public class BottomlessDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
 
         Flash();
 
-        List<CardModel> powersToPlay = CardFactory
+        List<CardModel> powersToAdd = CardFactory
             .GetDistinctForCombat(
                 Owner,
                 possiblePowers,
@@ -91,11 +91,11 @@ public class BottomlessDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
                 Owner.RunState.Rng.CombatCardGeneration)
             .ToList();
 
-        foreach (CardModel cardModel in powersToPlay)
+        foreach (CardModel cardModel in powersToAdd)
             cardModel.SetToFreeThisTurn();
 
         await CardPileCmd.AddGeneratedCardsToCombat(
-            powersToPlay,
+            powersToAdd,
             PileType.Hand,
             Owner);
 

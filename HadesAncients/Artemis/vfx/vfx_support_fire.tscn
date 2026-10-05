@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkkrd0rukevu"]
+
+[ext_resource type="Script" uid="uid://berqog66p4666" path="res://HadesAncientsCode/Artemis/Vfx/NArrowVfx.cs" id="1_b3pcb"]
+[ext_resource type="Texture2D" uid="uid://cot56fuyc5fx6" path="res://HadesAncients/Artemis/vfx/arrow_right.png" id="2_kon2a"]
+
+[node name="vfx_support_fire" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_b3pcb")
+
+[node name="Trail" type="Line2D" parent="."]
+
+[node name="Arrow" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Arrow"]
+texture = ExtResource("2_kon2a")

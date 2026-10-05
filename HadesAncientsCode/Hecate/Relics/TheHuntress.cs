@@ -3,6 +3,7 @@ using HadesAncients.HadesAncientsCode.Hecate.Relics.Types;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -45,7 +46,7 @@ public class TheHuntress()
             (dealer != Owner.Creature && dealer != Owner.Osty))
             return 0M;
 
-        return cardSource.EnergyCost.GetWithModifiers(CostModifiers.All) == 0 && !cardSource.EnergyCost.CostsX
+        return cardSource.IsZeroEnergyCard()
             ? DynamicVars[MoreDamageKey].IntValue
             : 0;
     }
@@ -57,7 +58,7 @@ public class TheHuntress()
             (target != Owner.Creature && target != Owner.Osty))
             return 0M;
 
-        return cardSource.EnergyCost.GetWithModifiers(CostModifiers.All) == 0 && !cardSource.EnergyCost.CostsX
+        return cardSource.IsZeroEnergyCard()
             ? DynamicVars[MoreBlockKey].IntValue
             : 0;
     }

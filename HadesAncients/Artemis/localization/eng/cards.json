@@ -1,0 +1,4 @@
+{
+  "HADESANCIENTS-CLEAN_KILL.title": "Clean Kill",
+  "HADESANCIENTS-CLEAN_KILL.description": "Deal {Damage:diff()} damage.\nIf [gold]Fatal[/gold], [gold]Upgrade[/gold] {Cards} random {Cards:plural:card|cards} in your [gold]Deck[/gold]."
+}

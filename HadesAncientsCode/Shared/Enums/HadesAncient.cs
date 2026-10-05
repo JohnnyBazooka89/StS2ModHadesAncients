@@ -4,6 +4,7 @@ public enum HadesAncient
 {
     Aphrodite,
     Ares,
+    Artemis,
     Athena,
     Dionysus,
     Hecate,
