@@ -1,5 +1,6 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
+using HadesAncients.HadesAncientsCode.Shared.Compatibility;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Patches;
 using MegaCrit.Sts2.Core.Commands;
@@ -31,8 +32,9 @@ public class CleanKill()
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         bool shouldTriggerFatal = cardPlay.Target.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
-        AttackCommand attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .FromCard(this, cardPlay).Targeting(cardPlay.Target)
+        AttackCommand attackCommand = await DamageCmdCompatibility
+            .FromCard(DamageCmd.Attack(DynamicVars.Damage.BaseValue), this, cardPlay)
+            .Targeting(cardPlay.Target)
             .WithHitFx("vfx/vfx_dramatic_stab").Execute(choiceContext);
         if (!shouldTriggerFatal || !attackCommand.Results
                 .SelectMany(r => r)

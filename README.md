@@ -4,17 +4,18 @@
 
 This mod introduces a collection of new Ancients from the hit game Hades 2. Current list of available Ancients:
 
-| Act   | Ancient    | Specializations                                                                               |
-|-------|------------|-----------------------------------------------------------------------------------------------|
-| Act 1 | Hecate     | 25 Relics with various effects, based on Arcana Cards.                                        |
-| Act 2 | Athena     | Granting different types of Defense, preventing death, and a little bit of Offense.           |
-| Act 2 | Hestia     | Rewarding many attack hits, permanent upgrades, stronger debuffs, killing enemies quickly.    |
-| Act 2 | Poseidon   | Rewarding playing many Attacks, applying Froth/Riptide, gaining Energy, getting more rewards. |
-| Act 2 | Zeus       | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                   |
-| Act 3 | Aphrodite  | Weak, Charm, debuffs, healing, dealing more Attack damage.                                    |
-| Act 3 | Ares       | Applying Wounds, Strength, buffing Attacks, sacrificing Max HP for rewards.                   |
-| Act 3 | Dionysus   | Hangover, potions, max HP, healing, unpredictable combat effects.                             |
-| Act 3 | Hephaestus | Applying Blast, Forge Armor, upgrades & enchantments, self-harm.                              |
+| Act   | Ancient    | Specializations                                                                                  |
+|-------|------------|--------------------------------------------------------------------------------------------------|
+| Act 1 | Hecate     | 25 Relics with various effects, based on Arcana Cards.                                           |
+| Act 2 | Artemis    | 0-cost/free to play cards, increasing Attack damage, debuff application, dealing passive damage. |
+| Act 2 | Athena     | Granting different types of Defense, preventing death, and a little bit of Offense.              |
+| Act 2 | Hestia     | Rewarding many attack hits, permanent upgrades, stronger debuffs, killing enemies quickly.       |
+| Act 2 | Poseidon   | Rewarding playing many Attacks, applying Froth/Riptide, gaining Energy, getting more rewards.    |
+| Act 2 | Zeus       | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                      |
+| Act 3 | Aphrodite  | Weak, Charm, debuffs, healing, dealing more Attack damage.                                       |
+| Act 3 | Ares       | Applying Wounds, Strength, buffing Attacks, sacrificing Max HP for rewards.                      |
+| Act 3 | Dionysus   | Hangover, potions, max HP, healing, unpredictable combat effects.                                |
+| Act 3 | Hephaestus | Applying Blast, Forge Armor, upgrades & enchantments, self-harm.                                 |
 
 This mod works on both the Main Branch (v0.107.1) and the Beta Branch (v0.111.0).
 
@@ -42,6 +43,7 @@ The mod is available in:
 ![AresAncientChoices](Screenshots/AresAncientChoices.jpg)
 ![DionysusAncientChoices](Screenshots/DionysusAncientChoices.jpg)
 ![HephaestusAncientChoices](Screenshots/HephaestusAncientChoices.jpg)
+![ArtemisAncientChoices](Screenshots/ArtemisAncientChoices.jpg)
 ![AthenaAncientChoices](Screenshots/AthenaAncientChoices.jpg)
 ![HestiaAncientChoices](Screenshots/HestiaAncientChoices.jpg)
 ![PoseidonAncientChoices](Screenshots/PoseidonAncientChoices.jpg)
