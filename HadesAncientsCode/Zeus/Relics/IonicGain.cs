@@ -38,7 +38,7 @@ public class IonicGain() : HadesAncientsRelic(HadesAncient.Zeus)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<AetherFont>()
+        ..HoverTipFactory.FromCardWithCardHoverTips<AetherFont>()
     ];
 
     private bool IsActivating

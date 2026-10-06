@@ -31,10 +31,7 @@ public class VisceralImpact() : HadesAncientsRelic(HadesAncient.Ares)
         get
         {
             CardModel characterForm = GetCharacterForm();
-            return
-            [
-                HoverTipFactory.FromCard(characterForm)
-            ];
+            return [HoverTipFactory.FromCard(characterForm), ..characterForm.HoverTips];
         }
     }
 

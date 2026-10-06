@@ -19,7 +19,7 @@ public class SisyphusAid() : HadesAncientsRelic(HadesAncient.Aphrodite)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<RollingBoulder>()
+        ..HoverTipFactory.FromCardWithCardHoverTips<RollingBoulder>()
     ];
 
     public override async Task AfterAutoPrePlayPhaseEntered(

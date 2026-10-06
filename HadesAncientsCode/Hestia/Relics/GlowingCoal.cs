@@ -27,7 +27,7 @@ public class GlowingCoal() : HadesAncientsRelic(HadesAncient.Hestia)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromCard<Fireball>()
+        ..HoverTipFactory.FromCardWithCardHoverTips<Fireball>()
     ];
 
     public override async Task BeforeHandDraw(
