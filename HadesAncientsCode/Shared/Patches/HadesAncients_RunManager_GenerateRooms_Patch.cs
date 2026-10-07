@@ -12,9 +12,9 @@ public class HadesAncients_RunManager_GenerateRooms_Patch
     private static void Postfix(RunManager __instance)
     {
         if (__instance.State is { Modifiers.Count: > 0, Acts.Count: > 0 } &&
-            __instance.State.Acts[0].Ancient is not Neow)
+             __instance.State.Acts[0]._rooms._ancient is not Neow)
         {
-            __instance.State.Acts[0]._rooms.Ancient = ModelDb.Event<Neow>();
+            __instance.State.Acts[0]._rooms._ancient = ModelDb.Event<Neow>();
         }
     }
 }
