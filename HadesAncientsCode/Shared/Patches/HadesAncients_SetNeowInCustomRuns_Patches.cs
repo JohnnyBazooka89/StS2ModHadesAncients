@@ -29,10 +29,6 @@ public class HadesAncients_SetNeowInCustomRuns_Patches
         private static void Prefix(RoomSet __instance)
         {
             RunState? state = RunManager.Instance.DebugOnlyGetState();
-            if (state == null)
-            {
-                return;
-            }
 
             if (state is { Modifiers.Count: > 0, Acts.Count: > 0 } &&
                 state.Acts[0]._rooms._ancient is not Neow)
