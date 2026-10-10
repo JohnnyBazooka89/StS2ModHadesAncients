@@ -4,6 +4,7 @@ using BaseLib.Extensions;
 using HadesAncients.HadesAncientsCode.Hecate.Ancients;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Unlocks;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Patches;
@@ -44,7 +45,7 @@ public static class HadesAncients_AddAct1Ancients_Patch
         IEnumerable<AncientEventModel> ancients,
         ActModel __instance)
     {
-        if (__instance.ActNumber() != 1)
+        if (__instance.ActNumber() != 1 || RunManager.Instance.DebugOnlyGetState()?.Modifiers.Count > 0)
             return ancients;
 
         List<AncientEventModel> result = ancients.ToList();

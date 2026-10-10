@@ -7,6 +7,7 @@ using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.Entities.Ancients;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Hecate.Ancients;
 
@@ -68,7 +69,8 @@ public class HecateAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableHecate;
+        return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableHecate &&
+               RunManager.Instance.DebugOnlyGetState()?.Modifiers.Count == 0;
     }
 
     protected override AncientDialogueSet DefineDialogues()
