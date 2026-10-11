@@ -1,6 +1,7 @@
 {
   "HADESANCIENTS-MARKED_POWER.title": "Marked",
   "HADESANCIENTS-MARKED_POWER.description": "This turn, your next Attack that damages the Marked creature deals double damage.",
+  "HADESANCIENTS-MARKED_POWER.remoteDescription": "This turn, {ApplierName}'s next Attack that damages the Marked creature deals double damage.",
   "HADESANCIENTS-MARKED_POWER.smartDescription": "This turn, your next [blue]{Amount}[/blue] {Amount:plural:Attack that damages the Marked creature deals|Attacks that damage the Marked creature deal} double damage.",
   "HADESANCIENTS-SHADOW_POUNCE_POWER.title": "Shadow Pounce",
   "HADESANCIENTS-SHADOW_POUNCE_POWER.description": "The next Skill you play is free to play.",

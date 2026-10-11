@@ -27,8 +27,9 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (Owner != target || !props.IsPoweredAttack())
+        if (Owner != target || dealer != Applier || !props.IsPoweredAttack()) 
             return 1M;
+
         Data internalData = GetInternalData<Data>();
 
         return internalData.CommandToModify != null && cardSource != null &&
@@ -41,15 +42,19 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
 
     public override Task BeforeAttack(AttackCommand command)
     {
-        if (!command.DamageProps.IsPoweredAttack())
+        if (!command.DamageProps.IsPoweredAttack() ||
+            command.Attacker != Applier)
             return Task.CompletedTask;
+
         Data internalData = GetInternalData<Data>();
+
         if (internalData.CommandToModify != null ||
-            command.ModelSource != null && command.ModelSource is not CardModel ||
-            !command.DamageProps.IsPoweredAttack())
+            command.ModelSource != null && command.ModelSource is not CardModel)
             return Task.CompletedTask;
+
         internalData.CommandToModify = command;
         internalData.WasAttacked = false;
+
         return Task.CompletedTask;
     }
 
@@ -61,13 +66,14 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
         Creature target,
         CardModel? cardSource)
     {
-        if (Owner != target || result.TotalDamage <= 0)
+        if (Owner != target || dealer != Applier || !props.IsPoweredAttack() || result.TotalDamage <= 0)
         {
             return Task.CompletedTask;
         }
 
         Data internalData = GetInternalData<Data>();
         internalData.WasAttacked = true;
+
         return Task.CompletedTask;
     }
 
@@ -88,7 +94,7 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
         internalData.CommandToModify = null;
         internalData.WasAttacked = false;
     }
-    
+
     public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,

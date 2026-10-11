@@ -1,5 +1,6 @@
 {
   "HADESANCIENTS-WOUNDS_POWER.title": "Wounds",
   "HADESANCIENTS-WOUNDS_POWER.description": "Your next Attack that deals damage to the Wounded creature deals additional damage.",
+  "HADESANCIENTS-WOUNDS_POWER.remoteDescription": "{ApplierName}'s next Attack that deals damage to the Wounded creature deals additional damage.",
   "HADESANCIENTS-WOUNDS_POWER.smartDescription": "Your next Attack that deals damage to the Wounded creature deals [blue]{Amount}[/blue] additional damage."
 }
