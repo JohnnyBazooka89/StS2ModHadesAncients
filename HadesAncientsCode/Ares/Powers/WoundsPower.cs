@@ -51,12 +51,12 @@ public class WoundsPower() : HadesAncientsPower(HadesAncient.Ares), IModifyDamag
 
         Data internalData = GetInternalData<Data>();
 
-        return internalData.CommandToModify != null && cardSource != null && 
+        return internalData.CommandToModify != null && cardSource != null &&
                cardSource != internalData.CommandToModify.ModelSource
             ? 0M
             : Amount;
     }
-    
+
     public override Task AfterDamageGiven(
         PlayerChoiceContext choiceContext,
         Creature? dealer,

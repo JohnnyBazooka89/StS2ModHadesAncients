@@ -27,7 +27,7 @@ public class MarkedPower() : HadesAncientsPower(HadesAncient.Artemis), IModifyDa
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        if (Owner != target || dealer != Applier || !props.IsPoweredAttack()) 
+        if (Owner != target || dealer != Applier || !props.IsPoweredAttack())
             return 1M;
 
         Data internalData = GetInternalData<Data>();
