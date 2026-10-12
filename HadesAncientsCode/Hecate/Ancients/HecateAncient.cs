@@ -69,8 +69,7 @@ public class HecateAncient : CustomAncientModel
 
     public override bool IsValidForAct(ActModel act)
     {
-        return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableHecate &&
-               RunManager.Instance.DebugOnlyGetState()?.Modifiers.Count == 0;
+        return act.ActNumber() == 1 && !HadesAncientsModConfig.DisableHecate;
     }
 
     protected override AncientDialogueSet DefineDialogues()
