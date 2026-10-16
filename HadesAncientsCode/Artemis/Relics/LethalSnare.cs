@@ -43,7 +43,7 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
         CardModel? cardSource)
     {
         if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
-            power.Type != PowerType.Debuff || UsedThisTurn)
+            power.GetTypeForAmount(amount) != PowerType.Debuff || UsedThisTurn)
             return;
         Flash();
         UsedThisTurn = true;

@@ -29,7 +29,7 @@ public class HighlyFlammable() : HadesAncientsRelic(HadesAncient.Hestia)
         Creature? target,
         CardModel? cardSource)
     {
-        return power.Type != PowerType.Debuff || !Owner.Creature.CombatState!.Enemies.Contains(target) ||
+        return power.GetTypeForAmount(amount) != PowerType.Debuff || !Owner.Creature.CombatState!.Enemies.Contains(target) ||
                giver != Owner.Creature
             ? 0
             : 2;
