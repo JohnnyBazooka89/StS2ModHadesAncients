@@ -29,10 +29,11 @@ public class HighlyFlammable() : HadesAncientsRelic(HadesAncient.Hestia)
         Creature? target,
         CardModel? cardSource)
     {
-        return power.GetTypeForAmount(amount) != PowerType.Debuff || !Owner.Creature.CombatState!.Enemies.Contains(target) ||
+        return power.GetTypeForAmount(amount) != PowerType.Debuff ||
+               !Owner.Creature.CombatState!.Enemies.Contains(target) ||
                giver != Owner.Creature
             ? 0
-            : 2;
+            : 2 * Math.Sign(amount);
     }
 
     public override Task AfterModifyingPowerAmountGiven(PowerModel power)
