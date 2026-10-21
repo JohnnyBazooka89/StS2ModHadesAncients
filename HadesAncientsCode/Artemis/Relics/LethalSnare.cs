@@ -1,6 +1,7 @@
 ﻿using BaseLib.Utils;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
+using HadesAncients.HadesAncientsCode.Shared.Hooks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -17,7 +18,7 @@ using MegaCrit.Sts2.Core.Rooms;
 namespace HadesAncients.HadesAncientsCode.Artemis.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
+public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis), IAfterArtifactPowerModifiedPowerAmountReceived
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
@@ -35,6 +36,17 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
         HoverTipFactory.FromPower<VulnerablePower>()
     ];
 
+    public async Task AfterArtifactPowerModifiedPowerAmountReceived(
+        ArtifactPower artifactPower,
+        PowerModel blockedPower)
+    {
+        if (UsedThisTurn ||
+            blockedPower.Applier != Owner.Creature ||
+            !Owner.Creature.CombatState!.Enemies.Contains(artifactPower.Owner))
+            return;
+        await ActivateEffectAsync(new ThrowingPlayerChoiceContext());
+    }
+
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
@@ -45,6 +57,11 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis)
         if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
             power.GetTypeForAmount(amount) != PowerType.Debuff || UsedThisTurn)
             return;
+        await ActivateEffectAsync(choiceContext);
+    }
+
+    private async Task ActivateEffectAsync(PlayerChoiceContext choiceContext)
+    {
         Flash();
         UsedThisTurn = true;
         await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature.CombatState!.HittableEnemies,

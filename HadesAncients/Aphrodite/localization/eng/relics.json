@@ -9,7 +9,7 @@
   "HADESANCIENTS-FLUTTER_FLOURISH.description": "Every [blue]4th[/blue] Skill you play from your [gold]Hand[/gold] is free.",
   "HADESANCIENTS-FLUTTER_FLOURISH.flavor": "\"The more distracted you can make them, the easier they are to kill!\"",
   "HADESANCIENTS-GLAMOUR_GAIN.title": "Glamour Gain",
-  "HADESANCIENTS-GLAMOUR_GAIN.description": "The first time each turn you apply a debuff to an enemy, gain {Energy:energyIcons()}.",
+  "HADESANCIENTS-GLAMOUR_GAIN.description": "The first time each turn you would apply a debuff to an enemy, gain {Energy:energyIcons()}.",
   "HADESANCIENTS-GLAMOUR_GAIN.flavor": "\"Why, you look positively stunning in all that silver light!\"",
   "HADESANCIENTS-HEALTHY_REBOUND.title": "Healthy Rebound",
   "HADESANCIENTS-HEALTHY_REBOUND.description": "At the start of each Normal/Elite/Boss combat, heal [green]{NormalCombatHeal}[/green]/[green]{EliteCombatHeal}[/green]/[green]{BossCombatHeal}[/green] HP.",
