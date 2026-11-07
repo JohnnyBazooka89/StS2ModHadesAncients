@@ -20,6 +20,10 @@
   "HADESANCIENTS-TRANQUIL_GAIN.title": "Tranquil Gain",
   "HADESANCIENTS-TRANQUIL_GAIN.description": "The first time each combat you end your turn with at least [blue]{EnergyThreshold}[/blue] unspent Energy, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] additional card at the start of each turn for the rest of combat.",
   "HADESANCIENTS-TRANQUIL_GAIN.flavor": "",
+  "HADESANCIENTS-WEED_KILLER.title": "Weed Killer",
+  "HADESANCIENTS-WEED_KILLER.description": "Upon pickup, [gold]Transform[/gold] [blue]{Cards}[/blue] cards in your [gold]Deck[/gold] into [gold]Weed Out[/gold].",
+  "HADESANCIENTS-WEED_KILLER.flavor": "",
+  "HADESANCIENTS-WEED_KILLER.selectionScreenPrompt": "Select cards to [gold]Transform[/gold] into [gold]Weed Out[/gold].",
   "HADESANCIENTS-WINTER_HARVEST.title": "Winter Harvest",
   "HADESANCIENTS-WINTER_HARVEST.description": "Enemies with [blue]{HealthThreshold}%[/blue] Max HP or less shatter at the start of their turn. Whenever a creature shatters, deal damage equal to its Max HP to ALL enemies.",
   "HADESANCIENTS-WINTER_HARVEST.flavor": ""
