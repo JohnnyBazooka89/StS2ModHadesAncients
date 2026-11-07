@@ -6,6 +6,7 @@ public enum HadesAncient
     Ares,
     Artemis,
     Athena,
+    Demeter,
     Dionysus,
     Hecate,
     Hephaestus,

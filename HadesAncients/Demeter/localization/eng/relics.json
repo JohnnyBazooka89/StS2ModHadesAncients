@@ -1,0 +1,14 @@
+{
+  "HADESANCIENTS-TRANQUIL_GAIN.title": "Tranquil Gain",
+  "HADESANCIENTS-TRANQUIL_GAIN.description": "The first time each combat you end your turn with at least [blue]{EnergyThreshold}[/blue] unspent Energy, gain {Energy:energyIcons()} and draw [blue]{Cards}[/blue] additional card at the start of each turn for the rest of combat.",
+  "HADESANCIENTS-TRANQUIL_GAIN.flavor": "",
+  "HADESANCIENTS-WINTER_HARVEST.title": "Winter Harvest",
+  "HADESANCIENTS-WINTER_HARVEST.description": "Enemies with [blue]{HealthThreshold}%[/blue] Max HP or less shatter at the start of their turn. Whenever a creature shatters, deal damage equal to its Max HP to ALL enemies.",
+  "HADESANCIENTS-WINTER_HARVEST.flavor": "",
+  "HADESANCIENTS-SNOW_QUEEN.title": "Snow Queen",
+  "HADESANCIENTS-SNOW_QUEEN.description": "Upon pickup, lose [blue]{MaxHpLossPercent}%[/blue] Max HP. Start each combat with [blue]{BufferPower}[/blue] [gold]Buffer[/gold] and [blue]{PlatingPower}[/blue] [gold]Plating[/gold].",
+  "HADESANCIENTS-SNOW_QUEEN.flavor": "",
+  "HADESANCIENTS-FRIGID_RUSH.title": "Frigid Rush",
+  "HADESANCIENTS-FRIGID_RUSH.description": "At the start of each turn, shuffle [blue]{Cards}[/blue] [gold]Dazed[/gold] into your draw pile. Whenever you draw a [gold]Status[/gold] card, draw [blue]{Cards}[/blue] card and gain {Energy:energyIcons()}.",
+  "HADESANCIENTS-FRIGID_RUSH.flavor": ""
+}
