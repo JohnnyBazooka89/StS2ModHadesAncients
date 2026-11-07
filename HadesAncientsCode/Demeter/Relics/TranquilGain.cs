@@ -34,7 +34,6 @@ public class TranquilGain() : HadesAncientsRelic(HadesAncient.Demeter)
         HoverTipFactory.ForEnergy(this)
     ];
 
-    [SavedProperty]
     private bool Activated
     {
         get => _activated;
