@@ -20,6 +20,7 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
 {
     private const string OrbSlotsKey = "OrbSlots";
     private const string FrostKey = "Frost";
+    private const string FrostToChannelKey = "FrostToChannel";
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
 
@@ -27,6 +28,7 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
     [
         new(OrbSlotsKey, 3),
         new IntVar(FrostKey, 3),
+        new IntVar(FrostToChannelKey, 1),
         new DamageVar(5, ValueProp.Unpowered)
     ];
 
@@ -57,7 +59,8 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
             return;
 
         Flash();
-        await OrbCmd.Channel<FrostOrb>(choiceContext, Owner);
+        for (int i = 0; i < DynamicVars[FrostToChannelKey].IntValue; i++)
+            await OrbCmd.Channel<FrostOrb>(choiceContext, Owner);
 
         IReadOnlyList<Creature> hittableEnemies = Owner.Creature.CombatState!.HittableEnemies;
         if (hittableEnemies.Count > 0)
