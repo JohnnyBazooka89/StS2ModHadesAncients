@@ -9,9 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
-using MegaCrit.Sts2.Core.Multiplayer.Game;
 using MegaCrit.Sts2.Core.Rewards;
-using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Rewards;
@@ -23,19 +21,19 @@ public sealed class CardEnchantReward(
     int amount = 1)
     : CustomReward(player)
 {
-    [CustomEnum] public static RewardType Enchant;
+    [CustomEnum] public static RewardType HadesAncientsEnchant;
 
     public EnchantmentModel Enchantment { get; } = enchantment;
     public int CardsToEnchant { get; } = cardsToEnchant;
     public int Amount { get; } = amount;
 
-    public override RewardType RewardType => Enchant;
+    public override RewardType RewardType => HadesAncientsEnchant;
 
     public override LocString Description => new("gameplay_ui", "HADESANCIENTS-ENCHANT_REWARD");
 
     public override bool IsPopulated => true;
 
-    public static string RewardIcon => "the_enchantress.png".RelicImagePath(HadesAncient.Hecate);
+    private static string RewardIcon => "the_enchantress.png".RelicImagePath(HadesAncient.Hecate);
 
     public override string IconPath => RewardIcon;
 
@@ -45,12 +43,12 @@ public sealed class CardEnchantReward(
     {
         return new SerializableReward
         {
-            RewardType = Enchant,
+            RewardType = HadesAncientsEnchant,
             GoldAmount = CardsToEnchant
         };
     }
 
-    public static CardEnchantReward CreateFromSerializable(SerializableReward save, Player player)
+    private static CardEnchantReward CreateFromSerializable(SerializableReward save, Player player)
     {
         return new CardEnchantReward(player, ModelDb.Enchantment<Steady>(), save.GoldAmount);
     }
@@ -65,18 +63,14 @@ public sealed class CardEnchantReward(
 
     public override async Task<bool> OnSelect()
     {
-        return await RunManager.Instance.RewardSynchronizer.DoUnsyncedEnchant(
+        return await DoUnsyncedEnchant(
             Player,
             Enchantment,
             CardsToEnchant,
             Amount);
     }
-}
 
-static class CardEnchantRewardSynchronizerPatches
-{
-    public static async Task<bool> DoUnsyncedEnchant(
-        this RewardSynchronizer _,
+    private static async Task<bool> DoUnsyncedEnchant(
         Player player,
         EnchantmentModel enchantment,
         int cardsToEnchant,
