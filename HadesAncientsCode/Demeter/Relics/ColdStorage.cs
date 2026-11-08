@@ -44,7 +44,7 @@ public class ColdStorage() : HadesAncientsRelic(HadesAncient.Demeter)
             return false;
         }
 
-        options.Add(new PreserveRestSiteOption(player, DynamicVars.Cards.IntValue));
+        options.Add(new PreserveRestSiteOption(player, new ColdStorageParams(DynamicVars.Cards.IntValue)));
         return true;
     }
 }
