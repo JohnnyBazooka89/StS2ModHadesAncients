@@ -15,7 +15,7 @@ namespace HadesAncients.HadesAncientsCode.Demeter.Relics;
 [Pool(typeof(EventRelicPool))]
 public sealed class FrostyVeneer() : HadesAncientsRelic(HadesAncient.Demeter)
 {
-    public const string MaxHpLossKey = "MaxHpLoss";
+    private const string MaxHpLossKey = "MaxHpLoss";
     private decimal _damageReceivedThisTurn;
 
     public override RelicRarity Rarity => RelicRarity.Ancient;

@@ -28,7 +28,8 @@ public class FrigidRush() : HadesAncientsRelic(HadesAncient.Demeter)
 
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.ForEnergy(this)
+        HoverTipFactory.ForEnergy(this),
+        ..HoverTipFactory.FromCardWithCardHoverTips<Dazed>()
     ];
 
     public override async Task BeforeHandDraw(
@@ -41,7 +42,6 @@ public class FrigidRush() : HadesAncientsRelic(HadesAncient.Demeter)
 
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardsToCombat([combatState.CreateCard<Dazed>(Owner)],
             PileType.Draw, Owner, CardPilePosition.Random));
-        await Cmd.Wait(0.25f);
     }
 
     public override async Task AfterCardDrawn(
