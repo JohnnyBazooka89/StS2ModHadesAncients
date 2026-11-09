@@ -44,6 +44,12 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Include="HadesAncients\Demeter\images\ancients\demeter.tscn" />
+        <Content Include="HadesAncients\Demeter\images\ancients\demeter_placeholder.png" />
+        <Content Include="HadesAncients\Demeter\images\ancients\map_icon.png" />
+        <Content Include="HadesAncients\Demeter\images\ancients\map_icon_outline.png" />
+        <Content Include="HadesAncients\Demeter\images\ancients\run_history_icon.png" />
+        <Content Include="HadesAncients\Demeter\images\ancients\run_history_icon_outline.png" />
         <Content Include="HadesAncients\Demeter\images\enchantments\icebound.png"/>
         <Content Include="HadesAncients\Demeter\images\rest_site_options\preserve.png"/>
     </ItemGroup>
