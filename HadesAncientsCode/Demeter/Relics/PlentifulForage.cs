@@ -19,7 +19,7 @@ public class PlentifulForage() : HadesAncientsRelic(HadesAncient.Demeter)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new HealVar(3)
+        new HealVar(2)
     ];
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)
@@ -31,6 +31,7 @@ public class PlentifulForage() : HadesAncientsRelic(HadesAncient.Demeter)
             CardCreationOptions.ForRoom(player, room.RoomType),
             3,
             player));
+        rewards.Add(new PotionReward(player));
         return true;
     }
 

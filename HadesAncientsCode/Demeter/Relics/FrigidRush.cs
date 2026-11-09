@@ -29,7 +29,7 @@ public class FrigidRush() : HadesAncientsRelic(HadesAncient.Demeter)
     public override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.ForEnergy(this),
-        ..HoverTipFactory.FromCardWithCardHoverTips<Dazed>()
+        HoverTipFactory.FromCard<Dazed>()
     ];
 
     public override async Task BeforeHandDraw(
