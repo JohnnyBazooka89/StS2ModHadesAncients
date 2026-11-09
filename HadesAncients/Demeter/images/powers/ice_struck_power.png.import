@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca83lt44c00w5"
-path="res://.godot/imported/preserve.png-0b083323fadf4c521ef815f136609be8.ctex"
+uid="uid://c3q0vqcgmssae"
+path="res://.godot/imported/ice_struck_power.png-82e6e2bf86ba5889e55a46fe088528cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HadesAncients/Demeter/images/rest_site_options/preserve.png"
-dest_files=["res://.godot/imported/preserve.png-0b083323fadf4c521ef815f136609be8.ctex"]
+source_file="res://HadesAncients/Demeter/images/powers/ice_struck_power.png"
+dest_files=["res://.godot/imported/ice_struck_power.png-82e6e2bf86ba5889e55a46fe088528cc.ctex"]
 
 [params]
 
