@@ -15,7 +15,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace HadesAncients.HadesAncientsCode.Dionysus.Relics;
 
 [Pool(typeof(EventRelicPool))]
-public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IModifyDamageToFinalValue
+public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IModifyDamageToValue
 {
     private const string FinalDamageValue1Key = "FinalDamageValue1";
     private const string FinalDamageValue2Key = "FinalDamageValue2";
@@ -31,14 +31,14 @@ public class RecklessAbandon() : HadesAncientsRelic(HadesAncient.Dionysus), IMod
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(FinalDamageValue1Key, 5M),
-        new(FinalDamageValue2Key, 11M),
+        new(FinalDamageValue2Key, 15M),
         new(FinalDamageValue3Key, 55M),
         new(FinalDamageProbability1Key, 40M),
         new(FinalDamageProbability2Key, 50M),
         new(FinalDamageProbability3Key, 10M),
     ];
 
-    public decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+    public decimal ModifyDamageToValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPreviewMode previewMode)
     {
         if (!props.IsPoweredAttack() ||

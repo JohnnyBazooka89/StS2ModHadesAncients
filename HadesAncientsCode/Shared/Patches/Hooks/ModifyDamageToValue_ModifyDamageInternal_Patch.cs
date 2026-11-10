@@ -10,32 +10,35 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Patches.Hooks;
 
-[HarmonyPatch(typeof(Hook), nameof(Hook.ModifyDamage))]
-public static class ModifyDamageToFinalValue_ModifyDamage_Patch
+[HarmonyPatch(typeof(Hook), nameof(Hook.ModifyDamageInternal))]
+public static class ModifyDamageToValue_ModifyDamageInternal_Patch
 {
-    static void Postfix(
-        IRunState? runState,
+    static void Prefix(
+        IRunState runState,
         ICombatState? combatState,
         Creature? target,
         Creature? dealer,
-        decimal damage,
+        ref decimal damage,
         ValueProp props,
         CardModel? cardSource,
-        ModifyDamageHookType modifyDamageHookType,
-        CardPreviewMode previewMode,
-        ref IEnumerable<AbstractModel> modifiers,
-        ref decimal __result)
+        out IEnumerable<AbstractModel> __state)
     {
-        __result = HadesAncientsHooks.ModifyDamageToFinalValue(
+        __state = [];
+        damage = HadesAncientsHooks.ModifyDamageToValue(
             runState,
             combatState,
             target,
-            __result,
+            damage,
             props,
             dealer,
             cardSource,
-            previewMode,
-            ref modifiers
+            CardPreviewMode.None,
+            ref __state
         );
+    }
+
+    static void Postfix(ref List<AbstractModel> modifiers, IEnumerable<AbstractModel> __state)
+    {
+        modifiers.AddRange(__state);
     }
 }
