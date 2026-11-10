@@ -19,7 +19,6 @@ namespace HadesAncients.HadesAncientsCode.Demeter.Relics;
 public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
 {
     private const string OrbSlotsKey = "OrbSlots";
-    private const string FrostKey = "Frost";
     private const string FrostToChannelKey = "FrostToChannel";
 
     public override RelicRarity Rarity => RelicRarity.Ancient;
@@ -27,8 +26,7 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new(OrbSlotsKey, 3),
-        new IntVar(FrostKey, 3),
-        new IntVar(FrostToChannelKey, 1),
+        new IntVar(FrostToChannelKey, 2),
         new DamageVar(5, ValueProp.Unpowered)
     ];
 
@@ -47,8 +45,6 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
 
         Flash();
         await OrbCmd.AddSlots(Owner, DynamicVars[OrbSlotsKey].IntValue);
-        for (int i = 0; i < DynamicVars[FrostKey].IntValue; i++)
-            await OrbCmd.Channel<FrostOrb>(new ThrowingPlayerChoiceContext(), Owner);
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
