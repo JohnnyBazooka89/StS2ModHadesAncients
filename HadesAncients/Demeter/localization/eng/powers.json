@@ -1,8 +1,5 @@
 {
   "HADESANCIENTS-CHILL_POWER.title": "Chill",
-  "HADESANCIENTS-CHILL_POWER.description": "Whenever this creature obtains [blue]{HadesAncientsChillPowerStacksToTrigger}[/blue] stacks, it takes [blue]{HadesAncientsChillPowerDamageToDeal}[/blue] damage and gains [blue]{HadesAncientsChillPowerIceStruckToApply}[/blue] [gold]Ice Struck[/gold].",
-  "HADESANCIENTS-CHILL_POWER.smartDescription": "Whenever this creature obtains [blue]{StacksToTrigger}[/blue] stacks, it takes [blue]{DamageToDeal}[/blue] damage and gains [blue]{IceStruckToApply}[/blue] [gold]Ice Struck[/gold].",
-  "HADESANCIENTS-ICE_STRUCK_POWER.title": "Ice Struck",
-  "HADESANCIENTS-ICE_STRUCK_POWER.description": "This creature deals [blue]{HadesAncientsIceStruckPowerLessDamagePercent}%[/blue] less damage with Attacks for [blue]{HadesAncientsIceStruckPowerTurns}[/blue] {HadesAncientsIceStruckPowerTurns:plural:turn|turns}.",
-  "HADESANCIENTS-ICE_STRUCK_POWER.smartDescription": "This creature deals [blue]{LessDamagePercent}%[/blue] less damage with Attacks for [blue]{Amount}[/blue] {Amount:plural:turn|turns}."
+  "HADESANCIENTS-CHILL_POWER.description": "This creature deals [blue]{HadesAncientsChillPowerDamageReductionPerStack}[/blue] less damage per stack this turn.",
+  "HADESANCIENTS-CHILL_POWER.smartDescription": "This creature deals [blue]{DamageReduction}[/blue] less damage this turn."
 }

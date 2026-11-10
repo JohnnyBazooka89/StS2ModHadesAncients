@@ -15,7 +15,7 @@
   "HADESANCIENTS-FROSTY_VENEER.description": "You cannot lose more than [blue]{MaxHpLoss}[/blue] HP in a single turn.",
   "HADESANCIENTS-FROSTY_VENEER.flavor": "",
   "HADESANCIENTS-ICE_STRIKE.title": "Ice Strike",
-  "HADESANCIENTS-ICE_STRIKE.description": "Your Attacks apply [blue]{ChillToApply}[/blue] [gold]Chill[/gold] on every hit.",
+  "HADESANCIENTS-ICE_STRIKE.description": "Your Attacks deal [blue]{DamageIncrease}[/blue] more damage and apply [blue]{ChillToApply}[/blue] [gold]Chill[/gold] on every hit.",
   "HADESANCIENTS-ICE_STRIKE.flavor": "",
   "HADESANCIENTS-PLENTIFUL_FORAGE.title": "Plentiful Forage",
   "HADESANCIENTS-PLENTIFUL_FORAGE.description": "Whenever you gain a combat reward, heal [green]{Heal}[/green] HP. After each combat, gain an additional card reward and a random [gold]Potion[/gold] reward.",

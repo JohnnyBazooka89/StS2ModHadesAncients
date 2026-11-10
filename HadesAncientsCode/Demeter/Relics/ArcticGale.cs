@@ -58,6 +58,8 @@ public class ArcticGale() : HadesAncientsRelic(HadesAncient.Demeter)
         for (int i = 0; i < DynamicVars[FrostToChannelKey].IntValue; i++)
             await OrbCmd.Channel<FrostOrb>(choiceContext, Owner);
 
+        await Cmd.Wait(0.25f);
+
         IReadOnlyList<Creature> hittableEnemies = Owner.Creature.CombatState!.HittableEnemies;
         if (hittableEnemies.Count > 0)
         {
