@@ -12,7 +12,7 @@ namespace HadesAncients.HadesAncientsCode.Demeter.Ancients;
 [Pool(typeof(AncientEventModel))]
 public class DemeterAncient : CustomAncientModel
 {
-    public Vector2 ChooseTheAncientPortalExtraOffset => new(500f, 110f);
+    public Vector2 ChooseTheAncientPortalExtraOffset => new(600f, 110f);
 
     public override string CustomScenePath => "demeter.tscn".AncientImagePath(HadesAncient.Demeter);
     public override string CustomMapIconPath => "map_icon.png".AncientImagePath(HadesAncient.Demeter);
