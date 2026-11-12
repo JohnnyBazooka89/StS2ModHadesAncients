@@ -49,12 +49,12 @@
 
     <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
         <Message Text="Copying .dll .pdb and .json to mods folder." Importance="high"/>
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/main"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/beta"/>
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="loadFolders" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Message Text="Copying .dll and .json to Steam Workshop Release content folder." Importance="high"/>
-        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)/main"/>
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)/beta"/>
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
         <Copy SourceFiles="loadFolders" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
     </Target>
