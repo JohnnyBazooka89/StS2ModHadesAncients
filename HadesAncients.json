@@ -11,6 +11,10 @@
     {
       "id": "BaseLib",
       "min_version": "v3.4.8"
+    },
+    {
+      "id": "HadesAncientsBranchCompatibility",
+      "min_version": "v0.0.0"
     }
   ],
   "affects_gameplay": true
