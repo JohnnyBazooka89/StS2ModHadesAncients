@@ -4,6 +4,7 @@ using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Zeus.Utils;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -43,7 +44,7 @@ public class StaticShock() : HadesAncientsRelic(HadesAncient.Zeus)
 
         if (otherTargets.Count >= 1)
         {
-            Owner.RunState.Rng.CombatTargets.Shuffle(otherTargets);
+            otherTargets.UnstableShuffle(Owner.RunState.Rng.CombatTargets);
             await ZeusUtils.DealLightningDamage(choiceContext, Owner.Creature, otherTargets[0], finalDamage);
         }
         else

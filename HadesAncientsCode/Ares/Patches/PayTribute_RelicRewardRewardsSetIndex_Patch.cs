@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using BaseLib.Common.Rewards;
 using HadesAncients.HadesAncientsCode.Ares.SpireFields;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Rewards;
+using CardUpgradeReward = MegaCrit.Sts2.Core.Rewards.CardUpgradeReward;
 
 namespace HadesAncients.HadesAncientsCode.Ares.Patches;
 

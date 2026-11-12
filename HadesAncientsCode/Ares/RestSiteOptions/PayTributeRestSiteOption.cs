@@ -1,5 +1,4 @@
-﻿using BaseLib.Common.Rewards;
-using HadesAncients.HadesAncientsCode.Ares.SpireFields;
+﻿using HadesAncients.HadesAncientsCode.Ares.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Utils;
@@ -7,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Rewards;
+using CardUpgradeReward = MegaCrit.Sts2.Core.Rewards.CardUpgradeReward;
 
 namespace HadesAncients.HadesAncientsCode.Ares.RestSiteOptions;
 
@@ -32,7 +32,7 @@ public class PayTributeRestSiteOption(Player owner, PayTributeParams payTributeP
     public override async Task<bool> OnSelect()
     {
         await CreatureCmdUtils.LoseMaxHpSafely(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            payTributeParams.MaxHpLoss, false);
+            payTributeParams.MaxHpLoss, null);
 
         await new RewardsSet(Owner).WithCustomRewards(GenerateRewards()).Offer();
 
@@ -50,13 +50,12 @@ public class PayTributeRestSiteOption(Player owner, PayTributeParams payTributeP
             rewards.Add(reward);
         }
 
-        CardUpgradeReward upgradeReward = new CardUpgradeReward(Owner)
+        for (int i = 0; i < payTributeParams.CardsToUpgrade; i++)
         {
-            Amount = payTributeParams.CardsToUpgrade
-        };
-
-        AresSpireFields.PayTributeRewardsSetIndex.Set(upgradeReward, 1);
-        rewards.Add(upgradeReward);
+            CardUpgradeReward reward = new CardUpgradeReward(Owner);
+            AresSpireFields.PayTributeRewardsSetIndex.Set(reward, 1);
+            rewards.Add(reward);
+        }
 
         for (int i = 0; i < payTributeParams.CardsToRemove; i++)
         {

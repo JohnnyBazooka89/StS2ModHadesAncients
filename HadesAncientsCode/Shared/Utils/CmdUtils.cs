@@ -1,6 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Utils;
 
@@ -10,7 +11,7 @@ public static class CreatureCmdUtils
         PlayerChoiceContext context,
         Creature creature,
         int requestedMaxHpLoss,
-        bool isFromCard)
+        CardModel? cardSource)
     {
         var safeMaxHpLoss = Math.Clamp(
             requestedMaxHpLoss,
@@ -25,7 +26,7 @@ public static class CreatureCmdUtils
             context,
             creature,
             safeMaxHpLoss,
-            isFromCard
+            cardSource
         );
     }
 }

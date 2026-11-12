@@ -143,7 +143,8 @@ public static class HadesAncientsMetrics
             PotionDiscards = list1
                 .SelectMany(e =>
                     e.GetEntry(localPlayerId).PotionDiscarded)
-                .Select<ModelId, string>(p => p.Entry).ToList()
+                .Select<ModelId, string>(p => p.Entry).ToList(),
+            GameMode = MetricUtilities.GetGameModeString(run.GameMode)
         };
     }
 }

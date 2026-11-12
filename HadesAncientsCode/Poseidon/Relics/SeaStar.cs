@@ -17,6 +17,8 @@ using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.Saves;
+using BaseLibCardUpgradeReward = BaseLib.Common.Rewards.CardUpgradeReward;
+using CardUpgradeReward = MegaCrit.Sts2.Core.Rewards.CardUpgradeReward;
 
 namespace HadesAncients.HadesAncientsCode.Poseidon.Relics;
 
@@ -164,12 +166,17 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
             );
         }
 
-        // BaseLib rewards (for mod compatibility)
         if (reward is CardUpgradeReward cardUpgradeReward)
         {
-            return new CardUpgradeReward(cardUpgradeReward.Player)
+            return new CardUpgradeReward(cardUpgradeReward.Player);
+        }
+
+        // BaseLib rewards (for mod compatibility)
+        if (reward is BaseLibCardUpgradeReward baseLibCardUpgradeReward)
+        {
+            return new BaseLibCardUpgradeReward(baseLibCardUpgradeReward.Player)
             {
-                Amount = cardUpgradeReward.Amount
+                Amount = baseLibCardUpgradeReward.Amount
             };
         }
 

@@ -45,6 +45,6 @@ public class BloodSpree() : HadesAncientsRelic(HadesAncient.Ares)
         Flash();
         await PlayerCmd.GainGold(DynamicVars.Gold.BaseValue, Owner);
         await CreatureCmdUtils.LoseMaxHpSafely(new ThrowingPlayerChoiceContext(), Owner.Creature,
-            DynamicVars[MaxHpLossKey].IntValue, false);
+            DynamicVars[MaxHpLossKey].IntValue, null);
     }
 }

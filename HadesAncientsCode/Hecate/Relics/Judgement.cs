@@ -5,6 +5,7 @@ using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.RelicPools;
@@ -37,7 +38,7 @@ public class Judgement() : HadesAncientsRelic(HadesAncient.Hecate), IArcanaRelic
                 .Where(optionRelic => Owner.Relics.All(ownedRelic => ownedRelic.GetType() != optionRelic.GetType()))
                 .ToList();
 
-        Owner.PlayerRng.Rewards.Shuffle(optionRelics);
+        optionRelics.UnstableShuffle(Owner.PlayerRng.Rewards);
 
         if (optionRelics.Count > 0)
         {
