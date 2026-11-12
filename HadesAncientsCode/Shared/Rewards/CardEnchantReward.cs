@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Patches.Content;
-using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
@@ -29,14 +28,19 @@ public sealed class CardEnchantReward(
 
     public override RewardType RewardType => HadesAncientsEnchant;
 
-    public override LocString Description => new("gameplay_ui", "HADESANCIENTS-ENCHANT_REWARD");
+    public override LocString Description
+    {
+        get
+        {
+            LocString description = new("gameplay_ui", "HADESANCIENTS-ENCHANT_REWARD");
+            description.Add("EnchantmentName", Enchantment.Title);
+            return description;
+        }
+    }
 
     public override bool IsPopulated => true;
-
-    private static string RewardIcon => "the_enchantress.png".RelicImagePath(HadesAncient.Hecate);
-
+    private static string RewardIcon => "card_enchant_reward.png".SharedRewardsImagePath();
     public override string IconPath => RewardIcon;
-
     public override CreateRewardFromSave<CustomReward> DeserializeMethod => CreateFromSerializable;
 
     public override SerializableReward ToSerializable()
