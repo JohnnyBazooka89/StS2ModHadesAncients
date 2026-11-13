@@ -10,7 +10,7 @@ namespace HadesAncients.HadesAncientsCode.Shared.Patches;
 
 [HarmonyPatch(
     typeof(ActModel),
-    nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool))]
+    nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool), typeof(bool))]
 public static class HadesAncients_DisableBaseGameAncients_Patch
 {
     private static readonly MethodInfo FilterAncientsMethod =

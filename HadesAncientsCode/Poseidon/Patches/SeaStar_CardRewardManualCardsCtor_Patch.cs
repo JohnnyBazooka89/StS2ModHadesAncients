@@ -1,5 +1,6 @@
 using HadesAncients.HadesAncientsCode.Poseidon.SpireFields;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -15,7 +16,8 @@ namespace HadesAncients.HadesAncientsCode.Poseidon.Patches;
     typeof(CardCreationSource),
     typeof(Player),
     typeof(CardCreationOptions),
-    typeof(PlayerChoiceSynchronizer)
+    typeof(PlayerChoiceSynchronizer),
+    typeof(CardSelectorStack)
 )]
 public static class SeaStar_CardRewardManualCardsCtor_Patch
 {
