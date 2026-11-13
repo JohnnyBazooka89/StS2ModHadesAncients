@@ -5,8 +5,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace HadesAncients.HadesAncientsCode.Shared.Hooks;
 
-public interface IModifyDamageToFinalValue
+public interface IModifyDamageToValue
 {
-    decimal ModifyDamageToFinalValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
+    decimal ModifyDamageToValue(Creature? target, decimal amount, ValueProp props, Creature? dealer,
         CardModel? cardSource, CardPreviewMode previewMode);
 }
