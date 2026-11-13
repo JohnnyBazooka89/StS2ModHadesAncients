@@ -1,0 +1,4 @@
+﻿{
+  "HADESANCIENTS-WEED_OUT.title": "Weed Out",
+  "HADESANCIENTS-WEED_OUT.description": "Deal [blue]{Damage:diff()}[/blue] damage.\n[gold]Exhaust[/gold] {Cards:diff()} {Cards:plural:card|cards} from your [gold]Hand[/gold] to deal [blue]{Damage:diff()}[/blue] damage again and gain [blue]{Block:diff()}[/blue] [gold]Block[/gold]."
+}
