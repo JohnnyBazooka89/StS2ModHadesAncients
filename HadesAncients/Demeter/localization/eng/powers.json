@@ -1,0 +1,5 @@
+{
+  "HADESANCIENTS-CHILL_POWER.title": "Chill",
+  "HADESANCIENTS-CHILL_POWER.description": "This creature deals [blue]{HadesAncientsChillPowerDamageReductionPerStack}[/blue] less damage per stack this turn.",
+  "HADESANCIENTS-CHILL_POWER.smartDescription": "This creature deals [blue]{DamageReduction}[/blue] less damage this turn."
+}

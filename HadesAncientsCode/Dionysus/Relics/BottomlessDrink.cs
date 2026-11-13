@@ -42,7 +42,7 @@ public class BottomlessDrink() : HadesAncientsRelic(HadesAncient.Dionysus)
 
     public override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new(TurnsKey, 5)
+        new(TurnsKey, 3)
     ];
 
     public override Task BeforeHandDraw(

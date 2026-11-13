@@ -5,6 +5,7 @@ using HadesAncients.HadesAncientsCode.Poseidon.SpireFields;
 using HadesAncients.HadesAncientsCode.Shared.Abstracts;
 using HadesAncients.HadesAncientsCode.Shared.Enums;
 using HadesAncients.HadesAncientsCode.Shared.Extensions;
+using HadesAncients.HadesAncientsCode.Shared.Rewards;
 using HadesAncients.HadesAncientsCode.Shared.Utils;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -192,6 +193,16 @@ public class SeaStar() : HadesAncientsRelic(HadesAncient.Poseidon)
         if (reward is RandomCardUpgradeReward randomCardUpgradeReward)
         {
             return new RandomCardUpgradeReward(randomCardUpgradeReward.Player);
+        }
+
+        // Compatibility with our own modded rewards
+        if (reward is CardEnchantReward cardEnchantReward)
+        {
+            return new CardEnchantReward(
+                cardEnchantReward.Player,
+                cardEnchantReward.Enchantment,
+                cardEnchantReward.CardsToEnchant,
+                cardEnchantReward.Amount);
         }
 
         return null;
