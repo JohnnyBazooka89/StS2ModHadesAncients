@@ -51,12 +51,12 @@
         <Message Text="Copying .dll .pdb and .json to mods folder." Importance="high"/>
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)$(MSBuildProjectName)"/>
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
-        <Copy SourceFiles="loadFolders" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
+        <Copy SourceFiles="loadVersions" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"/>
         <Message Text="Copying .dll and .json to Steam Workshop Release content folder." Importance="high"/>
         <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
         <Copy SourceFiles="$(AssemblyName).json" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
-        <Copy SourceFiles="loadFolders" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
+        <Copy SourceFiles="loadVersions" DestinationFolder="$(ModsPath)../$(MSBuildProjectName)/content/$(MSBuildProjectName)"/>
     </Target>
 
     <Target Name="CopyQuickPck" AfterTargets="PackPck" Condition="Exists('$(PckPackerOutputPath)') And '$(PckPackerSkipped)' != 'true'">
