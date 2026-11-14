@@ -47,7 +47,7 @@ public class GenderedFormatter : IFormatter
             case CharacterGender.Feminine:
                 formattingInfo.FormatAsChild(femaleFormat, formattingInfo.CurrentValue);
                 break;
-            case CharacterGender.Neutral:
+            default:
                 formattingInfo.FormatAsChild(neutralFormat, formattingInfo.CurrentValue);
                 break;
         }
