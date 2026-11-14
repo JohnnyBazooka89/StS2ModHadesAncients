@@ -14,7 +14,7 @@ This mod introduces a collection of new Ancients from the hit game Hades 2. Curr
 | Act 2 | Zeus       | Blitz, gaining Energy, buffing Attacks, dealing AOE damage.                                                 |
 | Act 3 | Aphrodite  | Weak, Charm, debuffs, healing, dealing more Attack damage.                                                  |
 | Act 3 | Ares       | Applying Wounds, Strength, buffing Attacks, sacrificing Max HP for rewards.                                 |
-| Act 3 | Demeter    | Applying Chill, gaining Energy and Card Draw, passive Defense, AOE damage and chain kills, Retaining cards. |
+| Act 3 | Demeter    | Applying Chill, gaining Energy and card draw, passive defense, AOE damage and chain kills, Retaining cards. |
 | Act 3 | Dionysus   | Hangover, potions, max HP, healing, unpredictable combat effects.                                           |
 | Act 3 | Hephaestus | Applying Blast, Forge Armor, upgrades & enchantments, self-harm.                                            |
 
