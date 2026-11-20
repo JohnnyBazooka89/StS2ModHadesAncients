@@ -10,7 +10,7 @@ public class HadesAncients_SetNeowInCustomRuns_Patches
 {
     private static void SetNeowInCustomRuns(RunState? state)
     {
-        if (state is { Modifiers.Count: > 0, Acts.Count: > 0 } &&
+        if (state is { Modifiers.Count: > 0, Acts.Count: > 0 } or { GameMode: GameMode.Blitz, Acts.Count: > 0 } &&
             state.Acts[0]._rooms._ancient is not Neow)
         {
             state.Acts[0]._rooms._ancient = ModelDb.Event<Neow>();

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
@@ -118,7 +119,7 @@ public class TheEnchantress() : HadesAncientsRelic(HadesAncient.Hecate), IArcana
             if (compatibleEnchantments.Count == 0)
                 continue;
 
-            rng.Shuffle(compatibleEnchantments);
+            compatibleEnchantments.UnstableShuffle(rng);
 
             EnchantmentOption selected = compatibleEnchantments[0];
 

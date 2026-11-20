@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -44,7 +45,7 @@ public class ViciousFlourish() : HadesAncientsRelic(HadesAncient.Ares)
             return;
         }
 
-        Owner.RunState.Rng.CombatTargets.Shuffle(targets);
+        targets.UnstableShuffle(Owner.RunState.Rng.CombatTargets);
         Flash();
         await PowerCmd.Apply<WoundsPower>(choiceContext, targets[0], DynamicVars[nameof(WoundsPower)].BaseValue,
             Owner.Creature, null);

@@ -4,6 +4,7 @@ using HadesAncients.HadesAncientsCode.Shared.Enums;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
@@ -35,7 +36,7 @@ public class ShiftingForm() : HadesAncientsCard(HadesAncient.Ares, 3, CardType.P
 
         List<CardModel> formCards = [demonForm, serpentForm, voidForm, reaperForm, echoForm];
 
-        Owner.Creature.CombatState!.RunState.Rng.Niche.Shuffle(formCards);
+        formCards.UnstableShuffle(Owner.Creature.CombatState!.RunState.Rng.Niche);
 
         await CardCmd.AutoPlay(choiceContext, formCards[0], null);
     }

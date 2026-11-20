@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -44,7 +45,7 @@ public class HeavyMetal() : HadesAncientsRelic(HadesAncient.Hephaestus)
 
         if (targets.Count >= 1)
         {
-            Owner.RunState.Rng.CombatTargets.Shuffle(targets);
+            targets.UnstableShuffle(Owner.RunState.Rng.CombatTargets);
             int damage = Owner.Creature.GetPowerAmount<ForgeArmorPower>();
             await Cmd.Wait(0.25f);
             await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), targets[0], damage, ValueProp.Unpowered,

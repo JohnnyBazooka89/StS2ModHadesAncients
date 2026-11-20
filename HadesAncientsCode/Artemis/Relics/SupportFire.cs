@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -38,7 +39,7 @@ public class SupportFire() : HadesAncientsRelic(HadesAncient.Artemis)
             return;
         }
 
-        Owner.RunState.Rng.CombatTargets.Shuffle(targets);
+        targets.UnstableShuffle(Owner.RunState.Rng.CombatTargets);
         NArrowVfx vfx = PreloadManager.Cache
             .GetScene(NArrowVfx.scenePath)
             .Instantiate<NArrowVfx>();

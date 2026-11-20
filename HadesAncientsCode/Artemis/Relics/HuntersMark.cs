@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -43,7 +44,7 @@ public class HuntersMark() : HadesAncientsRelic(HadesAncient.Artemis)
             return;
         }
 
-        Owner.RunState.Rng.CombatTargets.Shuffle(targets);
+        targets.UnstableShuffle(Owner.RunState.Rng.CombatTargets);
         Flash();
         await PowerCmd.Apply<MarkedPower>(new ThrowingPlayerChoiceContext(), targets[0],
             DynamicVars[nameof(MarkedPower)].BaseValue, Owner.Creature, null);

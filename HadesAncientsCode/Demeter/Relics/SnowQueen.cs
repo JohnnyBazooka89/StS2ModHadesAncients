@@ -40,7 +40,7 @@ public class SnowQueen() : HadesAncientsRelic(HadesAncient.Demeter)
             new ThrowingPlayerChoiceContext(),
             Owner.Creature,
             maxHpLoss,
-            false);
+            null);
     }
 
     public override async Task AfterRoomEntered(AbstractRoom room)
