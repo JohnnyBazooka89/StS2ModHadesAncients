@@ -36,8 +36,7 @@ public class MartialArt() : HadesAncientsRelic(HadesAncient.Hephaestus)
         Creature? applier,
         CardModel? cardSource)
     {
-        if (amount <= 0M || power.Owner != Owner.Creature ||
-            power.GetTypeForAmount(amount) != PowerType.Debuff)
+        if (power.Owner != Owner.Creature || power.GetTypeForAmount(amount) != PowerType.Debuff)
             return;
         Flash();
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars[nameof(StrengthPower)].BaseValue,
