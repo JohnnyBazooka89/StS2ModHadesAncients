@@ -54,7 +54,7 @@ public class LethalSnare() : HadesAncientsRelic(HadesAncient.Artemis), IAfterArt
         Creature? applier,
         CardModel? cardSource)
     {
-        if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
+        if (amount == 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
             power.GetTypeForAmount(amount) != PowerType.Debuff || UsedThisTurn)
             return;
         await ActivateEffectAsync(choiceContext);

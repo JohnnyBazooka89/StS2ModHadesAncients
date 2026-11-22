@@ -36,7 +36,7 @@ public class MartialArt() : HadesAncientsRelic(HadesAncient.Hephaestus)
         Creature? applier,
         CardModel? cardSource)
     {
-        if (amount <= 0M || power.Owner != Owner.Creature ||
+        if (amount == 0M || power.Owner != Owner.Creature ||
             power.GetTypeForAmount(amount) != PowerType.Debuff)
             return;
         Flash();

@@ -46,7 +46,8 @@ public class HighlyFlammable() : HadesAncientsRelic(HadesAncient.Hestia)
         return giver == Owner.Creature
                && target != null
                && Owner.Creature.CombatState?.Enemies.Contains(target) == true
-               && power.GetTypeForAmount(amount) == PowerType.Debuff;
+               && power.GetTypeForAmount(amount) == PowerType.Debuff
+               && amount != 0M;
     }
 
     public override Task BeforePowerAmountChanged(

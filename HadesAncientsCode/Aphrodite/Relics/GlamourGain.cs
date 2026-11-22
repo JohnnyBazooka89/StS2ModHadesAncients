@@ -52,7 +52,7 @@ public class GlamourGain() : HadesAncientsRelic(HadesAncient.Aphrodite), IAfterA
         Creature? applier,
         CardModel? cardSource)
     {
-        if (amount <= 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
+        if (amount == 0M || applier != Owner.Creature || !Owner.Creature.CombatState!.Enemies.Contains(power.Owner) ||
             power.GetTypeForAmount(amount) != PowerType.Debuff || UsedThisTurn)
             return;
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
