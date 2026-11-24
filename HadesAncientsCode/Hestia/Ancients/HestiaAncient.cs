@@ -25,7 +25,7 @@ public class HestiaAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> attackRelics =
+            WeightedList<AncientOption> attackRelicsPool =
             [
                 AncientOption<CardioGain>(),
                 AncientOption<FireAway>(),
@@ -33,7 +33,7 @@ public class HestiaAncient : CustomAncientModel
                 AncientOption<SmolderRing>()
             ];
 
-            List<AncientOption> otherRelics =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<ControlledBurn>(),
                 AncientOption<FlameFlourish>(),
@@ -44,9 +44,6 @@ public class HestiaAncient : CustomAncientModel
                 AncientOption<HotPot>(),
                 AncientOption<SlowCooker>()
             ];
-
-            WeightedList<AncientOption> attackRelicsPool = MakePool(attackRelics.ToArray());
-            WeightedList<AncientOption> otherRelicsPool = MakePool(otherRelics.ToArray());
 
             return new OptionPools(attackRelicsPool, otherRelicsPool, otherRelicsPool);
         }

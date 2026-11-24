@@ -25,7 +25,7 @@ public class ArtemisAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> zeroEnergyCardsRelicsPool =
+            WeightedList<AncientOption> zeroEnergyCardsRelicsPool =
             [
                 AncientOption<EasyShot>(),
                 AncientOption<FullyLoaded>(),
@@ -33,7 +33,7 @@ public class ArtemisAncient : CustomAncientModel
                 AncientOption<ShadowPounce>(),
             ];
 
-            List<AncientOption> attackDamageIncreaseRelicsPool =
+            WeightedList<AncientOption> attackDamageIncreaseRelicsPool =
             [
                 AncientOption<HuntersMark>(),
                 AncientOption<PressurePoints>(),
@@ -41,7 +41,7 @@ public class ArtemisAncient : CustomAncientModel
                 AncientOption<WhisperedPrayer>()
             ];
 
-            List<AncientOption> otherRelicsPool =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<HunterDash>(),
                 AncientOption<KillingStroke>(),
@@ -49,11 +49,7 @@ public class ArtemisAncient : CustomAncientModel
                 AncientOption<SupportFire>()
             ];
 
-            return new OptionPools(
-                MakePool(zeroEnergyCardsRelicsPool.ToArray()),
-                MakePool(attackDamageIncreaseRelicsPool.ToArray()),
-                MakePool(otherRelicsPool.ToArray())
-            );
+            return new OptionPools(zeroEnergyCardsRelicsPool, attackDamageIncreaseRelicsPool, otherRelicsPool);
         }
     }
 

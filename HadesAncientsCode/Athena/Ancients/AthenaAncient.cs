@@ -25,7 +25,7 @@ public class AthenaAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            WeightedList<AncientOption> relics =
             [
                 AncientOption<BrilliantRiposte>(),
                 AncientOption<BronzeSkin>(),
@@ -41,9 +41,7 @@ public class AthenaAncient : CustomAncientModel
                 AncientOption<StalwartStand>(),
             ];
 
-            return new OptionPools(
-                MakePool(relics.ToArray())
-            );
+            return new OptionPools(relics);
         }
     }
 
