@@ -21,7 +21,7 @@ public static class HadesAncientsMetrics
         new MetricsUploaderConfig
         {
             ModName = "Hades Ancients",
-            EndpointUrl = "http://hadesancients.atwebpages.com/",
+            EndpointUrl = "https://hadesancients.atwebpages.com/",
             ModVersionProvider = GetVersion,
             Logger = HadesAncientsMainFile.Logger,
             WrapPayload = (data, version, modName, hasForeign) =>
