@@ -25,7 +25,7 @@ public class DionysusAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            WeightedList<AncientOption> relics =
             [
                 AncientOption<BottomlessDrink>(),
                 AncientOption<BounceBack>(),
@@ -41,9 +41,7 @@ public class DionysusAncient : CustomAncientModel
                 AncientOption<WorryFree>(),
             ];
 
-            return new OptionPools(
-                MakePool(relics.ToArray())
-            );
+            return new OptionPools(relics);
         }
     }
 

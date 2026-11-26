@@ -27,7 +27,7 @@ public class AphroditeAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> debuffRelicsPool =
+            WeightedList<AncientOption> debuffRelicsPool =
             [
                 AncientOption<BrokenResolve>(),
                 AncientOption<GlamourGain>(),
@@ -35,7 +35,7 @@ public class AphroditeAncient : CustomAncientModel
                 AncientOption<SweetSurrender>()
             ];
 
-            List<AncientOption> otherRelicsPool =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<DifferentLeague>(),
                 AncientOption<FlutterFlourish>(),
@@ -47,7 +47,7 @@ public class AphroditeAncient : CustomAncientModel
                 AncientOption<SweetNectar>()
             ];
 
-            return new OptionPools(MakePool(otherRelicsPool.ToArray()), MakePool(debuffRelicsPool.ToArray()));
+            return new OptionPools(otherRelicsPool, debuffRelicsPool);
         }
     }
 

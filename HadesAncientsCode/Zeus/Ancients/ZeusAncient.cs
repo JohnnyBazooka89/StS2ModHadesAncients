@@ -25,7 +25,7 @@ public class ZeusAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> energyFocusedRelicsPool =
+            WeightedList<AncientOption> energyFocusedRelicsPool =
             [
                 AncientOption<ElectricOverload>(),
                 AncientOption<HeavenFlourish>(),
@@ -33,7 +33,7 @@ public class ZeusAncient : CustomAncientModel
                 AncientOption<StormRing>()
             ];
 
-            List<AncientOption> buffAttacksRelicsPool =
+            WeightedList<AncientOption> buffAttacksRelicsPool =
             [
                 AncientOption<AirQuality>(),
                 AncientOption<DoubleStrike>(),
@@ -41,7 +41,7 @@ public class ZeusAncient : CustomAncientModel
                 AncientOption<StaticShock>()
             ];
 
-            List<AncientOption> otherRelicsPool =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<DivineVengeance>(),
                 AncientOption<PowerSurge>(),
@@ -49,11 +49,7 @@ public class ZeusAncient : CustomAncientModel
                 AncientOption<ThunderRush>(),
             ];
 
-            return new OptionPools(
-                MakePool(energyFocusedRelicsPool.ToArray()),
-                MakePool(buffAttacksRelicsPool.ToArray()),
-                MakePool(otherRelicsPool.ToArray())
-            );
+            return new OptionPools(energyFocusedRelicsPool, buffAttacksRelicsPool, otherRelicsPool);
         }
     }
 

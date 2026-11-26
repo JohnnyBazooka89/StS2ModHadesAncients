@@ -27,7 +27,7 @@ public class PoseidonAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> energyFocusedRelicsPool =
+            WeightedList<AncientOption> energyFocusedRelicsPool =
             [
                 AncientOption<FloodGain>(),
                 AncientOption<SecondWave>(),
@@ -35,7 +35,7 @@ public class PoseidonAncient : CustomAncientModel
                 AncientOption<WaveStrike>(),
             ];
 
-            List<AncientOption> buffAttacksRelicsPool =
+            WeightedList<AncientOption> buffAttacksRelicsPool =
             [
                 AncientOption<HydraulicMight>(),
                 AncientOption<KingTide>(),
@@ -43,7 +43,7 @@ public class PoseidonAncient : CustomAncientModel
                 AncientOption<SlipperySlope>(),
             ];
 
-            List<AncientOption> otherRelicsPool =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<BuriedTreasure>(),
                 AncientOption<HighSurf>(),
@@ -51,11 +51,7 @@ public class PoseidonAncient : CustomAncientModel
                 AncientOption<WaterFitness>(),
             ];
 
-            return new OptionPools(
-                MakePool(energyFocusedRelicsPool.ToArray()),
-                MakePool(buffAttacksRelicsPool.ToArray()),
-                MakePool(otherRelicsPool.ToArray())
-            );
+            return new OptionPools(energyFocusedRelicsPool, buffAttacksRelicsPool, otherRelicsPool);
         }
     }
 

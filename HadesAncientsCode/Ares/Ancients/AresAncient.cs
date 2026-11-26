@@ -25,7 +25,7 @@ public class AresAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> attackRelatedRelics =
+            WeightedList<AncientOption> attackRelatedRelicsPool =
             [
                 AncientOption<GrievousBlow>(),
                 AncientOption<GrislyGain>(),
@@ -33,7 +33,7 @@ public class AresAncient : CustomAncientModel
                 AncientOption<ViciousStrike>(),
             ];
 
-            List<AncientOption> otherRelics =
+            WeightedList<AncientOption> otherRelicsPool =
             [
                 AncientOption<MeatGrinder>(),
                 AncientOption<ProfuseBleeding>(),
@@ -41,7 +41,7 @@ public class AresAncient : CustomAncientModel
                 AncientOption<ViciousFlourish>(),
             ];
 
-            List<AncientOption> sacrificialRelics =
+            WeightedList<AncientOption> sacrificialRelicsPool =
             [
                 AncientOption<BloodSpree>(),
                 AncientOption<SanguinarySavor>(),
@@ -49,11 +49,7 @@ public class AresAncient : CustomAncientModel
                 AncientOption<VisceralImpact>()
             ];
 
-            return new OptionPools(
-                MakePool(attackRelatedRelics.ToArray()),
-                MakePool(otherRelics.ToArray()),
-                MakePool(sacrificialRelics.ToArray())
-            );
+            return new OptionPools(attackRelatedRelicsPool, otherRelicsPool, sacrificialRelicsPool);
         }
     }
 

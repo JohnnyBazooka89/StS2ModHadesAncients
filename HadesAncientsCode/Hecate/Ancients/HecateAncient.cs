@@ -23,19 +23,9 @@ public class HecateAncient : CustomAncientModel
     public override string CustomRunHistoryIconOutlinePath =>
         "run_history_icon_outline.png".AncientImagePath(HadesAncient.Hecate);
 
-    protected override OptionPools MakeOptionPools
-    {
-        get
-        {
-            var relics = GetAllHecateAncientOptions();
+    protected override OptionPools MakeOptionPools => new(GetAllHecateAncientOptions());
 
-            return new OptionPools(
-                MakePool(relics.ToArray())
-            );
-        }
-    }
-
-    public static List<AncientOption> GetAllHecateAncientOptions()
+    public static WeightedList<AncientOption> GetAllHecateAncientOptions()
     {
         return
         [

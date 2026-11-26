@@ -27,7 +27,7 @@ public class DemeterAncient : CustomAncientModel
     {
         get
         {
-            List<AncientOption> relics =
+            WeightedList<AncientOption> relics =
             [
                 AncientOption<ArcticGale>(),
                 AncientOption<ArcticRing>(),
@@ -43,9 +43,7 @@ public class DemeterAncient : CustomAncientModel
                 AncientOption<WinterHarvest>(),
             ];
 
-            return new OptionPools(
-                MakePool(relics.ToArray())
-            );
+            return new OptionPools(relics);
         }
     }
 
